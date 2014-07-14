@@ -1,0 +1,11 @@
+<Graphics
+    name="Pine Forest Tile Graphics"
+    id="@pine_forest_tile_graphics"
+    src="siegedevils/graphics_elements/textures/tiles/pine_forest_tile.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml"/>
+    
+</Graphics>

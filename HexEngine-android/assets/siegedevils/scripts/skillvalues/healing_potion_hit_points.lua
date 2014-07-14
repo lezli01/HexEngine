@@ -1,0 +1,1 @@
+return UnitFrom:stat('@knowledge')*0.5;

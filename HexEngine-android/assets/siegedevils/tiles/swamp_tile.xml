@@ -1,0 +1,42 @@
+<!-- 
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    name="Swamp"
+    description="@example_texts/@example_text"
+    id="@swamp_tile"
+    can_walk="true"
+    graphics="@swamp_tile_graphics"
+    height="1.0">
+    
+    <OnEnter>
+        
+        <Affect
+	        id="@swamp_tile_speed_down"
+	        name="Swamped"
+	        when="1"
+	        stat="@MAX_SPEED"
+	        value="swamp_tile_speed_down.lua">
+	    </Affect>
+	    
+    </OnEnter>
+    
+    <OnExit>
+
+        <Affect
+	        id="@swamp_tile_speed_up"
+	        name="Dried"
+	        when="1"
+	        stat="@MAX_SPEED"
+	        value="swamp_tile_speed_up.lua">
+	    </Affect>
+        
+    </OnExit>
+    
+    <OnStay>
+    </OnStay>
+    
+</Tile>

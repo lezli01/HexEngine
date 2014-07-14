@@ -1,0 +1,69 @@
+<Unit
+    name="Crossbower"
+    description="@unit_descriptions/@crossbower"
+    id="@crossbower"
+    race="@goblins"
+    graphics="@crossbower_graphics"
+    width="0.75"
+    height="0.9"
+    y="0.65">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@crossbower_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="25"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="25"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="5"/>
+        
+        <StatReg
+            stat="@MAX_SPEED"
+            value="5"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="5"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@accuracy"
+	        value="5"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@knowledge"
+	        value="1"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Skills"
+        description="@example_texts/@example_text"
+        id="@crossbower_skills">
+	    
+        <SkillReg skill="@shoot_arrow"/>
+    
+    </SkillEntries>
+    
+</Unit>

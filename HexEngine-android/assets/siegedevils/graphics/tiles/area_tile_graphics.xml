@@ -1,0 +1,11 @@
+<Graphics
+    name="Area Tile Graphics"
+    id="@area_tile_graphics"
+    src="siegedevils/graphics_elements/textures/tiles/tiles.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tiles/area.xml"/>
+    
+</Graphics>

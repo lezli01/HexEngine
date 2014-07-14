@@ -1,0 +1,12 @@
+<Resources
+    name="Example Resources"
+    description="@example_texts/@example_text"
+    id="@example_resources">
+
+	<Resource
+	    name="Example Resource"
+	    description="@example_texts/@example_text"
+	    id="@example_resource"
+	    graphics="@example_resource_graphics"/>
+
+</Resources>

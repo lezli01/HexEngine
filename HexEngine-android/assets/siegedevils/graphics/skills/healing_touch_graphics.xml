@@ -1,0 +1,52 @@
+<!-- 
+	Graphics for a skill.
+	
+	ids:
+	@SMALL_ICON
+	@MEDIUM_ICON
+	@LARGE_ICON
+	
+	@CAST
+	@PROJECTILE (o)
+	@ARRIVAL
+	@AFFECT (o)
+	@CONSTANT_AFFECT (o)
+-->
+<Graphics
+    name="Healing Touch Graphics"
+    id="@healing_touch_graphics"
+    src="siegedevils/graphics_elements/textures/skills/healing_touch.png"
+    filter="linear">
+    
+    <!-- 
+    	All animations can be given multiple times, the engine
+    	will use them randomly.
+    -->
+    
+    <Sprite
+        id="@LARGE_ICON"
+        src="siegedevils/graphics_elements/sprites/skill_large_icon.xml"/>
+    	
+    <Animation
+        id="@CAST"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@PROJECTILE"
+        src="siegedevils/graphics_elements/animations/skill_projectile_animation.xml"/>
+
+    <Animation
+        id="@ARRIVAL"
+        src="siegedevils/graphics_elements/animations/skill_projectile_animation.xml">
+        <Particle file="siegedevils/graphics_elements/particles/yellow_buff.p"/>
+   	</Animation>
+    
+    <Animation
+        id="@AFFECT"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@CONSTANT_AFFECT"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+</Graphics>

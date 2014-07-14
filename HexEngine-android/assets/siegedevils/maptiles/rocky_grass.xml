@@ -1,0 +1,11 @@
+<MapTile
+    id="@rocky_grass"
+    tile="@grass_tile"
+    walkable="false">
+    <Placeholder
+        placeholder="@rock_001"
+        x="0.5"
+        y="0.35"
+        w="0.8"
+        h="0.6"/>
+</MapTile>

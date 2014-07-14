@@ -1,0 +1,13 @@
+<Graphics
+    name="Ice Tile Graphics"
+    id="@ice_tile_graphics"
+    src="siegedevils/graphics_elements/textures/tiles/ice_tile.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml">
+        <Particle file="siegedevils/graphics_elements/particles/snow.p"/>
+    </Animation>
+    
+</Graphics>

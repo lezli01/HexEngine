@@ -1,0 +1,80 @@
+<Skill
+    name="Curse"
+    id="@curse"
+    description="@skills_description/@curse"
+    range="4"
+    graphics="@curse_graphics"
+    cooldown="5"
+    area="1"
+    speed="5.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="ENEMY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@curse_strength_down"
+        name="Cursed"
+        when="1"
+        stat="@strength"
+        value="curse_strength_down.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_accuracy_down"
+        name="Cursed"
+        when="1"
+        stat="@accuracy"
+        value="curse_accuracy_down.lua"
+        valueString="Half accuracy down.">
+    </Affect>
+    
+    <Affect
+        id="@curse_wisdom_down"
+        name="Cursed"
+        when="1"
+        stat="@wisdom"
+        value="curse_wisdom_down.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_knowledge_down"
+        name="Cursed"
+        when="1"
+        stat="@knowledge"
+        value="curse_knowledge_down.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_strength_up"
+        name="Cursed"
+        when="3"
+        stat="@strength"
+        value="curse_strength_up.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_accuracy_up"
+        name="Cursed"
+        when="3"
+        stat="@accuracy"
+        value="curse_accuracy_up.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_wisdom_up"
+        name="Cursed"
+        when="3"
+        stat="@wisdom"
+        value="curse_wisdom_up.lua">
+    </Affect>
+    
+    <Affect
+        id="@curse_knowledge_up"
+        name="Cursed"
+        when="3"
+        stat="@knowledge"
+        value="curse_knowledge_up.lua">
+    </Affect>
+    
+</Skill>

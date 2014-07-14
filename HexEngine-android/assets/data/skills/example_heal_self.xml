@@ -1,0 +1,18 @@
+<Skill
+    name="Example Heal Self"
+    description="@example_texts/@example_text"
+    id="@example_heal_self"
+    range="0"
+    graphics="@example_skill_graphics"
+    cooldown="5"
+    area="1">
+    
+    <Affect
+        duration="1"
+        stat="@HIT_POINTS"
+        min_val="100"
+        max_val="50">
+    
+    </Affect>
+    
+</Skill>

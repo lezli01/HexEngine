@@ -1,0 +1,128 @@
+<!-- 
+	Graphics for the example unit.
+	
+	ids:
+	@SMALL_ICON
+	@MEDIUM_ICON
+	@LARGE_ICON
+	
+	@LEFT
+	@RIGHT
+	@UP
+	@DOWN
+	@LEFT_UP (o)
+	@LEFT_DOWN (o)
+	@RIGHT_UP (o)
+	@RIGHT_DOWN (o)
+	
+	@ATTACK_CLOSE
+	@ATTACK_RANGED (o)
+	
+	@DYING
+	@DAMAGED
+	
+	@IDLE (o)
+-->
+<Graphics
+    name="Example Unit Graphics"
+    description="@example_texts/@example_text"
+    id="@example_unit_graphics"
+    src="data/graphics/textures/example_texture.png">
+    
+    <!-- 
+    	All animations can be given multiple times, the engine
+    	will use them randomly.
+    -->
+    
+    <!-- 
+		Small icon e.g. for selections.
+    -->
+    <Sprite
+        id="@SMALL_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+
+    <!-- 
+		Medum icon e.g. for displayon gui.
+    -->
+    <Sprite
+        id="@MEDIUM_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+    
+    <!-- 
+		Large icon e.g. for description.
+    -->
+    <Sprite
+        id="@LARGE_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+    	
+    <!-- 
+		Direction movement animations.
+		Can be unified or simple.
+		
+		ids:
+		@LEFT
+		@RIGHT
+		@UP
+		@DOWN
+		
+		optional:
+		@LEFT_UP
+		@LEFT_DOWN
+		@RIGHT_UP
+		@RIGHT_DOWN
+    -->
+    <Animation
+        id="@LEFT"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@RIGHT"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@UP"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@DOWN"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <!-- 
+    	Close ranged attack, used when
+    	the distance between target and unit is 1 hex.
+    -->
+    <Animation
+        id="@ATTACK_CLOSE"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <!-- 
+    	Ranged attack, used when the
+    	target is further than 1 hex.
+    -->
+    <Animation
+        id="@ATTACK_RANGED"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <!-- 
+    	DYING animation used when hit points reach zero.
+    -->
+    <Animation
+        id="@DYING"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <!-- 
+    	Damaging. Used when a unit gets damage.
+    -->
+    <Animation
+        id="@DAMAGED"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+  	<!-- 
+  		IDLE. IDLE is optional if a unit has an IDLE then sometimes
+  		it will be played on the map.
+  	-->
+    <Animation
+        id="@IDLE"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+</Graphics>

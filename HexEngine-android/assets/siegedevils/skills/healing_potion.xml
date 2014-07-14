@@ -1,0 +1,23 @@
+<Skill
+    name="Healing Potion"
+    id="@healing_potion"
+    description="@skills_description/@healing_potion"
+    range="3"
+    graphics="@healing_potion_graphics"
+    cooldown="1"
+    area="1"
+    speed="2.25"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="FRIENDLY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@healing_potion_hit_points"
+        name="Healed"
+        when="1"
+        stat="@HIT_POINTS"
+        value="healing_potion_hit_points.lua">
+    </Affect>
+    
+</Skill>

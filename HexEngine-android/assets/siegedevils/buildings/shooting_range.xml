@@ -1,0 +1,109 @@
+<!-- 
+	Example Building. A Building can have
+	Upgrades for Stats, can produce units,
+	can generate resources.
+-->
+<Building
+    name="Shooting Range"
+    description="@building_description/@shooting_range"
+    id="@shooting_range"
+    duration="1"
+    width="1.0"
+    height="1.0"
+    graphics="@shooting_range_graphics"
+    y="0.85">
+    
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@shooting_range_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="1"/>
+        
+    	<StatReg
+            stat="@FIELD_OF_VIEW"
+            value="1"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="1"/>    
+    
+    </StatEntries>
+        
+    <AcceptedTiles>
+	</AcceptedTiles>
+	
+    <!-- Resource produced per turn. -->
+    <Produce>
+    </Produce>
+    
+    <SkillUpgrade
+        name="Throw Grenade"
+        description="@example_texts/@example_text"
+        id="@throw_grenade"
+        unit="@gunner"
+        skill="@throw_grenade"
+        duration="1">
+    
+		<Cost>
+		    
+			<ResourceCost
+			    resource="@meat"
+			    value="1"/>
+		
+		</Cost>
+	    	
+    </SkillUpgrade>
+    
+    <SkillUpgrade
+        name="Big Breath"
+        description="@example_texts/@example_text"
+        id="@big_breath"
+        unit="@gunner"
+        skill="@big_breath"
+        duration="1">
+    
+		<Cost>
+		    
+			<ResourceCost
+			    resource="@meat"
+			    value="1"/>
+		
+		</Cost>
+	    	
+    </SkillUpgrade>
+    
+    <!-- 
+    	Possible units that can be produced at the building.
+    	The duration means turns.
+    -->
+    <UnitProduced
+        unit="@gunner"
+        id="@unit_gunner"
+        duration="1">
+        
+        <Cost>
+            
+            <ResourceCost
+                resource="@meat"
+                value="5"/>
+  
+            <ResourceCost
+                resource="@wood"
+                value="2"/>
+            
+            <ResourceCost
+                resource="@iron"
+                value="8"/>
+            
+        </Cost>
+        
+    </UnitProduced>
+    
+</Building>

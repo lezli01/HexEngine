@@ -1,0 +1,197 @@
+<Unit
+    name="Engineer"
+    description="@unit_descriptions/@engineer"
+    id="@engineer"
+    race="@goblins"
+    graphics="@engineer_graphics"
+    width="0.75"
+    height="0.9"
+    y="0.65">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@engineer_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="10"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="10"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@MAX_SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="3"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="2"/>
+	    
+	    <StatReg
+	        stat="@accuracy"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@knowledge"
+	        value="2"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Skills"
+        description="@example_texts/@example_text"
+        id="@engineer_skills">
+	    
+        <SkillReg skill="@kick"/>
+    
+    </SkillEntries>
+    
+    <!-- Buildings the unit can build. -->
+    <BuildingEntries
+        name="Building Entries"
+        description="@example_texts/@example_text"
+        id="@engineer_buildingentries">
+        
+        <BuildingReg 
+            building="@sanctuary"
+            unit="@engineer"
+            duration="1">
+            
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="8"/>
+			</Cost>
+			
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@arena"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="10"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@woodcutter"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="5"/>
+				
+				<ResourceCost 
+					resource="@iron"
+					value="5"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+    
+        <BuildingReg 
+            building="@forge"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="10"/>
+				
+				<ResourceCost 
+					resource="@iron"
+					value="2"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@archery_field"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="15"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@ritual_circle"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="15"/>
+				
+				<ResourceCost 
+					resource="@iron"
+					value="10"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@laboratory"
+            unit="@engineer"
+            duration="1">
+			
+			<Cost>
+			    
+				<ResourceCost 
+					resource="@wood"
+					value="20"/>
+				
+				<ResourceCost 
+					resource="@meat"
+					value="10"/>
+				
+			</Cost>
+			
+        </BuildingReg>
+        
+    </BuildingEntries>
+    
+</Unit>

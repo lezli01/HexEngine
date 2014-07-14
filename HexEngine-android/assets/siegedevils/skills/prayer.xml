@@ -1,0 +1,23 @@
+<Skill
+    name="Prayer"
+    id="@prayer"
+    description="@skills_description/@prayer"
+    range="0"
+    graphics="@prayer_graphics"
+    cooldown="5"
+    area="4"
+    speed="5.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="FRIENDLY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@prayer_hit_points"
+        name="Breathed"
+        when="1"
+        stat="@HIT_POINTS"
+        value="prayer_hit_points.lua">
+    </Affect>
+    
+</Skill>

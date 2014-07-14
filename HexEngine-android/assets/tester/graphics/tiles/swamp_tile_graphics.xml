@@ -1,0 +1,11 @@
+<Graphics
+    name="Swamp Tile Graphics"
+    id="@swamp_tile_graphics"
+    src="tester/graphics_elements/textures/001.png"
+    filter="nearest">
+    
+    <Animation
+        id="@IDLE"
+        src="tester/graphics_elements/animations/hole_tile_animation.xml"/>
+    
+</Graphics>

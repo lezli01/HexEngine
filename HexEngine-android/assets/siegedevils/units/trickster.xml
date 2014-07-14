@@ -1,0 +1,69 @@
+<Unit
+    name="Trickster"
+    description="@unit_descriptions/@trickster"
+    id="@trickster"
+    race="@goblins"
+    graphics="@trickster_graphics"
+    width="0.75"
+    height="0.9"
+    y="0.65">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@trickster_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="80"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="80"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@MAX_SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="4"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="4"/>
+	    
+	    <StatReg
+	        stat="@accuracy"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@knowledge"
+	        value="1"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Skills"
+        description="@example_texts/@example_text"
+        id="@engineer_skills">
+	    
+        <SkillReg skill="@sword_cut"/>
+    
+    </SkillEntries>
+    
+</Unit>

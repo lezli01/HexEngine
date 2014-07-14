@@ -1,0 +1,19 @@
+<!-- 
+	Graphics for the example tile.
+	
+	@idle
+-->
+<Graphics
+    name="Example Tile Graphics"
+    id="@example_tile_graphics"
+    src="data/graphics/textures/example_texture.png">
+    
+    <!-- 
+    	Simply an idle to display the hex.
+    	Can be one framed indeed.
+    -->
+    <Animation
+        id="@IDLE"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+</Graphics>

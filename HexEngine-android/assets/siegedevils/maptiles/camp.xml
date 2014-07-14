@@ -1,0 +1,11 @@
+<MapTile
+    id="@camp"
+    tile="@grass_tile"
+    walkable="false">
+    <Placeholder
+        placeholder="@campfire"
+        x="0.5"
+        y="0.25"
+        w="0.75"
+        h="0.75"/>
+</MapTile>

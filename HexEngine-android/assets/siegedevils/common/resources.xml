@@ -1,0 +1,24 @@
+<Resources
+    name="Resources"
+    description="@example_texts/@example_text"
+    id="@resources">
+
+	<Resource
+	    name="Meat"
+	    description="@example_texts/@example_text"
+	    id="@meat"
+	    graphics="@meat_graphics"/>
+	
+	<Resource
+	    name="Wood"
+	    description="@example_texts/@example_text"
+	    id="@wood"
+	    graphics="@wood_graphics"/>
+	
+	<Resource
+	    name="Iron"
+	    description="@example_texts/@example_text"
+	    id="@iron"
+	    graphics="@iron_graphics"/>
+
+</Resources>

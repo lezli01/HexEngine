@@ -1,0 +1,1 @@
+return LivingTo:stat('@MAX_HIT_POINTS')-LivingTo:stat('@HIT_POINTS');

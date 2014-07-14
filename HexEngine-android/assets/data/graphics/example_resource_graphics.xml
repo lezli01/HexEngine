@@ -1,0 +1,46 @@
+<!-- 
+	Graphics for the example resource.
+	
+	ids:
+	@SMALL_ICON
+	@MEDIUM_ICON
+	@LARGE_ICON
+	
+	@IDLE
+-->
+<Graphics
+    name="Example Resource Graphics"
+    id="@example_resource_graphics"
+    src="data/graphics/textures/example_texture.png">
+    
+    <!-- 
+    	All animations can be given multiple times, the engine
+    	will use them randomly.
+    -->
+    
+    <!-- 
+		Small icon e.g. for selections.
+    -->
+    <Sprite
+        id="@SMALL_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+
+    <!-- 
+		Medum icon e.g. for displayon gui.
+    -->
+    <Sprite
+        id="@MEDIUM_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+    
+    <!-- 
+		Large icon e.g. for description.
+    -->
+    <Sprite
+        id="@LARGE_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+    
+    <Animation
+        id="@IDLE"
+        src="data/graphics/animations/example_animation.xml"/>
+        
+</Graphics>

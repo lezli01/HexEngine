@@ -1,0 +1,13 @@
+<Graphics
+    name="Swamp Tile Graphics"
+    id="@swamp_tile_graphics"
+    src="siegedevils/graphics_elements/textures/tiles/swamp_tile.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml">
+    <Particle file="siegedevils/graphics_elements/particles/swamp_particle.p"/>
+    </Animation>
+    
+</Graphics>

@@ -1,0 +1,37 @@
+<Animation
+    name="Test Unit Animation"
+    description="@example_texts/@example_text"
+    id="@test_unit_animation"
+    x_start="0"
+    y_start="0"
+    duration="750">
+    
+    <Frame
+        x_offset="0"
+        y_offset="16"
+        width="16"
+        height="16"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="16"
+        y_offset="16"
+        width="16"
+        height="16"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="32"
+        y_offset="16"
+        width="16"
+        height="16"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="48"
+        y_offset="16"
+        width="16"
+        height="16"
+        multiply="1"/>
+    
+</Animation>

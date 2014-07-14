@@ -1,0 +1,56 @@
+<Unit
+    name="Example Unit"
+    description="@example_texts/@example_text"
+    id="@example_unit"
+    race="@example_race"
+    graphics="@example_unit_graphics">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Example Stats"
+	    description="@example_texts/@example_text"
+	    id="@example_stats">
+    
+        <StatReg
+            stat="@HIT_POINTS"
+            value="10"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="10"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="10"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="10"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="10"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Example Skills"
+        description="@example_texts/@example_text"
+        id="@example_skills">
+	    
+        <SkillReg skill="@example_melee_attack"/>
+    
+    </SkillEntries>
+    
+    <!-- Buildings the unit can build. -->
+    <BuildingEntries
+        name="Example BuildingEntries"
+        description="@example_texts/@example_text"
+        id="@example_buildingentries">
+        
+        <BuildingReg building="@example_building"/>
+    
+    </BuildingEntries>
+    
+</Unit>

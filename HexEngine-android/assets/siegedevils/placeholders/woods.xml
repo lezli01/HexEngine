@@ -1,0 +1,8 @@
+<Placeholder
+    name="Woods"
+    description="@example_texts/@example_text"
+    id="@woods"
+    graphics="@woods_graphics"
+    shadow="false">
+    
+</Placeholder>

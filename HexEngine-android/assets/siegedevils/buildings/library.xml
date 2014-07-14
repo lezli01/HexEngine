@@ -1,0 +1,102 @@
+<!-- 
+	Example Building. A Building can have
+	Upgrades for Stats, can produce units,
+	can generate resources.
+-->
+<Building
+    name="Library"
+    description="@building_description/@library"
+    id="@library"
+    duration="1"
+    width="1.0"
+    height="1.0"
+    graphics="@library_graphics"
+    y="0.85">
+    
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@library_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="1"/>
+        
+    	<StatReg
+            stat="@FIELD_OF_VIEW"
+            value="1"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="1"/>    
+    
+    </StatEntries>
+        
+    <AcceptedTiles>
+        <MapTile tile="@magic_source"/>
+	</AcceptedTiles>
+	
+    <!-- Resource produced per turn. -->
+    <Produce>
+    </Produce>
+    
+    <SkillUpgrade
+        name="Fear"
+        description="@example_texts/@example_text"
+        id="@fear"
+        unit="@warlock"
+        skill="@fear"
+        duration="1">
+    
+		<Cost>
+		    
+			<ResourceCost
+			    resource="@meat"
+			    value="1"/>
+		
+		</Cost>
+	    	
+    </SkillUpgrade>
+    
+    <SkillUpgrade
+        name="Meteor"
+        description="@example_texts/@example_text"
+        id="@meteor"
+        unit="@warlock"
+        skill="@meteor"
+        duration="1">
+    
+		<Cost>
+		    
+			<ResourceCost
+			    resource="@meat"
+			    value="1"/>
+		
+		</Cost>
+	    	
+    </SkillUpgrade>
+    
+    <!-- 
+    	Possible units that can be produced at the building.
+    	The duration means turns.
+    -->
+    <UnitProduced
+        unit="@warlock"
+        id="@unit_warlock"
+        duration="1">
+        
+        <Cost>
+            
+            <ResourceCost
+                resource="@meat"
+                value="18"/>
+  
+        </Cost>
+        
+    </UnitProduced>
+    
+</Building>

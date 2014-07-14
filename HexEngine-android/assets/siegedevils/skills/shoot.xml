@@ -1,0 +1,23 @@
+<Skill
+    name="Shoot"
+    id="@shoot"
+    description="@skills_description/@shoot"
+    range="5"
+    graphics="@shoot_graphics"
+    cooldown="1"
+    area="0"
+    speed="5.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="ENEMY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@shoot_hit_points"
+        name="Wounded"
+        when="1"
+        stat="@HIT_POINTS"
+        value="shoot_hit_points.lua">
+    </Affect>
+    
+</Skill>

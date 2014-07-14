@@ -1,0 +1,8 @@
+<Sprite
+    name="Stat Medium Icon"
+    description="@example_texts/@example_text"
+    id="@stat_medium_icon"
+    x_offset="16"
+    y_offset="0"
+    width="16"
+    height="16"/>

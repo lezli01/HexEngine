@@ -1,0 +1,11 @@
+<Graphics
+    name="Pine Graphics"
+    id="@pine_woods_graphics"
+    src="siegedevils/graphics_elements/textures/placeholders/placeholders.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/placeholders/pine_woods.xml"/>
+    
+</Graphics>

@@ -1,0 +1,32 @@
+<!-- 
+	Graphics for example stat.
+	
+	ids:
+	@SMALL_ICON
+	@MEDIUM_ICON
+	@LARGE_ICON
+-->
+<Graphics
+    name="Knowledge Graphics"
+    id="@knowledge_graphics"
+    src="siegedevils/graphics_elements/textures/knowledge.png"
+    filter="linear">
+    
+    <!-- 
+    	All animations can be given multiple times, the engine
+    	will use them randomly.
+    -->
+    
+    <Sprite
+        id="@SMALL_ICON"
+        src="siegedevils/graphics_elements/sprites/stat_small_icon.xml"/>
+    
+    <Sprite
+        id="@MEDIUM_ICON"
+        src="siegedevils/graphics_elements/sprites/stat_medium_icon.xml"/>
+    
+    <Sprite
+        id="@LARGE_ICON"
+        src="siegedevils/graphics_elements/sprites/stat_large_icon.xml"/>
+    	
+</Graphics>

@@ -1,0 +1,42 @@
+<!-- 
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    name="Hidden Ruins"
+    description="@example_texts/@example_text"
+    id="@hidden_ruins_tile"
+    can_walk="true"
+    graphics="@hidden_ruins_tile_graphics"
+    height="1.0">
+    
+    <OnEnter>
+        
+        <Affect
+	        id="@hidden_ruins_tile_knowledge_up"
+	        name="Freshened"
+	        when="1"
+	        stat="@knowledge"
+	        value="hidden_ruins_tile_knowledge_up.lua">
+	    </Affect>
+        
+    </OnEnter>
+    
+    <OnExit>
+     
+        <Affect
+	        id="@hidden_ruins_tile_knowledge_down"
+	        name="Freshened"
+	        when="1"
+	        stat="@knowledge"
+	        value="hidden_ruins_tile_knowledge_down.lua">
+	    </Affect>
+        
+    </OnExit>
+    
+    <OnStay>
+    </OnStay>
+    
+</Tile>

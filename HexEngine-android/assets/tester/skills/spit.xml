@@ -1,0 +1,41 @@
+<Skill
+    name="Spit"
+    id="@spit"
+    description="@skill_descriptions/@spit"
+    range="5"
+    graphics="@spit_graphics"
+    cooldown="3"
+    area="1"
+    speed="4"
+    projectile_width="0.65"
+    projectile_height="0.65"
+    animation="@attack">
+    
+    <Affect
+        id="@spit_grossed"
+        name="Spit Grossed"
+        when="1"
+        stat="@HIT_POINTS"
+        value="hitpoints.lua">
+        
+    </Affect>
+    
+    <Affect
+        id="@spit_slow"
+        name="Spit Slow"
+        when="1"
+        stat="@MAX_SPEED"
+        value="speed_down.lua">
+        
+    </Affect>
+    
+    <Affect
+        id="@spit_gone"
+        name="Spit Gone"
+        when="3"
+        stat="@MAX_SPEED"
+        value="speed_up.lua">
+        
+    </Affect>
+    
+</Skill>

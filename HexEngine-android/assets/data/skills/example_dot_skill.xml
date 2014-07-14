@@ -1,0 +1,19 @@
+<!-- 
+	DoT: damage over time, dealing 10 damage over 5 turns.
+-->
+
+<Skill
+    name="Example Dot Attack"
+    description="@example_texts/@example_text"
+    id="@example_dot_attack"
+    range="10"
+    graphics="@example_skill_graphics"
+    area="1">
+    
+    <Affect
+        duration="5"
+        stat="@HIT_POINTS"
+        min_val="-2"
+        max_val="-2"/>
+    
+</Skill>

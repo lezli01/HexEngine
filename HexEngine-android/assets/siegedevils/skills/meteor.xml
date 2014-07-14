@@ -1,0 +1,23 @@
+<Skill
+    name="Meteor"
+    id="@meteor"
+    description="@skills_description/@meteor"
+    range="5"
+    graphics="@meteor_graphics"
+    cooldown="3"
+    area="2"
+    speed="2.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="ENEMY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@meteor_hit_points"
+        name="Burned"
+        when="1"
+        stat="@HIT_POINTS"
+        value="meteor_hit_points.lua">
+    </Affect>
+    
+</Skill>

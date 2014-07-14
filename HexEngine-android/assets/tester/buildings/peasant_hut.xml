@@ -1,0 +1,120 @@
+<!-- 
+	Example Building. A Building can have
+	Upgrades for Stats, can produce units,
+	can generate resources.
+-->
+<Building
+    name="Peasant Hut"
+    description="@building_descriptions/@peasant_hut"
+    id="@peasant_hut"
+    duration="1"
+    width="0.8"
+    height="0.8"
+    graphics="@peasant_hut_graphics">
+    
+    <StatEntries
+	    name="Example Stats"
+	    description="@example_texts/@example_text"
+	    id="@example_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="1"/>
+    
+    </StatEntries>
+        
+    <AcceptedTiles>
+	    <!-- Any free tile is accepted -->
+	    <MapTile tile="@swamp_tile"/>
+	</AcceptedTiles>
+	
+    <!-- Resource produced per turn. -->
+    <Produce>
+        
+        <!-- A building can consume produces also with positive value. -->
+        <ResourceCost
+            resource="@cabbage"
+            value="5"/>
+        
+    </Produce>
+    
+    <!-- 
+    	An upgrade for a unit's stats.
+    	It has a cost and additional stats.
+    	The values of the Stats will be added to the unit's.
+    -->
+    <StatUpgrade
+        name="Maximum Peasant"
+        description="@upgrades/@maximum_peasant"
+        id="@maximum_peasant"
+        graphics="@maximum_peasant_graphics"
+        unit="@peasant"
+        duration="2">
+    
+        <StatEntries
+    		name="Example Stats"
+		    description="@example_texts/@example_text"
+		    id="@example_stats">
+	    
+		    <StatReg
+		        stat="@strength"
+		        value="10"/>
+		    
+		   	<StatReg
+		        stat="@MAX_SPEED"
+		        value="1"/>
+		    
+		</StatEntries>
+		
+        <Cost>
+            
+            <ResourceCost
+                resource="@cabbage"
+                value="15"/>
+        
+        </Cost>
+        
+    </StatUpgrade>
+        
+    <SkillUpgrade
+        name="Peasant Spit"
+        description="@example_texts/@example_text"
+        id="@peasant_spit"
+        unit="@peasant"
+        skill="@spit"
+        duration="2">
+    
+		<Cost>
+		    
+			<ResourceCost
+			    resource="@cabbage"
+			    value="20"/>
+		
+		</Cost>
+	    	
+    </SkillUpgrade>
+    
+    <!-- 
+    	Possible units that can be produced at the building.
+    	The duration means turns.
+    -->
+    <UnitProduced
+        unit="@peasant"
+        id="@unit_peasant"
+        duration="3">
+        
+        <Cost>
+            
+            <ResourceCost
+                resource="@cabbage"
+                value="10"/>
+            
+        </Cost>
+        
+    </UnitProduced>
+    
+</Building>

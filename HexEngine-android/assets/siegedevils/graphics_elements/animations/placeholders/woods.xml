@@ -1,0 +1,16 @@
+<Animation
+    name="Unit Die Animation"
+    description="@example_texts/@example_text"
+    id="@unit_die_animation"
+    x_start="1"
+    y_start="1"
+    duration="2000">
+    
+    <Frame
+        x_offset="0"
+        y_offset="0"
+        width="128"
+        height="128"
+        multiply="1"/>
+    
+</Animation>

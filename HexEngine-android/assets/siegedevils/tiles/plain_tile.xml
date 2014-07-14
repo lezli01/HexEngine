@@ -1,0 +1,58 @@
+<!-- 
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    name="Plain"
+    description="@example_texts/@example_text"
+    id="@plain_tile"
+    can_walk="true"
+    graphics="@plain_tile_graphics"
+    height="1.0">
+    
+    <OnEnter>
+        
+        <Affect
+	        id="@plain_tile_strength_up"
+	        name="Freshened"
+	        when="1"
+	        stat="@strength"
+	        value="plain_tile_strength_up.lua">
+	    </Affect>
+        
+        <Affect
+	        id="@plain_tile_accuracy_up"
+	        name="Freshened"
+	        when="1"
+	        stat="@accuracy"
+	        value="plain_tile_accuracy_up.lua">
+	    </Affect>
+        
+    </OnEnter>
+    
+    <OnExit>
+        
+        <Affect
+	        id="@plain_tile_strength_down"
+	        name="Freshened"
+	        when="1"
+	        stat="@strength"
+	        value="plain_tile_strength_down.lua">
+	    </Affect>
+        
+        <Affect
+	        id="@plain_tile_accuracy_down"
+	        name="Freshened"
+	        when="1"
+	        stat="@accuracy"
+	        value="plain_tile_accuracy_down.lua">
+	    </Affect>
+        
+    </OnExit>
+    
+    <OnStay>
+    </OnStay>
+    
+</Tile>

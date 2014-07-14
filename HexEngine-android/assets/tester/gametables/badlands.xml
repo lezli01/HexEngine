@@ -1,0 +1,14 @@
+<PGameTable id="@badlands" pid="@PGameTable_0" x="0" y="0" map="@badlands" player="player1">
+	<Player name="player1">
+		<PUnit id="@peasant" x="0" y="0"/>
+		<PResource id="@cabbage" pid="@PResource_1" x="0" y="0" value="50"/>
+	</Player>
+	<AIPlayer name="player2">
+		<PUnit id="@peasant" x="12" y="9"/>
+		<PResource id="@cabbage" pid="@PResource_5" x="0" y="0" value="50"/>
+	</AIPlayer>
+	<RemotePlayer name="player3">
+		<PUnit id="@peasant" x="6" y="6"/>
+		<PResource id="@cabbage" pid="@PResource_5" x="0" y="0" value="50"/>
+	</RemotePlayer>
+</PGameTable>

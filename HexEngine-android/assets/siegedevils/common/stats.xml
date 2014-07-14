@@ -1,0 +1,86 @@
+<!--
+	The stat types of the game, all units
+	will have these kind of statisctics to exclude
+	ambiguity.
+	
+	Must define:
+	@HIT_POINTS
+	@SPEED
+	@FIELD_OF_VIEW
+-->
+<Stats
+    name="Stats"
+    description="@example_texts/@example_text"
+    id="@stats">
+    
+    <Stat
+        name="Max Hit Points"
+        short_name="MHP"
+        description="@example_texts/@example_text"
+        id="@MAX_HIT_POINTS"
+        graphics="@hit_points_graphics"/>
+    
+    <Stat
+        name="Hit Points"
+        short_name="HP"
+        description="@example_texts/@example_text"
+        id="@HIT_POINTS"
+        graphics="@hit_points_graphics"/>
+   
+    <Stat
+        name="Max Speed"
+        short_name="MSP"
+        description="@example_texts/@example_text"
+        id="@MAX_SPEED"
+        graphics="@speed_graphics"/>
+    
+    <Stat
+        name="Speed"
+        short_name="SPD"
+        description="@example_texts/@example_text"
+        id="@SPEED"
+        graphics="@speed_graphics"/>
+    
+    <Stat
+        name="Field of view"
+        short_name="Fov"
+        description="@example_texts/@example_text"
+        id="@FIELD_OF_VIEW"
+        graphics="@field_of_view_graphics"/>
+    
+    <Stat
+        name="Field of heed"
+        short_name="Foh"
+        description="@example_texts/@example_text"
+        id="@FIELD_OF_HEED"
+        graphics="@field_of_heed_graphics"/>
+    
+    <Stat
+        name="Strength"
+        short_name="Str"
+        description="@example_texts/@example_text"
+        id="@strength"
+        graphics="@strength_graphics"/>
+    
+    <Stat
+        name="Wisdom"
+        short_name="Wis"
+        description="@example_texts/@example_text"
+        id="@wisdom"
+        graphics="@wisdom_graphics"/>
+    
+    <Stat
+        name="Accuracy"
+        short_name="Acc"
+        description="@example_texts/@example_text"
+        id="@accuracy"
+        graphics="@accuracy_graphics"/>
+    
+    <Stat
+        name="Knowledge"
+        short_name="Kwd"
+        description="@example_texts/@example_text"
+        id="@knowledge"
+        graphics="@knowledge_graphics"/>
+    
+</Stats>

@@ -1,0 +1,1 @@
+return LivingTo:stat('@wisdom')*0.5;

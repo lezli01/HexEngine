@@ -1,0 +1,42 @@
+<!-- 
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    name="Pine Forest"
+    description="@example_texts/@example_text"
+    id="@pine_forest_tile"
+    can_walk="true"
+    graphics="@pine_forest_tile_graphics"
+    height="1.0">
+    
+    <OnEnter>
+        
+        <Affect
+	        id="@pine_forest_tile_strength_up"
+	        name="Freshened"
+	        when="1"
+	        stat="@strength"
+	        value="pine_forest_tile_strength_up.lua">
+	    </Affect>
+        
+    </OnEnter>
+    
+    <OnExit>
+        
+        <Affect
+	        id="@pine_forest_tile_strength_down"
+	        name="Freshened"
+	        when="1"
+	        stat="@strength"
+	        value="pine_forest_tile_strength_down.lua">
+	    </Affect>
+        
+    </OnExit>
+    
+    <OnStay>
+    </OnStay>
+    
+</Tile>

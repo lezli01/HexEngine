@@ -1,0 +1,74 @@
+package siegedevils.gui.printables;
+
+import lezli.hexengine.core.playables.unit.PUnit;
+import lezli.hexengine.core.playables.unit.skills.PAffect;
+import lezli.hexengine.core.playables.unit.skills.PSkill;
+import lezli.hexengine.core.structure.entities.skill.affect.Affect;
+
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
+
+public class PSkillPrintable extends GraphicalPlayablePrintable< PSkill >{
+
+	public PSkillPrintable( PSkill xPlayable ){
+		
+		super( xPlayable );
+		
+	}
+
+	@Override
+	public Table getListElementTable( Skin xSkin ){
+		
+		Table skillTable = super.getListElementTable( xSkin );
+	
+		if( getPlayable().isCooldown() ){
+			
+			skillTable.row();
+			
+			Label cooldownLabel = new Label( "Cooldown: " + getPlayable().getCooldownStatus() + " turn", xSkin );
+			cooldownLabel.setAlignment( Align.center, Align.center );
+			skillTable.add( cooldownLabel ).padTop( 5 ).expandX().fillX().colspan( 2 );
+			skillTable.setColor( 1.0f, 0.7f, 0.7f, 1.0f );
+			
+		}
+		
+		return skillTable;
+		
+	}
+	
+	@Override
+	public void fillTable( Table xTable, Skin xSkin ){
+
+		super.fillTable( xTable, xSkin );
+	
+		for( Affect eAffect: getPlayable().getAffects() ){
+			
+			PAffect affect = new PAffect( eAffect );
+			affect.apply( getPlayable(), getPlayable().getHolder(), null );
+			
+			xTable.left().add( new PAffectPrintable( affect ).getListElementTable( xSkin ) ).padBottom( 5 ).width( 280 );
+			xTable.row();
+			
+		}
+		
+	}
+	
+	public void fillTable( Table xTable, Skin xSkin, PUnit xUnitTo ){
+
+		super.fillTable( xTable, xSkin );
+	
+//		for( Affect eAffect: getPlayable().getAffects() ){
+//			
+//			PAffect affect = new PAffect( eAffect );
+//			affect.init( getPlayable(), getPlayable().getHolder(), xUnitTo );
+//			
+//			xTable.add( new PAffectPrintable( affect ).getListElementTable( xSkin ) ).padBottom( 5 ).width( 170 );
+//			xTable.row();
+//			
+//		}
+		
+	}
+	
+}

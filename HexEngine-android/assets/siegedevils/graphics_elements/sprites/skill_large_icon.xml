@@ -1,0 +1,8 @@
+<Sprite
+    name="Skill Large Icon"
+    description="@example_texts/@example_text"
+    id="@skill_large_icon"
+    x_offset="0"
+    y_offset="0"
+    width="128"
+    height="128"/>

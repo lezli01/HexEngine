@@ -1,0 +1,25 @@
+<!-- 
+	A skill that permanently lowers a stat.
+	0 cooldown means it can be only used once,
+	while duration 0 means it is permanent.
+-->
+
+<Skill
+    name="Example Stat Curse"
+    description="@example_texts/@example_text"
+    id="@example_stat_curse"
+    range="10"
+    graphics="@example_skill_graphics"
+    cooldown="0"
+    area="1">
+    
+    <Affect
+        duration="0"
+        stat="@strength"
+        min_val="-10"
+        max_val="-100">
+    
+    </Affect>
+    
+    
+</Skill>

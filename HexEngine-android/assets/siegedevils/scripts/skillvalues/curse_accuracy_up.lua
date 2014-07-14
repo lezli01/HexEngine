@@ -1,0 +1,1 @@
+return LivingTo:stat('@accuracy')*0.5;

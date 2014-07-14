@@ -1,0 +1,11 @@
+<Graphics
+    name="Select Tile Graphics"
+    id="@select_tile_graphics"
+    src="siegedevils/graphics_elements/textures/tiles/tiles.png"
+    filter="linear">
+    
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tiles/select.xml"/>
+    
+</Graphics>

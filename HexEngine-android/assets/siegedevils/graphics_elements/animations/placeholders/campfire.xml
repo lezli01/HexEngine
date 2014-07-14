@@ -1,0 +1,44 @@
+<Animation
+    name="Campfire Animation"
+    description="@example_texts/@example_text"
+    id="@campfire_animation"
+    x_start="1"
+    y_start="130"
+    duration="500">
+    
+    <Frame
+        x_offset="0"
+        y_offset="0"
+        width="64"
+        height="64"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="64"
+        y_offset="0"
+        width="64"
+        height="64"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="128"
+        y_offset="0"
+        width="64"
+        height="64"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="192"
+        y_offset="0"
+        width="64"
+        height="64"
+        multiply="1"/>
+    
+    <Frame
+        x_offset="256"
+        y_offset="0"
+        width="64"
+        height="64"
+        multiply="1"/>
+    
+</Animation>

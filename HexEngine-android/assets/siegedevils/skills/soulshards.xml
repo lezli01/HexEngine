@@ -1,0 +1,23 @@
+<Skill
+    name="Soulshards"
+    id="@soulshards"
+    description="@skills_description/@soulshards"
+    range="4"
+    graphics="@soulshards_graphics"
+    cooldown="1"
+    area="1"
+    speed="2.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="ENEMY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@soulshards_hit_points"
+        name="Souled"
+        when="1"
+        stat="@HIT_POINTS"
+        value="soulshards_hit_points.lua">
+    </Affect>
+    
+</Skill>

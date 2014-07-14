@@ -1,0 +1,8 @@
+<Sprite
+    name="Stat Large Icon"
+    description="@example_texts/@example_text"
+    id="@stat_large_icon"
+    x_offset="0"
+    y_offset="0"
+    width="16"
+    height="16"/>

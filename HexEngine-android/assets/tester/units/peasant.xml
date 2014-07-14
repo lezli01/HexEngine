@@ -1,0 +1,90 @@
+<Unit
+    name="Peasant"
+    description="@unit_descriptions/@peasant"
+    id="@peasant"
+    race="@human"
+    graphics="@peasant_graphics"
+    width="0.8"
+    height="0.8">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Example Stats"
+	    description="@example_texts/@example_text"
+	    id="@example_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@MAX_SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="10"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="10"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="10"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Example Skills"
+        description="@example_texts/@example_text"
+        id="@example_skills">
+	    
+        <SkillReg skill="@fork_attack"/>
+    
+    </SkillEntries>
+    
+    <!-- Buildings the unit can build. -->
+    <BuildingEntries
+        name="Building Entries"
+        description="@example_texts/@example_text"
+        id="@peasant_buildingentries">
+        
+        <BuildingReg 
+            building="@peasant_hut"
+            unit="@peasant"
+            duration="3">
+			<Cost>
+				<ResourceCost 
+					resource="@cabbage"
+					value="10"/>
+			</Cost>
+        </BuildingReg>
+        
+        <BuildingReg 
+            building="@tavern"
+            unit="@peasant"
+            duration="3">
+			<Cost>
+				<ResourceCost 
+					resource="@cabbage"
+					value="20"/>
+			</Cost>
+        </BuildingReg>
+    
+    </BuildingEntries>
+    
+</Unit>

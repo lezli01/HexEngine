@@ -1,0 +1,16 @@
+<Animation
+    name="Rock001 Animation"
+    description="@example_texts/@example_text"
+    id="@rock_001_animation"
+    x_start="322"
+    y_start="130"
+    duration="500">
+    
+    <Frame
+        x_offset="0"
+        y_offset="0"
+        width="135"
+        height="110"
+        multiply="1"/>
+    
+</Animation>

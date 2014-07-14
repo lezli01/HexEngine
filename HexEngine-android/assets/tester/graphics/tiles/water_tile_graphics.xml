@@ -1,0 +1,11 @@
+<Graphics
+    name="Water Tile Graphics"
+    id="@water_tile_graphics"
+    src="tester/graphics_elements/textures/002.png"
+    filter="nearest">
+    
+    <Animation
+        id="@IDLE"
+        src="tester/graphics_elements/animations/hole_tile_animation.xml"/>
+    
+</Graphics>

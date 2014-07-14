@@ -1,0 +1,23 @@
+<Skill
+    name="Healing Touch"
+    id="@healing_touch"
+    description="@skills_description/@healing_touch"
+    range="1"
+    graphics="@healing_touch_graphics"
+    cooldown="1"
+    area="0"
+    speed="5.0"
+    projectile_width="1.0"
+    projectile_height="1.0"
+    affects_on="FRIENDLY"
+    animation="@IDLE">
+    
+    <Affect
+        id="@healing_touch_hit_points"
+        name="Wounded"
+        when="1"
+        stat="@HIT_POINTS"
+        value="healing_touch_hit_points.lua">
+    </Affect>
+    
+</Skill>

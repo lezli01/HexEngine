@@ -1,0 +1,52 @@
+<!-- 
+	Example Building. A Building can have
+	Upgrades for Stats, can produce units,
+	can generate resources.
+-->
+<Building
+    name="Forge"
+    description="@building_description/@forge"
+    id="@forge"
+    duration="1"
+    width="1.0"
+    height="1.0"
+    graphics="@forge_graphics"
+    y="0.85">
+    
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@forge_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="1"/>
+        
+    	<StatReg
+            stat="@FIELD_OF_VIEW"
+            value="1"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="1"/>    
+    
+    </StatEntries>
+        
+    <AcceptedTiles>
+        <MapTile tile="@iron_source"/>
+	</AcceptedTiles>
+	
+    <!-- Resource produced per turn. -->
+    <Produce>
+        
+		<ResourceCost
+			resource="@iron"
+			value="1"/>
+        
+    </Produce>
+    
+</Building>

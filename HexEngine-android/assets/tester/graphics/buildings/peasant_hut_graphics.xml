@@ -1,0 +1,69 @@
+<!-- 
+	Graphics for the example building.
+	
+	ids:
+	@SMALL_ICON
+	@MEDIUM_ICON
+	@LARGE_ICON
+	
+	@IDLE
+	@CONSTRUCTING
+	@PRODUCING
+	@DAMAGED
+	@DEMOLISHED
+-->
+<Graphics
+    name="Peasant Hut Graphics"
+    id="@peasant_hut_graphics"
+    src="tester/graphics_elements/textures/peasant_hut.png"
+    filter="nearest">
+    
+    <!-- 
+    	All animations can be given multiple times, the engine
+    	will use them randomly.
+    -->
+    
+    <!-- 
+		Small icon e.g. for selections.
+    -->
+    <Sprite
+        id="@SMALL_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+
+    <!-- 
+		Medum icon e.g. for displayon gui.
+    -->
+    <Sprite
+        id="@MEDIUM_ICON"
+        src="data/graphics/sprites/example_sprite.xml"/>
+    
+    <!-- 
+		Large icon e.g. for description.
+    -->
+    <Sprite
+        id="@LARGE_ICON"
+        src="tester/graphics_elements/sprites/stat_large_icon.xml"/>
+    
+    <Animation
+        id="@IDLE"
+        src="tester/graphics_elements/animations/building_idle_animation.xml"/>
+    
+    <Animation
+        id="@CONSTRUCTING"
+        src="tester/graphics_elements/animations/building_constructing_animation.xml"/>
+    
+    <Animation
+        id="@PRODUCING"
+        src="data/graphics/animations/example_animation.xml"/>
+    
+    <Animation
+        id="@DAMAGED"
+        src="tester/graphics_elements/animations/building_idle_animation.xml">
+        <Particle file="tester/graphics_elements/particles/smoke.p"/>
+    </Animation>
+            
+    <Animation
+        id="@DEMOLISHED"
+        src="tester/graphics_elements/animations/building_constructing_animation.xml"/>
+    
+</Graphics>

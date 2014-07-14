@@ -1,0 +1,69 @@
+<Unit
+    name="Shaman"
+    description="@unit_descriptions/@shaman"
+    id="@shaman"
+    race="@goblins"
+    graphics="@shaman_graphics"
+    width="0.75"
+    height="0.9"
+    y="0.65">
+    
+    <!-- Stats of the unit. -->
+    <StatEntries
+	    name="Stats"
+	    description="@example_texts/@example_text"
+	    id="@shaman_stats">
+    
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="50"/>
+        
+        <StatReg
+            stat="@HIT_POINTS"
+            value="50"/>
+        
+        <StatReg
+            stat="@SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@MAX_SPEED"
+            value="3"/>
+        
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="4"/>
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="3"/>
+                
+	    <StatReg
+	        stat="@strength"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@accuracy"
+	        value="1"/>
+	    
+	    <StatReg
+	        stat="@wisdom"
+	        value="5"/>
+	    
+	    <StatReg
+	        stat="@knowledge"
+	        value="1"/>
+    
+	</StatEntries>
+    
+    <!-- Skills the unit can use. -->
+    <SkillEntries
+        name="Skills"
+        description="@example_texts/@example_text"
+        id="@shaman_skills">
+	    
+        <SkillReg skill="@soulshards"/>
+    
+    </SkillEntries>
+    
+</Unit>
