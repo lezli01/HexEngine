@@ -862,6 +862,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mPlayers.get( xPlayerName ).addBuilding( xBuilding );
 		
+		xBuilding.init( engine() );
+		
 	}
 	
 	private void addUnit( final PUnitProduce xUnitProduce, final PBuilding xBuilding ){
@@ -887,6 +889,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mUnitsByPID.put( xUnit.getPID(), xUnit );
 		
 		xUnit.addListener( mGameEventListener );
+		
+		xUnit.init( engine() );
 		
 	}
 	
@@ -1225,6 +1229,19 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	/*
 	 * SCRIPTABLE
 	 */
+	
+	@Override
+	public void init( HexEngine e ){
+
+		super.init( e );
+		
+		for( PUnit unit: mUnits )
+			unit.init( e );
+		
+		for( PBuilding building: mBuildings )
+			building.init( e );
+	
+	}
 	
 	private void load( GameTable gt ){
 		

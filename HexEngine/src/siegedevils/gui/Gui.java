@@ -60,8 +60,12 @@ public class Gui {
 	private Player mCurrentPlayer;
 	private ScrollPane remoteTable;
 	
-	public Gui(){
+	private HexEngine mEngine;
+	
+	public Gui( HexEngine e ){
 
+		mEngine = e;
+		
 		mListeners = new ArrayList< HEGameTableController >();
 		
 		mDamageBoxes = new ArrayList< DamageBox >();
@@ -91,7 +95,7 @@ public class Gui {
 			@Override
 			public void clicked( InputEvent event, float x, float y ){
 
-				HexEngine.getInstance().turn();
+				mEngine.turn();
 				
 			}
 			
@@ -108,7 +112,7 @@ public class Gui {
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 
-				HexEngine.getInstance().save( "save.xml" );
+				mEngine.save( "save.xml" );
 			
 			}
 			

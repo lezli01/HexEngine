@@ -21,6 +21,8 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 	private String mName;
 	private String mDescription;
 
+	private HexEngine mEngine;
+	
 	private ArrayList< GameEventListener > mListeners;
 	private boolean mDoEvents;
 	
@@ -44,6 +46,18 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 			mDescription = HexEngine.EntitiesHolder.getTextsManager().findText( xEntity.getDescription() );
 			
 		mDoEvents = true;
+		
+	}
+	
+	public void init( HexEngine e ){
+		
+		mEngine = e;
+		
+	}
+	
+	protected HexEngine engine(){
+		
+		return mEngine;
 		
 	}
 

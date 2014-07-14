@@ -6,6 +6,7 @@ import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTableEventListener;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.RemotePlayer;
+import lezli.hexengine.core.playables.Logger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.multiplayer.Bartender;
@@ -26,6 +27,8 @@ public class Starter implements ApplicationListener {
 
 	private static final int LOG_LEVEL = Application.LOG_NONE;
 	
+	private HexEngine mEngine;
+	
 	private static Gui mGui;
 	
 	private Vector2 mScrollVector = new Vector2();
@@ -36,7 +39,7 @@ public class Starter implements ApplicationListener {
 		public void events( ArrayList<GameEvent> xEvents ){
 			
 			System.out.println( "events" );
-			HexEngine.getInstance().addGameEvents( xEvents );
+			mEngine.addGameEvents( xEvents );
 			
 		}
 		
@@ -67,9 +70,24 @@ public class Starter implements ApplicationListener {
 		Gdx.app.setLogLevel( LOG_LEVEL );
 		
 		//Initialize
-		mGui = new Gui();
-		HexEngine.getInstance().init( "siegedevils", mGui.getLogger(), "@map_test01" );
-		HexEngine.getInstance().getGameTable().setShadowAngle( -1.0f, 0.2f );
+		
+		mEngine = new HexEngine( "siegedevils", new Logger() {
+			
+			@Override
+			public void log(String xMsg, int xDepth) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void log(String xMsg) {
+				// TODO Auto-generated method stub
+				
+			}
+		}, "@map_test01" );
+		mGui = new Gui( mEngine );
+		
+		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		
 		//Setting up input
 		InputMultiplexer multiplexer = new InputMultiplexer();
@@ -78,12 +96,12 @@ public class Starter implements ApplicationListener {
 		Gdx.input.setInputProcessor( multiplexer );
 		
 		//Setting up listeners
-		HexEngine.getInstance().getGameTable().addGameTableEventListener( mGui.getGameTableListener() );
+		mEngine.getGameTable().addGameTableEventListener( mGui.getGameTableListener() );
 		
-		mGui.addGuiEventListener( HexEngine.getInstance().getGameTable().getController() );
+		mGui.addGuiEventListener( mEngine.getGameTable().getController() );
 		
 		
-		HexEngine.getInstance().getGameTable().addGameTableEventListener( new PGameTableEventListener() {
+		mEngine.getGameTable().addGameTableEventListener( new PGameTableEventListener() {
 			
 			@Override
 			public boolean remotePlayerTurn( RemotePlayer remotePlayer, ArrayList< GameEvent > xEvents ) {
@@ -98,23 +116,23 @@ public class Starter implements ApplicationListener {
 		});
 		
 		//Start the map
-		HexEngine.getInstance().start();
+		mEngine.start();
 
 	}
 
 	@Override
 	public void dispose(){
 		
-		HexEngine.getInstance().quit();
+		mEngine.quit();
 		
 	}
 
 	private void update(){
 		
 		if( !mScrollVector.isZero() )
-			HexEngine.getInstance().getGameTable().moveMap( -mScrollVector.x, -mScrollVector.y );
+			mEngine.getGameTable().moveMap( -mScrollVector.x, -mScrollVector.y );
 		
-		HexEngine.getInstance().update();
+		mEngine.update();
 		
 		mGui.update();
 		
@@ -129,7 +147,7 @@ public class Starter implements ApplicationListener {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		Gdx.gl.glDisable( GL20.GL_CULL_FACE );
-		HexEngine.getInstance().render();
+		mEngine.render();
 		
 		mGui.render();
 		
@@ -138,7 +156,7 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void resize( int width, int height ){
 	
-		HexEngine.getInstance().resize( width, height );
+		mEngine.resize( width, height );
 		mGui.resize( width, height );
 		
 	}
@@ -146,14 +164,14 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void pause(){
 		
-		HexEngine.getInstance().pause();
+		mEngine.pause();
 		
 	}
 
 	@Override
 	public void resume(){
 		
-		HexEngine.getInstance().resume();
+		mEngine.resume();
 		
 	}
 	
@@ -170,7 +188,7 @@ public class Starter implements ApplicationListener {
 				
 				if( mPrevDistance == 0 )
 					mPrevDistance = initialDistance;
-				HexEngine.getInstance().getGameTable().zoomMap( ( mPrevDistance - distance ) * 0.05f );
+				mEngine.getGameTable().zoomMap( ( mPrevDistance - distance ) * 0.05f );
 				mPrevDistance = distance;
 				
 				return true;
@@ -189,7 +207,7 @@ public class Starter implements ApplicationListener {
 			@Override
 			public boolean tap( float x, float y, int count, int button ){
 				
-				return HexEngine.getInstance().eventTap( x, y, count, button );
+				return mEngine.eventTap( x, y, count, button );
 			
 			}
 			
@@ -210,7 +228,7 @@ public class Starter implements ApplicationListener {
 			@Override
 			public boolean pan( float x, float y, float deltaX, float deltaY ){
 				
-				HexEngine.getInstance().getGameTable().translateMap( -deltaX, -deltaY );
+				mEngine.getGameTable().translateMap( -deltaX, -deltaY );
 				
 				return true;
 				
@@ -226,7 +244,7 @@ public class Starter implements ApplicationListener {
 			@Override
 			public boolean fling( float velocityX, float velocityY, int button ){
 				
-				HexEngine.getInstance().getGameTable().flingMap( velocityX * 0.0005f, velocityY * 0.0005f );
+				mEngine.getGameTable().flingMap( velocityX * 0.0005f, velocityY * 0.0005f );
 
 				return true;
 				
@@ -260,7 +278,7 @@ public class Starter implements ApplicationListener {
 			@Override
 			public boolean scrolled( int amount ){
 				
-				HexEngine.getInstance().getGameTable().zoomMap( amount * 0.3f );
+				mEngine.getGameTable().zoomMap( amount * 0.3f );
 				
 				return true;
 				
@@ -269,7 +287,7 @@ public class Starter implements ApplicationListener {
 			@Override
 			public boolean mouseMoved( int screenX, int screenY ){
 				
-				return HexEngine.getInstance().eventMove( screenX, screenY );
+				return mEngine.eventMove( screenX, screenY );
 			
 			}
 			

@@ -19,8 +19,6 @@ import com.badlogic.gdx.utils.XmlWriter;
 
 public class HexEngine {
 
-	private static HexEngine instance = null;
-	
 	public static EntitiesHolder EntitiesHolder;
 	public static PCommon COMMON;
 	public static Logger LOGGER;
@@ -28,42 +26,14 @@ public class HexEngine {
 	private PGameTable mGameTable;
 	private boolean mInited;
 	
-	public void init( String xPath, Logger xLogger, String xMap ){
-	
-		Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
-		Gdx.gl.glEnable(GL10.GL_POINT_SMOOTH);
-		Gdx.gl.glEnable( GL10.GL_POLYGON_SMOOTH_HINT );
-		Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_NICEST);
-
-		Gdx.gl.glEnable( GL10.GL_POINT_SMOOTH );
-		Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_NICEST);
-
-		Gdx.gl.glEnable( GL10.GL_DEPTH_TEST );
+	public HexEngine( String path, Logger logger, String map ){
 		
-		EntitiesHolder = new EntitiesHolder( xPath );
-		LOGGER = xLogger;
+		mInited = false;
 		
-		COMMON = new PCommon( EntitiesHolder.getCommon() );
-		
-		mGameTable = new PGameTable( EntitiesHolder.getGameTableManager().get( xMap ) );
-	
-		mInited = true;
-	
-	}
-
-	public static HexEngine getInstance(){
-		
-		if( instance == null ){
-			
-			instance = new HexEngine();
-			return instance;
-			
-		}
-		
-		return instance;
+		init( path, logger, map );
 		
 	}
-	
+
 	public HEGameTable getGameTable(){
 		
 		assertInit();
@@ -174,10 +144,6 @@ public class HexEngine {
 		
 		assertInit();
 		
-		//TODO Textures android
-//		if( Gdx.app.getType() == ApplicationType.Android )
-//			PGraphics.reloadTextures();
-		
 	}
 	
 	public void resize( int width, int height ){
@@ -192,21 +158,39 @@ public class HexEngine {
 		
 	}
 
-	private HexEngine(){
-		
-		mInited = false;
-		
-	}
-
 	private void assertInit(){
 		
-		if( !instance.mInited ){
+		if( !mInited ){
 	
 			System.err.println( "Engine not initialized properly!" );
 			System.exit( 1 );
 			
 		}
 		
+	}
+
+	private void init( String xPath, Logger xLogger, String xMap ){
+	
+		Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
+		Gdx.gl.glEnable(GL10.GL_POINT_SMOOTH);
+		Gdx.gl.glEnable( GL10.GL_POLYGON_SMOOTH_HINT );
+		Gdx.gl.glHint(GL10.GL_POLYGON_SMOOTH_HINT, GL10.GL_NICEST);
+	
+		Gdx.gl.glEnable( GL10.GL_POINT_SMOOTH );
+		Gdx.gl.glHint(GL10.GL_POINT_SMOOTH_HINT, GL10.GL_NICEST);
+	
+		Gdx.gl.glEnable( GL10.GL_DEPTH_TEST );
+		
+		EntitiesHolder = new EntitiesHolder( xPath );
+		LOGGER = xLogger;
+		
+		COMMON = new PCommon( EntitiesHolder.getCommon() );
+		
+		mGameTable = new PGameTable( EntitiesHolder.getGameTableManager().get( xMap ) );
+		mGameTable.init( this );
+	
+		mInited = true;
+	
 	}
 	
 }

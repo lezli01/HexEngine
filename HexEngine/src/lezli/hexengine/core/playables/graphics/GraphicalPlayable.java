@@ -99,7 +99,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 		int x = ( int ) getX();
 		
-		HECamera xCamera = HexEngine.getInstance().getGameTable().getCamera();
+		HECamera xCamera = engine().getGameTable().getCamera();
 		
 		return ( int ) ( ( x - xCamera.getPosition().x ) / xCamera.getZoom() );
 	
@@ -109,7 +109,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 		int y = ( int ) getY();
 		
-		HECamera xCamera = HexEngine.getInstance().getGameTable().getCamera();
+		HECamera xCamera = engine().getGameTable().getCamera();
 		
 		return ( int ) ( ( y - xCamera.getPosition().y ) / xCamera.getZoom() );
 		
