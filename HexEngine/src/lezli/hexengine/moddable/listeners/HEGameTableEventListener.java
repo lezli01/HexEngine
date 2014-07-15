@@ -1,7 +1,8 @@
-package lezli.hexengine.core.gametable;
+package lezli.hexengine.moddable.listeners;
 
 import java.util.ArrayList;
 
+import lezli.hexengine.core.gametable.PGameTable;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.Player;
 import lezli.hexengine.core.gametable.player.RemotePlayer;
@@ -12,7 +13,7 @@ import lezli.hexengine.core.playables.unit.PUnit;
 import lezli.hexengine.core.playables.unit.skills.PSkill;
 
 
-public class PGameTableEventListener {
+public class HEGameTableEventListener {
 
 	public void assigned( PGameTable xGameTable ){}
 	

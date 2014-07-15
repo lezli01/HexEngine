@@ -2,6 +2,7 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.building.PBuildingReg;
 import lezli.hexengine.core.playables.unit.PUnit;
 import lezli.hexengine.core.playables.unit.skills.PSkill;
@@ -55,7 +56,11 @@ public class UnitDetails extends Actor{
 	
 	private ArrayList< HEGameTableController > mListeners;
 	
-	public UnitDetails( Table xStage, Skin xSkin ){
+	private HexEngine e;
+	
+	public UnitDetails( Table xStage, Skin xSkin, HexEngine xEngine ){
+		
+		e = xEngine;
 		
 		mSkin = xSkin;
 
@@ -193,7 +198,7 @@ public class UnitDetails extends Actor{
 	
 	private void updateInfo( PUnit xUnit ){
 
-		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin );
+		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
 		
 	}
 	
@@ -202,7 +207,7 @@ public class UnitDetails extends Actor{
 		for( HEGameTableController listener: mListeners )
 			listener.chooseSkill( mCurrentSkill );
 
-		new PSkillPrintable( mCurrentSkill ).fillTable( mTable, mSkin, mCurrentUnitTo );
+		new PSkillPrintable( mCurrentSkill ).fillTable( mTable, mSkin, mCurrentUnitTo, e );
 
 		if( mCurrentSkill.getRange() == 0 ){
 		
@@ -259,7 +264,7 @@ public class UnitDetails extends Actor{
 		for( HEGameTableController listener: mListeners )
 			listener.chooseBuilding( mCurrentBuilding );
 
-		new PBuildingRegPrintable( mCurrentBuilding ).fillTable( mTable, mSkin );
+		new PBuildingRegPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
 		
 	}
 	

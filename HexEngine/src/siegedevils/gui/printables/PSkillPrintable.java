@@ -42,7 +42,7 @@ public class PSkillPrintable extends GraphicalPlayablePrintable< PSkill >{
 	@Override
 	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 	
 		for( Affect eAffect: getPlayable().getAffects() ){
 			
@@ -56,9 +56,9 @@ public class PSkillPrintable extends GraphicalPlayablePrintable< PSkill >{
 		
 	}
 	
-	public void fillTable( Table xTable, Skin xSkin, PUnit xUnitTo ){
+	public void fillTable( Table xTable, Skin xSkin, PUnit xUnitTo, HexEngine xEngine ){
 
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 	
 //		for( Affect eAffect: getPlayable().getAffects() ){
 //			

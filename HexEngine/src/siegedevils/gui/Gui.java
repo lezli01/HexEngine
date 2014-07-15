@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTable;
-import lezli.hexengine.core.gametable.PGameTableEventListener;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.Player;
 import lezli.hexengine.core.gametable.player.RemotePlayer;
@@ -19,6 +18,7 @@ import lezli.hexengine.core.playables.unit.skills.PAffect;
 import lezli.hexengine.core.playables.unit.skills.PSkill;
 import lezli.hexengine.core.structure.entities.skill.affect.Affect;
 import lezli.hexengine.moddable.interfaces.HEGameTableController;
+import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -84,7 +84,7 @@ public class Gui {
 		mTurnButton.setSize( 150, 50 );
 		mTurnButton.setPosition( 0, Gdx.graphics.getHeight() - 50 );
 		
-		mUnitDetails = new UnitDetails( mTable, skin );
+		mUnitDetails = new UnitDetails( mTable, skin, mEngine );
 		
 		mBuildingDetails = new BuildingDetails( mTable, skin, mEngine );
 		
@@ -164,9 +164,9 @@ public class Gui {
 		
 	}
 	
-	public PGameTableEventListener getGameTableListener(){
+	public HEGameTableEventListener getGameTableListener(){
 		
-		return new PGameTableEventListener() {
+		return new HEGameTableEventListener() {
 
 			@Override
 			public boolean localPlayerTurn( Player remotePlayer ){

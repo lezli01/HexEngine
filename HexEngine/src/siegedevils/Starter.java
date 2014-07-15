@@ -3,10 +3,10 @@ package siegedevils;
 import java.util.ArrayList;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.PGameTableEventListener;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.RemotePlayer;
 import lezli.hexengine.core.playables.Logger;
+import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.multiplayer.Bartender;
@@ -71,7 +71,7 @@ public class Starter implements ApplicationListener {
 		
 		//Initialize
 		
-		mEngine = new HexEngine( "siegedevils", new Logger() {
+		Logger l = new Logger() {
 			
 			@Override
 			public void log(String xMsg, int xDepth) {
@@ -84,24 +84,15 @@ public class Starter implements ApplicationListener {
 				// TODO Auto-generated method stub
 				
 			}
-		}, "@map_test01" );
+		};
+		
+		mEngine = new HexEngine( "siegedevils", l, "@map_test01" );
+
 		mGui = new Gui( mEngine );
-		
-		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
-		
-		//Setting up input
-		InputMultiplexer multiplexer = new InputMultiplexer();
-		multiplexer.addProcessor( mGui.getInputProcessor() );
-		multiplexer.addProcessor( getInputProcessor() );
-		Gdx.input.setInputProcessor( multiplexer );
 		
 		//Setting up listeners
 		mEngine.getGameTable().addGameTableEventListener( mGui.getGameTableListener() );
-		
-		mGui.addGuiEventListener( mEngine.getGameTable().getController() );
-		
-		
-		mEngine.getGameTable().addGameTableEventListener( new PGameTableEventListener() {
+		mEngine.getGameTable().addGameTableEventListener( new HEGameTableEventListener() {
 			
 			@Override
 			public boolean remotePlayerTurn( RemotePlayer remotePlayer, ArrayList< GameEvent > xEvents ) {
@@ -114,8 +105,17 @@ public class Starter implements ApplicationListener {
 			}
 			
 		});
+
+		//Setting up input
+		InputMultiplexer multiplexer = new InputMultiplexer();
+		multiplexer.addProcessor( mGui.getInputProcessor() );
+		multiplexer.addProcessor( getInputProcessor() );
+		Gdx.input.setInputProcessor( multiplexer );
+
 		
+		mGui.addGuiEventListener( mEngine.getGameTable().getController() );
 		//Start the map
+		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
 
 	}

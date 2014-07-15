@@ -1,5 +1,6 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
 import siegedevils.gui.ImageShadowed;
 
@@ -66,7 +67,8 @@ public class GraphicalPlayablePrintable< T extends GraphicalPlayable< ? > > exte
 		
 	}
 	
-	public void fillTable( Table xTable, Skin xSkin ){
+	@Override
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
 		Table nameTable = new Table( xSkin );
 		nameTable.row();

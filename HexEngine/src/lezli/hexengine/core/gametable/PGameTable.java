@@ -36,6 +36,7 @@ import lezli.hexengine.core.structure.entities.gametable.GameTable;
 import lezli.hexengine.core.structure.entities.gametable.Holding;
 import lezli.hexengine.core.structure.entities.skill.Skill;
 import lezli.hexengine.moddable.interfaces.HEGameTable;
+import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
@@ -117,7 +118,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 	};
 	
-	private ArrayList< PGameTableEventListener > mListeners;
+	private ArrayList< HEGameTableEventListener > mListeners;
 	private PGameTableCamera mCamera;
 	private SpriteBatch mSpriteBatch;
 	
@@ -150,7 +151,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mBuildingsByPID = new HashMap< String, PBuilding >();
 		mBuildRangeTiles = new ArrayList< PTile >();
 		
-		mListeners = new ArrayList< PGameTableEventListener >();
+		mListeners = new ArrayList< HEGameTableEventListener >();
 		
 		mSpriteBatch = new SpriteBatch();
 		
@@ -179,7 +180,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 			eventsOff();
 			
-			for( PGameTableEventListener listener: mListeners ){
+			for( HEGameTableEventListener listener: mListeners ){
 
 				if( listener.remotePlayerTurn( ( RemotePlayer ) mCurrentPlayer, mRemoteEvents ) ){
 					mRemoteEvents.clear();
@@ -192,7 +193,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		}
 		else{
 		
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.localPlayerTurn( mCurrentPlayer ) )
 					break;
 			
@@ -274,7 +275,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			Player removedPlayer = mPlayers.remove( xName );
 			mPlayerNames.remove( xName );
 			
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.playerRemoved( removedPlayer ) )
 					break;
 			
@@ -299,7 +300,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mSelectedTile = xTile;
 		mSelectedTile.select();
 		
-		for( PGameTableEventListener listener: mListeners )
+		for( HEGameTableEventListener listener: mListeners )
 			if( listener.tileClicked( mSelectedTile, PGameTable.this ) )
 				break;
 		
@@ -393,7 +394,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 				createPath();
 			}
 			
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.unitSelected( mSelectedUnit ) )
 					break;
 			
@@ -404,14 +405,11 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 			mSelectedBuilding = building;
 			
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.buildingSelected( mSelectedBuilding ) )
 					break;
 			
 		}
-		
-		if( !mMap.isTileEmpty( mSelectedTile ) )
-			mCamera.moveTo( mSelectedTile, 1.0f, true );
 		
 	}
 
@@ -435,12 +433,12 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			if( ( playable = mMap.getPlayableOnTile( tile ) ) != null ){
 				
 				if( playable instanceof PUnit )
-				for( PGameTableEventListener listener: mListeners )
+				for( HEGameTableEventListener listener: mListeners )
 					if( listener.unitHovered( ( PUnit ) playable ) )
 						break;
 	
 				if( playable instanceof PBuilding )
-				for( PGameTableEventListener listener: mListeners )
+				for( HEGameTableEventListener listener: mListeners )
 					if( listener.buildingHovered( ( PBuilding ) playable ) )
 						break;
 				
@@ -460,7 +458,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		if( button == Buttons.RIGHT ){
 			clearAllHighlights();
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.canceled() )
 					break;
 			return true;
@@ -479,7 +477,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 	}
 
-	public void addGameTableEventListener( PGameTableEventListener xListener ){
+	public void addGameTableEventListener( HEGameTableEventListener xListener ){
 		
 		mListeners.add( xListener );
 		
@@ -614,13 +612,6 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 		}
 		
-//		if( mSelectedUnit != null && mSelectedUnit.isMoving() )
-//			mCamera.moveTo( mSelectedUnit, 2.0f, false );
-//		else if( mSelectedSkill != null && mSelectedSkill.isProjectileActive() )
-//			mCamera.moveTo( mSelectedSkill, 1.0f, false );
-//		else
-//			mCamera.makeCancellable();
-		
 		mCamera.update();
 	
 		processNextEvent();
@@ -651,7 +642,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mCurrentPlayer.turn();
 	
-		for( PGameTableEventListener listener: mListeners )
+		for( HEGameTableEventListener listener: mListeners )
 			if( listener.turned( this ) )
 				break;
 		
@@ -786,7 +777,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		for( PTile tile: mSkillAreaTiles )
 			tile.skillAreaHighlight();
 		
-		for( PGameTableEventListener listener: mListeners )
+		for( HEGameTableEventListener listener: mListeners )
 			if( listener.skillAreaSelected( mSelectedSkill, mSkillAreaTiles ) )
 				break;
 		
@@ -834,14 +825,12 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mCurrentPlayer.pay( xBuilding );
 		
-		for( PGameTableEventListener listener: mListeners )
+		for( HEGameTableEventListener listener: mListeners )
 			if( listener.payed( xBuilding.getCost() ) )
 				break;
 		
 		createBuilding( newBuilding, xTile.getTileX(), xTile.getTileY(), mCurrentPlayer.getName() );
 		
-		mCamera.moveTo( newBuilding, 2.0f, true );
-
 		event( new GameEvent(){{
 			type = BUILDING_ADDED;
 			unitID = xUnit;
@@ -919,7 +908,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			mCurrentPlayer.pay( produce );
 			produce.produce( building.getEntityID() );
 			
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.payed( produce.getCost() ) )
 					break;
 
@@ -1030,7 +1019,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		clearAllHighlights();
 
-		for( PGameTableEventListener listener: mListeners )
+		for( HEGameTableEventListener listener: mListeners )
 			if( listener.skillCasted( mSelectedSkill ) )
 				break;
 		
@@ -1117,16 +1106,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 		}
 		
-		if( mCurrentPlayer.getLivingUnits().size() > 0 )
-			mCamera.moveTo( mCurrentPlayer.getLivingUnits().get( 0 ).getCenter(), 1.0f, true );
-		
 		mMap.setCurrentPlayer( mCurrentPlayer );
 		
 		if( mCurrentPlayer instanceof RemotePlayer ){
 			
 			eventsOff();
 			
-			for( PGameTableEventListener listener: mListeners ){
+			for( HEGameTableEventListener listener: mListeners ){
 
 				if( listener.remotePlayerTurn( ( RemotePlayer ) mCurrentPlayer, mRemoteEvents ) ){
 					mRemoteEvents.clear();
@@ -1139,7 +1125,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		}
 		else{
 		
-			for( PGameTableEventListener listener: mListeners )
+			for( HEGameTableEventListener listener: mListeners )
 				if( listener.localPlayerTurn( mCurrentPlayer ) )
 					break;
 			

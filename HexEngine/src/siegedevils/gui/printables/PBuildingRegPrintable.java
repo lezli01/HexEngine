@@ -1,5 +1,6 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.building.PBuilding;
 import lezli.hexengine.core.playables.building.PBuildingReg;
 import lezli.hexengine.core.playables.building.produce.PSkillUpgrade;
@@ -20,9 +21,9 @@ public class PBuildingRegPrintable extends PProducePrintable{
 	}
 	
 	@Override
-	public void fillTable( Table xTable, Skin xSkin ){
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 		
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 		
 		PBuilding building = ( ( PBuildingReg ) getPlayable() ).getPrototype();
 		
@@ -33,7 +34,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PUnitProduce unit: building.getUnitProduces().values() )
-				new GraphicalPlayablePrintable< PUnitProduce >( unit ).fillTable( xTable, xSkin );
+				new GraphicalPlayablePrintable< PUnitProduce >( unit ).fillTable( xTable, xSkin, xEngine );
 		
 		}
 		
@@ -44,7 +45,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PStatUpgrade stat: building.getStatUpgrades().values() )
-				new PStatUpgradePrintable( stat ).fillTable( xTable, xSkin );
+				new PStatUpgradePrintable( stat ).fillTable( xTable, xSkin, xEngine );
 			
 		}
 		
@@ -55,7 +56,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PSkillUpgrade skill: building.getSkillUpgrades().values() )
-				new GraphicalPlayablePrintable< PSkillUpgrade >( skill ).fillTable( xTable, xSkin );
+				new GraphicalPlayablePrintable< PSkillUpgrade >( skill ).fillTable( xTable, xSkin, xEngine );
 		
 		}
 			

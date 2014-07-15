@@ -363,54 +363,6 @@ public class PTile extends GraphicalPlayable< Tile >{
 		if( !isFog() )
 			retVal = getGraphics().render( xSpriteBatch, "@IDLE", getX(), getY(), getWidth(), getHeight(), xCamera );
 		
-//		PTile highlightTile = null;
-//		
-//		if( isSelected() )
-//			highlightTile = select;
-//		if( isPathHighlighted() )
-//			highlightTile = move;
-//		if( isWayHighlighted() )
-//			highlightTile = way;
-//		if( isSkillRangeHighlighted() )
-//			highlightTile = skill;
-//		if( isSkillAreaHighlighted() )
-//			highlightTile = area;
-//		if( isBuildHighlighted() )
-//			highlightTile = build;
-//		
-//		
-//		if( highlightTile != null && ( !isHeed() && !isFog() ) ){
-//		
-//			highlightTile.getGraphics().render( 
-//					xSpriteBatch, 
-//					"@IDLE", 
-//					getX(), 
-//					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
-//					highlightTile.getWidth(), 
-//					highlightTile.getHeight(), 
-//					xCamera );
-//		
-//		}
-//		
-//		
-//		if( isHeed() )
-//			highlightTile = heed;
-//		if( isFog() )
-//			highlightTile = fog;
-//		
-//		if( highlightTile != null ){
-//		
-//			highlightTile.getGraphics().render( 
-//					xSpriteBatch, 
-//					"@IDLE", 
-//					getX(), 
-//					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
-//					highlightTile.getWidth(), 
-//					highlightTile.getHeight(), 
-//					xCamera );
-//		
-//		}
-		
 		return retVal;
 		
 	}

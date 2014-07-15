@@ -169,7 +169,7 @@ public class BuildingDetails extends Actor{
 	
 	private void updateInfo(){
 
-		new PBuildingPrintable( mCurrentBuilding ).fillTable( mTable, mSkin );
+		new PBuildingPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
 		
 		if( mCurrentTab != TAB_INFO_ONLY )
 			addProduces();
@@ -250,19 +250,19 @@ public class BuildingDetails extends Actor{
 	private void updateUnit(){
 		
 		PUnit xUnit = new PUnit( ( PUnitProduce ) mCurrentProduce, e );
-		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin );
+		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
 		
 	}
 	
 	private void updateSkill(){
 		
-		new GraphicalPlayablePrintable< PSkillUpgrade >( ( ( PSkillUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin );
+		new GraphicalPlayablePrintable< PSkillUpgrade >( ( ( PSkillUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
 		
 	}
 	
 	private void updateStat(){
 		
-		new PStatUpgradePrintable( ( ( PStatUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin );
+		new PStatUpgradePrintable( ( ( PStatUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
 		
 	}
 	

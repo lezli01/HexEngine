@@ -1,10 +1,10 @@
 package lezli.hexengine.moddable.interfaces;
 
-import lezli.hexengine.core.gametable.PGameTableEventListener;
+import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
 
 public interface HEGameTable {
 
-	public void addGameTableEventListener( PGameTableEventListener xListener );
+	public void addGameTableEventListener( HEGameTableEventListener xListener );
 	public HEGameTableController getController();
 	
 	public void moveMap( float x, float y );
