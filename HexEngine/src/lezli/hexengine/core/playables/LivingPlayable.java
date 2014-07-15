@@ -26,13 +26,13 @@ public abstract class LivingPlayable< T extends LivingEntity > extends Graphical
 	
 	protected abstract void die();
 
-	public LivingPlayable( T xEntity ){
+	public LivingPlayable( T xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mStatRegs = new HashMap< String, PStatReg >();
 		for( StatReg statReg: xEntity.getStatEntries().getAll() )
-			mStatRegs.put( statReg.getStat(), new PStatReg( statReg ) );
+			mStatRegs.put( statReg.getStat(), new PStatReg( statReg, engine() ) );
 		
 		mAffects = new ArrayList< PAffect >();
 		mDead = false;
@@ -210,7 +210,7 @@ public abstract class LivingPlayable< T extends LivingEntity > extends Graphical
 			
 			if( h.getType().equals( "PAffect" ) ){
 				
-				PAffect affect = new PAffect( HexEngine.EntitiesHolder.getSkillManager().get( h.getValues().get( "skill" ) ).getAffect( h.getValues().get( "id" ) ) );
+				PAffect affect = new PAffect( engine().entitiesHolder().getSkillManager().get( h.getValues().get( "skill" ) ).getAffect( h.getValues().get( "id" ) ), engine() );
 				affect.load( h );
 				putOnAffect( affect );
 				

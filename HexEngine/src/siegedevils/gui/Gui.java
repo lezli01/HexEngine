@@ -86,7 +86,7 @@ public class Gui {
 		
 		mUnitDetails = new UnitDetails( mTable, skin );
 		
-		mBuildingDetails = new BuildingDetails( mTable, skin );
+		mBuildingDetails = new BuildingDetails( mTable, skin, mEngine );
 		
 		mTable.addActor( mTurnButton );
 		
@@ -369,7 +369,7 @@ public class Gui {
 				
 				for( LivingPlayable< ? > living: livings ){
 				
-					PAffect a = new PAffect( affect );
+					PAffect a = new PAffect( affect, mEngine );
 					a.init( mSkill, mUnit, living );
 
 					System.out.println( "When: " + a.getWhen() );

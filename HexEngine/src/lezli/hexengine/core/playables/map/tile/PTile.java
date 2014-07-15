@@ -41,18 +41,9 @@ public class PTile extends GraphicalPlayable< Tile >{
 	
 	private ArrayList< PPlaceholder > mPlaceholders;
 	
-	public static final PTile select = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@SELECT_TILE" ) );
-	public static final PTile move = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@MOVE_TILE" ) );
-	public static final PTile way = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@WAY_TILE" ) );
-	public static final PTile skill = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@SKILL_TILE" ) );
-	public static final PTile area = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@AREA_TILE" ) );
-	public static final PTile build = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@BUILD_TILE" ) );
-	public static final PTile fog = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@FOG_TILE" ) );
-	public static final PTile heed = new PTile( HexEngine.EntitiesHolder.getTileManager().get( "@HEED_TILE" ) );
-	
-	public PTile( Tile xEntity ){
+	public PTile( Tile xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mSelected = false;
 		mPathHighlighted = false;
@@ -99,7 +90,7 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 		for( TilePlaceholder placeholder: xPlaceholders ){
 			
-			PPlaceholder pph = new PPlaceholder( HexEngine.EntitiesHolder.getPlaceholderManager().get( placeholder.placeholder ) );
+			PPlaceholder pph = new PPlaceholder( engine().entitiesHolder().getPlaceholderManager().get( placeholder.placeholder ), engine() );
 			pph.setWidth( getWidth() * placeholder.w );
 			pph.setHeight( getHeight() * placeholder.h );
 			pph.setY( getY() + getHeight() * placeholder.y - pph.getHeight() / 2 );
@@ -147,7 +138,7 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 		for( Affect affect: mOnEnterAffects ){
 			
-			PAffect pAffect = new PAffect( affect );
+			PAffect pAffect = new PAffect( affect, engine() );
 			pAffect.apply( null, null, xLiving );
 			
 		}
@@ -158,7 +149,7 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 		for( Affect affect: mOnExitAffects ){
 			
-			PAffect pAffect = new PAffect( affect );
+			PAffect pAffect = new PAffect( affect, engine() );
 			pAffect.apply( null, null, xLiving );
 			
 		}
@@ -169,7 +160,7 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 		for( Affect affect: mOnStayAffects ){
 			
-			PAffect pAffect = new PAffect( affect );
+			PAffect pAffect = new PAffect( affect, engine() );
 			pAffect.apply( null, null, xLiving );
 			
 		}
@@ -351,6 +342,19 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 	}
 
+	public boolean render( SpriteBatch xSpriteBatch, float x, float y, PGameTableCamera xCamera ){
+		
+		return getGraphics().render( 
+			xSpriteBatch, 
+			"@IDLE", 
+			x,
+			y, 
+			getWidth(), 
+			getHeight(), 
+			xCamera );
+		
+	}
+	
 	@Override
 	public boolean render( SpriteBatch xSpriteBatch, PGameTableCamera xCamera ){
 
@@ -359,53 +363,53 @@ public class PTile extends GraphicalPlayable< Tile >{
 		if( !isFog() )
 			retVal = getGraphics().render( xSpriteBatch, "@IDLE", getX(), getY(), getWidth(), getHeight(), xCamera );
 		
-		PTile highlightTile = null;
-		
-		if( isSelected() )
-			highlightTile = select;
-		if( isPathHighlighted() )
-			highlightTile = move;
-		if( isWayHighlighted() )
-			highlightTile = way;
-		if( isSkillRangeHighlighted() )
-			highlightTile = skill;
-		if( isSkillAreaHighlighted() )
-			highlightTile = area;
-		if( isBuildHighlighted() )
-			highlightTile = build;
-		
-		
-		if( highlightTile != null && ( !isHeed() && !isFog() ) ){
-		
-			highlightTile.getGraphics().render( 
-					xSpriteBatch, 
-					"@IDLE", 
-					getX(), 
-					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
-					highlightTile.getWidth(), 
-					highlightTile.getHeight(), 
-					xCamera );
-		
-		}
-		
-		
-		if( isHeed() )
-			highlightTile = heed;
-		if( isFog() )
-			highlightTile = fog;
-		
-		if( highlightTile != null ){
-		
-			highlightTile.getGraphics().render( 
-					xSpriteBatch, 
-					"@IDLE", 
-					getX(), 
-					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
-					highlightTile.getWidth(), 
-					highlightTile.getHeight(), 
-					xCamera );
-		
-		}
+//		PTile highlightTile = null;
+//		
+//		if( isSelected() )
+//			highlightTile = select;
+//		if( isPathHighlighted() )
+//			highlightTile = move;
+//		if( isWayHighlighted() )
+//			highlightTile = way;
+//		if( isSkillRangeHighlighted() )
+//			highlightTile = skill;
+//		if( isSkillAreaHighlighted() )
+//			highlightTile = area;
+//		if( isBuildHighlighted() )
+//			highlightTile = build;
+//		
+//		
+//		if( highlightTile != null && ( !isHeed() && !isFog() ) ){
+//		
+//			highlightTile.getGraphics().render( 
+//					xSpriteBatch, 
+//					"@IDLE", 
+//					getX(), 
+//					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
+//					highlightTile.getWidth(), 
+//					highlightTile.getHeight(), 
+//					xCamera );
+//		
+//		}
+//		
+//		
+//		if( isHeed() )
+//			highlightTile = heed;
+//		if( isFog() )
+//			highlightTile = fog;
+//		
+//		if( highlightTile != null ){
+//		
+//			highlightTile.getGraphics().render( 
+//					xSpriteBatch, 
+//					"@IDLE", 
+//					getX(), 
+//					( float ) ( getY() - ( ( 1.0 - getHeightMultiplier() ) * getHeight() ) * 0.5f ), 
+//					highlightTile.getWidth(), 
+//					highlightTile.getHeight(), 
+//					xCamera );
+//		
+//		}
 		
 		return retVal;
 		

@@ -37,9 +37,9 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	
 	public float x,y,w,h;
 	
-	public GraphicalPlayable( T xEntity ){
+	public GraphicalPlayable( T xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mRect = new Rectangle();
 		
@@ -59,7 +59,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 		if( graphicsID != null ){
 			
-			mGraphics = new PGraphics( HexEngine.EntitiesHolder.getGraphicsManager().get( graphicsID ) );
+			mGraphics = new PGraphics( engine().entitiesHolder().getGraphicsManager().get( graphicsID ) );
 			log( "Loaded graphics (" + graphicsID + ")" );
 		
 			getGraphics().addAnimationListener( new PAnimationListener() {
@@ -251,7 +251,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 		if( xGraphicsID != null ){
 			
-			mGraphics = new PGraphics( HexEngine.EntitiesHolder.getGraphicsManager().get( xGraphicsID ) );
+			mGraphics = new PGraphics( engine().entitiesHolder().getGraphicsManager().get( xGraphicsID ) );
 			log( "Loaded graphics (" + xGraphicsID + ")" );
 		
 			getGraphics().addAnimationListener( new PAnimationListener() {

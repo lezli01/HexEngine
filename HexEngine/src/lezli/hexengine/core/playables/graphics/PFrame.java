@@ -21,7 +21,7 @@ public class PFrame extends Playable< Frame >{
 
 	public PFrame( Frame xEntity, Texture xTexture, int xXstart, int xYstart ){
 		
-		super( xEntity );
+		super( xEntity, null );
 		
 		mRect = new Rectangle( xEntity.getRect() );
 		mMultiply = xEntity.getMultiply();

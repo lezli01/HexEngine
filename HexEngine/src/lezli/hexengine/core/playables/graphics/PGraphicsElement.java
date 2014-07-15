@@ -16,7 +16,7 @@ public class PGraphicsElement extends Playable< GraphicsElement >{
 	
 	public PGraphicsElement( GraphicsElement xEntity ){
 		
-		super( xEntity );
+		super( xEntity, null );
 		
 		mParticleFiles = xEntity.getParticles();
 

@@ -22,21 +22,21 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 	}
 	
 	@Override
-	public void fillTable( Table xTable, Skin xSkin ){
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 	
 		xTable.row();
 
 		Table statTable = new Table( xSkin );
 		statTable.row();
-		Image hpi = new Image( HexEngine.COMMON.getStats().get( "@HIT_POINTS" ).getLargeIcon() );
+		Image hpi = new Image( xEngine.common().getStats().get( "@HIT_POINTS" ).getLargeIcon() );
 		statTable.add( hpi ).left().size( 60 ).padRight( 5 );
 		Label hl = new Label( getPlayable().getStatRegs().get( "@HIT_POINTS" ).getValue() + "/" + getPlayable().getStatRegs().get( "@MAX_HIT_POINTS" ).getValue(), xSkin, "fnt-small", Color.WHITE );
 		hl.setWrap( true );
 		statTable.add( hl ).expandX().left().width( 80 );
 		
-		Image spi = new Image( HexEngine.COMMON.getStats().get( "@SPEED" ).getLargeIcon() );
+		Image spi = new Image( xEngine.common().getStats().get( "@SPEED" ).getLargeIcon() );
 		statTable.add( spi ).left().size( 60 ).padRight( 5 );
 		Label sl = new Label( getPlayable().getStatRegs().get( "@SPEED" ).getValue() + "/" + getPlayable().getStatRegs().get( "@MAX_SPEED" ).getValue(), xSkin, "fnt-small", Color.WHITE );
 		sl.setWrap( true );
@@ -47,13 +47,13 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 		
 		statTable = new Table( xSkin );
 		statTable.row();
-		Image fvi = new Image( HexEngine.COMMON.getStats().get( "@FIELD_OF_VIEW" ).getLargeIcon() );
+		Image fvi = new Image( xEngine.common().getStats().get( "@FIELD_OF_VIEW" ).getLargeIcon() );
 		statTable.add( fvi ).left().size( 60 ).padRight( 5 );
 		Label fvl = new Label( Integer.toString( getPlayable().getStatRegs().get( "@FIELD_OF_VIEW" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
 		fvl.setWrap( true );
 		statTable.add( fvl ).expandX().left().width( 80 );;
 		
-		Image fhi = new Image( HexEngine.COMMON.getStats().get( "@FIELD_OF_HEED" ).getLargeIcon() );
+		Image fhi = new Image( xEngine.common().getStats().get( "@FIELD_OF_HEED" ).getLargeIcon() );
 		statTable.add( fhi ).left().size( 60 ).padRight( 5 );
 		Label fhl = new Label( Integer.toString( getPlayable().getStatRegs().get( "@FIELD_OF_HEED" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
 		fhl.setWrap( true );
@@ -79,7 +79,7 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 			
 			statTable = new Table( xSkin );
 			
-			Image i1 = new Image( HexEngine.COMMON.getStats().get( statReg.getStat() ).getLargeIcon() );
+			Image i1 = new Image( xEngine.common().getStats().get( statReg.getStat() ).getLargeIcon() );
 			statTable.add( i1 ).left().size( 40 ).padRight( 5 );
 			
 			Label n1 = new Label( statReg.getStatName(), xSkin, "fnt-small", Color.WHITE );
@@ -104,7 +104,7 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 //				if( !affect.finished() ){
 				
 					xTable.row();
-					xTable.add( new PAffectPrintable( affect ).getListElementTable( xSkin ) ).padBottom( 5 );
+					xTable.add( new PAffectPrintable( affect ).getListElementTable( xSkin, xEngine ) ).padBottom( 5 );
 				
 //				}
 				

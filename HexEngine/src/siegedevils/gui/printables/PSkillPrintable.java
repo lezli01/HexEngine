@@ -1,5 +1,6 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.unit.PUnit;
 import lezli.hexengine.core.playables.unit.skills.PAffect;
 import lezli.hexengine.core.playables.unit.skills.PSkill;
@@ -19,9 +20,9 @@ public class PSkillPrintable extends GraphicalPlayablePrintable< PSkill >{
 	}
 
 	@Override
-	public Table getListElementTable( Skin xSkin ){
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 		
-		Table skillTable = super.getListElementTable( xSkin );
+		Table skillTable = super.getListElementTable( xSkin, xEngine );
 	
 		if( getPlayable().isCooldown() ){
 			
@@ -39,16 +40,16 @@ public class PSkillPrintable extends GraphicalPlayablePrintable< PSkill >{
 	}
 	
 	@Override
-	public void fillTable( Table xTable, Skin xSkin ){
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
 		super.fillTable( xTable, xSkin );
 	
 		for( Affect eAffect: getPlayable().getAffects() ){
 			
-			PAffect affect = new PAffect( eAffect );
+			PAffect affect = new PAffect( eAffect, xEngine );
 			affect.apply( getPlayable(), getPlayable().getHolder(), null );
 			
-			xTable.left().add( new PAffectPrintable( affect ).getListElementTable( xSkin ) ).padBottom( 5 ).width( 280 );
+			xTable.left().add( new PAffectPrintable( affect ).getListElementTable( xSkin, xEngine ) ).padBottom( 5 ).width( 280 );
 			xTable.row();
 			
 		}

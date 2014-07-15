@@ -31,9 +31,9 @@ public class PAffect extends Playable< Affect >{
 	
 	private int mValue;
 	
-	public PAffect( Affect xEntity ){
+	public PAffect( Affect xEntity, HexEngine xEngine ){
 	
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mValueString = xEntity.getAffectValueString();
 		
@@ -48,7 +48,7 @@ public class PAffect extends Playable< Affect >{
 	@Override
 	public String getName(){
 	
-		return HexEngine.EntitiesHolder.getCommon().getStats().get( mStat ).getName();
+		return engine().entitiesHolder().getCommon().getStats().get( mStat ).getName();
 		
 	}
 
@@ -212,7 +212,7 @@ public class PAffect extends Playable< Affect >{
 	private void checkScript(){
 		
 		if( !SCRIPTS.containsKey( mValueExp ) )
-			SCRIPTS.put( mValueExp, new IntScript( mValueExp ) );
+			SCRIPTS.put( mValueExp, new IntScript( mValueExp, engine() ) );
 		
 	}
 

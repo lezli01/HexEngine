@@ -35,7 +35,7 @@ public class PGraphics extends Playable< Graphics >{
 	
 	public PGraphics( Graphics xGraphics ){
 		
-		super( xGraphics );
+		super( xGraphics, null );
 		
 		mSrc = xGraphics.getSrc();
 		mAnimations = new HashMap< String, PAnimation >();

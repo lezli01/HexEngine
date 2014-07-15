@@ -16,11 +16,11 @@ public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > imp
 
 	private String mBuilding;
 	
-	public PBuildingReg( BuildingReg xEntity ){
+	public PBuildingReg( BuildingReg xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
-		setGraphicsID( HexEngine.EntitiesHolder.getBuildingManager().get( xEntity.getBuilding() ).getGraphics() );
+		setGraphicsID( engine().entitiesHolder().getBuildingManager().get( xEntity.getBuilding() ).getGraphics() );
 		
 		mBuilding = xEntity.getBuilding();
 		
@@ -35,20 +35,20 @@ public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > imp
 	@Override
 	public String getDescription() {
 
-		return HexEngine.EntitiesHolder.getTextsManager().findText( HexEngine.EntitiesHolder.getBuildingManager().get( getBuilding() ).getDescription() );
+		return engine().entitiesHolder().getTextsManager().findText( engine().entitiesHolder().getBuildingManager().get( getBuilding() ).getDescription() );
 		
 	}
 	
 	@Override
 	public String getName() {
 
-		return HexEngine.EntitiesHolder.getBuildingManager().get( getBuilding() ).getName();
+		return engine().entitiesHolder().getBuildingManager().get( getBuilding() ).getName();
 		
 	}
 	
 	public PBuilding createBuilding( String xPlayer ){
 		
-		PBuilding building = new PBuilding( HexEngine.EntitiesHolder.getBuildingManager().get( getBuilding() ), xPlayer );
+		PBuilding building = new PBuilding( engine().entitiesHolder().getBuildingManager().get( getBuilding() ), xPlayer, engine() );
 		
 		return building;
 		
@@ -58,7 +58,7 @@ public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > imp
 		
 		ArrayList< String > tileIDs = new ArrayList< String >();
 		
-		for( MapTile tile: HexEngine.EntitiesHolder.getBuildingManager().get( getBuilding() ).getAcceptedTiles().getAll() )
+		for( MapTile tile: engine().entitiesHolder().getBuildingManager().get( getBuilding() ).getAcceptedTiles().getAll() )
 			tileIDs.add( tile.getTile() );
 		
 		return tileIDs;
@@ -78,7 +78,7 @@ public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > imp
 	@Override
 	protected PBuilding createPrototype( BuildingReg xProduceEntity ){
 
-		return new PBuilding( HexEngine.EntitiesHolder.getBuildingManager().get( xProduceEntity.getBuilding() ), "PROTOTYPE" );
+		return new PBuilding( engine().entitiesHolder().getBuildingManager().get( xProduceEntity.getBuilding() ), "PROTOTYPE", engine() );
 	
 	}
 

@@ -18,7 +18,7 @@ public class PSprite extends Playable< Sprite >{
 	
 	public PSprite( Sprite xEntity, Texture xTexture ){
 		
-		super( xEntity );
+		super( xEntity, null );
 		
 		mRect = xEntity.getRect();
 		

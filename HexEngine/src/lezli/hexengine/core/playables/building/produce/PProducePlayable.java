@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 import com.badlogic.gdx.utils.XmlWriter;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.script.PProducePlayableScriptable;
 import lezli.hexengine.core.playables.Playable;
 import lezli.hexengine.core.playables.cost.CostPlayable;
@@ -26,9 +27,9 @@ public abstract class PProducePlayable< T extends ProduceEntity, P extends Playa
 	private ArrayList< PProduceListener > mListeners;
 	
 	@SuppressWarnings("unchecked")
-	public PProducePlayable( T xEntity ){
+	public PProducePlayable( T xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mUnit = xEntity.getUnit();
 		mDuration = xEntity.getDuration();

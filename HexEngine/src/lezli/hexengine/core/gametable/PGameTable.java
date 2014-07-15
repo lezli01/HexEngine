@@ -125,9 +125,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	public PGameTable( GameTable xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
-		
-		init( xEngine );
+		super( xEntity, xEngine );
 		
 		addListener( mGameEventListener );
 
@@ -864,13 +862,11 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mPlayers.get( xPlayerName ).addBuilding( xBuilding );
 		
-		xBuilding.init( engine() );
-		
 	}
 	
 	private void addUnit( final PUnitProduce xUnitProduce, final PBuilding xBuilding ){
 		
-		final PUnit unit = new PUnit( xUnitProduce );
+		final PUnit unit = new PUnit( xUnitProduce, engine() );
 		unit.setListener( mUnitListener );
 		
 		PTile tile = mMap.getFirstWalkableTileInArea( xBuilding );
@@ -891,8 +887,6 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mUnitsByPID.put( xUnit.getPID(), xUnit );
 		
 		xUnit.addListener( mGameEventListener );
-		
-		xUnit.init( engine() );
 		
 	}
 	
@@ -1231,23 +1225,9 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	/*
 	 * SCRIPTABLE
 	 */
-	
-	@Override
-	public void init( HexEngine e ){
-
-		super.init( e );
-		
-		for( PUnit unit: mUnits )
-			unit.init( e );
-		
-		for( PBuilding building: mBuildings )
-			building.init( e );
-	
-	}
-	
 	private void load( GameTable gt ){
 		
-		mMap = new PMap( engine().entitiesHolder().getMapManager().get( gt.getMap() ) );
+		mMap = new PMap( engine().entitiesHolder().getMapManager().get( gt.getMap() ), engine() );
 		
 		for( Holding holding: gt.getHoldings() ){
 

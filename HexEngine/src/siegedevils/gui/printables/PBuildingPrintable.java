@@ -18,15 +18,15 @@ public class PBuildingPrintable extends GraphicalPlayablePrintable< PBuilding >{
 	}
 
 	@Override
-	public void fillTable( Table xTable, Skin xSkin ){
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 	
 		xTable.row();
 
 		Table statTable = new Table( xSkin );
 		statTable.row();
-		Image hpi = new Image( HexEngine.COMMON.getStats().get( "@HIT_POINTS" ).getLargeIcon() );
+		Image hpi = new Image( xEngine.common().getStats().get( "@HIT_POINTS" ).getLargeIcon() );
 		statTable.add( hpi ).left().size( 60 ).padRight( 5 );
 		Label hl = new Label( getPlayable().getHitPoints() + "/" + getPlayable().getMaxHitPoints(), xSkin, "fnt-small", Color.WHITE );
 		hl.setWrap( true );

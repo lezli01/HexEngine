@@ -2,6 +2,7 @@ package lezli.hexengine.core.playables.building.produce;
 
 import java.util.HashMap;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.script.PStatEntriesScriptable;
 import lezli.hexengine.core.playables.unit.stats.PStatEntries;
 import lezli.hexengine.core.structure.entities.building.StatUpgrade;
@@ -11,9 +12,9 @@ public class PStatUpgrade extends PUpgradeProduce< StatUpgrade, PStatEntries > i
 
 	private HashMap< String, StatReg > mStatRegs;
 	
-	public PStatUpgrade( StatUpgrade xEntity ){
+	public PStatUpgrade( StatUpgrade xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 
 		mStatRegs = new HashMap< String, StatReg >();
 		for( StatReg statReg: xEntity.getStatEntries().getAll() )
@@ -30,7 +31,7 @@ public class PStatUpgrade extends PUpgradeProduce< StatUpgrade, PStatEntries > i
 	@Override
 	protected PStatEntries createPrototype( StatUpgrade xProduceEntity ){
 
-		return new PStatEntries( xProduceEntity.getStatEntries() );
+		return new PStatEntries( xProduceEntity.getStatEntries(), engine() );
 		
 	}
 	

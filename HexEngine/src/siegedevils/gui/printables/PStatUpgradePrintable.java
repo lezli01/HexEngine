@@ -21,17 +21,17 @@ public class PStatUpgradePrintable extends GraphicalPlayablePrintable< PStatUpgr
 	}
 
 	@Override
-	public void fillTable( Table xTable, Skin xSkin ){
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
-		super.fillTable( xTable, xSkin );
+		super.fillTable( xTable, xSkin, xEngine );
 		
 		Table unitTable = new Table( xSkin );
 		unitTable.row();
 		
-		Image unitIcon = new Image( new PUnit( HexEngine.EntitiesHolder.getUnitManager().get( getPlayable().getUnit() ) ).getLargeIcon() );
+		Image unitIcon = new Image( new PUnit( xEngine.entitiesHolder().getUnitManager().get( getPlayable().getUnit() ), xEngine ).getLargeIcon() );
 		unitIcon.setScaling( Scaling.fill );
 		
-		Label unitNameLabel = new Label( HexEngine.EntitiesHolder.getUnitManager().get( getPlayable().getUnit() ).getName(), xSkin );
+		Label unitNameLabel = new Label( xEngine.entitiesHolder().getUnitManager().get( getPlayable().getUnit() ).getName(), xSkin );
 		
 		unitTable.add( unitIcon ).size( 30 ).padRight( 5 );
 		unitTable.add( unitNameLabel );
@@ -45,11 +45,11 @@ public class PStatUpgradePrintable extends GraphicalPlayablePrintable< PStatUpgr
 			Table statTable = new Table( xSkin );
 			statTable.row();
 			
-			Image icon = new Image( HexEngine.COMMON.getStats().get( statReg.getStat() ).getLargeIcon() );
+			Image icon = new Image( xEngine.common().getStats().get( statReg.getStat() ).getLargeIcon() );
 			icon.setScaling( Scaling.fill );
 			statTable.add( icon ).size( 15 ).padRight( 10 );
 			
-			Label nameLabel = new Label( HexEngine.COMMON.getStats().get( statReg.getStat() ).getName(), xSkin );
+			Label nameLabel = new Label( xEngine.common().getStats().get( statReg.getStat() ).getName(), xSkin );
 			statTable.add( nameLabel ).width( 75 );
 			
 			Label valueLabel = new Label( Integer.toString( statReg.getValue() ), xSkin );

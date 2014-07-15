@@ -1,5 +1,6 @@
 package lezli.hexengine.core.playables.cost;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.script.PCostPlayableScriptable;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
 import lezli.hexengine.core.structure.entities.cost.CostEntity;
@@ -8,11 +9,11 @@ public abstract class CostPlayable< T extends CostEntity > extends GraphicalPlay
 
 	private PCost mCost;
 	
-	public CostPlayable( T xEntity ){
+	public CostPlayable( T xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
-		mCost = new PCost( xEntity.getCost() );
+		mCost = new PCost( xEntity.getCost(), engine() );
 		
 	}
 	

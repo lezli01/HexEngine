@@ -11,32 +11,32 @@ import lezli.hexengine.core.structure.entities.building.UnitProduce;
 
 public class PUnitProduce extends PProducePlayable< UnitProduce, PUnit > implements PUnitScriptable{
 
-	public PUnitProduce( UnitProduce xEntity ){
+	public PUnitProduce( UnitProduce xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
-		setGraphicsID( HexEngine.EntitiesHolder.getUnitManager().get( getUnit() ).getGraphics() );
+		setGraphicsID( engine().entitiesHolder().getUnitManager().get( getUnit() ).getGraphics() );
 		
 	}
 	
 	@Override
 	public String getName() {
 
-		return HexEngine.EntitiesHolder.getUnitManager().get( getUnit() ).getName();
+		return engine().entitiesHolder().getUnitManager().get( getUnit() ).getName();
 		
 	}
 	
 	@Override
 	public String getDescription(){
 
-		return HexEngine.EntitiesHolder.getTextsManager().findText( HexEngine.EntitiesHolder.getUnitManager().get( getUnit() ).getDescription() );
+		return engine().entitiesHolder().getTextsManager().findText( engine().entitiesHolder().getUnitManager().get( getUnit() ).getDescription() );
 		
 	}
 	
 	@Override
 	protected PUnit createPrototype( UnitProduce xProduceEntity ){
 
-		return new PUnit( this );
+		return new PUnit( this, engine() );
 		
 	}
 

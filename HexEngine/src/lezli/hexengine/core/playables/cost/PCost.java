@@ -2,6 +2,7 @@ package lezli.hexengine.core.playables.cost;
 
 import java.util.HashMap;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.Playable;
 import lezli.hexengine.core.structure.entities.cost.Cost;
 import lezli.hexengine.core.structure.entities.cost.ResourceCost;
@@ -10,9 +11,9 @@ public class PCost extends Playable< Cost >{
 
 	private HashMap< String, Integer > mResourceCosts;
 	
-	public PCost( Cost xEntity ){
+	public PCost( Cost xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mResourceCosts = new HashMap< String, Integer >();
 		

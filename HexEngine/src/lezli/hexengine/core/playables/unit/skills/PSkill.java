@@ -46,9 +46,9 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 	private ArrayList< Integer > mAffectsOn;
 	
 	@SuppressWarnings("unchecked")
-	public PSkill( Skill xEntity ){
+	public PSkill( Skill xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mAffectsOn = xEntity.getAffectsOn();
 		
@@ -73,23 +73,23 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 		
 	}
 	
-	public PSkill( Skill xEntity, PUnit xHolder ){
+	public PSkill( Skill xEntity, PUnit xHolder, HexEngine xEngine ){
 		
-		this( xEntity );
+		this( xEntity, xEngine );
 		
 		setHolder( xHolder );
 		
 	}
 	
-	public PSkill( PSkillUpgrade xUpgrade ){
+	public PSkill( PSkillUpgrade xUpgrade, HexEngine xEngine ){
 		
-		this( HexEngine.EntitiesHolder.getSkillManager().get( xUpgrade.getSkill() ) );
+		this( xEngine.entitiesHolder().getSkillManager().get( xUpgrade.getSkill() ), xEngine );
 		
 	}
 	
-	public PSkill( PSkillUpgrade xUpgrade, PUnit xHolder ){
+	public PSkill( PSkillUpgrade xUpgrade, PUnit xHolder, HexEngine xEngine ){
 		
-		this( HexEngine.EntitiesHolder.getSkillManager().get( xUpgrade.getSkill() ) );
+		this( xEngine.entitiesHolder().getSkillManager().get( xUpgrade.getSkill() ), xEngine );
 		
 		setHolder( xHolder );
 		
@@ -283,7 +283,7 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 		
 		for( Affect affect: mAffects ){
 			
-			PAffect pAffect = new PAffect( affect );
+			PAffect pAffect = new PAffect( affect, engine() );
 			pAffect.apply( this, xUnitFrom, xLivingTo );
 			
 		}

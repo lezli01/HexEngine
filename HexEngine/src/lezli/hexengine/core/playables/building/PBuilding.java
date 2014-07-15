@@ -73,9 +73,9 @@ public class PBuilding extends LivingPlayable< Building > implements PBuildingSc
 	
 	private String mBuilding;
 	
-	public PBuilding( Building xEntity, String xPlayer ){
+	public PBuilding( Building xEntity, String xPlayer, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mBuilding = xEntity.getID() + xPlayer;
 		
@@ -91,7 +91,7 @@ public class PBuilding extends LivingPlayable< Building > implements PBuildingSc
 		mResourceProduces = new ArrayList< PResource >();
 		for( ResourceCost resProduce: xEntity.getResourceProduces() ){
 
-			PResource resource = new PResource( HexEngine.EntitiesHolder.getCommon().getResources().get( resProduce.getResource() ) );
+			PResource resource = new PResource( engine().entitiesHolder().getCommon().getResources().get( resProduce.getResource() ), engine() );
 			resource.add( resProduce.getValue() );
 			
 			mResourceProduces.add( resource );
@@ -100,19 +100,19 @@ public class PBuilding extends LivingPlayable< Building > implements PBuildingSc
 
 		mUnitProduces = new HashMap< String, PUnitProduce >();
 		for( UnitProduce unitProduce: xEntity.getUnitproduces() ){
-			PUnitProduce pUnitProduce = new PUnitProduce( unitProduce );
+			PUnitProduce pUnitProduce = new PUnitProduce( unitProduce, engine() );
 			pUnitProduce.addListener( mListener );
 			mUnitProduces.put( unitProduce.getID(), pUnitProduce );
 		}
 		
 		for( StatUpgrade statUpgrade: xEntity.getStatUpgrades() ){
-			PStatUpgrade pStatUpgrade = new PStatUpgrade( statUpgrade );
+			PStatUpgrade pStatUpgrade = new PStatUpgrade( statUpgrade, engine() );
 			pStatUpgrade.addListener( mListener );
 			mStatUpgrades.get( mBuilding ).putIfAbsent( statUpgrade.getID(), pStatUpgrade );
 			mStaticProducesByID.get( mBuilding ).putIfAbsent( statUpgrade.getID(), pStatUpgrade );
 		}
 		for( SkillUpgrade skillUpgrade: xEntity.getSkillUpgrades() ){
-			PSkillUpgrade pSkillUpgrade = new PSkillUpgrade( skillUpgrade );
+			PSkillUpgrade pSkillUpgrade = new PSkillUpgrade( skillUpgrade, engine() );
 			pSkillUpgrade.addListener( mListener );
 			mSkillUpgrades.get( mBuilding ).putIfAbsent( skillUpgrade.getID(), pSkillUpgrade );
 			mStaticProducesByID.get( mBuilding ).putIfAbsent( skillUpgrade.getID(), pSkillUpgrade );

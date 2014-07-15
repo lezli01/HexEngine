@@ -32,8 +32,10 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 
 	public abstract void turn();
 
-	public Playable( T xEntity ){
-	
+	public Playable( T xEntity, HexEngine xEngine ){
+
+		mEngine = xEngine;
+		
 		mListeners = new ArrayList< GameEventListener >();
 		
 		if( xEntity.getID() != null )
@@ -42,16 +44,10 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 		if( xEntity.getName() != null )
 			mName = new String( xEntity.getName() );
 		
-		if( xEntity.getDescription() != null )
-			mDescription = HexEngine.EntitiesHolder.getTextsManager().findText( xEntity.getDescription() );
+		if( xEntity.getDescription() != null && engine() != null )
+			mDescription = engine().entitiesHolder().getTextsManager().findText( xEntity.getDescription() );
 			
 		mDoEvents = true;
-		
-	}
-	
-	public void init( HexEngine e ){
-		
-		mEngine = e;
 		
 	}
 	
@@ -172,7 +168,7 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 	
 	protected void log( String xMessage, int xDepth ){
 		
-		HexEngine.LOGGER.log( getPID() + ": " + xMessage, xDepth );
+		engine().logger().log( getPID() + ": " + xMessage, xDepth );
 		
 	}
 	

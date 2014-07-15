@@ -13,9 +13,9 @@ public class PStatReg extends Playable< StatReg >{
 	private String mStat;
 	private int mValue;
 	
-	public PStatReg( StatReg xEntity ){
+	public PStatReg( StatReg xEntity, HexEngine xEngine ){
 
-		super( xEntity );
+		super( xEntity, xEngine );
 	
 		mStat = xEntity.getStat();
 		mValue = xEntity.getValue();
@@ -30,7 +30,7 @@ public class PStatReg extends Playable< StatReg >{
 	
 	public String getStatName(){
 		
-		return HexEngine.EntitiesHolder.getCommon().getStats().get( getStat() ).getName();
+		return engine().entitiesHolder().getCommon().getStats().get( getStat() ).getName();
 		
 	}
 	

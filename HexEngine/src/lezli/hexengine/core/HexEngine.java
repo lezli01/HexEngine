@@ -202,7 +202,7 @@ public class HexEngine {
 		mEntitiesHolder = new EntitiesHolder( xPath );
 		mLogger = xLogger;
 		
-		mCommon = new PCommon( mEntitiesHolder.getCommon() );
+		mCommon = new PCommon( mEntitiesHolder.getCommon(), this );
 		
 		mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
 	

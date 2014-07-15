@@ -2,6 +2,7 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.building.PBuilding;
 import lezli.hexengine.core.playables.building.produce.PProducePlayable;
 import lezli.hexengine.core.playables.building.produce.PSkillUpgrade;
@@ -59,7 +60,11 @@ public class BuildingDetails extends Actor{
 	
 	private ArrayList< HEGameTableController > mListeners;
 	
-	public BuildingDetails( Table xStage, Skin xSkin ){
+	private HexEngine e;
+	
+	public BuildingDetails( Table xStage, Skin xSkin, HexEngine xEngine ){
+		
+		e = xEngine;
 		
 		mSkin = xSkin;
 
@@ -244,7 +249,7 @@ public class BuildingDetails extends Actor{
 	
 	private void updateUnit(){
 		
-		PUnit xUnit = new PUnit( ( PUnitProduce ) mCurrentProduce );
+		PUnit xUnit = new PUnit( ( PUnitProduce ) mCurrentProduce, e );
 		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin );
 		
 	}

@@ -20,12 +20,12 @@ public class PAffectPrintable extends PlayablePrintable< PAffect >{
 	}
 	
 	@Override
-	public Table getListElementTable( Skin xSkin ){
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 
-		Table table = super.getListElementTable( xSkin );
+		Table table = super.getListElementTable( xSkin, xEngine );
 
 		
-		Image statIcon = new Image( HexEngine.COMMON.getStats().get( getPlayable().getStat() ).getLargeIcon() );
+		Image statIcon = new Image( xEngine.common().getStats().get( getPlayable().getStat() ).getLargeIcon() );
 		statIcon.setScaling( Scaling.fill );
 		table.add( statIcon ).expandX().center().size( 50 );
 		table.row();

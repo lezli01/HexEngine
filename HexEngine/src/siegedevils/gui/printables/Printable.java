@@ -1,11 +1,13 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
 public interface Printable {
 
-	public Table getListElementTable( Skin xSkin );
-	public void fillTable( Table xTable, Skin xSkin );
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine );
+	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine );
 	
 }

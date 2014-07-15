@@ -46,9 +46,9 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 	}
 	private PUnitListener mListener;
 	
-	public PUnit( Unit xEntity ){
+	public PUnit( Unit xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mGotos = new ArrayList< Vector2 >();
 		mGotoTiles = new ArrayList< PTile >();
@@ -59,21 +59,21 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 		mSkills = new HashMap< String, PSkill >();
 		mSkillNames = new ArrayList< String >();
 		for( SkillReg skillReg: xEntity.getSkillEntries().getAll() ){
-			mSkills.put( skillReg.getSkill(), new PSkill( HexEngine.EntitiesHolder.getSkillManager().get( skillReg.getSkill() ), this ) );
+			mSkills.put( skillReg.getSkill(), new PSkill( engine().entitiesHolder().getSkillManager().get( skillReg.getSkill() ), this, engine() ) );
 			mSkillNames.add( skillReg.getSkill() );
 		}
 		mBuildingRegs = new HashMap< String, PBuildingReg >();
 		if( xEntity.getBuildingEntries() == null )
 			return;
 		for( BuildingReg buildingReg: xEntity.getBuildingEntries().getAll() )
-			mBuildingRegs.put( buildingReg.getBuilding(), new PBuildingReg( buildingReg ) );
+			mBuildingRegs.put( buildingReg.getBuilding(), new PBuildingReg( buildingReg, engine() ) );
 
 		
 	}
 	
-	public PUnit( PUnitProduce xProduce ){
+	public PUnit( PUnitProduce xProduce, HexEngine xEngine ){
 		
-		this( HexEngine.EntitiesHolder.getUnitManager().get( xProduce.getUnit() ) );
+		this( xEngine.entitiesHolder().getUnitManager().get( xProduce.getUnit() ), xEngine );
 		
 	}
 
@@ -136,7 +136,7 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 			if( !skillUpgrade.getUnit().equals( getEntityID() ) )
 				return;
 			
-			PSkill newSkill = new PSkill( skillUpgrade, this );
+			PSkill newSkill = new PSkill( skillUpgrade, this, engine() );
 			newSkill.addListeners( getListeners() );
 			
 			mSkills.put( skillUpgrade.getSkill(), newSkill );

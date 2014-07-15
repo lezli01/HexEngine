@@ -1,5 +1,7 @@
 */bin/*
 .metadata/*
+Siegedevils-server/war/WEB-INF/lib/*
+*/gen/*
 
 # Windows image file caches
 Thumbs.db

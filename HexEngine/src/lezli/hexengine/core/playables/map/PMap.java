@@ -49,9 +49,27 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 	public static float mTileWidth = 2 * mTileRay;
 	public static float mTileLead = (float)( 3.0/2.0 * mTileSize );
 	
-	public PMap( Map xEntity ){
+	public PTile select;
+	public PTile move;
+	public PTile way;
+	public PTile skill;
+	public PTile area;
+	public PTile build;
+	public PTile fog;
+	public PTile heed;
+	
+	public PMap( Map xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
+		
+		select = new PTile( engine().entitiesHolder().getTileManager().get( "@SELECT_TILE" ), engine() );
+		move = new PTile( engine().entitiesHolder().getTileManager().get( "@MOVE_TILE" ), engine() );
+		way = new PTile( engine().entitiesHolder().getTileManager().get( "@WAY_TILE" ), engine() );
+		skill = new PTile( engine().entitiesHolder().getTileManager().get( "@SKILL_TILE" ), engine() );
+		area = new PTile( engine().entitiesHolder().getTileManager().get( "@AREA_TILE" ), engine() );
+		build = new PTile( engine().entitiesHolder().getTileManager().get( "@BUILD_TILE" ), engine() );
+		fog = new PTile( engine().entitiesHolder().getTileManager().get( "@FOG_TILE" ), engine() );
+		heed = new PTile( engine().entitiesHolder().getTileManager().get( "@HEED_TILE" ), engine() );
 		
 		mTiles = new ArrayList< ArrayList< PTile > >();
 		mPathParts = new ConcurrentHashMap< Vector3, Vector2 >();
@@ -62,24 +80,24 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 		float x = 0, y = 0;
 
-		PTile.area.setWidth( mTileWidth + FIX );
-		PTile.area.setHeight( mTileHeight + FIX );
-		PTile.build.setWidth( mTileWidth + FIX );
-		PTile.build.setHeight( mTileHeight + FIX );
-		PTile.move.setWidth( mTileWidth + FIX );
-		PTile.move.setHeight( mTileHeight + FIX );
-		PTile.select.setWidth( mTileWidth + FIX );
-		PTile.select.setHeight( mTileHeight + FIX );
-		PTile.skill.setWidth( mTileWidth + FIX );
-		PTile.skill.setHeight( mTileHeight + FIX );
-		PTile.way.setWidth( mTileWidth + FIX );
-		PTile.way.setHeight( mTileHeight + FIX );
-		PTile.fog.setWidth( mTileWidth + FIX );
-		PTile.fog.setHeight( mTileHeight + FIX );
-		PTile.heed.setWidth( mTileWidth + FIX );
-		PTile.heed.setHeight( mTileHeight + FIX );
+		area.setWidth( mTileWidth + FIX );
+		area.setHeight( mTileHeight + FIX );
+		build.setWidth( mTileWidth + FIX );
+		build.setHeight( mTileHeight + FIX );
+		move.setWidth( mTileWidth + FIX );
+		move.setHeight( mTileHeight + FIX );
+		select.setWidth( mTileWidth + FIX );
+		select.setHeight( mTileHeight + FIX );
+		skill.setWidth( mTileWidth + FIX );
+		skill.setHeight( mTileHeight + FIX );
+		way.setWidth( mTileWidth + FIX );
+		way.setHeight( mTileHeight + FIX );
+		fog.setWidth( mTileWidth + FIX );
+		fog.setHeight( mTileHeight + FIX );
+		heed.setWidth( mTileWidth + FIX );
+		heed.setHeight( mTileHeight + FIX );
 		
-		MapTileManager manager = HexEngine.EntitiesHolder.getMapTileManager();
+		MapTileManager manager = engine().entitiesHolder().getMapTileManager();
 		
 		for( MapRow mapRow: xEntity.getAll() ){
 			
@@ -96,7 +114,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 					id = tile.getID();
 				}
 				
-				PTile pTile = new PTile( HexEngine.EntitiesHolder.getTileManager().get( tile.getTile() ) );
+				PTile pTile = new PTile( engine().entitiesHolder().getTileManager().get( tile.getTile() ), engine() );
 
 				float xt = ( x * ( mTileWidth ) + ( 1 - ( y % 2 ) ) * mTileRay );
 				float yt = y * ( (float)( 3.0/2.0 * mTileSize ) );
@@ -728,12 +746,55 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 			
 			for( w = i; w < mapWidth(); w++ ){
 				
+				PTile tile = mTiles.get( q ).get( w );
+				
 				if( !mTiles.get( q ).get( w ).render( xSpriteBatch, xCamera ) ){
 					if( hasRendered )
 						break;
 				}
 				else
 					hasRendered = true;
+				
+				PTile highlightTile = null;
+				
+				if( tile.isSelected() )
+					highlightTile = select;
+				if( tile.isPathHighlighted() )
+					highlightTile = move;
+				if( tile.isWayHighlighted() )
+					highlightTile = way;
+				if( tile.isSkillRangeHighlighted() )
+					highlightTile = skill;
+				if( tile.isSkillAreaHighlighted() )
+					highlightTile = area;
+				if( tile.isBuildHighlighted() )
+					highlightTile = build;
+				
+				
+				if( highlightTile != null && ( !tile.isHeed() && !tile.isFog() ) ){
+				
+					highlightTile.render( 
+							xSpriteBatch, 
+							tile.getX(), 
+							( float ) ( tile.getY() - ( ( 1.0 - tile.getHeightMultiplier() ) * tile.getHeight() ) * 0.5f ), 
+							xCamera );
+				
+				}
+				
+				if( tile.isHeed() )
+					highlightTile = heed;
+				if( tile.isFog() )
+					highlightTile = fog;
+				
+				if( highlightTile != null ){
+				
+					highlightTile.render( 
+							xSpriteBatch, 
+							tile.getX(), 
+							( float ) ( tile.getY() - ( ( 1.0 - tile.getHeightMultiplier() ) * tile.getHeight() ) * 0.5f ), 
+							xCamera );
+				
+				}
 				
 			}
 			

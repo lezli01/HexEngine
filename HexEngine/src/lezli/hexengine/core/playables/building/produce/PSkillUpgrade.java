@@ -9,20 +9,20 @@ public class PSkillUpgrade extends PUpgradeProduce< SkillUpgrade, PSkill > imple
 
 	private String mSkill;
 	
-	public PSkillUpgrade( SkillUpgrade xEntity ){
+	public PSkillUpgrade( SkillUpgrade xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mSkill = xEntity.getSkill();
 		
-		setGraphicsID( HexEngine.EntitiesHolder.getSkillManager().get( getSkill() ).getGraphics() );
+		setGraphicsID( engine().entitiesHolder().getSkillManager().get( getSkill() ).getGraphics() );
 		
 	}
 	
 	@Override
 	public String getDescription(){
 
-		return HexEngine.EntitiesHolder.getTextsManager().findText( HexEngine.EntitiesHolder.getSkillManager().get( getSkill() ).getDescription() );
+		return engine().entitiesHolder().getTextsManager().findText( engine().entitiesHolder().getSkillManager().get( getSkill() ).getDescription() );
 		
 	}
 	
@@ -35,7 +35,7 @@ public class PSkillUpgrade extends PUpgradeProduce< SkillUpgrade, PSkill > imple
 	@Override
 	protected PSkill createPrototype( SkillUpgrade xProduceEntity ){
 	
-		return new PSkill( HexEngine.EntitiesHolder.getSkillManager().get( xProduceEntity.getSkill() ) );
+		return new PSkill( engine().entitiesHolder().getSkillManager().get( xProduceEntity.getSkill() ), engine() );
 	
 	}
 

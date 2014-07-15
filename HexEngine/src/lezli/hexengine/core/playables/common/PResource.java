@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.badlogic.gdx.utils.XmlWriter;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
 import lezli.hexengine.core.structure.entities.common.Resource;
 
@@ -11,9 +12,9 @@ public class PResource extends GraphicalPlayable< Resource >{
 
 	private int mQuantity;
 	
-	public PResource( Resource xEntity ){
+	public PResource( Resource xEntity, HexEngine xEngine ){
 		
-		super( xEntity );
+		super( xEntity, xEngine );
 		
 		mQuantity = 0;
 		

@@ -20,7 +20,7 @@ public class CostPlayablePrintable< T extends CostPlayable< ? > > extends Graphi
 	}
 	
 	@Override
-	public Table getListElementTable( Skin xSkin ){
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 
 		Table table = super.getListElementTable( xSkin );
 	
@@ -30,7 +30,7 @@ public class CostPlayablePrintable< T extends CostPlayable< ? > > extends Graphi
 			
 			Table costTable = new Table( xSkin );
 			
-			Image resIcon = new Image( HexEngine.COMMON.getResources().get( cost.getKey() ).getLargeIcon() );
+			Image resIcon = new Image( xEngine.common().getResources().get( cost.getKey() ).getLargeIcon() );
 			resIcon.setScaling( Scaling.fit );
 			
 			Label resVal = new Label( Integer.toString( cost.getValue() ), xSkin );

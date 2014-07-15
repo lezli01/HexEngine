@@ -1,5 +1,6 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.Playable;
 
 import com.badlogic.gdx.graphics.Color;
@@ -23,7 +24,7 @@ public class PlayablePrintable< T extends Playable< ? > > implements Printable{
 		
 	}
 	
-	public Table getListElementTable( Skin xSkin ){
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 		
 		final Table table = new Table( xSkin );
 		
@@ -42,7 +43,7 @@ public class PlayablePrintable< T extends Playable< ? > > implements Printable{
 	}
 
 	@Override
-	public void fillTable(Table xTable, Skin xSkin) {
+	public void fillTable(Table xTable, Skin xSkin, HexEngine xEngine ) {
 		
 	}
 	
