@@ -19,9 +19,9 @@ import com.badlogic.gdx.utils.XmlWriter;
 
 public class HexEngine {
 
-	public static EntitiesHolder EntitiesHolder;
-	public static PCommon COMMON;
-	public static Logger LOGGER;
+	private EntitiesHolder mEntitiesHolder;
+	private PCommon mCommon;
+	private Logger mLogger;
 	
 	private PGameTable mGameTable;
 	private boolean mInited;
@@ -31,6 +31,24 @@ public class HexEngine {
 		mInited = false;
 		
 		init( path, logger, map );
+		
+	}
+	
+	public EntitiesHolder entitiesHolder(){
+		
+		return mEntitiesHolder;
+		
+	}
+	
+	public PCommon common(){
+		
+		return mCommon;
+		
+	}
+	
+	public Logger logger(){
+		
+		return mLogger;
 		
 	}
 
@@ -181,13 +199,12 @@ public class HexEngine {
 	
 		Gdx.gl.glEnable( GL10.GL_DEPTH_TEST );
 		
-		EntitiesHolder = new EntitiesHolder( xPath );
-		LOGGER = xLogger;
+		mEntitiesHolder = new EntitiesHolder( xPath );
+		mLogger = xLogger;
 		
-		COMMON = new PCommon( EntitiesHolder.getCommon() );
+		mCommon = new PCommon( mEntitiesHolder.getCommon() );
 		
-		mGameTable = new PGameTable( EntitiesHolder.getGameTableManager().get( xMap ) );
-		mGameTable.init( this );
+		mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
 	
 		mInited = true;
 	

@@ -109,7 +109,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	private PUnitListener mUnitListener = new PUnitListener() {
 		
 		@Override
-		public void movedTo(PUnit xUnit, PTile xTile) {
+		public void movedTo( PUnit xUnit, PTile xTile ){
 		
 			mMap.setPlayable( xTile, xUnit, false );
 			
@@ -123,9 +123,11 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	private PMap mMap;
 	
-	public PGameTable( GameTable xEntity ){
+	public PGameTable( GameTable xEntity, HexEngine xEngine ){
 		
 		super( xEntity );
+		
+		init( xEngine );
 		
 		addListener( mGameEventListener );
 
@@ -135,7 +137,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mPlayers = new HashMap< String, Player >();
 		mPlayerNames = new ArrayList< String >();
-		mLoseScript = new BooleanScript( "lose.lua" );
+		mLoseScript = new BooleanScript( "lose.lua", engine() );
 		mLoseScript.rawset( "GameTable", this );
 		
 		mPathTiles = new ArrayList< PTile >();
@@ -1245,7 +1247,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	private void load( GameTable gt ){
 		
-		mMap = new PMap( HexEngine.EntitiesHolder.getMapManager().get( gt.getMap() ) );
+		mMap = new PMap( engine().entitiesHolder().getMapManager().get( gt.getMap() ) );
 		
 		for( Holding holding: gt.getHoldings() ){
 
@@ -1257,13 +1259,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			}
 			
 			if( holding.getType().equals( "AIPlayer" ) )
-				p = new AIPlayer( holding.getValues().get( "name" ), this );
+				p = new AIPlayer( holding.getValues().get( "name" ), this, engine() );
 			
 			if( holding.getType().equals( "Player" ) )
-				p = new Player( holding.getValues().get( "name" ) );
+				p = new Player( holding.getValues().get( "name" ), engine() );
 			
 			if( holding.getType().equals( "RemotePlayer" ) )
-				p = new RemotePlayer( holding.getValues().get( "name" ) );
+				p = new RemotePlayer( holding.getValues().get( "name" ), engine() );
 			
 			
 			p.load( holding.getHoldings() );

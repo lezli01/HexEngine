@@ -11,15 +11,17 @@ import org.luaj.vm2.compiler.LuaC;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
-public class BooleanScript {
+public class BooleanScript extends Script{
 
 	private LuaClosure mLua;
 	
-	public BooleanScript( String xScript ){
+	public BooleanScript( String xScript, HexEngine xEngine ){
+		
+		super( xEngine );
 		
 		try {
 			
-			Prototype prototype = LuaC.compile( new ByteArrayInputStream( HexEngine.EntitiesHolder.getScripts().get( xScript ) ), "script" );
+			Prototype prototype = LuaC.compile( new ByteArrayInputStream( engine().entitiesHolder().getScripts().get( xScript ) ), "script" );
 			mLua = new LuaClosure( prototype, JsePlatform.standardGlobals() );
 			
 		} catch (IOException e) {

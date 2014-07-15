@@ -30,7 +30,11 @@ public class Player{
 	
 	private ArrayList< PUpgradeProduce< ?, ? > > mAlreadyUpgraded;
 	
-	public Player( String xName ){
+	private HexEngine mEngine;
+	
+	public Player( String xName, HexEngine xEngine ){
+		
+		mEngine = xEngine;
 		
 		mName = xName;
 		mUnits = new ArrayList< PUnit >();
@@ -38,10 +42,16 @@ public class Player{
 		
 		mResources = new HashMap< String, PResource >();
 		
-		for( Resource resource: HexEngine.EntitiesHolder.getCommon().getResources().getAll() )
+		for( Resource resource: mEngine.entitiesHolder().getCommon().getResources().getAll() )
 			mResources.put( resource.getID(), new PResource( resource ) );
 		
 		mAlreadyUpgraded = new ArrayList< PUpgradeProduce< ?, ? > >();
+		
+	}
+	
+	protected HexEngine engine(){
+		
+		return mEngine;
 		
 	}
 	
@@ -72,7 +82,7 @@ public class Player{
 
 			if( h.getType().equals( "PUnit" ) ){
 				
-				PUnit unit = new PUnit( HexEngine.EntitiesHolder.getUnitManager().get( h.getValues().get( "id" ) ) );
+				PUnit unit = new PUnit( mEngine.entitiesHolder().getUnitManager().get( h.getValues().get( "id" ) ) );
 				unit.load( h );
 				mUnits.add( unit );
 				
@@ -80,7 +90,7 @@ public class Player{
 			
 			if( h.getType().equals( "PBuilding" ) ){
 				
-				PBuilding building = new PBuilding( HexEngine.EntitiesHolder.getBuildingManager().get( h.getValues().get( "id" ) ), getName() );
+				PBuilding building = new PBuilding( mEngine.entitiesHolder().getBuildingManager().get( h.getValues().get( "id" ) ), getName() );
 				building.load( h );
 				mBuildings.add( building );
 				
@@ -88,7 +98,7 @@ public class Player{
 
 			if( h.getType().equals( "PResource" ) ){
 
-				PResource resource = new PResource( HexEngine.EntitiesHolder.getCommon().getResources().get( h.getValues().get( "id" ) ) );
+				PResource resource = new PResource( mEngine.entitiesHolder().getCommon().getResources().get( h.getValues().get( "id" ) ) );
 				resource.add( Integer.parseInt( h.getValues().get( "value" ) ) ); 
 				earn( resource );
 				
@@ -100,7 +110,7 @@ public class Player{
 
 			if( h.getType().equals( "PStatUpgrade" ) ){
 				
-				PStatUpgrade u = new PStatUpgrade( HexEngine.EntitiesHolder.getBuildingManager().get( h.getValues().get( "building" ) ).getStatUpgrade( h.getValues().get( "id" ) ) );
+				PStatUpgrade u = new PStatUpgrade( mEngine.entitiesHolder().getBuildingManager().get( h.getValues().get( "building" ) ).getStatUpgrade( h.getValues().get( "id" ) ) );
 				u.load( h );
 				mAlreadyUpgraded.add( u );
 				
@@ -108,7 +118,7 @@ public class Player{
 
 			if( h.getType().equals( "PSkillUpgrade" ) ){
 				
-				PSkillUpgrade u = new PSkillUpgrade( HexEngine.EntitiesHolder.getBuildingManager().get( h.getValues().get( "building" ) ).getSkillUpgrade( h.getValues().get( "id" ) ) );
+				PSkillUpgrade u = new PSkillUpgrade( mEngine.entitiesHolder().getBuildingManager().get( h.getValues().get( "building" ) ).getSkillUpgrade( h.getValues().get( "id" ) ) );
 				u.load( h );
 				applyUpgrade( u );
 

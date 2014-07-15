@@ -2,6 +2,7 @@ package lezli.hexengine.core.gametable.player;
 
 import java.util.ArrayList;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTable;
 import lezli.hexengine.core.gametable.event.GameEvent;
 
@@ -11,9 +12,9 @@ public abstract class EventPlayer extends Player{
 	
 	private ArrayList< GameEvent > mEvents;
 	
-	public EventPlayer( String xName, PGameTable xGameTable ){
+	public EventPlayer( String xName, PGameTable xGameTable, HexEngine xEngine ){
 		
-		super( xName );
+		super( xName, xEngine );
 		
 		mGameTable = xGameTable;
 		

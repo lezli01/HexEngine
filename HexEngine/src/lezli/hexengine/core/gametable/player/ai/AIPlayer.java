@@ -34,15 +34,15 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 	private boolean mCalled;
 
 	
-	public AIPlayer( String xName, PGameTable xGameTable ){
+	public AIPlayer( String xName, PGameTable xGameTable, HexEngine xEngine ){
 		
-		super( xName, xGameTable );
+		super( xName, xGameTable, xEngine );
 		
 		mPrototype = null;
 		
 		try {
 		
-			mPrototype = LuaC.compile( new ByteArrayInputStream( HexEngine.EntitiesHolder.getScripts().get( "ai_test.lua" ) ), "script" );
+			mPrototype = LuaC.compile( new ByteArrayInputStream( engine().entitiesHolder().getScripts().get( "ai_test.lua" ) ), "script" );
 			mLua = new LuaClosure( mPrototype, JsePlatform.standardGlobals() );
 			mLua.getfenv().rawset( "GameTable", CoerceJavaToLua.coerce( ( PGameTableScriptable ) getGameTable() ) );
 			mLua.getfenv().rawset( "Action", CoerceJavaToLua.coerce( ( AIPlayerScriptable ) this ) );
