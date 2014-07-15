@@ -40,6 +40,8 @@ public class HEGameTableEventListener {
 	public boolean localPlayerTurn( Player remotePlayer ){ return false; }
 	public boolean playerRemoved( Player xPlayer ){ return false; }
 
+	public boolean lose( Player player ){ return false; }
+	
 	public boolean canceled(){ return false; }
 	
 }

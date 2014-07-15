@@ -2,6 +2,7 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
+import siegedevils.gui.minimap.Minimap;
 import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTable;
 import lezli.hexengine.core.gametable.event.GameEvent;
@@ -61,6 +62,8 @@ public class Gui {
 	private ScrollPane remoteTable;
 	
 	private HexEngine mEngine;
+	
+	private Minimap mm;
 	
 	public Gui( HexEngine e ){
 
@@ -128,6 +131,10 @@ public class Gui {
 		
 		mLog = new GameLog( mTable, skin );
 		
+		mm = new Minimap( mEngine.getGameTable() );
+		mm.setPosition( 0, 0 );
+		mm.setSize( 400, 220 );
+		mTable.addActor( mm );
 		
 	}
 	

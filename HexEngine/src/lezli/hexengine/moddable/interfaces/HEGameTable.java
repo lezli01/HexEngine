@@ -14,6 +14,11 @@ public interface HEGameTable {
 
 	public void setShadowAngle( float x, float y );
 	
+	public int mapWidth();
+	public int mapHeight();
+	
+	public boolean isEmpty( int x, int y );
+	
 	public HECamera getCamera();
 	
 }

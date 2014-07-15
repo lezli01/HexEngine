@@ -621,9 +621,6 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	@Override
 	public void turn(){
 		
-//		if( mCurrentPlayer instanceof RemotePlayer || mCurrentPlayer instanceof AIPlayer )
-//			return;
-		
 		if( mSelectedUnit != null && mSelectedUnit.isMoving() )
 			return;
 		
@@ -638,7 +635,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			type = TURNED;
 		}});
 		
-		nextPlayer( null );
+		while( !nextPlayer( null ) );
 		
 		mCurrentPlayer.turn();
 	
@@ -1084,7 +1081,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	 * SCRIPTABLE
 	 */
 	
-	private void nextPlayer( String xName ){
+	private boolean nextPlayer( String xName ){
 		
 		if( xName != null ){
 			
@@ -1102,7 +1099,12 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		if( mLoseScript.call() ){
 			
 			removePlayer( mCurrentPlayer.getName() );
-			nextPlayer( null );
+			
+			for( HEGameTableEventListener listener: mListeners )
+				if( listener.lose( mCurrentPlayer ) )
+					break;
+			
+			return false;
 			
 		}
 		
@@ -1132,10 +1134,31 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			eventsOn();
 		
 		}
+	
+		return true;
 		
 	}
 
+	@Override
+	public int mapWidth() {
+
+		return mMap.mapWidth();
+		
+	}
 	
+	@Override
+	public int mapHeight() {
+
+		return mMap.mapHeight();
+	
+	}
+	
+	@Override
+	public boolean isEmpty( int x, int y ){
+
+		return mMap.isTileEmpty( x, y );
+	
+	}
 
 	/*
 	 * SCRIPTABLE
