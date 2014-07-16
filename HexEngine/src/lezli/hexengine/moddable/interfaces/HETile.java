@@ -13,4 +13,7 @@ public interface HETile {
 	public boolean isHeed();
 	public boolean isEmpty();
 	
+	public int getTileX();
+	public int getTileY();
+	
 }

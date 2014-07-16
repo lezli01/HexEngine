@@ -18,6 +18,7 @@ public interface HEGameTable {
 	public int mapHeight();
 	
 	public HETile getTile( int x, int y );
+	public HETile getCenterTile();
 	
 	public boolean isEmpty( int x, int y );
 	

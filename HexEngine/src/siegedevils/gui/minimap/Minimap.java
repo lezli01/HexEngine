@@ -62,8 +62,18 @@ public class Minimap extends ScrollPane{
 					batch.setColor( Color.BLACK );
 				
 				batch.draw( pix, i * pw, getHeight() - ( j + 1 ) * ph, pw, ph );
-			
+		
 			}
+		
+			HETile t = gt.getCenterTile();
+			
+			//TODO nulltile?
+			
+			if( t == null )
+				return;
+			
+			batch.setColor( Color.CYAN );
+			batch.draw( pix, t.getTileX() * pw, getHeight() - ( t.getTileY() + 1 ) * ph, pw, ph );
 		
 	}
 	

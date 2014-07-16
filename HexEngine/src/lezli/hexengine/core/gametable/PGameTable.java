@@ -1161,6 +1161,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	}
 
+	@Override
+	public HETile getCenterTile() {
+
+		return mMap.getTile( Gdx.graphics.getWidth() / 2.0f, Gdx.graphics.getHeight() / 2.0f, mCamera );
+	
+	}
+	
 	/*
 	 * SCRIPTABLE
 	 */
