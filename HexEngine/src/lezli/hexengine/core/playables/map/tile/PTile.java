@@ -12,12 +12,13 @@ import lezli.hexengine.core.playables.unit.skills.PAffect;
 import lezli.hexengine.core.structure.entities.map.tile.Tile;
 import lezli.hexengine.core.structure.entities.map.tile.TilePlaceholder;
 import lezli.hexengine.core.structure.entities.skill.affect.Affect;
+import lezli.hexengine.moddable.interfaces.HETile;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class PTile extends GraphicalPlayable< Tile >{
+public class PTile extends GraphicalPlayable< Tile > implements HETile{
 
 	public static final int DEF_SIZE = ( int ) ( Gdx.graphics.getHeight() / 5.0f );
 	
@@ -126,6 +127,13 @@ public class PTile extends GraphicalPlayable< Tile >{
 		
 		return mCanWalk;
 		
+	}
+	
+	@Override
+	public boolean isEmpty(){
+
+		return !hasPlayable();
+	
 	}
 	
 	public void setWalkable( boolean xWalkable ){

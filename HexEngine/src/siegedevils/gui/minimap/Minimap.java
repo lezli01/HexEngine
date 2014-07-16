@@ -1,6 +1,7 @@
 package siegedevils.gui.minimap;
 
 import lezli.hexengine.moddable.interfaces.HEGameTable;
+import lezli.hexengine.moddable.interfaces.HETile;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -46,11 +47,22 @@ public class Minimap extends ScrollPane{
 	
 		for( i = 0; i < gt.mapWidth(); i++ )
 			for( j = 0; j < gt.mapHeight(); j++ ){
-				if( gt.isEmpty( i, j ) )
-					batch.setColor( Color.GRAY );
-				else
+			
+				HETile t = gt.getTile( i, j );
+
+				batch.setColor( Color.BLUE );
+				
+				if( t.isEmpty() )
 					batch.setColor( Color.GREEN );
+				if( !t.canWalk() )
+					batch.setColor( 0.1f, 0.5f, 0.1f, 1.0f );
+				if( t.isHeed() )
+					batch.setColor( Color.GRAY );
+				if( t.isFog() )
+					batch.setColor( Color.BLACK );
+				
 				batch.draw( pix, i * pw, getHeight() - ( j + 1 ) * ph, pw, ph );
+			
 			}
 		
 	}

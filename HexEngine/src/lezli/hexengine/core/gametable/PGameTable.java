@@ -36,6 +36,7 @@ import lezli.hexengine.core.structure.entities.gametable.GameTable;
 import lezli.hexengine.core.structure.entities.gametable.Holding;
 import lezli.hexengine.core.structure.entities.skill.Skill;
 import lezli.hexengine.moddable.interfaces.HEGameTable;
+import lezli.hexengine.moddable.interfaces.HETile;
 import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
 
 import com.badlogic.gdx.Gdx;
@@ -252,7 +253,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 	}
 
-	public PTile getTile( int xX, int xY ){
+	public HETile getTile( int xX, int xY ){
 		
 		return mMap.getTile( xX, xY );
 		
@@ -936,7 +937,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		if( !mCurrentPlayer.canAfford( buildingReg ) )
 			return false;
 	
-		PTile tile = getTile( xX, xY );
+		PTile tile = ( PTile ) getTile( xX, xY );
 		
 		boolean accepted = false;
 		
@@ -1027,7 +1028,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		if( !mMap.isTherePath( xUnit, xX, xY ) )
 			return;		
 		
-		moveUnit( xUnit, getTile( xX, xY ) );
+		moveUnit( xUnit, ( PTile ) getTile( xX, xY ) );
 		
 	}
 	

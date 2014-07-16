@@ -17,6 +17,8 @@ public interface HEGameTable {
 	public int mapWidth();
 	public int mapHeight();
 	
+	public HETile getTile( int x, int y );
+	
 	public boolean isEmpty( int x, int y );
 	
 	public HECamera getCamera();

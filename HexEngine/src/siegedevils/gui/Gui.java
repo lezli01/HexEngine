@@ -133,7 +133,7 @@ public class Gui {
 		
 		mm = new Minimap( mEngine.getGameTable() );
 		mm.setPosition( 0, 0 );
-		mm.setSize( 400, 220 );
+		mm.setSize( 220, 220 );
 		mTable.addActor( mm );
 		
 	}
