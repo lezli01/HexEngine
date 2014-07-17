@@ -1168,6 +1168,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	}
 	
+	@Override
+	public HETile getCameraPosition() {
+
+		return mMap.getNearestTile( Gdx.graphics.getWidth() / 2.0f, Gdx.graphics.getHeight() / 2.0f, mCamera );
+	
+	}
+	
 	/*
 	 * SCRIPTABLE
 	 */

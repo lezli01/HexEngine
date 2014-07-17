@@ -65,12 +65,7 @@ public class Minimap extends ScrollPane{
 		
 			}
 		
-			HETile t = gt.getCenterTile();
-			
-			//TODO nulltile?
-			
-			if( t == null )
-				return;
+			HETile t = gt.getCameraPosition();
 			
 			batch.setColor( Color.CYAN );
 			batch.draw( pix, t.getTileX() * pw, getHeight() - ( t.getTileY() + 1 ) * ph, pw, ph );

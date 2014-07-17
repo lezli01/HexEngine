@@ -348,6 +348,15 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 			
 		}
 		
+		if( j < 0 )
+			j = 0;
+		if( j >= mTiles.size() )
+			j = mTiles.size() - 1;
+		if( i < 0 )
+			i = 0;
+		if( i >= mTiles.get( 0 ).size() )
+			i = mTiles.get( 0 ).size() - 1;
+		
 		if( j >= 0 && j < mTiles.size() && i >= 0 && i < mTiles.get( 0 ).size() ){
 	
 			return getTile( i, j );
@@ -355,6 +364,12 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		}
 		
 		return null;
+		
+	}
+	
+	public PTile getNearestTile( float x, float y, PGameTableCamera xCamera ){
+		
+		return getTile( x, y, xCamera );
 		
 	}
 

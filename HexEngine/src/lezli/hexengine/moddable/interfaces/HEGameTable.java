@@ -19,6 +19,7 @@ public interface HEGameTable {
 	
 	public HETile getTile( int x, int y );
 	public HETile getCenterTile();
+	public HETile getCameraPosition();
 	
 	public boolean isEmpty( int x, int y );
 	
