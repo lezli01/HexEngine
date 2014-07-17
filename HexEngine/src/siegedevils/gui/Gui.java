@@ -131,7 +131,7 @@ public class Gui {
 		
 		mLog = new GameLog( mTable, skin );
 		
-		mm = new Minimap( mEngine.getGameTable() );
+		mm = new Minimap( mEngine.getGameTable(), skin );
 		mm.setPosition( 0, 0 );
 		mm.setSize( 220, 220 );
 		mTable.addActor( mm );

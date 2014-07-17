@@ -1,5 +1,6 @@
 package siegedevils.gui.minimap;
 
+import siegedevils.gui.ScrollPaneShadowed;
 import lezli.hexengine.moddable.interfaces.HEGameTable;
 import lezli.hexengine.moddable.interfaces.HETile;
 
@@ -7,23 +8,33 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable;
 
-public class Minimap extends ScrollPane{
+public class Minimap extends ScrollPaneShadowed{
 
 	private HEGameTable gt;
 	private Texture pix;
 	
+	private static final float BORDER = 5.0f;
+	
 	private int i, j; 
 	private float pw, ph;
+	private Image border;
 	
-	public  Minimap( HEGameTable gameTable ){
+	public  Minimap( HEGameTable gameTable, Skin xSkin ){
 		
-		super( null );
+		super( null, xSkin );
 		
 		gt = gameTable;
 		
 		pix = new Texture( Gdx.files.internal( "siegedevils/graphics_elements/textures/pix.png" ) );
+		
+//		setBackground( new TiledDrawable( xSkin.getRegion( "scroll-bg-tiled" ) ) );
+		
+		border = new Image( xSkin, "scroll-bg" );
 		
 	}
 
@@ -35,8 +46,10 @@ public class Minimap extends ScrollPane{
 		if( gt == null )
 			return;
 		
-		pw = width / gt.mapWidth();
-		ph = height / gt.mapHeight();
+		pw = ( width - ( 2 * BORDER ) ) / gt.mapWidth();
+		ph = ( height - ( 2 * BORDER ) ) / gt.mapHeight();
+		
+		border.setBounds( getX(), getY(), width, height );
 		
 	}
 	
@@ -45,6 +58,8 @@ public class Minimap extends ScrollPane{
 
 		super.draw( batch, parentAlpha );
 	
+		border.draw( batch, 1.0f );
+		
 		for( i = 0; i < gt.mapWidth(); i++ )
 			for( j = 0; j < gt.mapHeight(); j++ ){
 			
@@ -61,7 +76,7 @@ public class Minimap extends ScrollPane{
 				if( t.isFog() )
 					batch.setColor( Color.BLACK );
 				
-				batch.draw( pix, i * pw, getHeight() - ( j + 1 ) * ph, pw, ph );
+				batch.draw( pix, i * pw + BORDER, getHeight() - ( j + 1 ) * ph - BORDER, pw, ph );
 		
 			}
 		

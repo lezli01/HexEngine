@@ -25,7 +25,8 @@ public class ScrollPaneShadowed extends ScrollPane{
 
 		i.setBounds( getX() - SHDW_SIZE, getY() - SHDW_SIZE, getWidth() + SHDW_SIZE * 2, getHeight() + SHDW_SIZE * 2 );
 		i.draw( batch, 0.8f );
-		super.draw(batch, 1.0f );
+		
+		super.draw( batch, 1.0f );
 	
 	}
 	
