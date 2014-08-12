@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import lezli.hexengine.core.HexEngine;
+import lezli.hexengine.core.HexEngine.HexEngineProperties;
 import lezli.hexengine.core.gametable.PGameTableCamera;
 import lezli.hexengine.core.gametable.event.GameEventListener;
 import lezli.hexengine.core.gametable.script.PBuildingScriptable;
@@ -305,6 +306,9 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 	}
 
 	private float getMovingSpeedX(){
+		
+		if( ( Boolean ) ( engine().getProperties().getProperty( HexEngineProperties.PROP_INSTANT ) ) )
+			return 10000;
 		
 		return Gdx.graphics.getDeltaTime() * MOVING_SPEED_X;
 		

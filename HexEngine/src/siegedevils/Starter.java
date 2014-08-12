@@ -3,6 +3,7 @@ package siegedevils;
 import java.util.ArrayList;
 
 import lezli.hexengine.core.HexEngine;
+import lezli.hexengine.core.HexEngine.HexEngineProperties;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.RemotePlayer;
 import lezli.hexengine.core.playables.Logger;
@@ -118,6 +119,8 @@ public class Starter implements ApplicationListener {
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
 
+		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT, true );
+		
 	}
 
 	@Override

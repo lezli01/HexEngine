@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
+import lezli.hexengine.core.HexEngine.HexEngineProperties.PropertyChangedListener;
 import lezli.hexengine.core.gametable.PGameTable;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.playables.Logger;
@@ -25,6 +27,8 @@ public class HexEngine {
 	
 	private PGameTable mGameTable;
 	private boolean mInited;
+	
+	private HexEngineProperties mProperties;
 	
 	public HexEngine( String path, Logger logger, String map ){
 		
@@ -75,6 +79,12 @@ public class HexEngine {
 	public void addGameEvents( ArrayList< GameEvent > xEvents ){
 		
 		mGameTable.processGameEvents( xEvents );
+		
+	}
+
+	public HexEngineProperties getProperties(){
+		
+		return mProperties;
 		
 	}
 
@@ -207,7 +217,95 @@ public class HexEngine {
 		mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
 	
 		mInited = true;
+		
+		PropertyChangedListener propListener = new PropertyChangedListener() {
+			
+			@Override
+			public boolean onPropertyChanged( int property, Object value ){
+
+				switch( property ){
+				
+					case HexEngineProperties.PROP_INSTANT:
+					
+					break;
+				
+					default: break;
+					
+				}
+				
+				return false;
+			
+			}
+			
+		};
+		
+		mProperties = new HexEngineProperties( propListener );
 	
+	}
+
+	public static class HexEngineProperties{
+
+		public static final int PROP_INSTANT	=	1 << 0;
+		
+		private int i;
+		private ArrayList< PropertyChangedListener > mListeners;
+		private HashMap< Integer, Object > mProperties;
+		
+		public HexEngineProperties( PropertyChangedListener xListener ){
+			
+			mListeners = new ArrayList< PropertyChangedListener >();
+			mProperties = new HashMap< Integer, Object >();
+			
+			addListener( xListener );
+			addProperty( PROP_INSTANT, false );
+			
+		}
+
+		public void addListener( PropertyChangedListener xListener ){
+			
+			mListeners.add( xListener );
+			
+		}
+		
+		protected void addProperty( int xProp, Object xValue ){
+			
+			if( mProperties.containsKey( xProp ) )
+				return;
+			
+			mProperties.put( xProp, xValue );
+			
+		}
+		
+		public void setProperty( int xProp, Object xValue ){
+			
+			if( !mProperties.containsKey( xProp ) )
+				return;
+			
+			mProperties.put( xProp, xValue );
+			
+			for( i = 0; i < mListeners.size(); i++ )
+				mListeners.get( i ).onPropertyChanged( xProp, xValue );
+			
+		}
+		
+		public Object getProperty( int xProp ){
+			
+			Object value = mProperties.get( xProp );
+			
+			if( value != null )
+				return value;
+			
+			return false;
+			
+		}
+		
+		public static interface PropertyChangedListener{
+			
+			public boolean onPropertyChanged( int property, Object value );
+			
+			
+		}
+
 	}
 	
 }
