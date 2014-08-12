@@ -1,0 +1,39 @@
+<Skill
+    id="@stab"
+    name="Stab"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="2"
+    description="@skills_description/@stab"
+    graphics="@stab_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="1"
+    speed="5.0" >
+
+    <Affect
+        id="@stab_bleed_hit_points"
+        name="Bleeding"
+        stat="@HIT_POINTS"
+        value="stab_bleed_hit_points.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@stab_bleed_hit_points_02"
+        name="Bleeding"
+        stat="@HIT_POINTS"
+        value="stab_bleed_hit_points.lua"
+        when="2" >
+    </Affect>
+
+    <Affect
+        id="@stab_bleed_hit_points_03"
+        name="Bleeding"
+        stat="@HIT_POINTS"
+        value="stab_bleed_hit_points.lua"
+        when="3" >
+    </Affect>
+
+</Skill>

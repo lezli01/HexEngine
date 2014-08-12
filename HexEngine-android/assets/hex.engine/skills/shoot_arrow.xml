@@ -1,0 +1,23 @@
+<Skill
+    id="@shoot_arrow"
+    name="Shoot Arrow"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="1"
+    description="@skills_description/@shoot_arrow"
+    graphics="@shoot_arrow_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="6"
+    speed="2.25" >
+
+    <Affect
+        id="@shoot_arrow_hit_points"
+        name="Wounded"
+        stat="@HIT_POINTS"
+        value="shoot_arrow_hit_points.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

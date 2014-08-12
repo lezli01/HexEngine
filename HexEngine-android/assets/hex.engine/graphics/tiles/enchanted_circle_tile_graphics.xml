@@ -1,0 +1,11 @@
+<Graphics
+    id="@enchanted_circle_tile_graphics"
+    name="Enchanted Circle Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/enchanted_circle_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

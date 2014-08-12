@@ -1,5 +1,6 @@
 package siegedevils.gui.printables;
 
+import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.playables.building.produce.PProducePlayable;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -16,9 +17,9 @@ public class PProducePrintable extends CostPlayablePrintable< PProducePlayable< 
 	}
 
 	@Override
-	public Table getListElementTable(Skin xSkin) {
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ) {
 	
-		Table skillTable = super.getListElementTable(xSkin);
+		Table skillTable = super.getListElementTable( xSkin, xEngine );
 		
 		if( ( ( PProducePlayable< ?, ? > ) getPlayable() ).isProducing() ){
 			

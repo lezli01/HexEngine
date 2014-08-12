@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import lezli.hexengine.core.HexEngine;
+import lezli.hexengine.core.HexEngine.HexEngineProperties;
 import lezli.hexengine.core.gametable.script.PSkillScriptable;
 import lezli.hexengine.core.playables.LivingPlayable;
 import lezli.hexengine.core.playables.building.produce.PSkillUpgrade;
@@ -183,6 +184,16 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 			setDefaultAnimation( "@PROJECTILE" );
 			addAnimation( "@ARRIVAL" );
 			
+		}
+		
+		if( ( Boolean ) engine().getProperties().getProperty( HexEngineProperties.PROP_INSTANT_CAST ) ){
+			
+			setX( mTo.x );
+			setY( mTo.y );
+			mCurrentDistance = 0;
+			mDistance = 0;
+			setDefaultAnimation( null );
+
 		}
 		
 	}

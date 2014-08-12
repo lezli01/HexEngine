@@ -1,0 +1,11 @@
+<Graphics
+    id="@hidden_ruins_tile_graphics"
+    name="Hidden Ruins Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/hidden_ruins_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

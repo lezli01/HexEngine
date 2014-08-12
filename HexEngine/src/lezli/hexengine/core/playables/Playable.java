@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.event.GameEventListener;
-import lezli.hexengine.core.gametable.script.PlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PlayableScriptable;
 import lezli.hexengine.core.structure.entities.Entity;
 import lezli.hexengine.core.structure.entities.gametable.Holding;
 import lezli.hexengine.core.structure.entities.id.IDGenerator;

@@ -1,0 +1,23 @@
+<Skill
+    id="@kick"
+    name="Kick"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="1"
+    description="@skills_description/@kick"
+    graphics="@kick_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="1"
+    speed="5.0" >
+
+    <Affect
+        id="@kicked_hit_points"
+        name="Kicked"
+        stat="@HIT_POINTS"
+        value="kick_hit_points.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

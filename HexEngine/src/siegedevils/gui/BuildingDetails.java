@@ -217,7 +217,7 @@ public class BuildingDetails extends Actor{
 		
 		mTable.row();
 
-		Table skillTable = new PProducePrintable( xProduce ).getListElementTable( mSkin );
+		Table skillTable = new PProducePrintable( xProduce ).getListElementTable( mSkin, e );
 		
 		if( !xProduce.isProducing() && mCurrentBuilding.isConstructed() ){
 			

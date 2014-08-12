@@ -87,7 +87,7 @@ public class Starter implements ApplicationListener {
 			}
 		};
 		
-		mEngine = new HexEngine( "siegedevils", l, "@map_test01" );
+		mEngine = new HexEngine( "hex.engine", l, "@map_test01" );
 
 		mGui = new Gui( mEngine );
 		
@@ -119,7 +119,7 @@ public class Starter implements ApplicationListener {
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
 
-		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT, true );
+		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, true );
 		
 	}
 

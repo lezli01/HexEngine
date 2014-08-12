@@ -3,9 +3,9 @@ package lezli.hexengine.core.playables.building.produce;
 import java.util.ArrayList;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.script.PBuildingScriptable;
 import lezli.hexengine.core.gametable.script.PSkillScriptable;
-import lezli.hexengine.core.gametable.script.PUnitScriptable;
+import lezli.hexengine.core.gametable.scriptable.PBuildingScriptable;
+import lezli.hexengine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hexengine.core.playables.unit.PUnit;
 import lezli.hexengine.core.structure.entities.building.UnitProduce;
 

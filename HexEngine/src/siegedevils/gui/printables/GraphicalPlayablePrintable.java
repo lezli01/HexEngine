@@ -25,7 +25,7 @@ public class GraphicalPlayablePrintable< T extends GraphicalPlayable< ? > > exte
 		
 	}
 	
-	public Table getListElementTable( Skin xSkin ){
+	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 		
 		final Table table = new Table( xSkin );
 		

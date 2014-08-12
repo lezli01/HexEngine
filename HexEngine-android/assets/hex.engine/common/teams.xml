@@ -1,0 +1,12 @@
+<Teams
+    id="@example_teams"
+    name="Example Teams"
+    description="@example_texts/@example_text" >
+
+    <Team
+        id="@example_team"
+        name="Example Team"
+        description="@example_texts/@example_text"
+        graphics="@exmaple_team_graphics" />
+
+</Teams>

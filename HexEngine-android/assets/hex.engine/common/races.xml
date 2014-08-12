@@ -1,0 +1,18 @@
+<Races
+    id="@races"
+    name="Races"
+    description="@example_texts/@example_text" >
+
+    <Race
+        id="@dwarfs_race"
+        name="Dwarfs"
+        description="@example_texts/@example_text"
+        graphics="@dwarfs_race_graphics" />
+
+    <Race
+        id="@goblins_race"
+        name="Goblins"
+        description="@example_texts/@example_text"
+        graphics="@goblins_race_graphics" />
+
+</Races>

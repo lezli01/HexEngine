@@ -225,7 +225,7 @@ public class HexEngine {
 
 				switch( property ){
 				
-					case HexEngineProperties.PROP_INSTANT:
+					case HexEngineProperties.PROP_INSTANT_MOVE:
 					
 					break;
 				
@@ -245,7 +245,8 @@ public class HexEngine {
 
 	public static class HexEngineProperties{
 
-		public static final int PROP_INSTANT	=	1 << 0;
+		public static final int PROP_INSTANT_MOVE	=	1 << 0;
+		public static final int PROP_INSTANT_CAST	=	1 << 1;
 		
 		private int i;
 		private ArrayList< PropertyChangedListener > mListeners;
@@ -257,7 +258,8 @@ public class HexEngine {
 			mProperties = new HashMap< Integer, Object >();
 			
 			addListener( xListener );
-			addProperty( PROP_INSTANT, false );
+			addProperty( PROP_INSTANT_MOVE, false );
+			addProperty( PROP_INSTANT_CAST, false );
 			
 		}
 

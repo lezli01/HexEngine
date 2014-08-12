@@ -1,0 +1,79 @@
+<Skill
+    id="@adrenalin_potion"
+    name="Adrenalin Potion"
+    affects_on="FRIENDLY"
+    animation="@IDLE"
+    area="1"
+    cooldown="3"
+    description="@skills_description/@adrenalin_potion"
+    graphics="@adrenalin_potion_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="3"
+    speed="2.25" >
+
+    <Affect
+        id="@adrenalin_potion_strength_up"
+        name="Cursed"
+        stat="@strength"
+        value="adrenalin_potion_strength_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_accuracy_up"
+        name="Cursed"
+        stat="@accuracy"
+        value="adrenalin_potion_accuracy_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_wisdom_up"
+        name="Cursed"
+        stat="@wisdom"
+        value="adrenalin_potion_wisdom_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_knowledge_up"
+        name="Cursed"
+        stat="@knowledge"
+        value="adrenalin_potion_knowledge_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_strength_down"
+        name="Cursed"
+        stat="@strength"
+        value="adrenalin_potion_strength_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_accuracy_down"
+        name="Cursed"
+        stat="@accuracy"
+        value="adrenalin_potion_accuracy_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_wisdom_down"
+        name="Cursed"
+        stat="@wisdom"
+        value="adrenalin_potion_wisdom_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@adrenalin_potion_knowledge_down"
+        name="Cursed"
+        stat="@knowledge"
+        value="adrenalin_potion_knowledge_down.lua"
+        when="3" >
+    </Affect>
+
+</Skill>

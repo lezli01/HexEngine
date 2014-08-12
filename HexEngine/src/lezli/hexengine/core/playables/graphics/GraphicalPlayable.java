@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTableCamera;
-import lezli.hexengine.core.gametable.script.PGraphicalPlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PGraphicalPlayableScriptable;
 import lezli.hexengine.core.playables.Playable;
 import lezli.hexengine.core.structure.entities.gametable.Holding;
 import lezli.hexengine.core.structure.entities.graphics.GraphicalEntity;

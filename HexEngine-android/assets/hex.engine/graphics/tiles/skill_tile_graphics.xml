@@ -1,0 +1,11 @@
+<Graphics
+    id="@skill_tile_graphics"
+    name="Skill Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/tiles.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tiles/skill.xml" />
+
+</Graphics>

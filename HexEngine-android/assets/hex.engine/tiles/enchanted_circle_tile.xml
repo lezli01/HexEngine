@@ -1,0 +1,40 @@
+<!--
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    id="@enchanted_circle_tile"
+    name="Enchanted Circle"
+    can_walk="true"
+    description="@example_texts/@example_text"
+    graphics="@enchanted_circle_tile_graphics"
+    height="1.0" >
+
+    <OnEnter>
+
+        <Affect
+            id="@enchanted_circle_tile_wisdom_up"
+            name="Mindblown"
+            stat="@wisdom"
+            value="enchanted_circle_tile_wisdom_up.lua"
+            when="1" >
+        </Affect>
+    </OnEnter>
+
+    <OnExit>
+
+        <Affect
+            id="@enchanted_circle_tile_wisdom_down"
+            name="Mindblown"
+            stat="@wisdom"
+            value="enchanted_circle_tile_wisdom_down.lua"
+            when="1" >
+        </Affect>
+    </OnExit>
+
+    <OnStay>
+    </OnStay>
+
+</Tile>

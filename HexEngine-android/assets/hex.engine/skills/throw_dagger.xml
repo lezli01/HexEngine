@@ -1,0 +1,39 @@
+<Skill
+    id="@throw_dagger"
+    name="Throw Dagger"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="4"
+    description="@skills_description/@throw_dagger"
+    graphics="@throw_dagger_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="3"
+    speed="2.25" >
+
+    <Affect
+        id="@throw_dagger_hit_points"
+        name="Wounded"
+        stat="@HIT_POINTS"
+        value="throw_dagger_hit_points.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@throw_dagger_speed_down"
+        name="Wounded"
+        stat="@MAX_SPEED"
+        value="throw_dagger_speed_down.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@throw_dagger_speed_up"
+        name="Unwounded"
+        stat="@MAX_SPEED"
+        value="throw_dagger_speed_up.lua"
+        when="3" >
+    </Affect>
+
+</Skill>

@@ -1,0 +1,11 @@
+<Graphics
+    id="@iron_source_tile_graphics"
+    name="Iron Source Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/iron_source_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

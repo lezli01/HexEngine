@@ -7,12 +7,13 @@ import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTable;
 import lezli.hexengine.core.gametable.event.GameEvent;
 import lezli.hexengine.core.gametable.player.EventPlayer;
-import lezli.hexengine.core.gametable.script.PBuildingScriptable;
-import lezli.hexengine.core.gametable.script.PGameTableScriptable;
-import lezli.hexengine.core.gametable.script.PLivingPlayableScriptable;
-import lezli.hexengine.core.gametable.script.PProducePlayableScriptable;
 import lezli.hexengine.core.gametable.script.PSkillScriptable;
-import lezli.hexengine.core.gametable.script.PUnitScriptable;
+import lezli.hexengine.core.gametable.scriptable.Action;
+import lezli.hexengine.core.gametable.scriptable.PBuildingScriptable;
+import lezli.hexengine.core.gametable.scriptable.PGameTableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PLivingPlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PProducePlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hexengine.core.playables.building.PBuilding;
 import lezli.hexengine.core.playables.building.PBuildingReg;
 import lezli.hexengine.core.playables.building.produce.PProducePlayable;
@@ -25,7 +26,7 @@ import org.luaj.vm2.compiler.LuaC;
 import org.luaj.vm2.lib.jse.CoerceJavaToLua;
 import org.luaj.vm2.lib.jse.JsePlatform;
 
-public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
+public class AIPlayer extends EventPlayer implements Action{
 
 	LuaClosure mLua;
 	private Prototype mPrototype;
@@ -33,19 +34,22 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 	private boolean mEvented;
 	private boolean mCalled;
 
+	private long mTimeout;
 	
 	public AIPlayer( String xName, PGameTable xGameTable, HexEngine xEngine ){
 		
 		super( xName, xGameTable, xEngine );
 		
+		mTimeout = 5000L;
+		
 		mPrototype = null;
 		
 		try {
 		
-			mPrototype = LuaC.compile( new ByteArrayInputStream( engine().entitiesHolder().getScripts().get( "ai_test.lua" ) ), "script" );
-			mLua = new LuaClosure( mPrototype, JsePlatform.standardGlobals() );
+			mPrototype = LuaC.compile( new ByteArrayInputStream( engine().entitiesHolder().getScripts().get( "ai_core.lua" ) ), "script" );
+			mLua = new LuaClosure( mPrototype, JsePlatform.debugGlobals() );
 			mLua.getfenv().rawset( "GameTable", CoerceJavaToLua.coerce( ( PGameTableScriptable ) getGameTable() ) );
-			mLua.getfenv().rawset( "Action", CoerceJavaToLua.coerce( ( AIPlayerScriptable ) this ) );
+			mLua.getfenv().rawset( "Action", CoerceJavaToLua.coerce( ( Action ) this ) );
 			
 		} catch (IOException e) {
 
@@ -58,11 +62,29 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 	@Override
 	public boolean playTurn(){
 
+		TimeoutThread timeoutThread = new TimeoutThread( mTimeout, new Runnable() {
+			
+			@Override
+			public void run() {
+
+				endTurn();
+				
+			}
+			
+		});
+		
+		timeoutThread.start();
+		
 		mTurn = false;
 		mEvented = false;
 		mCalled = true;
 		mLua.call();
 		mCalled = false;
+		
+		if( !mEvented )
+			endTurn();
+		
+		timeoutThread.unset();
 		
 		return mTurn;
 		
@@ -71,6 +93,13 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 	protected boolean ready(){
 		
 		return mCalled == false;
+		
+	}
+	
+	@Override
+	public void timeout( long usec ){
+
+		mTimeout = usec;
 		
 	}
 	
@@ -93,7 +122,7 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 	public void move( PUnitScriptable xUnit, int xX, int xY ){
 
 		PUnit unit = ( PUnit ) xUnit;
-		move( unit.getTileX(), unit.getTileY(), xX, xY, unit.getPID() );
+		addMoveEvent( unit.getTileX(), unit.getTileY(), xX, xY, unit.getPID() );
 		
 	}
 	
@@ -103,7 +132,7 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 		PUnit unitFrom = ( PUnit ) xUnitFrom;
 		PSkill skill = ( PSkill ) xSkill;
 		
-		skill( unitFrom.getPID(), xX, xY, skill.getEntityID() );
+		addSkillEvent( unitFrom.getPID(), xX, xY, skill.getEntityID() );
 		
 	}
 	
@@ -126,6 +155,59 @@ public class AIPlayer extends EventPlayer implements AIPlayerScriptable{
 		
 		turnEvent();
 	
+	}
+	
+	public static class TimeoutThread extends Thread{
+		
+		private boolean mToTimeout;
+		private long mTimeout;
+		private Runnable mRunnable;
+		
+		public TimeoutThread( long usec, Runnable runnable ){
+			
+			mTimeout = usec;
+			mRunnable = runnable;
+			
+		}
+		
+		public synchronized void unset(){
+			
+			mToTimeout = false;
+			
+		}
+		
+		public synchronized void set(){
+			
+			mToTimeout = true;
+			
+		}
+		
+		public synchronized boolean isset(){
+			
+			return mToTimeout;
+			
+		}
+		
+		@Override
+		public void run(){
+
+			set();
+			
+			try{
+				
+				sleep( mTimeout );
+			
+				if( isset() )
+					mRunnable.run();
+				
+			}catch( InterruptedException e ){
+
+				e.printStackTrace();
+			
+			}
+		
+		}
+		
 	}
 	
 }

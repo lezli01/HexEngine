@@ -1,0 +1,98 @@
+<!--
+	Example Building. A Building can have
+	Upgrades for Stats, can produce units,
+	can generate resources.
+-->
+<Building
+    id="@ritual_circle"
+    name="Ritual Circle"
+    description="@building_description/@ritual_circle"
+    duration="1"
+    graphics="@ritual_circle_graphics"
+    height="1.0"
+    width="1.0"
+    y="0.85" >
+
+    <StatEntries
+        id="@ritual_circle_stats"
+        name="Stats"
+        description="@example_texts/@example_text" >
+
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="100" />
+
+        <StatReg
+            stat="@HIT_POINTS"
+            value="1" />
+
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="1" />
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="1" />
+    </StatEntries>
+
+    <AcceptedTiles>
+
+        <MapTile tile="@magic_source" />
+    </AcceptedTiles>
+
+    <!-- Resource produced per turn. -->
+
+    <Produce>
+    </Produce>
+
+    <SkillUpgrade
+        id="@drain_energy"
+        name="Drain Energy"
+        description="@example_texts/@example_text"
+        duration="1"
+        skill="@drain_energy"
+        unit="@shaman" >
+
+        <Cost>
+
+            <ResourceCost
+                resource="@meat"
+                value="1" />
+        </Cost>
+    </SkillUpgrade>
+
+    <SkillUpgrade
+        id="@curse"
+        name="Curse"
+        description="@example_texts/@example_text"
+        duration="1"
+        skill="@curse"
+        unit="@shaman" >
+
+        <Cost>
+
+            <ResourceCost
+                resource="@meat"
+                value="1" />
+        </Cost>
+    </SkillUpgrade>
+
+    <!--
+    	Possible units that can be produced at the building.
+    	The duration means turns.
+    -->
+
+    <UnitProduced
+        id="@unit_shaman"
+        duration="1"
+        unit="@shaman" >
+
+        <Cost>
+
+            <ResourceCost
+                resource="@meat"
+                value="20" />
+        </Cost>
+    </UnitProduced>
+
+</Building>

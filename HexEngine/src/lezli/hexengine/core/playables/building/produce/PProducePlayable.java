@@ -7,7 +7,7 @@ import java.util.HashMap;
 import com.badlogic.gdx.utils.XmlWriter;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.script.PProducePlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PProducePlayableScriptable;
 import lezli.hexengine.core.playables.Playable;
 import lezli.hexengine.core.playables.cost.CostPlayable;
 import lezli.hexengine.core.structure.entities.building.ProduceEntity;

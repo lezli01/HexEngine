@@ -1,0 +1,11 @@
+<Graphics
+    id="@green_field_tile_graphics"
+    name="Green Field Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/green_field_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

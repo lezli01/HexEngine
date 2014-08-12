@@ -1,0 +1,56 @@
+<!--
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    id="@green_field_tile"
+    name="Green Field"
+    can_walk="true"
+    description="@example_texts/@example_text"
+    graphics="@green_field_tile_graphics"
+    height="1.0" >
+
+    <OnEnter>
+
+        <Affect
+            id="@green_field_tile_wisdom_up"
+            name="Freshened"
+            stat="@wisdom"
+            value="green_field_tile_wisdom_up.lua"
+            when="1" >
+        </Affect>
+
+        <Affect
+            id="@green_field_tile_knowledge_up"
+            name="Freshened"
+            stat="@knowledge"
+            value="green_field_tile_knowledge_up.lua"
+            when="1" >
+        </Affect>
+    </OnEnter>
+
+    <OnExit>
+
+        <Affect
+            id="@green_field_tile_wisdom_down"
+            name="Freshened"
+            stat="@wisdom"
+            value="green_field_tile_wisdom_down.lua"
+            when="1" >
+        </Affect>
+
+        <Affect
+            id="@green_field_tile_knowledge_down"
+            name="Freshened"
+            stat="@knowledge"
+            value="green_field_tile_knowledge_down.lua"
+            when="1" >
+        </Affect>
+    </OnExit>
+
+    <OnStay>
+    </OnStay>
+
+</Tile>

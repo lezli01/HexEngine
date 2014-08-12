@@ -1,0 +1,107 @@
+<Texts id="@skills_description" >
+
+    <Text id="@punch" >
+Punch the enemy.
+    </Text>
+
+    <Text id="@hammer_smash" >
+Smashes the enemy with a big hammer.
+    </Text>
+
+    <Text id="@haste" >
+Gain speed.
+    </Text>
+
+    <Text id="@swing" >
+Smash everyone around.
+    </Text>
+
+    <Text id="@shoot" >
+Shoot at the enemy.
+    </Text>
+
+    <Text id="@throw_grenade" >
+Throw an explosive.
+    </Text>
+
+    <Text id="@big_breath" >
+Gain speed.
+    </Text>
+
+    <Text id="@fireball" >
+Hurls a fireball at the enemy.
+    </Text>
+
+    <Text id="@fear" >
+Immobilize the enemy.
+    </Text>
+
+    <Text id="@meteor" >
+Call down a meteor.
+    </Text>
+
+    <Text id="@healing_touch" >
+Heal an ally next to you.
+    </Text>
+
+    <Text id="@bless" >
+Give bless.
+    </Text>
+
+    <Text id="@prayer" >
+Prayer for your allies.
+    </Text>
+
+    <Text id="@kick" >
+Kick the enemy.
+    </Text>
+
+    <Text id="@sword_cut" >
+Cut the enemy with a sword.
+    </Text>
+
+    <Text id="@stab" >
+Sneak behind and stab the enemy.
+    </Text>
+
+    <Text id="@throw_dagger" >
+Throw a dagger at the enemy.
+    </Text>
+
+    <Text id="@shoot_arrow" >
+Shoot an arrow.
+    </Text>
+
+    <Text id="@heavy_shoot" >
+Shoot a heavy and precised arrow.
+    </Text>
+
+    <Text id="@arrow_rain" >
+Repeatedly shoot arrows at the enemies.
+    </Text>
+
+    <Text id="@soulshards" >
+Burst soulshards against the enemy.
+    </Text>
+
+    <Text id="@drain_energy" >
+Drain energy from enemies.
+    </Text>
+
+    <Text id="@curse" >
+Curse the enemies.
+    </Text>
+
+    <Text id="@healing_potion" >
+Throw a healing potion.
+    </Text>
+
+    <Text id="@adrenalin_potion" >
+Throw an adrenalin potion.
+    </Text>
+
+    <Text id="@rejuvenation_potion" >
+Throw a rejuvenation potion.
+    </Text>
+
+</Texts>

@@ -1,0 +1,11 @@
+<Graphics
+    id="@hill_tile_graphics"
+    name="Hill Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/hill_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

@@ -1,0 +1,13 @@
+<MapTile
+    id="@magic_source"
+    tile="@grass_tile"
+    walkable="false" >
+
+    <Placeholder
+        h="0.4"
+        placeholder="@rock"
+        w="0.6"
+        x="0.5"
+        y="0.5" />
+
+</MapTile>

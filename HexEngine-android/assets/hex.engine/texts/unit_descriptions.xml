@@ -1,0 +1,43 @@
+<Texts id="@unit_descriptions" >
+
+    <Text id="@handyman" >
+Can build buildings.
+    </Text>
+
+    <Text id="@engineer" >
+Can build buildings.
+    </Text>
+
+    <Text id="@brute" >
+Melee unit with a big hammer.
+    </Text>
+
+    <Text id="@trickster" >
+Melee unit with swords.
+    </Text>
+
+    <Text id="@gunner" >
+Ranger unit with a gun.
+    </Text>
+
+    <Text id="@crossbower" >
+Ranger unit with a crossbow.
+    </Text>
+
+    <Text id="@warlock" >
+Can cast various spells.
+    </Text>
+
+    <Text id="@shaman" >
+Can cast various spells.
+    </Text>
+
+    <Text id="@priest" >
+Follower of the light. Can heal.
+    </Text>
+
+    <Text id="@alchemist" >
+Uses different kind of potions.
+    </Text>
+
+</Texts>

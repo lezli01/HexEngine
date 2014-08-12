@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.script.PLivingPlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PLivingPlayableScriptable;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
 import lezli.hexengine.core.playables.unit.skills.PAffect;
 import lezli.hexengine.core.playables.unit.stats.PStatReg;

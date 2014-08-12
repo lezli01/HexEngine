@@ -1,0 +1,13 @@
+<MapTile
+    id="@iron_source"
+    tile="@grass_tile"
+    walkable="false" >
+
+    <Placeholder
+        h="0.75"
+        placeholder="@iron_source"
+        w="1.0"
+        x="0.5"
+        y="0.5" />
+
+</MapTile>

@@ -1,0 +1,23 @@
+<Skill
+    id="@big_breath"
+    name="Big Breath"
+    affects_on="SELF"
+    animation="@IDLE"
+    area="0"
+    cooldown="5"
+    description="@skills_description/@big_breath"
+    graphics="@big_breath_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="0"
+    speed="5.0" >
+
+    <Affect
+        id="@big_breath_speed"
+        name="Breathed"
+        stat="@SPEED"
+        value="big_breath_speed.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

@@ -1,7 +1,7 @@
 package lezli.hexengine.core.playables.cost;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.script.PCostPlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PCostPlayableScriptable;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
 import lezli.hexengine.core.structure.entities.cost.CostEntity;
 

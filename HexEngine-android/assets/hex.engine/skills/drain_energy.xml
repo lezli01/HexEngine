@@ -1,0 +1,23 @@
+<Skill
+    id="@drain_energy"
+    name="Drain Energy"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="2"
+    cooldown="5"
+    description="@skills_description/@drain_energy"
+    graphics="@drain_energy_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="4"
+    speed="2.0" >
+
+    <Affect
+        id="@drain_energy_speed"
+        name="Exhausted"
+        stat="@SPEED"
+        value="drain_energy_speed.lua"
+        when="2" >
+    </Affect>
+
+</Skill>

@@ -1,0 +1,79 @@
+<Skill
+    id="@bless"
+    name="Bless"
+    affects_on="FRIENDLY"
+    animation="@IDLE"
+    area="0"
+    cooldown="2"
+    description="@skills_description/@bless"
+    graphics="@bless_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="1"
+    speed="5.0" >
+
+    <Affect
+        id="@bless_strength_up"
+        name="Wounded"
+        stat="@strength"
+        value="bless_stat_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@bless_accuracy_up"
+        name="Wounded"
+        stat="@accuracy"
+        value="bless_stat_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@bless_wisdom_up"
+        name="Wounded"
+        stat="@wisdom"
+        value="bless_stat_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@bless_knowledge_up"
+        name="Wounded"
+        stat="@knowledge"
+        value="bless_stat_up.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@bless_strength_down"
+        name="Wounded"
+        stat="@strength"
+        value="bless_stat_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@bless_accuracy_down"
+        name="Wounded"
+        stat="@accuracy"
+        value="bless_stat_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@bless_wisdom_down"
+        name="Wounded"
+        stat="@wisdom"
+        value="bless_stat_down.lua"
+        when="3" >
+    </Affect>
+
+    <Affect
+        id="@bless_knowledge_down"
+        name="Wounded"
+        stat="@knowledge"
+        value="bless_stat_down.lua"
+        when="3" >
+    </Affect>
+
+</Skill>

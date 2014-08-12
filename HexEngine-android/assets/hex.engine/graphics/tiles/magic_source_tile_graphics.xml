@@ -1,0 +1,14 @@
+<Graphics
+    id="@magic_source_tile_graphics"
+    name="Magic Source Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/magic_source_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" >
+
+        <Particle file="siegedevils/graphics_elements/particles/magic_source_particle.p" />
+    </Animation>
+
+</Graphics>

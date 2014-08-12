@@ -1,0 +1,86 @@
+<!--
+	The stat types of the game, all units
+	will have these kind of statisctics to exclude
+	ambiguity.
+	
+	Must define:
+	@HIT_POINTS
+	@SPEED
+	@FIELD_OF_VIEW
+-->
+<Stats
+    id="@stats"
+    name="Stats"
+    description="@example_texts/@example_text" >
+
+    <Stat
+        id="@MAX_HIT_POINTS"
+        name="Max Hit Points"
+        description="@example_texts/@example_text"
+        graphics="@hit_points_graphics"
+        short_name="MHP" />
+
+    <Stat
+        id="@HIT_POINTS"
+        name="Hit Points"
+        description="@example_texts/@example_text"
+        graphics="@hit_points_graphics"
+        short_name="HP" />
+
+    <Stat
+        id="@MAX_SPEED"
+        name="Max Speed"
+        description="@example_texts/@example_text"
+        graphics="@speed_graphics"
+        short_name="MSP" />
+
+    <Stat
+        id="@SPEED"
+        name="Speed"
+        description="@example_texts/@example_text"
+        graphics="@speed_graphics"
+        short_name="SPD" />
+
+    <Stat
+        id="@FIELD_OF_VIEW"
+        name="Field of view"
+        description="@example_texts/@example_text"
+        graphics="@field_of_view_graphics"
+        short_name="Fov" />
+
+    <Stat
+        id="@FIELD_OF_HEED"
+        name="Field of heed"
+        description="@example_texts/@example_text"
+        graphics="@field_of_heed_graphics"
+        short_name="Foh" />
+
+    <Stat
+        id="@strength"
+        name="Strength"
+        description="@example_texts/@example_text"
+        graphics="@strength_graphics"
+        short_name="Str" />
+
+    <Stat
+        id="@wisdom"
+        name="Wisdom"
+        description="@example_texts/@example_text"
+        graphics="@wisdom_graphics"
+        short_name="Wis" />
+
+    <Stat
+        id="@accuracy"
+        name="Accuracy"
+        description="@example_texts/@example_text"
+        graphics="@accuracy_graphics"
+        short_name="Acc" />
+
+    <Stat
+        id="@knowledge"
+        name="Knowledge"
+        description="@example_texts/@example_text"
+        graphics="@knowledge_graphics"
+        short_name="Kwd" />
+
+</Stats>

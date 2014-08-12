@@ -7,11 +7,11 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.player.Player;
-import lezli.hexengine.core.gametable.script.PBuildingScriptable;
-import lezli.hexengine.core.gametable.script.PProducePlayableScriptable;
 import lezli.hexengine.core.gametable.script.PSkillScriptable;
-import lezli.hexengine.core.gametable.script.PStatEntriesScriptable;
-import lezli.hexengine.core.gametable.script.PUnitScriptable;
+import lezli.hexengine.core.gametable.scriptable.PBuildingScriptable;
+import lezli.hexengine.core.gametable.scriptable.PProducePlayableScriptable;
+import lezli.hexengine.core.gametable.scriptable.PStatEntriesScriptable;
+import lezli.hexengine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hexengine.core.playables.LivingPlayable;
 import lezli.hexengine.core.playables.building.produce.PProduceListener;
 import lezli.hexengine.core.playables.building.produce.PProducePlayable;

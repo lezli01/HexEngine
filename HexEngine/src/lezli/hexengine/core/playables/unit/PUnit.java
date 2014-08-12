@@ -7,9 +7,9 @@ import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.HexEngine.HexEngineProperties;
 import lezli.hexengine.core.gametable.PGameTableCamera;
 import lezli.hexengine.core.gametable.event.GameEventListener;
-import lezli.hexengine.core.gametable.script.PBuildingScriptable;
 import lezli.hexengine.core.gametable.script.PSkillScriptable;
-import lezli.hexengine.core.gametable.script.PUnitScriptable;
+import lezli.hexengine.core.gametable.scriptable.PBuildingScriptable;
+import lezli.hexengine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hexengine.core.playables.LivingPlayable;
 import lezli.hexengine.core.playables.building.PBuildingReg;
 import lezli.hexengine.core.playables.building.produce.PProducePlayable;
@@ -195,13 +195,36 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 		
 		float speed = getMovingSpeedX();
 		
+		boolean instant = ( Boolean ) engine().getProperties().getProperty( HexEngineProperties.PROP_INSTANT_MOVE );
+		
 		if( mGotos.size() > 0 ){
+
+			if( instant ){
+				
+				while( mGotos.size() > 1 ){
+					
+					if( mGotoTiles.size() > mGotos.size() )
+						mGotoTiles.remove( 0 );
+					
+					mGotos.remove( 0 );
+					
+				}
+				
+			}
 			
 			Vector2 current = mGotos.get( 0 );
+			
+			if( instant ){
+			
+				setX( current.x );
+				setY( current.y );
+				
+			}
 			
 			if( getX() < current.x ){
 				
 				setX( getX() + speed );
+
 				
 				if( getX() > current.x )
 					setX( current.x );
@@ -306,9 +329,6 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 	}
 
 	private float getMovingSpeedX(){
-		
-		if( ( Boolean ) ( engine().getProperties().getProperty( HexEngineProperties.PROP_INSTANT ) ) )
-			return 10000;
 		
 		return Gdx.graphics.getDeltaTime() * MOVING_SPEED_X;
 		

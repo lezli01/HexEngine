@@ -12,7 +12,7 @@ import lezli.hexengine.core.HexEngine;
 import lezli.hexengine.core.gametable.PGameTableCamera;
 import lezli.hexengine.core.gametable.player.Player;
 import lezli.hexengine.core.gametable.script.PMapScriptable;
-import lezli.hexengine.core.gametable.script.PUnitScriptable;
+import lezli.hexengine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hexengine.core.playables.LivingPlayable;
 import lezli.hexengine.core.playables.building.PBuilding;
 import lezli.hexengine.core.playables.graphics.GraphicalPlayable;

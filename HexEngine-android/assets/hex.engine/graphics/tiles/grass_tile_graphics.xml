@@ -1,0 +1,11 @@
+<Graphics
+    id="@grass_tile_graphics"
+    name="Grass Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/tiles.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tiles/grass.xml" />
+
+</Graphics>

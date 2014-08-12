@@ -1,0 +1,39 @@
+<Skill
+    id="@fireball"
+    name="Fireball"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="1"
+    description="@skills_description/@fireball"
+    graphics="@fireball_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="3"
+    speed="3.0" >
+
+    <Affect
+        id="@fireball_hit_points"
+        name="Burned"
+        stat="@HIT_POINTS"
+        value="fireball_hit_points.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@fireball_hit_points_burn"
+        name="Burned"
+        stat="@HIT_POINTS"
+        value="fireball_hit_points_burn.lua"
+        when="2" >
+    </Affect>
+
+    <Affect
+        id="@fireball_hit_points_burn"
+        name="Burned"
+        stat="@HIT_POINTS"
+        value="fireball_hit_points_burn.lua"
+        when="3" >
+    </Affect>
+
+</Skill>

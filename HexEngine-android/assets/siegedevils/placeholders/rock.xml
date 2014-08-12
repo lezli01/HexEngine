@@ -1,8 +1,0 @@
-<Placeholder
-    name="Rock"
-    description="@example_texts/@example_text"
-    id="@rock"
-    graphics="@rock_graphics"
-    shadow="false">
-    
-</Placeholder>

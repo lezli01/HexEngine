@@ -1,0 +1,11 @@
+<Graphics
+    id="@rock_graphics"
+    name="Rock Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/placeholders/placeholders.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/placeholders/rocks.xml" />
+
+</Graphics>

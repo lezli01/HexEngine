@@ -1,0 +1,7 @@
+<Placeholder
+    id="@campfire"
+    name="Campfire"
+    description="@example_texts/@example_text"
+    graphics="@campfire_graphics" >
+
+</Placeholder>

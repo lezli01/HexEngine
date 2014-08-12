@@ -1,0 +1,40 @@
+<!--
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    id="@ice_tile"
+    name="Ice"
+    can_walk="true"
+    description="@example_texts/@example_text"
+    graphics="@ice_tile_graphics"
+    height="1.0" >
+
+    <OnEnter>
+
+        <Affect
+            id="@ice_tile_speed_up"
+            name="Icy"
+            stat="@MAX_SPEED"
+            value="ice_tile_max_speed_up.lua"
+            when="1" >
+        </Affect>
+    </OnEnter>
+
+    <OnExit>
+
+        <Affect
+            id="@ice_tile_speed_down"
+            name="Uniced"
+            stat="@MAX_SPEED"
+            value="ice_tile_max_speed_down.lua"
+            when="1" >
+        </Affect>
+    </OnExit>
+
+    <OnStay>
+    </OnStay>
+
+</Tile>

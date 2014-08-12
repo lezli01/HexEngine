@@ -1,0 +1,185 @@
+<Unit
+    id="@handyman"
+    name="Handyman"
+    description="@unit_descriptions/@handyman"
+    graphics="@handyman_graphics"
+    height="0.9"
+    race="@dwarfs"
+    width="0.75"
+    x="0.5"
+    y="1.5" >
+
+    <!-- Stats of the unit. -->
+
+    <StatEntries
+        id="@handyman_stats"
+        name="Stats"
+        description="@example_texts/@example_text" >
+
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="10" />
+
+        <StatReg
+            stat="@HIT_POINTS"
+            value="10" />
+
+        <StatReg
+            stat="@SPEED"
+            value="3" />
+
+        <StatReg
+            stat="@MAX_SPEED"
+            value="3" />
+
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="3" />
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5" />
+
+        <StatReg
+            stat="@strength"
+            value="2" />
+
+        <StatReg
+            stat="@accuracy"
+            value="1" />
+
+        <StatReg
+            stat="@wisdom"
+            value="1" />
+
+        <StatReg
+            stat="@knowledge"
+            value="2" />
+    </StatEntries>
+
+    <!-- Skills the unit can use. -->
+
+    <SkillEntries
+        id="@handyman_skills"
+        name="Skills"
+        description="@example_texts/@example_text" >
+
+        <SkillReg skill="@punch" />
+    </SkillEntries>
+
+    <!-- Buildings the unit can build. -->
+
+    <BuildingEntries
+        id="@handyman_buildingentries"
+        name="Building Entries"
+        description="@example_texts/@example_text" >
+
+        <BuildingReg
+            building="@odins_hall"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="10" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@barracks"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="8" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@shooting_range"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="15" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@library"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="20" />
+
+                <ResourceCost
+                    resource="@iron"
+                    value="10" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@church"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="15" />
+
+                <ResourceCost
+                    resource="@meat"
+                    value="10" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@sawmill"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="5" />
+
+                <ResourceCost
+                    resource="@iron"
+                    value="5" />
+            </Cost>
+        </BuildingReg>
+
+        <BuildingReg
+            building="@iron_mine"
+            duration="1"
+            unit="@handyman" >
+
+            <Cost>
+
+                <ResourceCost
+                    resource="@wood"
+                    value="10" />
+
+                <ResourceCost
+                    resource="@iron"
+                    value="2" />
+            </Cost>
+        </BuildingReg>
+    </BuildingEntries>
+
+</Unit>

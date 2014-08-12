@@ -1,0 +1,11 @@
+<Graphics
+    id="@camp_tile_graphics"
+    name="Camp Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/camp_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

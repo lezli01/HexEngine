@@ -1,0 +1,23 @@
+<Skill
+    id="@sword_cut"
+    name="Sword Cut"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="1"
+    description="@skills_description/@sword_cut"
+    graphics="@sword_cut_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="1"
+    speed="5.0" >
+
+    <Affect
+        id="@sword_cut_hit_points"
+        name="Wounded"
+        stat="@HIT_POINTS"
+        value="sword_cut_hit_points.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

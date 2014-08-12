@@ -1,0 +1,69 @@
+<Unit
+    id="@gunner"
+    name="Gunner"
+    description="@unit_descriptions/@gunner"
+    graphics="@gunner_graphics"
+    height="0.9"
+    race="@dwarfs"
+    width="0.75"
+    y="0.65" >
+
+    <!-- Stats of the unit. -->
+
+    <StatEntries
+        id="@brute_stats"
+        name="Stats"
+        description="@example_texts/@example_text" >
+
+        <StatReg
+            stat="@MAX_HIT_POINTS"
+            value="40" />
+
+        <StatReg
+            stat="@HIT_POINTS"
+            value="40" />
+
+        <StatReg
+            stat="@SPEED"
+            value="4" />
+
+        <StatReg
+            stat="@MAX_SPEED"
+            value="4" />
+
+        <StatReg
+            stat="@FIELD_OF_VIEW"
+            value="5" />
+
+        <StatReg
+            stat="@FIELD_OF_HEED"
+            value="5" />
+
+        <StatReg
+            stat="@strength"
+            value="1" />
+
+        <StatReg
+            stat="@accuracy"
+            value="5" />
+
+        <StatReg
+            stat="@wisdom"
+            value="1" />
+
+        <StatReg
+            stat="@knowledge"
+            value="1" />
+    </StatEntries>
+
+    <!-- Skills the unit can use. -->
+
+    <SkillEntries
+        id="@gunner_skills"
+        name="Skills"
+        description="@example_texts/@example_text" >
+
+        <SkillReg skill="@shoot" />
+    </SkillEntries>
+
+</Unit>

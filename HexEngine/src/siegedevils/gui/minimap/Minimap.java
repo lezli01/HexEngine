@@ -1,17 +1,15 @@
 package siegedevils.gui.minimap;
 
-import siegedevils.gui.ScrollPaneShadowed;
 import lezli.hexengine.moddable.interfaces.HEGameTable;
 import lezli.hexengine.moddable.interfaces.HETile;
+import siegedevils.gui.ScrollPaneShadowed;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.TiledDrawable;
 
 public class Minimap extends ScrollPaneShadowed{
 

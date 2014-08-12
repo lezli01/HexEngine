@@ -1,0 +1,23 @@
+<Skill
+    id="@punch"
+    name="Punch"
+    affects_on="ENEMY"
+    animation="@ATTACK"
+    area="0"
+    cooldown="1"
+    description="@skills_description/@punch"
+    graphics="@punch_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="1"
+    speed="50.0" >
+
+    <Affect
+        id="@punch_hit_points"
+        name="Punched"
+        stat="@HIT_POINTS"
+        value="punch_hit_points.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

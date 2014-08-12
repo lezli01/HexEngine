@@ -1,0 +1,24 @@
+<!--
+	This is an example tile, it can be stepped on
+	and when a unit steps on it it will grant random
+	strength between 1 and 10.
+-->
+
+<Tile
+    id="@AREA_TILE"
+    name="AREA TILE"
+    can_walk="true"
+    description="@example_texts/@example_text"
+    graphics="@area_tile_graphics"
+    height="1.0" >
+
+    <OnEnter>
+    </OnEnter>
+
+    <OnExit>
+    </OnExit>
+
+    <OnStay>
+    </OnStay>
+
+</Tile>

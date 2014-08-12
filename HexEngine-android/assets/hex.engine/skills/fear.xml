@@ -1,0 +1,23 @@
+<Skill
+    id="@fear"
+    name="Fear"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="3"
+    description="@skills_description/@fear"
+    graphics="@fear_graphics"
+    projectile_height="2.0"
+    projectile_width="2.0"
+    range="3"
+    speed="2.0" >
+
+    <Affect
+        id="@fear_speed"
+        name="Feared"
+        stat="@SPEED"
+        value="fear_speed.lua"
+        when="2" >
+    </Affect>
+
+</Skill>

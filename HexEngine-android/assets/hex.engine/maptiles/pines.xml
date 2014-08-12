@@ -1,0 +1,13 @@
+<MapTile
+    id="@pines"
+    tile="@grass_tile"
+    walkable="false" >
+
+    <Placeholder
+        h="1.25"
+        placeholder="@pine_woods"
+        w="1.0"
+        x="0.5"
+        y="0.40" />
+
+</MapTile>

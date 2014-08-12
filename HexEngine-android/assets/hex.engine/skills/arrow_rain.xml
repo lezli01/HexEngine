@@ -1,0 +1,31 @@
+<Skill
+    id="@arrow_rain"
+    name="Arrow rain"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="2"
+    cooldown="5"
+    description="@skills_description/@arrow_rain"
+    graphics="@arrow_rain_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="6"
+    speed="2.0" >
+
+    <Affect
+        id="@arrow_rain_hit_points"
+        name="Wounded"
+        stat="@HIT_POINTS"
+        value="arrow_rain_hit_points.lua"
+        when="1" >
+    </Affect>
+
+    <Affect
+        id="@arrow_rain_speed"
+        name="Crippled"
+        stat="@SPEED"
+        value="arrow_rain_speed.lua"
+        when="2" >
+    </Affect>
+
+</Skill>

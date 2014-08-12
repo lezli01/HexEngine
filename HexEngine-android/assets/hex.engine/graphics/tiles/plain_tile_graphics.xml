@@ -1,0 +1,11 @@
+<Graphics
+    id="@plain_tile_graphics"
+    name="Plain Tile Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/tiles/plain_tile.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/tile_animation.xml" />
+
+</Graphics>

@@ -96,7 +96,7 @@ public abstract class EventPlayer extends Player{
 		
 	}
 	
-	protected void skill( final String xUnitFrom, final int xToX, final int xToY, final String xSkill ){
+	protected void addSkillEvent( final String xUnitFrom, final int xToX, final int xToY, final String xSkill ){
 
 		event( new GameEvent(){{
 			type = SKILL_CASTED;
@@ -107,7 +107,7 @@ public abstract class EventPlayer extends Player{
 		
 	}
 	
-	protected void move( final int xFromX, final int xFromY, final int xToX, final int xToY, final String xUnit ){
+	protected void addMoveEvent( final int xFromX, final int xFromY, final int xToX, final int xToY, final String xUnit ){
 		event( new GameEvent(){{
 			type = UNIT_MOVED;
 			addCoords( xFromX, xFromY ).addCoords( xToX, xToY );

@@ -1,0 +1,23 @@
+<Skill
+    id="@haste"
+    name="Haste"
+    affects_on="SELF"
+    animation="@IDLE"
+    area="0"
+    cooldown="3"
+    description="@skills_description/@haste"
+    graphics="@haste_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="0"
+    speed="5.0" >
+
+    <Affect
+        id="@haste_speed"
+        name="Haste"
+        stat="@SPEED"
+        value="haste_speed.lua"
+        when="1" >
+    </Affect>
+
+</Skill>

@@ -3,7 +3,7 @@ package lezli.hexengine.core.playables.building.produce;
 import java.util.HashMap;
 
 import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.gametable.script.PStatEntriesScriptable;
+import lezli.hexengine.core.gametable.scriptable.PStatEntriesScriptable;
 import lezli.hexengine.core.playables.unit.stats.PStatEntries;
 import lezli.hexengine.core.structure.entities.building.StatUpgrade;
 import lezli.hexengine.core.structure.entities.stat.StatReg;

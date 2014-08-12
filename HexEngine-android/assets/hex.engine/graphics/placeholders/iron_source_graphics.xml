@@ -1,0 +1,11 @@
+<Graphics
+    id="@iron_source_graphics"
+    name="Iron Source Graphics"
+    filter="linear"
+    src="siegedevils/graphics_elements/textures/placeholders/placeholders.png" >
+
+    <Animation
+        id="@IDLE"
+        src="siegedevils/graphics_elements/animations/placeholders/iron.xml" />
+
+</Graphics>

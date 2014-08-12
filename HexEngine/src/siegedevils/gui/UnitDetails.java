@@ -16,6 +16,7 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
@@ -236,7 +237,7 @@ public class UnitDetails extends Actor{
 			
 			mTable.row();
 
-			Table skillTable = new PSkillPrintable( skill ).getListElementTable( mSkin );
+			Table skillTable = new PSkillPrintable( skill ).getListElementTable( mSkin, e );
 			
 			if( !skill.isCooldown() ){
 			
@@ -274,7 +275,7 @@ public class UnitDetails extends Actor{
 			
 			mTable.row();
 
-			Table buildingTable = new PBuildingRegPrintable( buildingReg ).getListElementTable( mSkin );
+			Table buildingTable = new PBuildingRegPrintable( buildingReg ).getListElementTable( mSkin, e );
 		
 			buildingTable.addListener( new ClickListener(){
 				
@@ -396,6 +397,13 @@ public class UnitDetails extends Actor{
 		buttonsTable.add( btn1 ).width( WIDTH / 2.0f ).expandY().fillY();
 		buttonsTable.add( btn2 ).width( WIDTH / 2.0f ).expandY().fillY();
 	
+		if( btn2Title.equals( "Build" ) && mCurrentUnit.getBuildingRegs().size() == 0 ){
+		
+			btn2.setTouchable( Touchable.disabled );
+			btn2.setColor( 0.25f, 0.25f, 0.25f, 1.0f );
+		
+		}
+		
 		mButtonsTable.row();
 		
 		mButtonsTable.add( buttonsTable ).colspan( colSpan ).expandX().fillX().expandY().bottom().expandY().fillY();

@@ -22,7 +22,7 @@ public class CostPlayablePrintable< T extends CostPlayable< ? > > extends Graphi
 	@Override
 	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 
-		Table table = super.getListElementTable( xSkin );
+		Table table = super.getListElementTable( xSkin, xEngine );
 	
 		for( Entry< String, Integer > cost: getPlayable().getCost().getResourceCosts().entrySet() ){
 			

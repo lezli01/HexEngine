@@ -1,0 +1,23 @@
+<Skill
+    id="@heavy_shoot"
+    name="Heavy Shoot"
+    affects_on="ENEMY"
+    animation="@IDLE"
+    area="0"
+    cooldown="3"
+    description="@skills_description/@heavy_shoot"
+    graphics="@heavy_shoot_graphics"
+    projectile_height="1.0"
+    projectile_width="1.0"
+    range="6"
+    speed="2.25" >
+
+    <Affect
+        id="@heavy_shoot_hit_points"
+        name="Wounded"
+        stat="@HIT_POINTS"
+        value="heavy_shoot_hit_points.lua"
+        when="1" >
+    </Affect>
+
+</Skill>
