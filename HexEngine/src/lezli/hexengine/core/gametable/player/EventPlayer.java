@@ -12,13 +12,23 @@ public abstract class EventPlayer extends Player{
 	
 	private ArrayList< GameEvent > mEvents;
 	
+	private long mTimeout;
+	
 	public EventPlayer( String xName, PGameTable xGameTable, HexEngine xEngine ){
 		
 		super( xName, xEngine );
 		
+		mTimeout = 5000L;
+		
 		mGameTable = xGameTable;
 		
 		mEvents = new ArrayList< GameEvent >();
+		
+	}
+	
+	public void timeout( long usec ){
+
+		mTimeout = usec;
 		
 	}
 	
@@ -60,6 +70,8 @@ public abstract class EventPlayer extends Player{
 				try {
 					
 					do{
+						
+						//TODO timeoutthread here
 						
 						while( !( mGameTable.ready() && ready() ) ){
 							sleep( 500 );
@@ -138,4 +150,57 @@ public abstract class EventPlayer extends Player{
 		}});
 	}
 
+	public static class TimeoutThread extends Thread{
+		
+		private boolean mToTimeout;
+		private long mTimeout;
+		private Runnable mRunnable;
+		
+		public TimeoutThread( long usec, Runnable runnable ){
+			
+			mTimeout = usec;
+			mRunnable = runnable;
+			
+		}
+		
+		public synchronized void unset(){
+			
+			mToTimeout = false;
+			
+		}
+		
+		public synchronized void set(){
+			
+			mToTimeout = true;
+			
+		}
+		
+		public synchronized boolean isset(){
+			
+			return mToTimeout;
+			
+		}
+		
+		@Override
+		public void run(){
+
+			set();
+			
+			try{
+				
+				sleep( mTimeout );
+			
+				if( isset() )
+					mRunnable.run();
+				
+			}catch( InterruptedException e ){
+
+				e.printStackTrace();
+			
+			}
+		
+		}
+		
+	}
+	
 }

@@ -4,8 +4,6 @@ import lezli.hexengine.core.gametable.script.PSkillScriptable;
 
 public interface Action {
 
-	public abstract void timeout( long usec );
-	
 	public abstract void endTurn();
 	
 	public abstract void move( PUnitScriptable xUnit, int xX, int xY );

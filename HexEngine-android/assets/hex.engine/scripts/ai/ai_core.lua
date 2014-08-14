@@ -9,11 +9,17 @@ function timeout()
 	if  elapsed >= 5000 then
 		
 		error( "timeout" )
-  	Action:endTurn()
     
 	end
 	
 end
 
+
+function startAi()
+  
+  dofile( "hex.engine/scripts/ai/ai.lua" )
+
+end
+
 debug.sethook( timeout, "", 100 )
-dofile( "hex.engine/scripts/ai/ai.lua" )
+startAi()

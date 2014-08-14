@@ -34,13 +34,9 @@ public class AIPlayer extends EventPlayer implements Action{
 	private boolean mEvented;
 	private boolean mCalled;
 
-	private long mTimeout;
-	
 	public AIPlayer( String xName, PGameTable xGameTable, HexEngine xEngine ){
 		
 		super( xName, xGameTable, xEngine );
-		
-		mTimeout = 5000L;
 		
 		mPrototype = null;
 		
@@ -61,19 +57,6 @@ public class AIPlayer extends EventPlayer implements Action{
 	
 	@Override
 	public boolean playTurn(){
-
-		TimeoutThread timeoutThread = new TimeoutThread( mTimeout, new Runnable() {
-			
-			@Override
-			public void run() {
-
-				endTurn();
-				
-			}
-			
-		});
-		
-		timeoutThread.start();
 		
 		mTurn = false;
 		mEvented = false;
@@ -84,8 +67,6 @@ public class AIPlayer extends EventPlayer implements Action{
 		if( !mEvented )
 			endTurn();
 		
-		timeoutThread.unset();
-		
 		return mTurn;
 		
 	}
@@ -93,13 +74,6 @@ public class AIPlayer extends EventPlayer implements Action{
 	protected boolean ready(){
 		
 		return mCalled == false;
-		
-	}
-	
-	@Override
-	public void timeout( long usec ){
-
-		mTimeout = usec;
 		
 	}
 	
@@ -155,59 +129,6 @@ public class AIPlayer extends EventPlayer implements Action{
 		
 		turnEvent();
 	
-	}
-	
-	public static class TimeoutThread extends Thread{
-		
-		private boolean mToTimeout;
-		private long mTimeout;
-		private Runnable mRunnable;
-		
-		public TimeoutThread( long usec, Runnable runnable ){
-			
-			mTimeout = usec;
-			mRunnable = runnable;
-			
-		}
-		
-		public synchronized void unset(){
-			
-			mToTimeout = false;
-			
-		}
-		
-		public synchronized void set(){
-			
-			mToTimeout = true;
-			
-		}
-		
-		public synchronized boolean isset(){
-			
-			return mToTimeout;
-			
-		}
-		
-		@Override
-		public void run(){
-
-			set();
-			
-			try{
-				
-				sleep( mTimeout );
-			
-				if( isset() )
-					mRunnable.run();
-				
-			}catch( InterruptedException e ){
-
-				e.printStackTrace();
-			
-			}
-		
-		}
-		
 	}
 	
 }

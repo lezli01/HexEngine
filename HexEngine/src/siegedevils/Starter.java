@@ -119,7 +119,7 @@ public class Starter implements ApplicationListener {
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
 
-		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, true );
+		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, false );
 		
 	}
 

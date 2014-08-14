@@ -1,8 +1,0 @@
-<Sprite
-    name="Example Sprite"
-    description="@example_texts/@example_text"
-    id="@example_sprite"
-    x_offset="10"
-    y_offset="10"
-    width="10"
-    height="10"/>
