@@ -1,9 +1,11 @@
 package lezli.hex.engine.moddable.interfaces;
 
+import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 
 public interface HEGameTable {
 
+	public void addEventListener( HEEventListener xListener );
 	public void addGameTableEventListener( HEGameTableEventListener xListener );
 	public HEGameTableController getController();
 	

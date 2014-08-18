@@ -189,8 +189,8 @@ public class HexEngine {
 	private void assertInit(){
 		
 		if( !mInited ){
-	
-			System.err.println( "Engine not initialized properly!" );
+
+			//TODO log
 			System.exit( 1 );
 			
 		}

@@ -7,6 +7,8 @@ import lezli.hex.engine.core.HexEngine.HexEngineProperties;
 import lezli.hex.engine.core.gametable.event.GameEvent;
 import lezli.hex.engine.core.gametable.player.RemotePlayer;
 import lezli.hex.engine.core.playables.Logger;
+import lezli.hex.engine.moddable.interfaces.HEGameEvent;
+import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
@@ -120,6 +122,19 @@ public class Starter implements ApplicationListener {
 		mEngine.start();
 
 		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, false );
+		
+		mEngine.getGameTable().addEventListener( new HEEventListener() {
+			
+			@Override
+			public boolean event(HEGameEvent xEvent) {
+
+				System.out.println( xEvent.getType() );
+				
+				return true;
+				
+			}
+		
+		});
 		
 	}
 

@@ -1,13 +1,15 @@
 package lezli.hex.engine.core.gametable.event;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 
 import com.badlogic.gdx.utils.Json;
 
 
-public class GameEvent{
+public class GameEvent implements HEGameEvent{
 
 	public static final int UNIT_MOVED		=	1 << 0;
 	public static final int SKILL_CASTED	=	1 << 1;
@@ -15,14 +17,14 @@ public class GameEvent{
 	public static final int BUILDING_ADDED	=	1 << 3;
 	public static final int TURNED			= 	1 << 4;
 	
-	public int type;
+	public int type = 0;
 	public String playerName;
 	public String unitID;
 	public String buildingID;
 	public String produceID;
 	public String skillID;
 	public ArrayList< Integer > eventX;
-	public ArrayList< Integer > eventY;;
+	public ArrayList< Integer > eventY;
 	public String stat;
 	public int value;
 	
@@ -77,5 +79,50 @@ public class GameEvent{
 		return new Json().toJson( this );
 	
 	}
+
+	@Override
+	public int getType() {
+
+		return type;
+	
+	}
+
+	@Override
+	public String getPlayer(){
+
+		return new String( playerName );
+		
+	}
+
+	@Override
+	public String getStat() {
+
+		return stat;
+		
+	}
+
+	@Override
+	public int getValue() {
+
+		return value;
+	
+	}
+
+	@Override
+	public ArrayList<Integer> getX() {
+	
+		return ( ArrayList< Integer > ) Collections.unmodifiableList( eventX );
+	
+	}
+
+	@Override
+	public ArrayList<Integer> getY() {
+
+		return ( ArrayList< Integer > ) Collections.unmodifiableList( eventY );
+	
+	}
+	
+	
+	
 	
 }

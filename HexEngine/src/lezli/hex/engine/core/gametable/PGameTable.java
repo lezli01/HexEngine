@@ -37,6 +37,7 @@ import lezli.hex.engine.core.structure.entities.gametable.Holding;
 import lezli.hex.engine.core.structure.entities.skill.Skill;
 import lezli.hex.engine.moddable.interfaces.HEGameTable;
 import lezli.hex.engine.moddable.interfaces.HETile;
+import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 
 import com.badlogic.gdx.Gdx;
@@ -75,6 +76,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	private ArrayList< GameEvent > mEvents;
 	
+	private ArrayList< HEEventListener > mEventListeners;
+	
 	private PBuildingListener mBuildingListener = new PBuildingListener(){
 		
 		@Override
@@ -102,6 +105,10 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 			xEvent.playerName = mCurrentPlayer.getName();
 			mRemoteEvents.add( xEvent );
+
+			for( i = 0; i < mEventListeners.size(); i++ )
+				if( mEventListeners.get( i ).event( xEvent ) )
+					break;
 			
 			return true;
 			
@@ -166,6 +173,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		nextPlayer( xEntity.getCurrentPlayer() );
 		mCurrentPlayer.continueTurn();
+		
+		mEventListeners = new ArrayList< HEEventListener >();
 		
 	}
 	
@@ -1059,8 +1068,6 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		xUnit.addToPath( mMap.getTileOf( xUnit ).getUnitCoordinates( xUnit ), mMap.getTileOf( xUnit ), false );
 		
-//		mMap.setPlayable( xTile, xUnit, false );
-		
 	}
 	
 	
@@ -1175,6 +1182,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	}
 	
+	@Override
+	public void addEventListener( HEEventListener xListener ){
+
+		mEventListeners.add( xListener );
+		
+	}
+	
 	/*
 	 * SCRIPTABLE
 	 */
@@ -1187,6 +1201,10 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		GameEvent xEvent = mEvents.get( 0 );
 
 		if( ( xEvent.type ) > 0 ){
+			
+			for( i = 0; i < mEventListeners.size(); i++ )
+				if( mEventListeners.get( i ).event( xEvent ) )
+					break;
 			
 			switch( xEvent.type ){
 			

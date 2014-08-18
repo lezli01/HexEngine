@@ -379,8 +379,6 @@ public class Gui {
 					PAffect a = new PAffect( affect, mEngine );
 					a.init( mSkill, mUnit, living );
 
-					System.out.println( "When: " + a.getWhen() );
-					
 					if( a.getAffectValue().equals( "0" ) || a.getWhen() != 1 )
 						continue;
 					
