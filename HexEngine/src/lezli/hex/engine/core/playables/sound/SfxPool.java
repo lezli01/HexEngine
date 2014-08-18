@@ -20,8 +20,6 @@ public class SfxPool {
 	
 	public static void play( String xFileName ){
 		
-		System.out.println( "Playing: " + xFileName );
-		
 		if( mSoundEffects.containsKey( xFileName ) )
 			mSoundEffects.get( xFileName ).play();
 		

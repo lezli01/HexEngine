@@ -26,9 +26,9 @@ public abstract class EventPlayer extends Player{
 		
 	}
 	
-	public void timeout( long usec ){
+	public void timeout( long msec ){
 
-		mTimeout = usec;
+		mTimeout = msec;
 		
 	}
 	
@@ -71,26 +71,40 @@ public abstract class EventPlayer extends Player{
 					
 					do{
 						
-						//TODO timeoutthread here
-						
-						while( !( mGameTable.ready() && ready() ) ){
-							sleep( 500 );
-						}
+						while( !( mGameTable.ready() && ready() ) )
+								sleep( 500 );
 
 						turned = playTurn();
 						getGameTable().processGameEvents( flushEvents() );
 						
-					}while( !turned );
+					}while( !turned || !isInterrupted() );
 					
 				}catch( InterruptedException e ){
 
+					//TODO LOGGING
 					e.printStackTrace();
-				
+					
 				}
+				
 			}
 		
 		};
-
+		
+		TimeoutThread timeoutThread = new TimeoutThread( mTimeout, new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				turnthread.interrupt();
+				turnEvent();
+				
+				getGameTable().processGameEvents( flushEvents() );
+				
+			}
+			
+		});
+		
+		timeoutThread.start();
 		turnthread.start();
 		
 	}
@@ -156,9 +170,9 @@ public abstract class EventPlayer extends Player{
 		private long mTimeout;
 		private Runnable mRunnable;
 		
-		public TimeoutThread( long usec, Runnable runnable ){
+		public TimeoutThread( long msec, Runnable runnable ){
 			
-			mTimeout = usec;
+			mTimeout = msec;
 			mRunnable = runnable;
 			
 		}

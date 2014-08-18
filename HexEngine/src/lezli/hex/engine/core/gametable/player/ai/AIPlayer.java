@@ -123,6 +123,15 @@ public class AIPlayer extends EventPlayer implements Action{
 		addProduceEvent( ( ( PProducePlayable< ?, ? > ) xUnit ).getEntityID(), ( ( PBuilding ) xBuilding ).getPID() );
 		
 	}
+
+	@Override
+	protected void turnEvent() {
+
+		mCalled = false;
+		
+		super.turnEvent();
+		
+	};
 	
 	@Override
 	public void endTurn(){
