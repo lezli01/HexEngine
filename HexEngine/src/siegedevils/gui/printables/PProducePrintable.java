@@ -1,7 +1,7 @@
 package siegedevils.gui.printables;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.building.produce.PProducePlayable;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;

@@ -1,6 +1,6 @@
 package siegedevils.gui;
 
-import lezli.hexengine.core.playables.LivingPlayable;
+import lezli.hex.engine.core.playables.LivingPlayable;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

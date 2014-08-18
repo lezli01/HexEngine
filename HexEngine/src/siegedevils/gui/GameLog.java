@@ -3,7 +3,7 @@ package siegedevils.gui;
 import java.text.DateFormat;
 import java.util.Date;
 
-import lezli.hexengine.core.playables.Logger;
+import lezli.hex.engine.core.playables.Logger;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

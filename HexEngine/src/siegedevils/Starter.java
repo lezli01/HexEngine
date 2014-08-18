@@ -2,12 +2,12 @@ package siegedevils;
 
 import java.util.ArrayList;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.HexEngine.HexEngineProperties;
-import lezli.hexengine.core.gametable.event.GameEvent;
-import lezli.hexengine.core.gametable.player.RemotePlayer;
-import lezli.hexengine.core.playables.Logger;
-import lezli.hexengine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.HexEngine.HexEngineProperties;
+import lezli.hex.engine.core.gametable.event.GameEvent;
+import lezli.hex.engine.core.gametable.player.RemotePlayer;
+import lezli.hex.engine.core.playables.Logger;
+import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.multiplayer.Bartender;

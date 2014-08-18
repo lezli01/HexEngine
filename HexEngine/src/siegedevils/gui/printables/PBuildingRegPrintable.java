@@ -1,11 +1,11 @@
 package siegedevils.gui.printables;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.building.PBuilding;
-import lezli.hexengine.core.playables.building.PBuildingReg;
-import lezli.hexengine.core.playables.building.produce.PSkillUpgrade;
-import lezli.hexengine.core.playables.building.produce.PStatUpgrade;
-import lezli.hexengine.core.playables.building.produce.PUnitProduce;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.building.PBuilding;
+import lezli.hex.engine.core.playables.building.PBuildingReg;
+import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
+import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
+import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;

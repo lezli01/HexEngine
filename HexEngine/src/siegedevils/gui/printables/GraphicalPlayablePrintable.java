@@ -1,7 +1,7 @@
 package siegedevils.gui.printables;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
 import siegedevils.gui.ImageShadowed;
 
 import com.badlogic.gdx.graphics.Color;

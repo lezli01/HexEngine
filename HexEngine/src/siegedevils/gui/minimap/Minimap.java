@@ -1,7 +1,7 @@
 package siegedevils.gui.minimap;
 
-import lezli.hexengine.moddable.interfaces.HEGameTable;
-import lezli.hexengine.moddable.interfaces.HETile;
+import lezli.hex.engine.moddable.interfaces.HEGameTable;
+import lezli.hex.engine.moddable.interfaces.HETile;
 import siegedevils.gui.ScrollPaneShadowed;
 
 import com.badlogic.gdx.Gdx;

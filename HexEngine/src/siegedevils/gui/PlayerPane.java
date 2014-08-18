@@ -1,7 +1,7 @@
 package siegedevils.gui;
 
-import lezli.hexengine.core.gametable.player.Player;
-import lezli.hexengine.core.playables.common.PResource;
+import lezli.hex.engine.core.gametable.player.Player;
+import lezli.hex.engine.core.playables.common.PResource;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

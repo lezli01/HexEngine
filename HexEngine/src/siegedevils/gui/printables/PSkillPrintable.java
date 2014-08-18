@@ -1,10 +1,10 @@
 package siegedevils.gui.printables;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.unit.PUnit;
-import lezli.hexengine.core.playables.unit.skills.PAffect;
-import lezli.hexengine.core.playables.unit.skills.PSkill;
-import lezli.hexengine.core.structure.entities.skill.affect.Affect;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.unit.PUnit;
+import lezli.hex.engine.core.playables.unit.skills.PAffect;
+import lezli.hex.engine.core.playables.unit.skills.PSkill;
+import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;

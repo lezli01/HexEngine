@@ -2,14 +2,14 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.building.PBuilding;
-import lezli.hexengine.core.playables.building.produce.PProducePlayable;
-import lezli.hexengine.core.playables.building.produce.PSkillUpgrade;
-import lezli.hexengine.core.playables.building.produce.PStatUpgrade;
-import lezli.hexengine.core.playables.building.produce.PUnitProduce;
-import lezli.hexengine.core.playables.unit.PUnit;
-import lezli.hexengine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.building.PBuilding;
+import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
+import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
+import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
+import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
+import lezli.hex.engine.core.playables.unit.PUnit;
+import lezli.hex.engine.moddable.interfaces.HEGameTableController;
 import siegedevils.gui.printables.GraphicalPlayablePrintable;
 import siegedevils.gui.printables.PBuildingPrintable;
 import siegedevils.gui.printables.PProducePrintable;

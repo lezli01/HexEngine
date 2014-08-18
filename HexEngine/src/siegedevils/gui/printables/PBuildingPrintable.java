@@ -6,8 +6,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.building.PBuilding;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.building.PBuilding;
 
 public class PBuildingPrintable extends GraphicalPlayablePrintable< PBuilding >{
 

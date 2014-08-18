@@ -3,7 +3,7 @@ package siegedevils.multiplayer;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 
-import lezli.hexengine.core.gametable.event.GameEvent;
+import lezli.hex.engine.core.gametable.event.GameEvent;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Net;

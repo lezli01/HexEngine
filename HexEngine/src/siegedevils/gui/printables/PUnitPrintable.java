@@ -8,10 +8,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.unit.PUnit;
-import lezli.hexengine.core.playables.unit.skills.PAffect;
-import lezli.hexengine.core.playables.unit.stats.PStatReg;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.unit.PUnit;
+import lezli.hex.engine.core.playables.unit.skills.PAffect;
+import lezli.hex.engine.core.playables.unit.stats.PStatReg;
 
 public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 

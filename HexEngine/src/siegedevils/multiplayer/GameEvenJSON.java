@@ -3,7 +3,7 @@ package siegedevils.multiplayer;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-import lezli.hexengine.core.gametable.event.GameEvent;
+import lezli.hex.engine.core.gametable.event.GameEvent;
 
 import com.badlogic.gdx.utils.Json;
 

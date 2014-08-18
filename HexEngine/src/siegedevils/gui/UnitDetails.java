@@ -2,11 +2,11 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
-import lezli.hexengine.core.HexEngine;
-import lezli.hexengine.core.playables.building.PBuildingReg;
-import lezli.hexengine.core.playables.unit.PUnit;
-import lezli.hexengine.core.playables.unit.skills.PSkill;
-import lezli.hexengine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.core.playables.building.PBuildingReg;
+import lezli.hex.engine.core.playables.unit.PUnit;
+import lezli.hex.engine.core.playables.unit.skills.PSkill;
+import lezli.hex.engine.moddable.interfaces.HEGameTableController;
 import siegedevils.gui.printables.PBuildingRegPrintable;
 import siegedevils.gui.printables.PSkillPrintable;
 import siegedevils.gui.printables.PUnitPrintable;
