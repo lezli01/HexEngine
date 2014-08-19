@@ -1125,9 +1125,10 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			for( HEGameTableEventListener listener: mListeners ){
 
 				if( listener.remotePlayerTurn( ( RemotePlayer ) mCurrentPlayer, mRemoteEvents ) ){
+	
 					mRemoteEvents.clear();
 					break;
-				
+	
 				}
 				
 			}
@@ -1202,6 +1203,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 
 		if( ( xEvent.type ) > 0 ){
 			
+			if( mCurrentPlayer instanceof RemotePlayer )
 			for( i = 0; i < mEventListeners.size(); i++ )
 				if( mEventListeners.get( i ).event( xEvent ) )
 					break;
