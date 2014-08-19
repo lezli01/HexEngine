@@ -1311,8 +1311,10 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			Player p = null;
 			
 			if( holding.getType().equals( "PMap" ) ){
+				
 				mMap.load( holding );
 				continue;
+			
 			}
 			
 			if( holding.getType().equals( "AIPlayer" ) )
@@ -1323,7 +1325,6 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 			
 			if( holding.getType().equals( "RemotePlayer" ) )
 				p = new RemotePlayer( holding.getValues().get( "name" ), engine() );
-			
 			
 			p.load( holding.getHoldings() );
 			

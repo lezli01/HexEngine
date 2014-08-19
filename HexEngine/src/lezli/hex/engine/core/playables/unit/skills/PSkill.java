@@ -286,9 +286,6 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 	}
 
 	protected void animationEnded( String xID ){
-		
-		System.out.println( this + " : " + xID );
-		
 	}
 
 	private void putAffectsOnLiving( PUnit xUnitFrom, LivingPlayable< ? > xLivingTo ){
