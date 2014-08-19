@@ -126,7 +126,7 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 		
 	}
 
-	public int getArea(){
+	public int getArea(){//
 		
 		return mArea;
 		
@@ -240,9 +240,9 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 			
 			if( mCurrentDistance >= mDistance ){
 				
+				setDefaultAnimation( null );
 				mCurrentDistance = mDistance;
 				addAnimation( "@ARRIVAL" );
-				setDefaultAnimation( null );
 				
 			}
 			
@@ -285,8 +285,9 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 		
 	}
 
-	@Override
 	protected void animationEnded( String xID ){
+		
+		System.out.println( this + " : " + xID );
 		
 	}
 

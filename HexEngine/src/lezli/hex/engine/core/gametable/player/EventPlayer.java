@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.PGameTable;
 import lezli.hex.engine.core.gametable.event.GameEvent;
+import lezli.hex.engine.core.structure.Values;
 
 public abstract class EventPlayer extends Player{
 
@@ -18,7 +19,7 @@ public abstract class EventPlayer extends Player{
 		
 		super( xName, xEngine );
 		
-		mTimeout = 5000L;
+		mTimeout = xEngine.entitiesHolder().getValues().getLong( Values.AI_TIMEOUT );
 		
 		mGameTable = xGameTable;
 		

@@ -98,7 +98,7 @@ public class PGraphics extends Playable< Graphics >{
 	
 	public boolean hasAnimation( String xID ){
 		
-		return mAnimations.get( xID ) != null || mSCMLAnimations.containsKey( xID );
+		return mAnimations.containsKey( xID ) || mSCMLAnimations.containsKey( xID );
 		
 	}
 	
@@ -183,7 +183,7 @@ public class PGraphics extends Playable< Graphics >{
 				
 			}
 			
-			if( !anim.looped() && anim.finished() ){
+			if( !anim.looped() && anim.finished() && anim.playing() ){
 				
 				anim.stop();
 				

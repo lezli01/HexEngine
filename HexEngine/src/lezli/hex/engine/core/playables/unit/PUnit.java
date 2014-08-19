@@ -353,13 +353,15 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 		
 		if( isMoving() ){
 		
+			//TODO WALK
+			
 			if( mGotos.size() > 0 )
-				setCurrentAnimation( "@WALK" );
+				setDefaultAnimation( "@IDLE" );
 			
 		}
 		else{
 			
-			setCurrentAnimation( "@IDLE" );
+			setDefaultAnimation( "@IDLE" );
 			
 		}
 		

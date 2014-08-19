@@ -121,6 +121,7 @@ public class Starter implements ApplicationListener {
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
 
+		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_CAST, false );
 		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, false );
 		
 		mEngine.getGameTable().addEventListener( new HEEventListener() {
@@ -129,6 +130,8 @@ public class Starter implements ApplicationListener {
 			public boolean event(HEGameEvent xEvent) {
 
 				System.out.println( xEvent.getType() );
+				
+//				mEngine.getGameTable().sleepAfterEvent( 1000 );
 				
 				return true;
 				

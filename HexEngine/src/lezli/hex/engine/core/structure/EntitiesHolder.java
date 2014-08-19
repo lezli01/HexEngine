@@ -49,8 +49,10 @@ public class EntitiesHolder extends Util{
 	private MapTileManager mMapTileManager;
 	private PlaceholderManager mPlaceholderManager;
 	private UnitManager mUnitManager;
-
+	
 	private HashMap< String, byte[] > mScripts;
+	
+	private Values mValues;
 	
 	public EntitiesHolder( String xDataPath ){
 		
@@ -135,6 +137,12 @@ public class EntitiesHolder extends Util{
 		
 	}
 	
+	public Values getValues(){
+		
+		return mValues;
+		
+	}
+	
 	private void loadEntities(){
 		
 		log( "Loading entities..." );
@@ -153,7 +161,7 @@ public class EntitiesHolder extends Util{
 
 		log( "Loading Buildings..." );
 		
-		for( FileHandle f: Gdx.files.internal( mDataPath + "/buildings/" ).list() )
+		for( FileHandle f: getF( mDataPath + "/buildings/" ) )
 			mBuildingManager.add( new Building( f.path() ) );
 		
 		log( "Loading Common..." );
@@ -215,6 +223,9 @@ public class EntitiesHolder extends Util{
 			mScripts.put( f.name(), f.readBytes() );
 		
 		log( "Loading completed!" );
+		
+		FileHandle f = Gdx.files.internal( mDataPath + "/values.init" );
+		mValues = new Values( f );
 		
 	}
 	

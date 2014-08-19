@@ -78,6 +78,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	private ArrayList< HEEventListener > mEventListeners;
 	
+	private long mSleepAfterEvent;
+	
 	private PBuildingListener mBuildingListener = new PBuildingListener(){
 		
 		@Override
@@ -175,6 +177,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mCurrentPlayer.continueTurn();
 		
 		mEventListeners = new ArrayList< HEEventListener >();
+		
+		mSleepAfterEvent = 0;
 		
 	}
 	
@@ -466,6 +470,9 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 
 	public boolean tap( float x, float y, int count, int button ){
 		
+		if( needsSleep() )
+			return false;
+		
 		if( button == Buttons.RIGHT ){
 			clearAllHighlights();
 			for( HEGameTableEventListener listener: mListeners )
@@ -537,10 +544,16 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 	}
 
+	private boolean needsSleep(){
+		
+		return mSleepAfterEvent > 0;
+		
+	}
+	
 	public boolean ready(){
 		
 		return mEvents.size() == 0 && calm();
-		
+				
 	}
 
 	@Override
@@ -624,6 +637,21 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mCamera.update();
 	
+//		if( needsSleep() ){
+//		
+//			if( calm() ){
+//
+//				mSleepAfterEvent -= Gdx.graphics.getDeltaTime() * 1000;
+//				if( mSleepAfterEvent < 0 )
+//					mSleepAfterEvent = 0;
+//				
+//				
+//			}
+//			
+//			return;
+//		
+//		}
+		
 		processNextEvent();
 		
 	}
@@ -1248,7 +1276,12 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 
 	}
 	
-	
+	@Override
+	public void sleepAfterEvent( long msec ){
+
+		mSleepAfterEvent = msec;
+		
+	}
 
 	/*
 	 * SCRIPTABLE

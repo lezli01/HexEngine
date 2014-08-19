@@ -29,7 +29,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	
 	private LinkedList< String > mAnimationsList;
 	private String mDefAnimation;
-	private String mCurrentAnimation;
+//	private String mCurrentAnimation;
 	
 	private boolean mCastShadow;
 	private static float SH_X, SH_Y;
@@ -71,8 +71,6 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 					
 					if( mAnimationsList.size() > 0 )
 						playNextAnimation();
-					else
-						mCurrentAnimation = null;
 					
 				}
 				
@@ -399,10 +397,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	protected String currentAnimation(){
 		
 		String toRender = mDefAnimation;
-		
-		if( mCurrentAnimation != null )
-			toRender = mCurrentAnimation;
-		
+				
 		if( mAnimationsList.size() > 0 )
 			toRender = mAnimationsList.getFirst();
 		
@@ -428,18 +423,6 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 	}
 	
-	protected void setCurrentAnimation( String xCurrentAnimation ){
-		
-		if( !getGraphics().hasAnimation( xCurrentAnimation ) )
-			return;
-		
-		if( mCurrentAnimation != xCurrentAnimation ){
-			mCurrentAnimation = xCurrentAnimation;
-			getGraphics().start( mCurrentAnimation );
-		}
-		
-	}
-	
 	protected void addAnimation( String xAnim ){
 		
 		mAnimationsList.add( xAnim );
@@ -450,9 +433,8 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	}
 	
 	private void startAnimation(){
-		
+
 		getGraphics().setPosition( getX(), getY() );
-		
 		getGraphics().start( mAnimationsList.getFirst(), false );
 		
 	}

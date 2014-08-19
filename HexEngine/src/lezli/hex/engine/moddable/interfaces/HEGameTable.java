@@ -7,6 +7,7 @@ public interface HEGameTable {
 
 	public void addEventListener( HEEventListener xListener );
 	public void addGameTableEventListener( HEGameTableEventListener xListener );
+	
 	public HEGameTableController getController();
 	
 	public void moveMap( float x, float y );
@@ -18,6 +19,8 @@ public interface HEGameTable {
 	
 	public int mapWidth();
 	public int mapHeight();
+	
+	public void sleepAfterEvent( long msec );
 	
 	public HETile getTile( int x, int y );
 	public HETile getCenterTile();
