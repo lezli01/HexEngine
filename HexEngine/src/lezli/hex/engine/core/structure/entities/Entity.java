@@ -1,5 +1,7 @@
 package lezli.hex.engine.core.structure.entities;
 
+import sun.security.krb5.internal.PAData;
+import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.structure.entities.id.IDGenerator;
 
 import com.badlogic.gdx.Gdx;
@@ -17,14 +19,15 @@ public abstract class Entity{
 
 	private String mLogTag = getTypeString() + "undefined";
 	private static int PARSE_LOG_DEPTH = 0;
-	private static final String LOG_PADDING = "\t";
 	
 	private String mID;
 	private String mName;
 	private String mDescription;
 
+	private static HexEngine ENGINE;
+	
 	public Entity( Element xElement ){
-		
+
 		PARSE_LOG_DEPTH++;
 		init();
 		parse( xElement );
@@ -42,6 +45,18 @@ public abstract class Entity{
 		init();
 		parseFromXml( xFileName );
 		PARSE_LOG_DEPTH--;
+		
+	}
+	
+	public static void setengint( HexEngine xEngine ){
+		
+		ENGINE = xEngine;
+		
+	}
+	
+	protected HexEngine engine(){
+		
+		return ENGINE;
 		
 	}
 	
@@ -162,16 +177,6 @@ public abstract class Entity{
 		
 	}
 	
-	private String getLogPaddingString(){
-		
-		String padding = "";
-		for( int paddingCount = 1; paddingCount < PARSE_LOG_DEPTH; paddingCount++ )
-			padding += LOG_PADDING;
-		
-		return padding;
-		
-	}
-	
 	private void generateID(){
 		
 		setID( IDGenerator.getInstance().generateID( this ) );
@@ -186,13 +191,13 @@ public abstract class Entity{
 	
 	protected void log( String xMessage ){
 
-		Gdx.app.debug( getLogPaddingString() + mLogTag, xMessage );
+		engine().logger().log( mLogTag + ": " + xMessage, PARSE_LOG_DEPTH );
 		
 	}
 	
 	protected void log( String xMessage, Throwable xException ){
 		
-		Gdx.app.debug( getLogPaddingString() + mLogTag, xMessage, xException );
+		engine().logger().log( mLogTag + ": " + xMessage + "\n" + xException.toString(), PARSE_LOG_DEPTH );
 		
 	}
 	

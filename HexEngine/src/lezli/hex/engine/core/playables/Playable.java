@@ -161,14 +161,16 @@ public abstract class Playable< T extends Entity > implements PlayableScriptable
 		
 	}
 	protected void log( String xMessage ){
-		
-//		HexEngine.LOGGER.log( getPID() + ": " + xMessage );
+
+		if( engine() != null )
+			engine().logger().log( getPID() + ": " + xMessage );
 		
 	}
 	
 	protected void log( String xMessage, int xDepth ){
 		
-		engine().logger().log( getPID() + ": " + xMessage, xDepth );
+		if( engine() != null )
+			engine().logger().log( getPID() + ": " + xMessage, xDepth );
 		
 	}
 	

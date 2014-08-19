@@ -10,6 +10,7 @@ import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.engine.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.multiplayer.Bartender;
@@ -74,20 +75,7 @@ public class Starter implements ApplicationListener {
 		
 		//Initialize
 		
-		Logger l = new Logger() {
-			
-			@Override
-			public void log(String xMsg, int xDepth) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public void log(String xMsg) {
-				// TODO Auto-generated method stub
-				
-			}
-		};
+		Logger l = new FileLogger( "log.txt" );
 		
 		mEngine = new HexEngine( "hex.engine", l, "@map_test01" );
 

@@ -13,6 +13,7 @@ import lezli.hex.engine.core.gametable.event.GameEvent;
 import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.core.playables.common.PCommon;
 import lezli.hex.engine.core.structure.EntitiesHolder;
+import lezli.hex.engine.core.structure.entities.Entity;
 import lezli.hex.engine.moddable.interfaces.HEGameTable;
 
 import com.badlogic.gdx.Gdx;
@@ -209,8 +210,11 @@ public class HexEngine {
 	
 		Gdx.gl.glEnable( GL10.GL_DEPTH_TEST );
 		
-		mEntitiesHolder = new EntitiesHolder( xPath );
 		mLogger = xLogger;
+
+		Entity.setengint( this );
+
+		mEntitiesHolder = new EntitiesHolder( xPath );
 		
 		mCommon = new PCommon( mEntitiesHolder.getCommon(), this );
 		
