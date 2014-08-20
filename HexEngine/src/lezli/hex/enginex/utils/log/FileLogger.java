@@ -1,4 +1,4 @@
-package lezli.hex.engine.utils.log;
+package lezli.hex.enginex.utils.log;
 
 import java.io.IOException;
 import java.io.PrintWriter;

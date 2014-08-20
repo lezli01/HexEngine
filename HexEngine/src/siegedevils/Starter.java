@@ -10,7 +10,7 @@ import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
-import lezli.hex.engine.utils.log.FileLogger;
+import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.multiplayer.Bartender;
