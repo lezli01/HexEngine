@@ -8,4 +8,10 @@ public class MetroUI {
 
 	private HashMap< String, MetroScreen > mScreens;
 	
+	public MetroUI(){
+		
+		mScreens = new HashMap< String, MetroScreen >();
+		
+	}
+	
 }
