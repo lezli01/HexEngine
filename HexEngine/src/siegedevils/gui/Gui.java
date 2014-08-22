@@ -20,6 +20,8 @@ import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
 import lezli.hex.engine.moddable.interfaces.HEGameTableController;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.enginex.ui.metro.elements.MetroButton;
+import lezli.hex.enginex.ui.metro.elements.MetroScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -135,6 +137,15 @@ public class Gui {
 		mm.setPosition( 0, 0 );
 		mm.setSize( 220, 220 );
 		mTable.addActor( mm );
+		
+		MetroScreen sc = new MetroScreen( "ASD", 4, 4 );
+		sc.add( new MetroButton( "ASD" ) );
+		sc.add( new MetroButton( "ASD" ) );
+		sc.add( new MetroButton( "ASD" ) );
+		sc.add( new MetroButton( "ASD" ) );
+		sc.add( new MetroButton( "ASD" ) );
+		
+		mMainStage.addActor( sc );
 		
 	}
 	
