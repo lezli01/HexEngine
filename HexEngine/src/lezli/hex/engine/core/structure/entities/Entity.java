@@ -1,6 +1,5 @@
 package lezli.hex.engine.core.structure.entities;
 
-import sun.security.krb5.internal.PAData;
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.structure.entities.id.IDGenerator;
 
@@ -23,6 +22,7 @@ public abstract class Entity{
 	private String mID;
 	private String mName;
 	private String mDescription;
+	private String mFileName;
 
 	private static HexEngine ENGINE;
 	
@@ -42,13 +42,20 @@ public abstract class Entity{
 	public Entity( String xFileName ){
 		
 		PARSE_LOG_DEPTH++;
+		mFileName = xFileName;
 		init();
 		parseFromXml( xFileName );
 		PARSE_LOG_DEPTH--;
 		
 	}
 	
-	public static void setengint( HexEngine xEngine ){
+	public String getFileName(){
+		
+		return mFileName;
+		
+	}
+	
+	public static void setEngine( HexEngine xEngine ){
 		
 		ENGINE = xEngine;
 		

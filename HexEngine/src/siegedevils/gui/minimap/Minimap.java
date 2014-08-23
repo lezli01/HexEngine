@@ -30,8 +30,6 @@ public class Minimap extends ScrollPaneShadowed{
 		
 		pix = new Texture( Gdx.files.internal( "siegedevils/graphics_elements/textures/pix.png" ) );
 		
-//		setBackground( new TiledDrawable( xSkin.getRegion( "scroll-bg-tiled" ) ) );
-		
 		border = new Image( xSkin, "scroll-bg" );
 		
 	}

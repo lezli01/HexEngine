@@ -13,6 +13,7 @@ import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
+import siegedevils.menu.Menu;
 import siegedevils.multiplayer.Bartender;
 import siegedevils.multiplayer.Bartender.BartenderListener;
 
@@ -33,6 +34,7 @@ public class Starter implements ApplicationListener {
 	
 	private HexEngine mEngine;
 	
+	private Menu mMenu;
 	private static Gui mGui;
 	
 	private Vector2 mScrollVector = new Vector2();
@@ -79,6 +81,8 @@ public class Starter implements ApplicationListener {
 		
 		mEngine = new HexEngine( "hex.engine", l, "@map_test01" );
 
+		mMenu = new Menu();
+		
 		mGui = new Gui( mEngine );
 		
 		//Setting up listeners
@@ -99,6 +103,7 @@ public class Starter implements ApplicationListener {
 
 		//Setting up input
 		InputMultiplexer multiplexer = new InputMultiplexer();
+		multiplexer.addProcessor( mMenu );
 		multiplexer.addProcessor( mGui.getInputProcessor() );
 		multiplexer.addProcessor( getInputProcessor() );
 		Gdx.input.setInputProcessor( multiplexer );
@@ -118,8 +123,6 @@ public class Starter implements ApplicationListener {
 			public boolean event(HEGameEvent xEvent) {
 
 				System.out.println( xEvent.getType() );
-				
-//				mEngine.getGameTable().sleepAfterEvent( 1000 );
 				
 				return true;
 				
@@ -144,6 +147,7 @@ public class Starter implements ApplicationListener {
 		mEngine.update();
 		
 		mGui.update();
+		mMenu.update();
 		
 	}
 	
@@ -156,9 +160,10 @@ public class Starter implements ApplicationListener {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		Gdx.gl.glDisable( GL20.GL_CULL_FACE );
-		mEngine.render();
 		
+		mEngine.render();
 		mGui.render();
+		mMenu.draw();
 		
 	}
 
@@ -167,6 +172,7 @@ public class Starter implements ApplicationListener {
 	
 		mEngine.resize( width, height );
 		mGui.resize( width, height );
+		mMenu.resize( width, height );
 		
 	}
 

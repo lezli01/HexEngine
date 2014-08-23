@@ -2,7 +2,6 @@ package siegedevils.gui;
 
 import java.util.ArrayList;
 
-import siegedevils.gui.minimap.Minimap;
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.PGameTable;
 import lezli.hex.engine.core.gametable.event.GameEvent;
@@ -20,8 +19,7 @@ import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
 import lezli.hex.engine.moddable.interfaces.HEGameTableController;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
-import lezli.hex.enginex.ui.metro.elements.MetroButton;
-import lezli.hex.enginex.ui.metro.elements.MetroScreen;
+import siegedevils.gui.minimap.Minimap;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -137,15 +135,6 @@ public class Gui {
 		mm.setPosition( 0, 0 );
 		mm.setSize( 220, 220 );
 		mTable.addActor( mm );
-		
-		MetroScreen sc = new MetroScreen( "ASD", 4, 4 );
-		sc.add( new MetroButton( "ASD" ) );
-		sc.add( new MetroButton( "ASD" ) );
-		sc.add( new MetroButton( "ASD" ) );
-		sc.add( new MetroButton( "ASD" ) );
-		sc.add( new MetroButton( "ASD" ) );
-		
-		mMainStage.addActor( sc );
 		
 	}
 	
@@ -413,6 +402,8 @@ public class Gui {
 	
 	public void update(){
 		
+		mMainStage.act( Gdx.graphics.getDeltaTime() );
+		
 		for( i = 0; i < mDamageBoxes.size(); i++ )
 			mDamageBoxes.get( i ).update();
 		
@@ -426,7 +417,6 @@ public class Gui {
 	
 	public void render(){
 
-		mMainStage.act( Gdx.graphics.getDeltaTime() );
 		mMainStage.draw();
 		
 	}

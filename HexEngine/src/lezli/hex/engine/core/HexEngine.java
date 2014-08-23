@@ -212,7 +212,7 @@ public class HexEngine {
 		
 		mLogger = xLogger;
 
-		Entity.setengint( this );
+		Entity.setEngine( this );
 
 		mEntitiesHolder = new EntitiesHolder( xPath );
 		
