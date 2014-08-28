@@ -9,7 +9,7 @@ import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
 import lezli.hex.engine.core.playables.unit.PUnit;
-import lezli.hex.engine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
 import siegedevils.gui.printables.GraphicalPlayablePrintable;
 import siegedevils.gui.printables.PBuildingPrintable;
 import siegedevils.gui.printables.PProducePrintable;
@@ -58,7 +58,7 @@ public class BuildingDetails extends Actor{
 	private int mBtn1Tab;
 	private int mBtn2Tab;
 	
-	private ArrayList< HEGameTableController > mListeners;
+	private ArrayList< HEGameTableFeatures > mListeners;
 	
 	private HexEngine e;
 	
@@ -108,11 +108,11 @@ public class BuildingDetails extends Actor{
 		mButtonsPane.setScrollingDisabled( true, true );
 		xStage.addActor( mButtonsPane );
 		
-		mListeners = new ArrayList< HEGameTableController >();
+		mListeners = new ArrayList< HEGameTableFeatures >();
 		
 	}
 	
-	public void addListener( HEGameTableController xListener ){
+	public void addListener( HEGameTableFeatures xListener ){
 		
 		mListeners.add( xListener );
 		
@@ -313,7 +313,7 @@ public class BuildingDetails extends Actor{
 			@Override
 			public void clicked( InputEvent event, float x, float y ){
 
-				for( HEGameTableController listener: mListeners )
+				for( HEGameTableFeatures listener: mListeners )
 					listener.produce( mCurrentProduce );
 				
 				show( mBtn2Tab, mCurrentBuilding );

@@ -1,16 +1,37 @@
 package lezli.hex.engine.core.gametable;
 
-import lezli.hex.engine.core.playables.building.PBuildingReg;
-import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
-import lezli.hex.engine.core.playables.unit.skills.PSkill;
-import lezli.hex.engine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.moddable.gametable.HEGameTable;
+import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
 
-public class PGameTableController implements HEGameTableController{
 
-	public void chooseSkill( PSkill xSkill ){};
-	public void chooseBuilding( PBuildingReg xBuilding ){};
-	public void produce( PProducePlayable< ?, ? > xProduce ){};
-	public void castSkill(){};
-	public void clearHighlights(){}
+public abstract class PGameTableController{
+
+	private HEGameTable mGameTable;
+	
+	public void init( HEGameTable xGameTable ){
+		
+		mGameTable = xGameTable;
+		
+	}
+	
+	protected HEGameTable gametable(){
+		
+		return mGameTable;
+		
+	}
+	
+	protected HEGameTableFeatures features(){
+		
+		return gametable().getFeatures();
+		
+	}
+	
+	public boolean handleTap( float x, float y, int count, int button ){
+		
+		return tap( x, y, count, button );
+		
+	}
+	
+	protected abstract boolean tap( float x, float y, int count, int button );
 	
 }

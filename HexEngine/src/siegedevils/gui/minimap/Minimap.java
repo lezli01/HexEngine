@@ -1,6 +1,6 @@
 package siegedevils.gui.minimap;
 
-import lezli.hex.engine.moddable.interfaces.HEGameTable;
+import lezli.hex.engine.moddable.gametable.HEGameTable;
 import lezli.hex.engine.moddable.interfaces.HETile;
 import siegedevils.gui.ScrollPaneShadowed;
 
