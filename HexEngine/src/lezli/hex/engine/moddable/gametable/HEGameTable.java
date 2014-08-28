@@ -1,5 +1,7 @@
-package lezli.hex.engine.moddable.interfaces;
+package lezli.hex.engine.moddable.gametable;
 
+import lezli.hex.engine.moddable.interfaces.HECamera;
+import lezli.hex.engine.moddable.interfaces.HETile;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 
@@ -7,8 +9,9 @@ public interface HEGameTable {
 
 	public void addEventListener( HEEventListener xListener );
 	public void addGameTableEventListener( HEGameTableEventListener xListener );
+	public void addController( HEGameTableController xController );
 	
-	public HEGameTableController getController();
+	public HEGameTableFeatures getFeatures();
 	
 	public void moveMap( float x, float y );
 	public void flingMap( float x, float y );
@@ -23,6 +26,7 @@ public interface HEGameTable {
 	public void sleepAfterEvent( long msec );
 	
 	public HETile getTile( int x, int y );
+	public HETile getTile( float x, float y );
 	public HETile getCenterTile();
 	public HETile getCameraPosition();
 	
