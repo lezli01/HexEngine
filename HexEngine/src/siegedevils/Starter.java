@@ -6,13 +6,13 @@ import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.HexEngine.HexEngineProperties;
 import lezli.hex.engine.core.gametable.event.GameEvent;
 import lezli.hex.engine.core.gametable.player.RemotePlayer;
-import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
+import siegedevils.menu.MapStartedListener;
 import siegedevils.menu.Menu;
 import siegedevils.multiplayer.Bartender;
 import siegedevils.multiplayer.Bartender.BartenderListener;
@@ -52,10 +52,13 @@ public class Starter implements ApplicationListener {
 		public void noevents(){
 			
 			try {
+			
 				Thread.sleep( 2500 );
+			
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
+			
 			}
 			
 			bt.ask();
@@ -75,17 +78,30 @@ public class Starter implements ApplicationListener {
 
 		Gdx.app.setLogLevel( LOG_LEVEL );
 		
-		//Initialize
-		
-		Logger l = new FileLogger( "log.txt" );
-		
-		mEngine = new HexEngine( "hex.engine", l, "@map_test01" );
-
 		mMenu = new Menu();
+		
+		mMenu.addListener( new MapStartedListener() {
+			
+			@Override
+			public void mapStarted( String xGameTableId ) {
+			
+				System.out.println( xGameTableId );
+				startEngine( xGameTableId );
+				
+			}
+			
+		});
+		
+		Gdx.input.setInputProcessor( mMenu );
+		
+	}
+
+	private void startEngine( String xGameTableId ){
+		
+		mEngine = new HexEngine( "hex.engine", new FileLogger( "log.txt" ), xGameTableId );
 		
 		mGui = new Gui( mEngine );
 		
-		//Setting up listeners
 		mEngine.getGameTable().addGameTableEventListener( mGui.getGameTableListener() );
 		mEngine.getGameTable().addGameTableEventListener( new HEGameTableEventListener() {
 			
@@ -100,10 +116,9 @@ public class Starter implements ApplicationListener {
 			}
 			
 		});
-
-		//Setting up input
+		
 		InputMultiplexer multiplexer = new InputMultiplexer();
-		multiplexer.addProcessor( mMenu );
+		multiplexer.addProcessor( Gdx.input.getInputProcessor() );
 		multiplexer.addProcessor( mGui.getInputProcessor() );
 		multiplexer.addProcessor( getInputProcessor() );
 		Gdx.input.setInputProcessor( multiplexer );
@@ -131,11 +146,12 @@ public class Starter implements ApplicationListener {
 		});
 		
 	}
-
+	
 	@Override
 	public void dispose(){
 		
-		mEngine.quit();
+		if( mEngine != null )
+			mEngine.quit();
 		
 	}
 
@@ -144,9 +160,12 @@ public class Starter implements ApplicationListener {
 		if( !mScrollVector.isZero() )
 			mEngine.getGameTable().moveMap( -mScrollVector.x, -mScrollVector.y );
 		
-		mEngine.update();
+		if( mEngine != null )
+			mEngine.update();
 		
-		mGui.update();
+		if( mGui != null )
+			mGui.update();
+		
 		mMenu.update();
 		
 	}
@@ -161,8 +180,12 @@ public class Starter implements ApplicationListener {
 
 		Gdx.gl.glDisable( GL20.GL_CULL_FACE );
 		
-		mEngine.render();
-		mGui.render();
+		if( mEngine != null )
+			mEngine.render();
+		
+		if( mGui != null )
+			mGui.render();
+		
 		mMenu.draw();
 		
 	}
@@ -170,8 +193,12 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void resize( int width, int height ){
 	
-		mEngine.resize( width, height );
-		mGui.resize( width, height );
+		if( mEngine != null )
+			mEngine.resize( width, height );
+		
+		if( mGui != null )
+			mGui.resize( width, height );
+		
 		mMenu.resize( width, height );
 		
 	}
@@ -179,14 +206,16 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void pause(){
 		
-		mEngine.pause();
+		if( mEngine != null )
+			mEngine.pause();
 		
 	}
 
 	@Override
 	public void resume(){
 		
-		mEngine.resume();
+		if( mEngine != null )
+			mEngine.resume();
 		
 	}
 	
