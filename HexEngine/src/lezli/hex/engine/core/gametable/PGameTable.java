@@ -35,13 +35,13 @@ import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.gametable.GameTable;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
 import lezli.hex.engine.core.structure.entities.skill.Skill;
-import lezli.hex.engine.moddable.interfaces.HEGameTable;
+import lezli.hex.engine.moddable.gametable.HEGameTable;
+import lezli.hex.engine.moddable.gametable.HEGameTableController;
 import lezli.hex.engine.moddable.interfaces.HETile;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.XmlWriter;
 
@@ -79,6 +79,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	private ArrayList< HEEventListener > mEventListeners;
 	
 	private long mSleepAfterEvent;
+	
+	private ArrayList< PGameTableController > mControllers;
 	
 	private PBuildingListener mBuildingListener = new PBuildingListener(){
 		
@@ -134,6 +136,8 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	
 	private PMap mMap;
 	
+	private PGameTableFeatures mFeatures;
+	
 	public PGameTable( GameTable xEntity, HexEngine xEngine ){
 		
 		super( xEntity, xEngine );
@@ -180,46 +184,9 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		mSleepAfterEvent = 0;
 		
-	}
-	
-	public PGameTableCamera getCamera(){
+		mControllers = new ArrayList< PGameTableController >();
 		
-		return mCamera;
-		
-	}
-	
-	public void start(){
-		
-		if( mCurrentPlayer instanceof RemotePlayer ){
-			
-			eventsOff();
-			
-			for( HEGameTableEventListener listener: mListeners ){
-
-				if( listener.remotePlayerTurn( ( RemotePlayer ) mCurrentPlayer, mRemoteEvents ) ){
-					mRemoteEvents.clear();
-					break;
-				
-				}
-				
-			}
-			
-		}
-		else{
-		
-			for( HEGameTableEventListener listener: mListeners )
-				if( listener.localPlayerTurn( mCurrentPlayer ) )
-					break;
-			
-			eventsOn();
-		
-		}
-		
-	}
-	
-	public PGameTableController getController(){
-		
-		return new PGameTableController() {
+		mFeatures = new PGameTableFeatures() {
 			
 			@Override
 			public void chooseSkill( PSkill xSkill ){
@@ -256,7 +223,63 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 				
 			}
 			
+			@Override
+			public void select( HETile xTile ){
+
+				selectTile( ( PTile ) xTile );
+				
+			}
+			
 		};
+		
+	}
+	
+	public PGameTableCamera getCamera(){
+		
+		return mCamera;
+		
+	}
+	
+	public void addController( HEGameTableController xController ){
+		
+		xController.init( this );
+		
+		mControllers.add( xController );
+		
+	}
+	
+	public void start(){
+		
+		if( mCurrentPlayer instanceof RemotePlayer ){
+			
+			eventsOff();
+			
+			for( HEGameTableEventListener listener: mListeners ){
+
+				if( listener.remotePlayerTurn( ( RemotePlayer ) mCurrentPlayer, mRemoteEvents ) ){
+					mRemoteEvents.clear();
+					break;
+				
+				}
+				
+			}
+			
+		}
+		else{
+		
+			for( HEGameTableEventListener listener: mListeners )
+				if( listener.localPlayerTurn( mCurrentPlayer ) )
+					break;
+			
+			eventsOn();
+		
+		}
+		
+	}
+	
+	public PGameTableFeatures getFeatures(){
+		
+		return mFeatures;
 		
 	}
 	
@@ -270,6 +293,13 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		return mMap.getTile( xX, xY );
 		
+	}
+	
+	@Override
+	public HETile getTile( float x, float y ){
+
+		return mMap.getTile( x, y, mCamera );
+	
 	}
 
 	public void addPlayer( Player xPlayer ){
@@ -473,22 +503,12 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		if( needsSleep() )
 			return false;
 		
-		if( button == Buttons.RIGHT ){
-			clearAllHighlights();
-			for( HEGameTableEventListener listener: mListeners )
-				if( listener.canceled() )
-					break;
-			return true;
-		}
-		
 		if( !ready() )
 			return false;
-		
-		PTile tile = mMap.getTile( x, y, mCamera );
-		if( tile != null ){
-			selectTile( tile );
-			return true;
-		}
+
+		for( i = 0; i < mControllers.size(); i++ )
+			if( mControllers.get( i ).handleTap( x, y, count, button ) )
+				break;
 		
 		return true;
 		
@@ -721,6 +741,10 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		for( PTile tile: mBuildRangeTiles )
 			tile.buildUnHighlight();
 		mBuildRangeTiles.clear();
+		
+		for( HEGameTableEventListener listener: mListeners )
+			if( listener.clearedHighlights() )
+				break;
 
 	}
 	

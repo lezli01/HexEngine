@@ -14,7 +14,7 @@ import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.core.playables.common.PCommon;
 import lezli.hex.engine.core.structure.EntitiesHolder;
 import lezli.hex.engine.core.structure.entities.Entity;
-import lezli.hex.engine.moddable.interfaces.HEGameTable;
+import lezli.hex.engine.moddable.gametable.HEGameTable;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;

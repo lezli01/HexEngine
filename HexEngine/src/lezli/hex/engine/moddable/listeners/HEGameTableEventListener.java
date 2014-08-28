@@ -42,6 +42,6 @@ public class HEGameTableEventListener {
 
 	public boolean lose( Player player ){ return false; }
 	
-	public boolean canceled(){ return false; }
+	public boolean clearedHighlights(){ return false; }
 	
 }

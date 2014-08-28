@@ -6,7 +6,7 @@ import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.playables.building.PBuildingReg;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.playables.unit.skills.PSkill;
-import lezli.hex.engine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
 import siegedevils.gui.printables.PBuildingRegPrintable;
 import siegedevils.gui.printables.PSkillPrintable;
 import siegedevils.gui.printables.PUnitPrintable;
@@ -55,7 +55,7 @@ public class UnitDetails extends Actor{
 	private int mBtn1Tab;
 	private int mBtn2Tab;
 	
-	private ArrayList< HEGameTableController > mListeners;
+	private ArrayList< HEGameTableFeatures > mListeners;
 	
 	private HexEngine e;
 	
@@ -107,7 +107,7 @@ public class UnitDetails extends Actor{
 		mButtonsPane.setScrollingDisabled( true, true );
 		xStage.addActor( mButtonsPane );
 		
-		mListeners = new ArrayList< HEGameTableController >();
+		mListeners = new ArrayList< HEGameTableFeatures >();
 		
 	}
 	
@@ -123,7 +123,7 @@ public class UnitDetails extends Actor{
 		
 	}
 	
-	public void addListener( HEGameTableController xListener ){
+	public void addListener( HEGameTableFeatures xListener ){
 		
 		mListeners.add( xListener );
 		
@@ -159,7 +159,7 @@ public class UnitDetails extends Actor{
 		mCurrentBuilding = xBuilding;
 		
 		if( mCurrentTab == TAB_SKILL )
-			for( HEGameTableController listener: mListeners )
+			for( HEGameTableFeatures listener: mListeners )
 				listener.clearHighlights();
 		
 		mCurrentTab = xTab;
@@ -205,7 +205,7 @@ public class UnitDetails extends Actor{
 	
 	private void updateSkill(){
 		
-		for( HEGameTableController listener: mListeners )
+		for( HEGameTableFeatures listener: mListeners )
 			listener.chooseSkill( mCurrentSkill );
 
 		new PSkillPrintable( mCurrentSkill ).fillTable( mTable, mSkin, mCurrentUnitTo, e );
@@ -219,7 +219,7 @@ public class UnitDetails extends Actor{
 				@Override
 				public void clicked( InputEvent event, float x, float y ){
 					
-					for( HEGameTableController listener: mListeners )
+					for( HEGameTableFeatures listener: mListeners )
 						listener.castSkill();
 					
 				}
@@ -262,7 +262,7 @@ public class UnitDetails extends Actor{
 	
 	private void updateBuilding(){
 		
-		for( HEGameTableController listener: mListeners )
+		for( HEGameTableFeatures listener: mListeners )
 			listener.chooseBuilding( mCurrentBuilding );
 
 		new PBuildingRegPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );

@@ -10,6 +10,7 @@ import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.enginex.utils.controller.DefaultGameController;
 import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
@@ -109,7 +110,7 @@ public class Starter implements ApplicationListener {
 		Gdx.input.setInputProcessor( multiplexer );
 
 		
-		mGui.addGuiEventListener( mEngine.getGameTable().getController() );
+		mGui.addGuiEventListener( mEngine.getGameTable().getFeatures() );
 		//Start the map
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
@@ -129,6 +130,8 @@ public class Starter implements ApplicationListener {
 			}
 		
 		});
+		
+		mEngine.getGameTable().addController( new DefaultGameController() );
 		
 	}
 

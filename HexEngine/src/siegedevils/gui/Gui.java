@@ -17,7 +17,7 @@ import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.playables.unit.skills.PAffect;
 import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
-import lezli.hex.engine.moddable.interfaces.HEGameTableController;
+import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
 import siegedevils.gui.minimap.Minimap;
 
@@ -47,7 +47,7 @@ public class Gui {
 	
 	private PlayerPane mPlayerPane;
 	
-	private ArrayList< HEGameTableController > mListeners;
+	private ArrayList< HEGameTableFeatures > mListeners;
 	private UnitDetails mUnitDetails;
 	private PUnit mUnit;
 	
@@ -69,7 +69,7 @@ public class Gui {
 
 		mEngine = e;
 		
-		mListeners = new ArrayList< HEGameTableController >();
+		mListeners = new ArrayList< HEGameTableFeatures >();
 		
 		mDamageBoxes = new ArrayList< DamageBox >();
 		
@@ -156,7 +156,7 @@ public class Gui {
 		
 	}
 	
-	public void addGuiEventListener( HEGameTableController xListener ){
+	public void addGuiEventListener( HEGameTableFeatures xListener ){
 		
 		mListeners.add( xListener );
 		
@@ -330,7 +330,7 @@ public class Gui {
 			}
 			
 			@Override
-			public boolean canceled(){
+			public boolean clearedHighlights(){
 				
 				clearDamageLabels();
 				
