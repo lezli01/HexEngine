@@ -3,6 +3,7 @@ package lezli.hex.enginex.utils.log;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
@@ -17,7 +18,11 @@ public class FileLogger implements Logger{
 		
 		try {
 			
-			mFile = Gdx.files.internal( xFileName );
+			if( Gdx.app.getType() == ApplicationType.Desktop )
+				mFile = Gdx.files.internal( xFileName );
+			else
+				mFile = Gdx.files.local( xFileName );
+			
 			mFile.file().createNewFile();
 		
 			mWriter = new PrintWriter( mFile.file() );

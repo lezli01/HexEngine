@@ -1,14 +1,12 @@
 package siegedevils.utils;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
 
 public class Skirmish{
 
@@ -36,7 +34,7 @@ public class Skirmish{
 		
 		try {
 
-			props.load( new FileInputStream( new File( data ) ) );
+			props.load( Gdx.files.internal( data ).read() );
 		
 			mGameTables = new HashMap< String, String >();
 
