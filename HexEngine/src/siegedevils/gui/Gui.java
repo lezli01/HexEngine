@@ -67,11 +67,21 @@ public class Gui {
 	
 	private Minimap mm;
 	
+	private ArrayList< GuiListener > mGuiListeners;
+	
+	public interface GuiListener{
+		
+		public void menuCalled();
+		
+	}
+	
 	public Gui( HexEngine e ){
 
 		mEngine = e;
 		
 		mListeners = new ArrayList< HEGameTableFeatures >();
+		
+		mGuiListeners = new ArrayList< GuiListener >();
 		
 		mDamageBoxes = new ArrayList< DamageBox >();
 		
@@ -106,7 +116,7 @@ public class Gui {
 			
 		});
 		
-		s = new TextButton( "Save", skin );
+		s = new TextButton( "Menu", skin );
 		s.setSize( 150,  50 );
 		s.setPosition( 150, Gdx.graphics.getHeight() - 50 );
 		
@@ -115,9 +125,10 @@ public class Gui {
 		s.addListener( new ClickListener(){
 			
 			@Override
-			public void clicked(InputEvent event, float x, float y) {
+			public void clicked( InputEvent event, float x, float y ){
 
-				mEngine.save( "save.xml" );
+				for( GuiListener listener: mGuiListeners )
+					listener.menuCalled();
 			
 			}
 			
@@ -158,12 +169,17 @@ public class Gui {
 		
 	}
 	
-	public void addGuiEventListener( HEGameTableFeatures xListener ){
+	public void addFeatures( HEGameTableFeatures xListener ){
 		
 		mListeners.add( xListener );
-		
 		mUnitDetails.addListener( xListener );
 		mBuildingDetails.addListener( xListener );
+		
+	}
+	
+	public void addGuiListener( GuiListener xListener ){
+		
+		mGuiListeners.add( xListener );
 		
 	}
 	
@@ -201,7 +217,7 @@ public class Gui {
 				else{
 					
 					s.setTouchable( Touchable.enabled );
-					s.setText( "Save" );
+					s.setText( "Menu" );
 					
 				}
 				

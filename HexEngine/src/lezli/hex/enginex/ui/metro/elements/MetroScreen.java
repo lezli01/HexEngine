@@ -83,11 +83,4 @@ public class MetroScreen extends MetroElement{
 		
 	}
 
-	@Override
-	public void draw( Batch batch, float parentAlpha ){
-
-		super.draw( batch, parentAlpha );
-	
-	}
-	
 }

@@ -18,3 +18,11 @@ metro-button
   orig: 0, 0
   offset: 0, 0
   index: -1
+alpha-background
+  rotate: false
+  xy: 21, 0
+  size: 20, 20
+  split: 0, 0, 0, 0
+  orig: 0, 0
+  offset: 0, 0
+  index: -1

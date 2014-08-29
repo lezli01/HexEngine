@@ -2,10 +2,10 @@ package siegedevils.menu;
 
 import java.util.ArrayList;
 
-import siegedevils.utils.Skirmish;
 import lezli.hex.enginex.ui.MetroUI;
 import lezli.hex.enginex.ui.metro.elements.MetroButton;
 import lezli.hex.enginex.ui.metro.elements.MetroScreen;
+import siegedevils.utils.Skirmish;
 
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
@@ -18,10 +18,12 @@ public class Menu extends MetroUI{
 	private int COL = 1;
 	private int ROW = 3;
 	
-	private static final String SCR_BLANK		= "SCR_BLANK";
-	private static final String SCR_MAIN 		= "SCR_MAIN";
-	private static final String SCR_SKIRMISH 	= "SCR_SKIRMISH";
-	private static final String SCR_LOAD 		= "SCR_LOAD";
+	public static final String SCR_BLANK		= "SCR_BLANK";
+	public static final String SCR_MAIN 		= "SCR_MAIN";
+	public static final String SCR_SKIRMISH 	= "SCR_SKIRMISH";
+	public static final String SCR_LOAD 		= "SCR_LOAD";
+	public static final String SCR_SAVE		= "SCR_SAVE";
+	public static final String SCR_INGAME		= "SCR_INGAME";
 	
 	private String mDataPath;
 	private ArrayList< MapStartedListener > mListeners;
@@ -37,6 +39,7 @@ public class Menu extends MetroUI{
 		
 		initScreens();
 		
+		
 	}
 	
 	public void addListener( MapStartedListener xListener ){
@@ -51,7 +54,6 @@ public class Menu extends MetroUI{
 		 * BLANK
 		 */
 		MetroScreen scr_blank = new MetroScreen( SCR_BLANK, COL, ROW, PADDING );
-		
 		addScreen( scr_blank );
 		
 		/*
@@ -169,6 +171,46 @@ public class Menu extends MetroUI{
 		
 		addScreen( scr_load );
 		
+		/*
+		 * INGAME SCREEN
+		 */
+		MetroScreen scr_ingame = new MetroScreen( SCR_INGAME, COL, ROW, PADDING );
+		scr_ingame.setBackground( "alpha-background" );
+		scr_ingame.addListener( new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+			}
+		});
+		
+		MetroButton resume_btn = new MetroButton( "resume_btn", "Resume" );
+		resume_btn.addListener( new ClickListener(){
+			
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+
+				setActive( SCR_BLANK );
+			
+			}
+			
+		});
+		
+		MetroButton save_btn = new MetroButton( "save_btn", "Save" );
+		
+		save_btn.addListener( new ClickListener(){
+			
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+
+				setActive( SCR_SAVE );
+			
+			}
+			
+		});
+		
+		scr_ingame.add( resume_btn );
+		scr_ingame.add( save_btn );
+		
+		addScreen( scr_ingame );
 		setActive( SCR_MAIN );
 		
 	}

@@ -13,6 +13,7 @@ import lezli.hex.enginex.utils.controller.DefaultGameController;
 import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
+import siegedevils.gui.Gui.GuiListener;
 import siegedevils.menu.MapStartedListener;
 import siegedevils.menu.Menu;
 import siegedevils.multiplayer.Bartender;
@@ -103,6 +104,17 @@ public class Starter implements ApplicationListener {
 		
 		mGui = new Gui( mEngine );
 		
+		mGui.addGuiListener( new GuiListener() {
+			
+			@Override
+			public void menuCalled() {
+			
+				mMenu.setActive( Menu.SCR_INGAME );
+				
+			}
+			
+		});
+		
 		mEngine.getGameTable().addGameTableEventListener( mGui.getGameTableListener() );
 		mEngine.getGameTable().addGameTableEventListener( new HEGameTableEventListener() {
 			
@@ -125,7 +137,7 @@ public class Starter implements ApplicationListener {
 		Gdx.input.setInputProcessor( multiplexer );
 
 		
-		mGui.addGuiEventListener( mEngine.getGameTable().getFeatures() );
+		mGui.addFeatures( mEngine.getGameTable().getFeatures() );
 		//Start the map
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
