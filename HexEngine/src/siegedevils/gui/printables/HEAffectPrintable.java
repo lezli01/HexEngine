@@ -1,7 +1,7 @@
 package siegedevils.gui.printables;
 
 import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.unit.skills.PAffect;
+import lezli.hex.engine.moddable.playables.HEAffect;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -11,9 +11,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 
-public class PAffectPrintable extends PlayablePrintable< PAffect >{
+public class HEAffectPrintable extends HEPlayablePrintable< HEAffect >{
 
-	public PAffectPrintable( PAffect xPlayable ){
+	public HEAffectPrintable( HEAffect xPlayable ){
 		
 		super( xPlayable );
 		

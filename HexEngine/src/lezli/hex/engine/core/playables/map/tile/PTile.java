@@ -6,7 +6,7 @@ import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.PGameTableCamera;
 import lezli.hex.engine.core.playables.LivingPlayable;
 import lezli.hex.engine.core.playables.building.PBuilding;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.tile.placeholder.PPlaceholder;
 import lezli.hex.engine.core.playables.unit.skills.PAffect;
 import lezli.hex.engine.core.structure.entities.map.tile.Tile;
@@ -18,7 +18,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class PTile extends GraphicalPlayable< Tile > implements HETile{
+public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 
 	public static final int DEF_SIZE = ( int ) ( Gdx.graphics.getHeight() / 5.0f );
 	
@@ -34,7 +34,7 @@ public class PTile extends GraphicalPlayable< Tile > implements HETile{
 	
 	private float mHeight;
 	
-	private GraphicalPlayable<?> mPlayable;
+	private PGraphicalPlayable<?> mPlayable;
 	
 	private ArrayList< Affect > mOnEnterAffects;
 	private ArrayList< Affect > mOnExitAffects;
@@ -66,7 +66,7 @@ public class PTile extends GraphicalPlayable< Tile > implements HETile{
 		
 	}
 
-	public GraphicalPlayable<?> getPlayable(){
+	public PGraphicalPlayable<?> getPlayable(){
 		
 		return mPlayable;
 		
@@ -78,7 +78,7 @@ public class PTile extends GraphicalPlayable< Tile > implements HETile{
 		
 	}
 
-	public Vector2 getUnitCoordinates( GraphicalPlayable<?> xUnit ){
+	public Vector2 getUnitCoordinates( PGraphicalPlayable<?> xUnit ){
 		
 		float unitHeight = xUnit.getHeightScale() * getHeight();
 		
@@ -102,7 +102,7 @@ public class PTile extends GraphicalPlayable< Tile > implements HETile{
 		
 	}
 	
-	public void setPlayable( GraphicalPlayable<?> xPlayable, boolean xResize ){
+	public void setPlayable( PGraphicalPlayable<?> xPlayable, boolean xResize ){
 		
 		mPlayable = xPlayable;
 		
@@ -175,7 +175,7 @@ public class PTile extends GraphicalPlayable< Tile > implements HETile{
 		
 	}
 	
-	public void resizePlayable( GraphicalPlayable<?> xUnit ){
+	public void resizePlayable( PGraphicalPlayable<?> xUnit ){
 
 		Vector2 coords = getUnitCoordinates( xUnit );
 		

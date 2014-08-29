@@ -2,18 +2,18 @@ package siegedevils.gui.printables;
 
 import java.util.Map.Entry;
 
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.moddable.playables.HECost;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Scaling;
 
-import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.cost.CostPlayable;
+public class HECostPrintable< T extends HECost > extends HEPlayablePrintable< HECost >{
 
-public class CostPlayablePrintable< T extends CostPlayable< ? > > extends GraphicalPlayablePrintable< CostPlayable< ? > >{
-
-	public CostPlayablePrintable( T xPlayable ){
+	public HECostPrintable( T xPlayable ){
 		
 		super( xPlayable );
 		

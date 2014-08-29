@@ -8,17 +8,18 @@ import lezli.hex.engine.core.HexEngine.HexEngineProperties;
 import lezli.hex.engine.core.gametable.script.PSkillScriptable;
 import lezli.hex.engine.core.playables.LivingPlayable;
 import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.tile.PTile;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.structure.entities.skill.Skill;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
+import lezli.hex.engine.moddable.playables.HESkill;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.math.Vector2;
 
-public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptable{
+public class PSkill extends PGraphicalPlayable< Skill > implements PSkillScriptable, HESkill{
 
 	private int mRange;
 	private int mArea;
@@ -312,5 +313,5 @@ public class PSkill extends GraphicalPlayable< Skill > implements PSkillScriptab
 		return getRange();
 		
 	}
-	
+
 }

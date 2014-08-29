@@ -3,18 +3,21 @@ package siegedevils.gui;
 import java.util.ArrayList;
 
 import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.building.PBuilding;
-import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
 import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
-import siegedevils.gui.printables.GraphicalPlayablePrintable;
-import siegedevils.gui.printables.PBuildingPrintable;
-import siegedevils.gui.printables.PProducePrintable;
-import siegedevils.gui.printables.PStatUpgradePrintable;
-import siegedevils.gui.printables.PUnitPrintable;
+import lezli.hex.engine.moddable.playables.HEBuilding;
+import lezli.hex.engine.moddable.playables.HEProduce;
+import lezli.hex.engine.moddable.playables.HESkillProduce;
+import lezli.hex.engine.moddable.playables.HEStatProduce;
+import lezli.hex.engine.moddable.playables.HEUnitProduce;
+import siegedevils.gui.printables.HEPlayablePrintable;
+import siegedevils.gui.printables.HEBuildingPrintable;
+import siegedevils.gui.printables.HEProducePrintable;
+import siegedevils.gui.printables.HEStatProducePrintable;
+import siegedevils.gui.printables.HEUnitPrintable;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -52,8 +55,8 @@ public class BuildingDetails extends Actor{
 	
 	private int mCurrentTab;
 	
-	private PBuilding mCurrentBuilding;
-	private PProducePlayable< ?, ? > mCurrentProduce;
+	private HEBuilding mCurrentBuilding;
+	private HEProduce mCurrentProduce;
 	
 	private int mBtn1Tab;
 	private int mBtn2Tab;
@@ -131,7 +134,7 @@ public class BuildingDetails extends Actor{
 		
 	}
 	
-	public void show( int xTab, PBuilding xBuilding ){
+	public void show( int xTab, HEBuilding xBuilding ){
 		
 		mScrollPane.clearActions();
 		mScrollPane.setPosition( Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - HEIGHT );
@@ -169,7 +172,7 @@ public class BuildingDetails extends Actor{
 	
 	private void updateInfo(){
 
-		new PBuildingPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
+		new HEBuildingPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
 		
 		if( mCurrentTab != TAB_INFO_ONLY )
 			addProduces();
@@ -178,46 +181,46 @@ public class BuildingDetails extends Actor{
 	
 	public void addProduces(){
 		
-		if( mCurrentBuilding.getUnitProduces().size() > 0 ){
+		if( mCurrentBuilding.unitProduces().size() > 0 ){
 		
 			mTable.row();
 			Label unitsLabel = new Label( "Units", mSkin, "fnt-medium", Color.WHITE );
 			mTable.add( unitsLabel ).expandX().padBottom( 5 );
 			
-			for( PUnitProduce unitProduce: mCurrentBuilding.getUnitProduces().values() )
+			for( HEUnitProduce unitProduce: mCurrentBuilding.unitProduces().values() )
 				addProduce( mTable, unitProduce );
 		
 		}
 		
-		if( mCurrentBuilding.getStatUpgrades().size() > 0 ){
+		if( mCurrentBuilding.statUpgrades().size() > 0 ){
 		
 			mTable.row();
 			Label upgradesLabel = new Label( "Upgrades", mSkin, "fnt-medium", Color.WHITE );
 			mTable.add( upgradesLabel ).expandX().padTop( 10 ).padBottom( 5 );
 			
-			for( PStatUpgrade statUpgrade: mCurrentBuilding.getStatUpgrades().values() )
+			for( HEStatProduce statUpgrade: mCurrentBuilding.statUpgrades().values() )
 				addProduce( mTable, statUpgrade );
 		
 		}
 		
-		if( mCurrentBuilding.getSkillUpgrades().size() > 0 ){
+		if( mCurrentBuilding.skillUpgrades().size() > 0 ){
 		
 			mTable.row();
 			Label skillsLabel = new Label( "Skills", mSkin, "fnt-medium", Color.WHITE );
 			mTable.add( skillsLabel ).expandX().padTop( 10 ).padBottom( 5 );
 			
-			for( PSkillUpgrade skillUpgrade: mCurrentBuilding.getSkillUpgrades().values() )
+			for( HESkillProduce skillUpgrade: mCurrentBuilding.skillUpgrades().values() )
 				addProduce( mTable, skillUpgrade );
 		
 		}
 		
 	}
 	
-	public void addProduce( Table xTable, final PProducePlayable< ?, ? > xProduce ){
+	public void addProduce( Table xTable, final HEProduce xProduce ){
 		
 		mTable.row();
 
-		Table skillTable = new PProducePrintable( xProduce ).getListElementTable( mSkin, e );
+		Table skillTable = new HEProducePrintable( xProduce ).getListElementTable( mSkin, e );
 		
 		if( !xProduce.isProducing() && mCurrentBuilding.isConstructed() ){
 			
@@ -250,19 +253,19 @@ public class BuildingDetails extends Actor{
 	private void updateUnit(){
 		
 		PUnit xUnit = new PUnit( ( PUnitProduce ) mCurrentProduce, e );
-		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
+		new HEUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
 		
 	}
 	
 	private void updateSkill(){
 		
-		new GraphicalPlayablePrintable< PSkillUpgrade >( ( ( PSkillUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
+		new HEPlayablePrintable< HESkillProduce >( ( ( PSkillUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
 		
 	}
 	
 	private void updateStat(){
 		
-		new PStatUpgradePrintable( ( ( PStatUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
+		new HEStatProducePrintable( ( ( PStatUpgrade ) mCurrentProduce ) ).fillTable( mTable, mSkin, e );
 		
 	}
 	

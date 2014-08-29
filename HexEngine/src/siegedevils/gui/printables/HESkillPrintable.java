@@ -1,8 +1,11 @@
 package siegedevils.gui.printables;
 
 import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
-import siegedevils.gui.ImageShadowed;
+import lezli.hex.engine.core.playables.unit.skills.PAffect;
+import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
+import lezli.hex.engine.moddable.playables.HEAffect;
+import lezli.hex.engine.moddable.playables.HESkill;
+import lezli.hex.engine.moddable.playables.HEUnit;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -12,19 +15,19 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.utils.Scaling;
 
-public class GraphicalPlayablePrintable< T extends GraphicalPlayable< ? > > extends PlayablePrintable< T >{
+public class HESkillPrintable extends HEPlayablePrintable< HESkill >{
 
-	public GraphicalPlayablePrintable( T xPlayable ){
+	public HESkillPrintable( HESkill xPlayable ){
 		
 		super( xPlayable );
 		
 	}
-	
+
+	@Override
 	public Table getListElementTable( Skin xSkin, HexEngine xEngine ){
 		
 		final Table table = new Table( xSkin );
@@ -63,6 +66,17 @@ public class GraphicalPlayablePrintable< T extends GraphicalPlayable< ? > > exte
 			
 		});
 		
+		if( getPlayable().isCooldown() ){
+			
+			table.row();
+			
+			Label cooldownLabel = new Label( "Cooldown: " + getPlayable().getCooldownStatus() + " turn", xSkin );
+			cooldownLabel.setAlignment( Align.center, Align.center );
+			table.add( cooldownLabel ).padTop( 5 ).expandX().fillX().colspan( 2 );
+			table.setColor( 1.0f, 0.7f, 0.7f, 1.0f );
+			
+		}
+		
 		return table;
 		
 	}
@@ -70,49 +84,34 @@ public class GraphicalPlayablePrintable< T extends GraphicalPlayable< ? > > exte
 	@Override
 	public void fillTable( Table xTable, Skin xSkin, HexEngine xEngine ){
 
-		Table nameTable = new Table( xSkin );
-		nameTable.row();
-		
-		ImageShadowed i = new ImageShadowed( getPlayable().getLargeIcon(), xSkin );
-		i.setScaling( Scaling.fill );
-		
-		Label nameLabel = new Label( getPlayable().getName(), xSkin, xTable.hasChildren() ? "fnt-small" : "fnt-medium", Color.WHITE );
-		nameLabel.setWrap( true );
-		nameLabel.setAlignment( Align.center );
-		
-		Stack s = new Stack();
-		Image ribbon = new Image( xSkin, "banner-red" );
-		ribbon.setScaling( Scaling.stretch );
-		s.add( ribbon );
-		s.add( nameLabel );
-		
-		if( xTable.hasChildren() ){
+		super.fillTable( xTable, xSkin, xEngine );
+	
+		for( Affect eAffect: getPlayable().getAffects() ){
 			
-			nameTable.add( i ).size( 50 );
-			nameTable.row();
-			nameTable.add( s ).height( 50 ).width( 200 ).padTop( 5 ).top();
-			xTable.add( nameTable ).expandX().fillX();
+			HEAffect affect = new PAffect( eAffect, xEngine );
+			affect.apply( getPlayable(), getPlayable().getHolder(), null );
+			
+			xTable.left().add( new HEAffectPrintable( affect ).getListElementTable( xSkin, xEngine ) ).padBottom( 5 ).width( 280 );
+			xTable.row();
 			
 		}
-		else{
-		
-			
-			nameTable.add( i ).left().size( xTable.getParent().getWidth() / 3.0f - 5 );
-			
-			nameTable.add( s ).expandX().fillX().width( 2.0f * xTable.getParent().getWidth() / 3.0f - 10 ).left().top();
-			xTable.add( nameTable ).expandX().fillX().colspan( 2 );
-
-		}
-		
-		
-		Label descriptionLabel = new Label( getPlayable().getDescription(), xSkin );
-		descriptionLabel.setWrap( true );
-		xTable.row();
-		xTable.add( descriptionLabel ).colspan( 2 ).left().width( 250 ).padBottom( 10 ).padTop( 10 );
-		xTable.row();
-		
-		
 		
 	}
+	
+	public void fillTable( Table xTable, Skin xSkin, HEUnit xUnitTo, HexEngine xEngine ){
 
+		super.fillTable( xTable, xSkin, xEngine );
+	
+//		for( Affect eAffect: getPlayable().getAffects() ){
+//			
+//			PAffect affect = new PAffect( eAffect );
+//			affect.init( getPlayable(), getPlayable().getHolder(), xUnitTo );
+//			
+//			xTable.add( new PAffectPrintable( affect ).getListElementTable( xSkin ) ).padBottom( 5 ).width( 170 );
+//			xTable.row();
+//			
+//		}
+		
+	}
+	
 }

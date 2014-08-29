@@ -15,7 +15,7 @@ import lezli.hex.engine.core.gametable.script.PMapScriptable;
 import lezli.hex.engine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hex.engine.core.playables.LivingPlayable;
 import lezli.hex.engine.core.playables.building.PBuilding;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.tile.PTile;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
@@ -30,13 +30,13 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.XmlWriter;
 
-public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
+public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 
 	private static final int FIX = 0;
 	
 	private ArrayList< ArrayList< PTile > > mTiles;
 	private ConcurrentHashMap< Vector3, Vector2 > mPathParts;
-	private HashMap< PTile, GraphicalPlayable<?> > mPlayables;
+	private HashMap< PTile, PGraphicalPlayable<?> > mPlayables;
 	private HashMap< Vector2, Integer > mAreaHelper;
 	
 	private Player mCurrentPlayer;
@@ -73,7 +73,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 		mTiles = new ArrayList< ArrayList< PTile > >();
 		mPathParts = new ConcurrentHashMap< Vector3, Vector2 >();
-		mPlayables = new HashMap< PTile, GraphicalPlayable<?> >();
+		mPlayables = new HashMap< PTile, PGraphicalPlayable<?> >();
 		mAreaHelper = new HashMap< Vector2, Integer >();
 		
 		mPlayerRevealedTiles = new HashMap< String, ArrayList< PTile > >();
@@ -142,9 +142,9 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public PTile getTile( GraphicalPlayable<?> xPlayable ){
+	public PTile getTile( PGraphicalPlayable<?> xPlayable ){
 
-		for( Entry< PTile, GraphicalPlayable< ? > > entry: mPlayables.entrySet() ){
+		for( Entry< PTile, PGraphicalPlayable< ? > > entry: mPlayables.entrySet() ){
 			
 			if( entry.getValue() == xPlayable )
 				return entry.getKey();
@@ -164,13 +164,13 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public GraphicalPlayable<?> getPlayableOnTile( PTile tile ){
+	public PGraphicalPlayable<?> getPlayableOnTile( PTile tile ){
 	
 		return mPlayables.get( getTile( tile.getTileX(), tile.getTileY() ) );
 		
 	}
 
-	public GraphicalPlayable<?> getPlayableOnTile( int xX, int xY ){
+	public PGraphicalPlayable<?> getPlayableOnTile( int xX, int xY ){
 	
 		return getPlayableOnTile( getTile( xX, xY ) );
 		
@@ -215,7 +215,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 		if( !isTileEmpty( xX, xY ) ){
 			
-			GraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
+			PGraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
 			
 			if( xPlayable instanceof PUnit )
 				return ( ( PUnit ) xPlayable );
@@ -236,7 +236,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 		if( !isTileEmpty( xX, xY ) ){
 			
-			GraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
+			PGraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
 			
 			if( xPlayable instanceof PBuilding )
 				return ( ( PBuilding ) xPlayable );
@@ -373,7 +373,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public PTile getFirstWalkableTileInArea( GraphicalPlayable<?> xPlayable ){
+	public PTile getFirstWalkableTileInArea( PGraphicalPlayable<?> xPlayable ){
 		
 		int maxDistance = Math.max( mapWidth(), mapHeight() );
 		
@@ -437,13 +437,13 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public ArrayList< PTile > getArea( GraphicalPlayable<?> xExceptPlayable, int xDistance ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xExceptPlayable, int xDistance ){
 		
 		return getArea( xExceptPlayable.getTileX(), xExceptPlayable.getTileY(), xDistance, true, xExceptPlayable );
 		
 	}
 
-	public ArrayList< PTile > getArea( GraphicalPlayable<?> xExceptPlayable, int xDistance, ArrayList< String > xAcceptedTiles ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xExceptPlayable, int xDistance, ArrayList< String > xAcceptedTiles ){
 		
 		ArrayList< PTile > tiles = getArea( xExceptPlayable.getTileX(), xExceptPlayable.getTileY(), xDistance, false, xExceptPlayable );
 		
@@ -464,37 +464,37 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, GraphicalPlayable<?> xExceptPlayable ){
+	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, PGraphicalPlayable<?> xExceptPlayable ){
 		
 		return getArea( xX, xY, xDistance, true, xExceptPlayable );
 		
 	}
 
-	public ArrayList< PTile > getArea( GraphicalPlayable<?> xExceptPlayable, int xDistance, boolean xBlocked ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xExceptPlayable, int xDistance, boolean xBlocked ){
 		
 		return getArea( xExceptPlayable.getTileX(), xExceptPlayable.getTileY(), xDistance, xBlocked, xExceptPlayable );
 		
 	}
 
-	public ArrayList< PTile > getArea( GraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, GraphicalPlayable< ? > xExceptPlayable ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xExceptPlayable ){
 		
-		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, new ArrayList< GraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
+		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
 		
 	}
 
-	public ArrayList< PTile > getArea( GraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, ArrayList< ? extends GraphicalPlayable< ? > > xExceptPlayable ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable< ? > > xExceptPlayable ){
 		
 		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, xExceptPlayable );
 		
 	}
 
-	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, GraphicalPlayable< ? > xExceptPlayable ){
+	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xExceptPlayable ){
 		
-		return getArea( xX, xY, xDistance, xBlocked, new ArrayList< GraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
+		return getArea( xX, xY, xDistance, xBlocked, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
 		
 	}
 
-	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends GraphicalPlayable< ? > > xCenterPlayable ){
+	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable< ? > > xCenterPlayable ){
 		
 		mPathParts.clear();
 		mAreaHelper.clear();
@@ -502,7 +502,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public PTile getTileOf( GraphicalPlayable< ? > xPlayable ){
+	public PTile getTileOf( PGraphicalPlayable< ? > xPlayable ){
 		
 		if( mPlayables.containsValue( xPlayable ) )
 			return getTile( xPlayable.getTileX(), xPlayable.getTileY() );
@@ -511,13 +511,13 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public void setPlayable( PTile tile, GraphicalPlayable<?> xPlayable, boolean xResize ){
+	public void setPlayable( PTile tile, PGraphicalPlayable<?> xPlayable, boolean xResize ){
 		
 		setPlayable( tile.getTileX(), tile.getTileY(), xPlayable, xResize );
 		
 	}
 	
-	public void setPlayable( int xX, int xY, GraphicalPlayable<?> xPlayable, boolean xResize ){
+	public void setPlayable( int xX, int xY, PGraphicalPlayable<?> xPlayable, boolean xResize ){
 
 		if( mPlayables.containsValue( xPlayable ) ){
 			
@@ -626,7 +626,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public void removePlayable( GraphicalPlayable<?> xPlayable ){
+	public void removePlayable( PGraphicalPlayable<?> xPlayable ){
 		
 		mPlayables.remove( getTile( xPlayable ) );
 		
@@ -674,15 +674,15 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public boolean isOnTile( ArrayList< ? extends GraphicalPlayable<?> > xPlayables, PTile tile ){
+	public boolean isOnTile( ArrayList< ? extends PGraphicalPlayable<?> > xPlayables, PTile tile ){
 		
 		return isOnTile( xPlayables, tile.getTileX(), tile.getTileY() );
 		
 	}
 	
-	public boolean isOnTile( ArrayList< ? extends GraphicalPlayable<?> > xPlayables, int xX, int xY ){
+	public boolean isOnTile( ArrayList< ? extends PGraphicalPlayable<?> > xPlayables, int xX, int xY ){
 		
-		for( GraphicalPlayable<?> playable: xPlayables )
+		for( PGraphicalPlayable<?> playable: xPlayables )
 			if( isOnTile( playable,	 xX, xY ) )
 				return true;
 		
@@ -690,13 +690,13 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public boolean isOnTile( GraphicalPlayable<?> xPlayable, PTile tile ){
+	public boolean isOnTile( PGraphicalPlayable<?> xPlayable, PTile tile ){
 		
 		return isOnTile( xPlayable, tile.getTileX(), tile.getTileY() );
 		
 	}
 	
-	public boolean isOnTile( GraphicalPlayable<?> xPlayable, int xX, int xY ){
+	public boolean isOnTile( PGraphicalPlayable<?> xPlayable, int xX, int xY ){
 		
 		return getPlayableOnTile( xX, xY ) == xPlayable;
 		
@@ -853,7 +853,7 @@ public class PMap extends GraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	private ArrayList< PTile > getAreaTiles( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends GraphicalPlayable<?> > xExceptPlayables ){
+	private ArrayList< PTile > getAreaTiles( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable<?> > xExceptPlayables ){
 		
 		ArrayList< PTile > tiles = new ArrayList<PTile>();
 		if( xX < 0 || xY < 0 || xY > mapHeight() - 1 || xX > mapWidth() - 1 )

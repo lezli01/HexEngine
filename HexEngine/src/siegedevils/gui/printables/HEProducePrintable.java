@@ -2,15 +2,16 @@ package siegedevils.gui.printables;
 
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
+import lezli.hex.engine.moddable.playables.HEProduce;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
-public class PProducePrintable extends CostPlayablePrintable< PProducePlayable< ?, ? > >{
+public class HEProducePrintable extends HECostPrintable< HEProduce >{
 
-	public PProducePrintable( PProducePlayable< ?, ? > xPlayable ){
+	public HEProducePrintable( HEProduce xPlayable ){
 		
 		super( xPlayable );
 		
@@ -21,7 +22,7 @@ public class PProducePrintable extends CostPlayablePrintable< PProducePlayable< 
 	
 		Table skillTable = super.getListElementTable( xSkin, xEngine );
 		
-		if( ( ( PProducePlayable< ?, ? > ) getPlayable() ).isProducing() ){
+		if( ( ( HEProduce ) getPlayable() ).isProducing() ){
 			
 			skillTable.row();
 			

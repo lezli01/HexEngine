@@ -7,16 +7,19 @@ import java.util.Iterator;
 
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.scriptable.PLivingPlayableScriptable;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.unit.skills.PAffect;
 import lezli.hex.engine.core.playables.unit.stats.PStatReg;
 import lezli.hex.engine.core.structure.entities.LivingEntity;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
 import lezli.hex.engine.core.structure.entities.stat.StatReg;
+import lezli.hex.engine.moddable.playables.HEAffect;
+import lezli.hex.engine.moddable.playables.HELivingPlayable;
+import lezli.hex.engine.moddable.playables.HEStatReg;
 
 import com.badlogic.gdx.utils.XmlWriter;
 
-public abstract class LivingPlayable< T extends LivingEntity > extends GraphicalPlayable< T > implements PLivingPlayableScriptable{
+public abstract class LivingPlayable< T extends LivingEntity > extends PGraphicalPlayable< T > implements PLivingPlayableScriptable, HELivingPlayable{
 
 	private ArrayList< PAffect > mAffects;
 	private boolean mDead;
@@ -60,10 +63,24 @@ public abstract class LivingPlayable< T extends LivingEntity > extends Graphical
 		
 	}
 	
+	@Override
+	public HashMap< String, HEStatReg > statRegs() {
+
+		return new HashMap< String, HEStatReg >( getStatRegs() );
+	
+	}
+	
 	public ArrayList< PAffect > getAffects(){
 		
 		return mAffects;
 		
+	}
+	
+	@Override
+	public ArrayList<HEAffect> affects() {
+
+		return new ArrayList< HEAffect >( getAffects() );
+	
 	}
 	
 	public void clearAffects(){

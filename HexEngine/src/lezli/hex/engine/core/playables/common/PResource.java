@@ -5,10 +5,10 @@ import java.io.IOException;
 import com.badlogic.gdx.utils.XmlWriter;
 
 import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.structure.entities.common.Resource;
 
-public class PResource extends GraphicalPlayable< Resource >{
+public class PResource extends PGraphicalPlayable< Resource >{
 
 	private int mQuantity;
 	

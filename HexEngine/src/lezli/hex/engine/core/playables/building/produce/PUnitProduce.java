@@ -8,8 +8,9 @@ import lezli.hex.engine.core.gametable.scriptable.PBuildingScriptable;
 import lezli.hex.engine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.structure.entities.building.UnitProduce;
+import lezli.hex.engine.moddable.playables.HEUnitProduce;
 
-public class PUnitProduce extends PProducePlayable< UnitProduce, PUnit > implements PUnitScriptable{
+public class PUnitProduce extends PProducePlayable< UnitProduce, PUnit > implements PUnitScriptable, HEUnitProduce{
 
 	public PUnitProduce( UnitProduce xEntity, HexEngine xEngine ){
 		

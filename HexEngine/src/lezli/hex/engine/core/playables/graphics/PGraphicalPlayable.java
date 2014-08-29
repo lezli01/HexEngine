@@ -17,7 +17,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.XmlWriter;
 
-public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playable< T > implements PGraphicalPlayableScriptable{
+public abstract class PGraphicalPlayable<T extends GraphicalEntity> extends Playable< T > implements PGraphicalPlayableScriptable{
 
 	private PGraphics mGraphics;
 	private Rectangle mRect;
@@ -29,7 +29,6 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	
 	private LinkedList< String > mAnimationsList;
 	private String mDefAnimation;
-//	private String mCurrentAnimation;
 	
 	private boolean mCastShadow;
 	private static float SH_X, SH_Y;
@@ -37,7 +36,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 	
 	public float x,y,w,h;
 	
-	public GraphicalPlayable( T xEntity, HexEngine xEngine ){
+	public PGraphicalPlayable( T xEntity, HexEngine xEngine ){
 		
 		super( xEntity, xEngine );
 		
@@ -282,7 +281,7 @@ public abstract class GraphicalPlayable<T extends GraphicalEntity> extends Playa
 		
 	}
 
-	public int distance( GraphicalPlayable<?> xPlayable ){
+	public int distance( PGraphicalPlayable<?> xPlayable ){
 		
 		int fromX = getTileX() + getTileY() / 2;
 		int fromY = getTileY();

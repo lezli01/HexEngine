@@ -26,10 +26,14 @@ import lezli.hex.engine.core.structure.entities.building.StatUpgrade;
 import lezli.hex.engine.core.structure.entities.building.UnitProduce;
 import lezli.hex.engine.core.structure.entities.cost.ResourceCost;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
+import lezli.hex.engine.moddable.playables.HEBuilding;
+import lezli.hex.engine.moddable.playables.HESkillProduce;
+import lezli.hex.engine.moddable.playables.HEStatProduce;
+import lezli.hex.engine.moddable.playables.HEUnitProduce;
 
 import com.badlogic.gdx.utils.XmlWriter;
 
-public class PBuilding extends LivingPlayable< Building > implements PBuildingScriptable{
+public class PBuilding extends LivingPlayable< Building > implements PBuildingScriptable, HEBuilding{
 
 	private int mDuration;
 
@@ -334,6 +338,27 @@ public class PBuilding extends LivingPlayable< Building > implements PBuildingSc
 	public boolean constructing() {
 
 		return !isConstructed();
+	
+	}
+
+	@Override
+	public ConcurrentHashMap< String, HESkillProduce > skillUpgrades() {
+
+		return new ConcurrentHashMap< String,  HESkillProduce >( getSkillUpgrades() );
+		
+	}
+
+	@Override
+	public ConcurrentHashMap< String, HEStatProduce > statUpgrades() {
+
+		return new ConcurrentHashMap< String, HEStatProduce >( getStatUpgrades() );
+	
+	}
+
+	@Override
+	public HashMap< String, HEUnitProduce > unitProduces() {
+
+		return new HashMap< String, HEUnitProduce >( getUnitProduces() );
 	
 	}
 	

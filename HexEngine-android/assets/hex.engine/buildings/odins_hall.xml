@@ -5,7 +5,7 @@
 -->
 <Building
     id="@odins_hall"
-    name="Odin&apos;s Hall"
+    name="Odin's Hall"
     description="@building_description/@odins_hall"
     duration="1"
     graphics="@odins_hall_graphics"

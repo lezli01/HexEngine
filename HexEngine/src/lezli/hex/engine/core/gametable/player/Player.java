@@ -12,7 +12,7 @@ import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PUpgradeProduce;
 import lezli.hex.engine.core.playables.common.PResource;
 import lezli.hex.engine.core.playables.cost.CostPlayable;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.structure.entities.common.Resource;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
@@ -160,9 +160,9 @@ public class Player{
 		
 	}
 	
-	public ArrayList< ? extends GraphicalPlayable<?> > getPlayables(){
+	public ArrayList< ? extends PGraphicalPlayable<?> > getPlayables(){
 
-		ArrayList< GraphicalPlayable<?> > allPlayables = new ArrayList< GraphicalPlayable< ? > >();
+		ArrayList< PGraphicalPlayable<?> > allPlayables = new ArrayList< PGraphicalPlayable< ? > >();
 		
 		allPlayables.addAll( getUnits() );
 		allPlayables.addAll( getBuildings() );
@@ -240,7 +240,7 @@ public class Player{
 		
 	}
 	
-	public boolean belongs( GraphicalPlayable<?> xPlayable ){
+	public boolean belongs( PGraphicalPlayable<?> xPlayable ){
 		
 		if( xPlayable instanceof PUnit )
 			return unitBelongs( ( PUnit ) xPlayable );

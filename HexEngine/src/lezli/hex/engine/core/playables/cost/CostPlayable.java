@@ -2,10 +2,11 @@ package lezli.hex.engine.core.playables.cost;
 
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.scriptable.PCostPlayableScriptable;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.structure.entities.cost.CostEntity;
+import lezli.hex.engine.moddable.playables.HECost;
 
-public abstract class CostPlayable< T extends CostEntity > extends GraphicalPlayable< T > implements PCostPlayableScriptable{
+public abstract class CostPlayable< T extends CostEntity > extends PGraphicalPlayable< T > implements PCostPlayableScriptable, HECost{
 
 	private PCost mCost;
 	

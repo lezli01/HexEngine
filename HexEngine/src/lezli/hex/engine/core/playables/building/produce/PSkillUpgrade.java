@@ -4,8 +4,9 @@ import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.gametable.script.PSkillScriptable;
 import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.building.SkillUpgrade;
+import lezli.hex.engine.moddable.playables.HESkillProduce;
 
-public class PSkillUpgrade extends PUpgradeProduce< SkillUpgrade, PSkill > implements PSkillScriptable{
+public class PSkillUpgrade extends PUpgradeProduce< SkillUpgrade, PSkill > implements PSkillScriptable, HESkillProduce{
 
 	private String mSkill;
 	

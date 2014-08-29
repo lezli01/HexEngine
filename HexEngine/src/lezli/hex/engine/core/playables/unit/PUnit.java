@@ -22,12 +22,15 @@ import lezli.hex.engine.core.structure.entities.building.BuildingReg;
 import lezli.hex.engine.core.structure.entities.skill.SkillReg;
 import lezli.hex.engine.core.structure.entities.stat.StatReg;
 import lezli.hex.engine.core.structure.entities.unit.Unit;
+import lezli.hex.engine.moddable.playables.HEBuildingReg;
+import lezli.hex.engine.moddable.playables.HESkill;
+import lezli.hex.engine.moddable.playables.HEUnit;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 
-public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
+public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HEUnit{
 
 	private static final float MOVING_SPEED_X = 100.0f;
 	private static final float MOVING_SPEED_Y = 175.0f;
@@ -89,6 +92,12 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 		return mSkills;
 		
 	}
+	
+	public HashMap< String, HESkill > allSkills(){
+		
+		return new HashMap< String, HESkill >( mSkills );
+		
+	}
 
 	public HashMap< String, PBuildingReg > getBuildingRegs(){
 		
@@ -96,6 +105,12 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable{
 		
 	}
 
+	public HashMap< String, HEBuildingReg > buildingRegs(){
+		
+		return new HashMap< String, HEBuildingReg >( mBuildingRegs );
+		
+	}
+	
 	public void setCasted( PSkill xSkill ){
 		
 		addAnimation( xSkill.getAnim() );

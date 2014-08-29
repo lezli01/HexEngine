@@ -11,8 +11,9 @@ import lezli.hex.engine.core.gametable.scriptable.PUnitScriptable;
 import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
 import lezli.hex.engine.core.structure.entities.building.BuildingReg;
 import lezli.hex.engine.core.structure.entities.map.MapTile;
+import lezli.hex.engine.moddable.playables.HEBuildingReg;
 
-public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > implements PBuildingScriptable{
+public class PBuildingReg extends PProducePlayable< BuildingReg, PBuilding > implements PBuildingScriptable, HEBuildingReg{
 
 	private String mBuilding;
 	

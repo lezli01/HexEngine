@@ -3,13 +3,13 @@ package siegedevils.gui;
 import java.util.ArrayList;
 
 import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.building.PBuildingReg;
-import lezli.hex.engine.core.playables.unit.PUnit;
-import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
-import siegedevils.gui.printables.PBuildingRegPrintable;
-import siegedevils.gui.printables.PSkillPrintable;
-import siegedevils.gui.printables.PUnitPrintable;
+import lezli.hex.engine.moddable.playables.HEBuildingReg;
+import lezli.hex.engine.moddable.playables.HESkill;
+import lezli.hex.engine.moddable.playables.HEUnit;
+import siegedevils.gui.printables.HEBuildingRegPrintable;
+import siegedevils.gui.printables.HESkillPrintable;
+import siegedevils.gui.printables.HEUnitPrintable;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Interpolation;
@@ -48,10 +48,10 @@ public class UnitDetails extends Actor{
 	private ScrollPane mButtonsPane;
 	
 	private int mCurrentTab;
-	private PUnit mCurrentUnitTo;
-	private PUnit mCurrentUnit;
-	private PSkill mCurrentSkill;
-	private PBuildingReg mCurrentBuilding;
+	private HEUnit mCurrentUnitTo;
+	private HEUnit mCurrentUnit;
+	private HESkill mCurrentSkill;
+	private HEBuildingReg mCurrentBuilding;
 	private int mBtn1Tab;
 	private int mBtn2Tab;
 	
@@ -117,7 +117,7 @@ public class UnitDetails extends Actor{
 		
 	}
 	
-	public PSkill getCurrentSkill(){
+	public HESkill getCurrentSkill(){
 		
 		return mCurrentSkill;
 		
@@ -144,7 +144,7 @@ public class UnitDetails extends Actor{
 		
 	}
 	
-	public void show( int xTab, PUnit xUnit, PSkill xSkill, PBuildingReg xBuilding ){
+	public void show( int xTab, HEUnit xUnit, HESkill xSkill, HEBuildingReg xBuilding ){
 		
 		mScrollPane.clearActions();
 		mScrollPane.setPosition( Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - HEIGHT );
@@ -171,13 +171,13 @@ public class UnitDetails extends Actor{
 		
 	}
 	
-	public void show( int xTab, PUnit xUnit ){
+	public void show( int xTab, HEUnit xUnit ){
 		
 		show( xTab, xUnit, null, null );
 		
 	}
 	
-	private void update( PUnit xUnit, PSkill xSkill ){
+	private void update( HEUnit xUnit, HESkill xSkill ){
 		
 		mTable.clear();
 		
@@ -197,9 +197,9 @@ public class UnitDetails extends Actor{
 		
 	}
 	
-	private void updateInfo( PUnit xUnit ){
+	private void updateInfo( HEUnit xUnit ){
 
-		new PUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
+		new HEUnitPrintable( xUnit ).fillTable( mTable, mSkin, e );
 		
 	}
 	
@@ -208,7 +208,7 @@ public class UnitDetails extends Actor{
 		for( HEGameTableFeatures listener: mListeners )
 			listener.chooseSkill( mCurrentSkill );
 
-		new PSkillPrintable( mCurrentSkill ).fillTable( mTable, mSkin, mCurrentUnitTo, e );
+		new HESkillPrintable( mCurrentSkill ).fillTable( mTable, mSkin, mCurrentUnitTo, e );
 
 		if( mCurrentSkill.getRange() == 0 ){
 		
@@ -231,13 +231,13 @@ public class UnitDetails extends Actor{
 		}
 	}
 	
-	private void updateSkills( PUnit xUnit ){
+	private void updateSkills( HEUnit xUnit ){
 		
-		for( final PSkill skill: xUnit.getSkills().values() ){
+		for( final HESkill skill: xUnit.allSkills().values() ){
 			
 			mTable.row();
 
-			Table skillTable = new PSkillPrintable( skill ).getListElementTable( mSkin, e );
+			Table skillTable = new HESkillPrintable( skill ).getListElementTable( mSkin, e );
 			
 			if( !skill.isCooldown() ){
 			
@@ -265,17 +265,17 @@ public class UnitDetails extends Actor{
 		for( HEGameTableFeatures listener: mListeners )
 			listener.chooseBuilding( mCurrentBuilding );
 
-		new PBuildingRegPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
+		new HEBuildingRegPrintable( mCurrentBuilding ).fillTable( mTable, mSkin, e );
 		
 	}
 	
-	private void updateBuildings( PUnit xUnit ){
+	private void updateBuildings( HEUnit xUnit ){
 		
-		for( final PBuildingReg buildingReg: xUnit.getBuildingRegs().values() ){
+		for( final HEBuildingReg buildingReg: xUnit.buildingRegs().values() ){
 			
 			mTable.row();
 
-			Table buildingTable = new PBuildingRegPrintable( buildingReg ).getListElementTable( mSkin, e );
+			Table buildingTable = new HEBuildingRegPrintable( buildingReg ).getListElementTable( mSkin, e );
 		
 			buildingTable.addListener( new ClickListener(){
 				
@@ -397,7 +397,7 @@ public class UnitDetails extends Actor{
 		buttonsTable.add( btn1 ).width( WIDTH / 2.0f ).expandY().fillY();
 		buttonsTable.add( btn2 ).width( WIDTH / 2.0f ).expandY().fillY();
 	
-		if( btn2Title.equals( "Build" ) && mCurrentUnit.getBuildingRegs().size() == 0 ){
+		if( btn2Title.equals( "Build" ) && mCurrentUnit.buildingRegs().size() == 0 ){
 		
 			btn2.setTouchable( Touchable.disabled );
 			btn2.setColor( 0.25f, 0.25f, 0.25f, 1.0f );

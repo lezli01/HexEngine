@@ -12,10 +12,15 @@ import lezli.hex.engine.core.playables.Playable;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
+import lezli.hex.engine.moddable.playables.HEAffect;
+import lezli.hex.engine.moddable.playables.HELivingPlayable;
+import lezli.hex.engine.moddable.playables.HESkill;
+import lezli.hex.engine.moddable.playables.HEUnit;
 
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 import com.badlogic.gdx.utils.XmlWriter;
 
-public class PAffect extends Playable< Affect >{
+public class PAffect extends Playable< Affect > implements HEAffect{
 
 	private static HashMap< String, IntScript > SCRIPTS = new HashMap< String, IntScript >();
 	
@@ -229,5 +234,26 @@ public class PAffect extends Playable< Affect >{
 		mValue = script.call();
 		
 	}
+
+	@Override
+	public void init(HESkill xSkill, HEUnit xUnit, HELivingPlayable xPlayable) {
+
+		init( ( PSkill ) xSkill, ( PUnit ) xUnit, ( LivingPlayable< ? > ) xPlayable );
+		
+	}
+
+	@Override
+	public SpriteDrawable getLargeIcon() {
+
+		return null;
 	
+	}
+
+	@Override
+	public void apply(HESkill xSkill, HEUnit xUnit, HELivingPlayable xPlayable) {
+
+		apply( ( PSkill ) xSkill, ( PUnit ) xUnit, ( LivingPlayable< ? > ) xPlayable ); 
+		
+	}
+
 }

@@ -6,15 +6,18 @@ import lezli.hex.engine.core.playables.building.PBuildingReg;
 import lezli.hex.engine.core.playables.building.produce.PSkillUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PStatUpgrade;
 import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
+import lezli.hex.engine.moddable.playables.HEBuildingReg;
+import lezli.hex.engine.moddable.playables.HESkillProduce;
+import lezli.hex.engine.moddable.playables.HEUnitProduce;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-public class PBuildingRegPrintable extends PProducePrintable{
+public class HEBuildingRegPrintable extends HEProducePrintable{
 
-	public PBuildingRegPrintable( PBuildingReg xPlayable ){
+	public HEBuildingRegPrintable( HEBuildingReg xPlayable ){
 		
 		super( xPlayable );
 		
@@ -34,7 +37,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PUnitProduce unit: building.getUnitProduces().values() )
-				new GraphicalPlayablePrintable< PUnitProduce >( unit ).fillTable( xTable, xSkin, xEngine );
+				new HEPlayablePrintable< HEUnitProduce >( unit ).fillTable( xTable, xSkin, xEngine );
 		
 		}
 		
@@ -45,7 +48,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PStatUpgrade stat: building.getStatUpgrades().values() )
-				new PStatUpgradePrintable( stat ).fillTable( xTable, xSkin, xEngine );
+				new HEStatProducePrintable( stat ).fillTable( xTable, xSkin, xEngine );
 			
 		}
 		
@@ -56,7 +59,7 @@ public class PBuildingRegPrintable extends PProducePrintable{
 			xTable.row();
 			
 			for( PSkillUpgrade skill: building.getSkillUpgrades().values() )
-				new GraphicalPlayablePrintable< PSkillUpgrade >( skill ).fillTable( xTable, xSkin, xEngine );
+				new HEPlayablePrintable< HESkillProduce >( skill ).fillTable( xTable, xSkin, xEngine );
 		
 		}
 			

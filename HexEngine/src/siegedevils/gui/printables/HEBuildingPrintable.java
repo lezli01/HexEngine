@@ -1,17 +1,17 @@
 package siegedevils.gui.printables;
 
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.moddable.playables.HEBuilding;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.building.PBuilding;
+public class HEBuildingPrintable extends HELivingPlayablePrintable< HEBuilding >{
 
-public class PBuildingPrintable extends GraphicalPlayablePrintable< PBuilding >{
-
-	public PBuildingPrintable( PBuilding xPlayable ){
+	public HEBuildingPrintable( HEBuilding xPlayable ){
 
 		super( xPlayable );
 		

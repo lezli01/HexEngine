@@ -3,7 +3,6 @@ package lezli.hex.enginex.ui.metro.elements;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public class MetroButton extends MetroElement{
 

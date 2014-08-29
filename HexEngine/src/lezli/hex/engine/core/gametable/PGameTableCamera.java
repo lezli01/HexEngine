@@ -1,6 +1,6 @@
 package lezli.hex.engine.core.gametable;
 
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.PMap;
 import lezli.hex.engine.moddable.interfaces.HECamera;
 
@@ -64,7 +64,7 @@ public class PGameTableCamera extends OrthographicCamera implements HECamera{
 		
 	}
 	
-	public void moveTo( GraphicalPlayable<?> xPlayable, float xTranslateDuration, boolean xCancellable ){
+	public void moveTo( PGraphicalPlayable<?> xPlayable, float xTranslateDuration, boolean xCancellable ){
 		
 		moveTo( xPlayable.getCenter(), xTranslateDuration, xCancellable );
 		

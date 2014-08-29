@@ -7,8 +7,9 @@ import lezli.hex.engine.core.gametable.scriptable.PStatEntriesScriptable;
 import lezli.hex.engine.core.playables.unit.stats.PStatEntries;
 import lezli.hex.engine.core.structure.entities.building.StatUpgrade;
 import lezli.hex.engine.core.structure.entities.stat.StatReg;
+import lezli.hex.engine.moddable.playables.HEStatProduce;
 
-public class PStatUpgrade extends PUpgradeProduce< StatUpgrade, PStatEntries > implements PStatEntriesScriptable{
+public class PStatUpgrade extends PUpgradeProduce< StatUpgrade, PStatEntries > implements PStatEntriesScriptable, HEStatProduce{
 
 	private HashMap< String, StatReg > mStatRegs;
 	

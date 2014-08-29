@@ -2,20 +2,20 @@ package siegedevils.gui.printables;
 
 import java.util.Iterator;
 
+import lezli.hex.engine.core.HexEngine;
+import lezli.hex.engine.moddable.playables.HEAffect;
+import lezli.hex.engine.moddable.playables.HEStatReg;
+import lezli.hex.engine.moddable.playables.HEUnit;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import lezli.hex.engine.core.HexEngine;
-import lezli.hex.engine.core.playables.unit.PUnit;
-import lezli.hex.engine.core.playables.unit.skills.PAffect;
-import lezli.hex.engine.core.playables.unit.stats.PStatReg;
+public class HEUnitPrintable extends HELivingPlayablePrintable< HEUnit >{
 
-public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
-
-	public PUnitPrintable( PUnit xPlayable ){
+	public HEUnitPrintable( HEUnit xPlayable ){
 		
 		super( xPlayable );
 		
@@ -32,13 +32,13 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 		statTable.row();
 		Image hpi = new Image( xEngine.common().getStats().get( "@HIT_POINTS" ).getLargeIcon() );
 		statTable.add( hpi ).left().size( 60 ).padRight( 5 );
-		Label hl = new Label( getPlayable().getStatRegs().get( "@HIT_POINTS" ).getValue() + "/" + getPlayable().getStatRegs().get( "@MAX_HIT_POINTS" ).getValue(), xSkin, "fnt-small", Color.WHITE );
+		Label hl = new Label( getPlayable().statRegs().get( "@HIT_POINTS" ).getValue() + "/" + getPlayable().statRegs().get( "@MAX_HIT_POINTS" ).getValue(), xSkin, "fnt-small", Color.WHITE );
 		hl.setWrap( true );
 		statTable.add( hl ).expandX().left().width( 80 );
 		
 		Image spi = new Image( xEngine.common().getStats().get( "@SPEED" ).getLargeIcon() );
 		statTable.add( spi ).left().size( 60 ).padRight( 5 );
-		Label sl = new Label( getPlayable().getStatRegs().get( "@SPEED" ).getValue() + "/" + getPlayable().getStatRegs().get( "@MAX_SPEED" ).getValue(), xSkin, "fnt-small", Color.WHITE );
+		Label sl = new Label( getPlayable().statRegs().get( "@SPEED" ).getValue() + "/" + getPlayable().statRegs().get( "@MAX_SPEED" ).getValue(), xSkin, "fnt-small", Color.WHITE );
 		sl.setWrap( true );
 		statTable.add( sl ).expandX().left().width( 80 );
 		
@@ -49,23 +49,23 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 		statTable.row();
 		Image fvi = new Image( xEngine.common().getStats().get( "@FIELD_OF_VIEW" ).getLargeIcon() );
 		statTable.add( fvi ).left().size( 60 ).padRight( 5 );
-		Label fvl = new Label( Integer.toString( getPlayable().getStatRegs().get( "@FIELD_OF_VIEW" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
+		Label fvl = new Label( Integer.toString( getPlayable().statRegs().get( "@FIELD_OF_VIEW" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
 		fvl.setWrap( true );
 		statTable.add( fvl ).expandX().left().width( 80 );;
 		
 		Image fhi = new Image( xEngine.common().getStats().get( "@FIELD_OF_HEED" ).getLargeIcon() );
 		statTable.add( fhi ).left().size( 60 ).padRight( 5 );
-		Label fhl = new Label( Integer.toString( getPlayable().getStatRegs().get( "@FIELD_OF_HEED" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
+		Label fhl = new Label( Integer.toString( getPlayable().statRegs().get( "@FIELD_OF_HEED" ).getValue() ), xSkin, "fnt-small", Color.WHITE );
 		fhl.setWrap( true );
 		statTable.add( fhl ).expandX().left().width( 80 );
 		
 		xTable.add( statTable ).expandX().fillX().left().colspan( 2 ).padBottom( 10 );
 		
-		Iterator< PStatReg > statIter = getPlayable().getStatRegs().values().iterator();
+		Iterator< HEStatReg > statIter = getPlayable().statRegs().values().iterator();
 		
 		while( statIter.hasNext() ){
 			
-			PStatReg statReg = statIter.next();
+			HEStatReg statReg = statIter.next();
 			
 			if( statReg.getStat().equals( "@HIT_POINTS" ) ||
 				statReg.getStat().equals( "@MAX_HIT_POINTS" ) ||
@@ -99,12 +99,12 @@ public class PUnitPrintable extends GraphicalPlayablePrintable< PUnit >{
 			xTable.row();
 			xTable.add( affectsLabel ).padTop( 10 ).padBottom( 5 );
 			
-			for( PAffect affect: getPlayable().getAffects() ){
+			for( HEAffect affect: getPlayable().affects() ){
 				
 //				if( !affect.finished() ){
 				
 					xTable.row();
-					xTable.add( new PAffectPrintable( affect ).getListElementTable( xSkin, xEngine ) ).padBottom( 5 );
+					xTable.add( new HEAffectPrintable( affect ).getListElementTable( xSkin, xEngine ) ).padBottom( 5 );
 				
 //				}
 				

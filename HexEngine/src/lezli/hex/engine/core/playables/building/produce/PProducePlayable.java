@@ -12,8 +12,9 @@ import lezli.hex.engine.core.playables.Playable;
 import lezli.hex.engine.core.playables.cost.CostPlayable;
 import lezli.hex.engine.core.structure.entities.building.ProduceEntity;
 import lezli.hex.engine.core.structure.entities.gametable.Holding;
+import lezli.hex.engine.moddable.playables.HEProduce;
 
-public abstract class PProducePlayable< T extends ProduceEntity, P extends Playable< ? > > extends CostPlayable< ProduceEntity > implements PProducePlayableScriptable< T, P >{
+public abstract class PProducePlayable< T extends ProduceEntity, P extends Playable< ? > > extends CostPlayable< ProduceEntity > implements PProducePlayableScriptable< T, P >, HEProduce{
 
 	private static HashMap< String, Playable< ? > > mPrototypes = new HashMap< String, Playable< ? > >();
 	private P mPrototype;

@@ -3,7 +3,7 @@ package lezli.hex.engine.core.gametable.event;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
 
 import com.badlogic.gdx.utils.Json;
@@ -28,7 +28,7 @@ public class GameEvent implements HEGameEvent{
 	public String stat;
 	public int value;
 	
-	public GameEvent addCoords( GraphicalPlayable< ? > xPlayable ){
+	public GameEvent addCoords( PGraphicalPlayable< ? > xPlayable ){
 
 		addCoords( xPlayable.getTileX(), xPlayable.getTileY() );
 		

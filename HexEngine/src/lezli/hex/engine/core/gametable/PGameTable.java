@@ -26,7 +26,7 @@ import lezli.hex.engine.core.playables.building.PBuildingReg;
 import lezli.hex.engine.core.playables.building.produce.PProducePlayable;
 import lezli.hex.engine.core.playables.building.produce.PUnitProduce;
 import lezli.hex.engine.core.playables.building.produce.PUpgradeProduce;
-import lezli.hex.engine.core.playables.graphics.GraphicalPlayable;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.PMap;
 import lezli.hex.engine.core.playables.map.tile.PTile;
 import lezli.hex.engine.core.playables.unit.PUnit;
@@ -40,12 +40,15 @@ import lezli.hex.engine.moddable.gametable.HEGameTableController;
 import lezli.hex.engine.moddable.interfaces.HETile;
 import lezli.hex.engine.moddable.listeners.HEEventListener;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.engine.moddable.playables.HEBuildingReg;
+import lezli.hex.engine.moddable.playables.HEProduce;
+import lezli.hex.engine.moddable.playables.HESkill;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.XmlWriter;
 
-public class PGameTable extends GraphicalPlayable< GameTable > implements PGameTableScriptable, HEGameTable{
+public class PGameTable extends PGraphicalPlayable< GameTable > implements PGameTableScriptable, HEGameTable{
 
 	public static final float SCROLL_SPEED = 16000.0f;
 	
@@ -189,23 +192,23 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mFeatures = new PGameTableFeatures() {
 			
 			@Override
-			public void chooseSkill( PSkill xSkill ){
+			public void chooseSkill( HESkill xSkill ){
 				
-				onSkillChoosen( xSkill );
-				
-			}
-			
-			@Override
-			public void chooseBuilding( PBuildingReg xBuilding ){
-				
-				onBuildingChoosen( xBuilding );
+				onSkillChoosen( ( PSkill ) xSkill );
 				
 			}
 			
 			@Override
-			public void produce( PProducePlayable< ?, ? > xProduce ){
+			public void chooseBuilding( HEBuildingReg xBuilding ){
 				
-				PGameTable.this.produce( xProduce.getEntityID(), mSelectedBuilding.getPID() );
+				onBuildingChoosen( ( PBuildingReg ) xBuilding );
+				
+			}
+			
+			@Override
+			public void produce( HEProduce xProduce ){
+				
+				PGameTable.this.produce( ( ( PProducePlayable< ?, ? > ) xProduce ).getEntityID(), mSelectedBuilding.getPID() );
 				
 			}
 			
@@ -472,7 +475,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		
 		if( tile != null ){
 	
-			GraphicalPlayable<?> playable = null;
+			PGraphicalPlayable<?> playable = null;
 			
 			if( ( playable = mMap.getPlayableOnTile( tile ) ) != null ){
 				
@@ -550,7 +553,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	@Override
 	public void setShadowAngle( float x, float y ){
 
-		GraphicalPlayable.setShadowAngleVals( x, y );
+		PGraphicalPlayable.setShadowAngleVals( x, y );
 		
 	}
 
@@ -781,7 +784,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mSkillRangeTiles.clear();
 		
 		//currentplayer units playables
-		ArrayList< GraphicalPlayable< ? > > playables = new ArrayList< GraphicalPlayable< ? > >();
+		ArrayList< PGraphicalPlayable< ? > > playables = new ArrayList< PGraphicalPlayable< ? > >();
 		
 		if( !mSelectedSkill.affectsOn( Skill.Affects.FRIENDLY ) )
 			playables.addAll( mCurrentPlayer.getPlayables() );
@@ -813,7 +816,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 		mSkillAreaTiles.clear();
 
 		//currentplay units playables
-		ArrayList< GraphicalPlayable< ? > > playables = new ArrayList< GraphicalPlayable< ? > >();
+		ArrayList< PGraphicalPlayable< ? > > playables = new ArrayList< PGraphicalPlayable< ? > >();
 		
 		if( !mSelectedSkill.affectsOn( Skill.Affects.FRIENDLY ) )
 			playables.addAll( mCurrentPlayer.getPlayables() );
@@ -1449,7 +1452,7 @@ public class PGameTable extends GraphicalPlayable< GameTable > implements PGameT
 	@Override
 	public int distance( PGraphicalPlayableScriptable x, PGraphicalPlayableScriptable y ){
 	
-		return ( (lezli.hex.engine.core.playables.graphics.GraphicalPlayable< ? > ) x ).distance( (lezli.hex.engine.core.playables.graphics.GraphicalPlayable< ? > ) y );
+		return ( (lezli.hex.engine.core.playables.graphics.PGraphicalPlayable< ? > ) x ).distance( (lezli.hex.engine.core.playables.graphics.PGraphicalPlayable< ? > ) y );
 	
 	}
 	

@@ -19,6 +19,8 @@ import lezli.hex.engine.core.playables.unit.skills.PSkill;
 import lezli.hex.engine.core.structure.entities.skill.affect.Affect;
 import lezli.hex.engine.moddable.gametable.HEGameTableFeatures;
 import lezli.hex.engine.moddable.listeners.HEGameTableEventListener;
+import lezli.hex.engine.moddable.playables.HESkill;
+import lezli.hex.engine.moddable.playables.HEUnit;
 import siegedevils.gui.minimap.Minimap;
 
 import com.badlogic.gdx.Gdx;
@@ -49,13 +51,13 @@ public class Gui {
 	
 	private ArrayList< HEGameTableFeatures > mListeners;
 	private UnitDetails mUnitDetails;
-	private PUnit mUnit;
+	private HEUnit mUnit;
 	
 	private BuildingDetails mBuildingDetails;
 	
 	private GameLog mLog;
 	
-	private PSkill mSkill;
+	private HESkill mSkill;
 	private ArrayList< DamageBox > mDamageBoxes;
 	
 	private Player mCurrentPlayer;
@@ -334,8 +336,8 @@ public class Gui {
 				
 				clearDamageLabels();
 				
-				mUnitDetails.hide();
-				mBuildingDetails.hide();
+//				mUnitDetails.hide();
+//				mBuildingDetails.hide();
 				
 				return true;
 				
