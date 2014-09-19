@@ -14,7 +14,7 @@ import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.gui.Gui.GuiListener;
-import siegedevils.menu.MapStartedListener;
+import siegedevils.menu.MenuListener;
 import siegedevils.menu.Menu;
 import siegedevils.multiplayer.Bartender;
 import siegedevils.multiplayer.Bartender.BartenderListener;
@@ -82,13 +82,32 @@ public class Starter implements ApplicationListener {
 		
 		mMenu = new Menu();
 		
-		mMenu.addListener( new MapStartedListener() {
+		mMenu.addListener( new MenuListener() {
 			
 			@Override
 			public void mapStarted( String xGameTableId ) {
 			
 				System.out.println( xGameTableId );
 				startEngine( xGameTableId );
+				
+			}
+			
+			@Override
+			public void mapEnded() {
+				
+				mEngine.quit();
+				mEngine = null;
+				mGui = null;
+				
+				Gdx.input.setInputProcessor( mMenu );
+				mMenu.setActive( Menu.SCR_MAIN );
+				
+			}
+			
+			@Override
+			public void save( String xFileName ){
+
+				mEngine.save( xFileName );
 				
 			}
 			
@@ -148,7 +167,7 @@ public class Starter implements ApplicationListener {
 		mEngine.getGameTable().addEventListener( new HEEventListener() {
 			
 			@Override
-			public boolean event(HEGameEvent xEvent) {
+			public boolean event( HEGameEvent xEvent ){
 
 				System.out.println( xEvent.getType() );
 				

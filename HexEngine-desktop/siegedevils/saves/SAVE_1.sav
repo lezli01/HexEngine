@@ -1,0 +1,590 @@
+<PGameTable id="@map_test01" pid="@PGameTable_0" x="0" y="0" map="@map_test" player="player1">
+	<PMap id="@map_test" pid="@PMap_0" x="0" y="0">
+		<RevealedTiles player="player1">
+			<Tile x="6" y="2"/>
+			<Tile x="7" y="3"/>
+			<Tile x="6" y="4"/>
+			<Tile x="7" y="5"/>
+			<Tile x="5" y="4"/>
+			<Tile x="7" y="4"/>
+			<Tile x="6" y="3"/>
+			<Tile x="6" y="5"/>
+			<Tile x="5" y="2"/>
+			<Tile x="5" y="3"/>
+			<Tile x="8" y="3"/>
+			<Tile x="7" y="2"/>
+			<Tile x="9" y="3"/>
+			<Tile x="8" y="2"/>
+			<Tile x="8" y="4"/>
+			<Tile x="8" y="1"/>
+			<Tile x="7" y="1"/>
+			<Tile x="8" y="5"/>
+			<Tile x="6" y="0"/>
+			<Tile x="5" y="0"/>
+			<Tile x="7" y="0"/>
+			<Tile x="6" y="1"/>
+			<Tile x="5" y="1"/>
+			<Tile x="9" y="1"/>
+			<Tile x="8" y="0"/>
+			<Tile x="4" y="2"/>
+			<Tile x="3" y="2"/>
+			<Tile x="4" y="1"/>
+			<Tile x="4" y="3"/>
+			<Tile x="4" y="0"/>
+			<Tile x="4" y="4"/>
+			<Tile x="9" y="2"/>
+			<Tile x="5" y="5"/>
+			<Tile x="1" y="6"/>
+			<Tile x="2" y="7"/>
+			<Tile x="1" y="8"/>
+			<Tile x="2" y="9"/>
+			<Tile x="1" y="10"/>
+			<Tile x="1" y="9"/>
+			<Tile x="3" y="9"/>
+			<Tile x="2" y="8"/>
+			<Tile x="2" y="10"/>
+			<Tile x="0" y="8"/>
+			<Tile x="1" y="7"/>
+			<Tile x="0" y="7"/>
+			<Tile x="0" y="9"/>
+			<Tile x="3" y="7"/>
+			<Tile x="3" y="8"/>
+			<Tile x="0" y="6"/>
+			<Tile x="0" y="10"/>
+			<Tile x="1" y="5"/>
+			<Tile x="0" y="5"/>
+			<Tile x="2" y="6"/>
+			<Tile x="3" y="5"/>
+			<Tile x="3" y="6"/>
+			<Tile x="2" y="5"/>
+			<Tile x="4" y="7"/>
+			<Tile x="5" y="7"/>
+			<Tile x="4" y="6"/>
+			<Tile x="4" y="8"/>
+			<Tile x="4" y="5"/>
+			<Tile x="4" y="9"/>
+			<Tile x="2" y="4"/>
+			<Tile x="3" y="4"/>
+			<Tile x="1" y="4"/>
+			<Tile x="3" y="10"/>
+			<Tile x="2" y="3"/>
+			<Tile x="1" y="2"/>
+			<Tile x="1" y="3"/>
+			<Tile x="3" y="3"/>
+			<Tile x="2" y="2"/>
+			<Tile x="0" y="4"/>
+			<Tile x="0" y="3"/>
+			<Tile x="0" y="2"/>
+			<Tile x="5" y="6"/>
+			<Tile x="1" y="11"/>
+			<Tile x="0" y="12"/>
+			<Tile x="0" y="11"/>
+			<Tile x="2" y="11"/>
+			<Tile x="1" y="12"/>
+			<Tile x="3" y="11"/>
+			<Tile x="2" y="12"/>
+			<Tile x="6" y="7"/>
+			<Tile x="5" y="8"/>
+			<Tile x="5" y="9"/>
+			<Tile x="4" y="10"/>
+			<Tile x="4" y="11"/>
+			<Tile x="3" y="12"/>
+			<Tile x="15" y="14"/>
+			<Tile x="16" y="15"/>
+			<Tile x="15" y="16"/>
+			<Tile x="16" y="17"/>
+			<Tile x="15" y="18"/>
+			<Tile x="15" y="17"/>
+			<Tile x="17" y="17"/>
+			<Tile x="16" y="16"/>
+			<Tile x="16" y="18"/>
+			<Tile x="14" y="16"/>
+			<Tile x="15" y="15"/>
+			<Tile x="13" y="16"/>
+			<Tile x="14" y="15"/>
+			<Tile x="14" y="17"/>
+			<Tile x="17" y="15"/>
+			<Tile x="17" y="16"/>
+			<Tile x="14" y="14"/>
+			<Tile x="14" y="18"/>
+			<Tile x="15" y="13"/>
+			<Tile x="13" y="14"/>
+			<Tile x="14" y="13"/>
+			<Tile x="13" y="15"/>
+			<Tile x="16" y="14"/>
+			<Tile x="17" y="13"/>
+			<Tile x="17" y="14"/>
+			<Tile x="16" y="13"/>
+			<Tile x="18" y="15"/>
+			<Tile x="19" y="15"/>
+			<Tile x="18" y="14"/>
+			<Tile x="18" y="16"/>
+			<Tile x="18" y="13"/>
+			<Tile x="18" y="17"/>
+			<Tile x="16" y="12"/>
+			<Tile x="17" y="12"/>
+			<Tile x="15" y="12"/>
+			<Tile x="17" y="18"/>
+			<Tile x="16" y="11"/>
+			<Tile x="15" y="10"/>
+			<Tile x="15" y="11"/>
+			<Tile x="17" y="11"/>
+			<Tile x="16" y="10"/>
+			<Tile x="14" y="12"/>
+			<Tile x="13" y="12"/>
+			<Tile x="14" y="11"/>
+			<Tile x="14" y="10"/>
+			<Tile x="13" y="13"/>
+			<Tile x="19" y="13"/>
+			<Tile x="18" y="12"/>
+			<Tile x="18" y="11"/>
+			<Tile x="17" y="10"/>
+			<Tile x="12" y="14"/>
+			<Tile x="11" y="14"/>
+			<Tile x="12" y="13"/>
+			<Tile x="12" y="15"/>
+			<Tile x="12" y="12"/>
+			<Tile x="12" y="16"/>
+			<Tile x="13" y="11"/>
+			<Tile x="13" y="17"/>
+			<Tile x="19" y="14"/>
+			<Tile x="13" y="10"/>
+			<Tile x="13" y="18"/>
+			<Tile x="10" y="3"/>
+			<Tile x="9" y="4"/>
+			<Tile x="9" y="5"/>
+			<Tile x="10" y="1"/>
+			<Tile x="9" y="0"/>
+			<Tile x="10" y="2"/>
+			<Tile x="10" y="0"/>
+			<Tile x="11" y="1"/>
+			<Tile x="12" y="1"/>
+			<Tile x="11" y="0"/>
+			<Tile x="11" y="2"/>
+			<Tile x="11" y="3"/>
+			<Tile x="10" y="4"/>
+			<Tile x="10" y="5"/>
+			<Tile x="0" y="0"/>
+			<Tile x="1" y="1"/>
+			<Tile x="1" y="0"/>
+			<Tile x="0" y="1"/>
+			<Tile x="3" y="0"/>
+			<Tile x="3" y="1"/>
+			<Tile x="12" y="3"/>
+			<Tile x="11" y="4"/>
+			<Tile x="11" y="5"/>
+			<Tile x="12" y="2"/>
+			<Tile x="8" y="6"/>
+			<Tile x="9" y="6"/>
+			<Tile x="7" y="6"/>
+			<Tile x="10" y="6"/>
+			<Tile x="6" y="6"/>
+			<Tile x="9" y="7"/>
+			<Tile x="8" y="7"/>
+			<Tile x="10" y="7"/>
+			<Tile x="7" y="7"/>
+			<Tile x="13" y="3"/>
+			<Tile x="12" y="4"/>
+			<Tile x="12" y="5"/>
+			<Tile x="11" y="6"/>
+			<Tile x="11" y="7"/>
+			<Tile x="9" y="8"/>
+			<Tile x="10" y="8"/>
+			<Tile x="8" y="8"/>
+			<Tile x="13" y="5"/>
+			<Tile x="12" y="6"/>
+			<Tile x="12" y="7"/>
+			<Tile x="11" y="8"/>
+			<Tile x="13" y="4"/>
+			<Tile x="7" y="8"/>
+			<Tile x="10" y="9"/>
+			<Tile x="9" y="9"/>
+			<Tile x="11" y="9"/>
+			<Tile x="8" y="9"/>
+			<Tile x="14" y="5"/>
+			<Tile x="13" y="6"/>
+			<Tile x="13" y="7"/>
+			<Tile x="12" y="8"/>
+			<Tile x="12" y="9"/>
+			<Tile x="15" y="9"/>
+			<Tile x="14" y="9"/>
+			<Tile x="16" y="9"/>
+			<Tile x="11" y="12"/>
+			<Tile x="12" y="11"/>
+			<Tile x="12" y="10"/>
+			<Tile x="13" y="9"/>
+			<Tile x="11" y="13"/>
+			<Tile x="17" y="9"/>
+			<Tile x="14" y="8"/>
+			<Tile x="15" y="8"/>
+			<Tile x="13" y="8"/>
+			<Tile x="16" y="8"/>
+			<Tile x="10" y="12"/>
+			<Tile x="11" y="11"/>
+			<Tile x="11" y="10"/>
+			<Tile x="14" y="7"/>
+			<Tile x="15" y="7"/>
+			<Tile x="10" y="10"/>
+			<Tile x="10" y="11"/>
+			<Tile x="16" y="7"/>
+		</RevealedTiles>
+		<RevealedTiles player="player2">
+			<Tile x="17" y="22"/>
+			<Tile x="18" y="23"/>
+			<Tile x="17" y="23"/>
+			<Tile x="19" y="23"/>
+			<Tile x="18" y="22"/>
+			<Tile x="16" y="22"/>
+			<Tile x="17" y="21"/>
+			<Tile x="15" y="22"/>
+			<Tile x="16" y="21"/>
+			<Tile x="16" y="23"/>
+			<Tile x="19" y="21"/>
+			<Tile x="19" y="22"/>
+			<Tile x="16" y="20"/>
+			<Tile x="17" y="20"/>
+			<Tile x="18" y="19"/>
+			<Tile x="17" y="18"/>
+			<Tile x="17" y="19"/>
+			<Tile x="19" y="19"/>
+			<Tile x="18" y="18"/>
+			<Tile x="18" y="20"/>
+			<Tile x="15" y="20"/>
+			<Tile x="16" y="19"/>
+			<Tile x="19" y="20"/>
+			<Tile x="16" y="18"/>
+			<Tile x="15" y="21"/>
+			<Tile x="20" y="21"/>
+			<Tile x="21" y="21"/>
+			<Tile x="20" y="20"/>
+			<Tile x="20" y="22"/>
+			<Tile x="20" y="19"/>
+			<Tile x="20" y="23"/>
+			<Tile x="19" y="18"/>
+			<Tile x="18" y="21"/>
+			<Tile x="24" y="19"/>
+			<Tile x="23" y="20"/>
+			<Tile x="24" y="21"/>
+			<Tile x="23" y="22"/>
+			<Tile x="23" y="21"/>
+			<Tile x="24" y="20"/>
+			<Tile x="24" y="22"/>
+			<Tile x="22" y="20"/>
+			<Tile x="23" y="19"/>
+			<Tile x="21" y="20"/>
+			<Tile x="22" y="19"/>
+			<Tile x="22" y="21"/>
+			<Tile x="22" y="18"/>
+			<Tile x="22" y="22"/>
+			<Tile x="23" y="17"/>
+			<Tile x="21" y="18"/>
+			<Tile x="22" y="17"/>
+			<Tile x="21" y="19"/>
+			<Tile x="24" y="18"/>
+			<Tile x="24" y="17"/>
+			<Tile x="23" y="16"/>
+			<Tile x="24" y="16"/>
+			<Tile x="24" y="15"/>
+			<Tile x="23" y="14"/>
+			<Tile x="23" y="15"/>
+			<Tile x="24" y="14"/>
+			<Tile x="22" y="16"/>
+			<Tile x="21" y="16"/>
+			<Tile x="22" y="15"/>
+			<Tile x="22" y="14"/>
+			<Tile x="21" y="17"/>
+			<Tile x="20" y="18"/>
+			<Tile x="20" y="17"/>
+			<Tile x="20" y="16"/>
+			<Tile x="21" y="15"/>
+			<Tile x="21" y="14"/>
+			<Tile x="21" y="22"/>
+			<Tile x="23" y="18"/>
+			<Tile x="24" y="13"/>
+			<Tile x="23" y="13"/>
+			<Tile x="23" y="12"/>
+			<Tile x="24" y="11"/>
+			<Tile x="22" y="12"/>
+			<Tile x="24" y="12"/>
+			<Tile x="23" y="11"/>
+			<Tile x="22" y="13"/>
+			<Tile x="20" y="14"/>
+			<Tile x="21" y="13"/>
+			<Tile x="21" y="12"/>
+			<Tile x="22" y="11"/>
+			<Tile x="20" y="15"/>
+			<Tile x="19" y="16"/>
+			<Tile x="18" y="16"/>
+			<Tile x="19" y="15"/>
+			<Tile x="19" y="17"/>
+			<Tile x="19" y="14"/>
+			<Tile x="20" y="13"/>
+			<Tile x="20" y="12"/>
+			<Tile x="21" y="11"/>
+			<Tile x="14" y="22"/>
+			<Tile x="15" y="23"/>
+			<Tile x="14" y="23"/>
+			<Tile x="14" y="20"/>
+			<Tile x="15" y="19"/>
+			<Tile x="15" y="18"/>
+			<Tile x="14" y="21"/>
+			<Tile x="13" y="22"/>
+			<Tile x="12" y="22"/>
+			<Tile x="13" y="21"/>
+			<Tile x="13" y="23"/>
+			<Tile x="13" y="20"/>
+			<Tile x="14" y="19"/>
+			<Tile x="14" y="18"/>
+			<Tile x="21" y="23"/>
+			<Tile x="18" y="17"/>
+			<Tile x="17" y="17"/>
+			<Tile x="22" y="23"/>
+			<Tile x="23" y="23"/>
+			<Tile x="24" y="23"/>
+		</RevealedTiles>
+	</PMap>
+	<Player name="player1">
+		<PUnit id="@handyman" pid="@PUnit_0" x="9" y="2">
+			<PStatReg id="@StatReg_168" pid="@PStatReg_4" stat="@strength" value="2"/>
+			<PStatReg id="@StatReg_171" pid="@PStatReg_0" stat="@knowledge" value="2"/>
+			<PStatReg id="@StatReg_163" pid="@PStatReg_2" stat="@HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_169" pid="@PStatReg_5" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_167" pid="@PStatReg_9" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_166" pid="@PStatReg_8" stat="@FIELD_OF_VIEW" value="3"/>
+			<PStatReg id="@StatReg_165" pid="@PStatReg_7" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_164" pid="@PStatReg_6" stat="@SPEED" value="0"/>
+			<PStatReg id="@StatReg_162" pid="@PStatReg_1" stat="@MAX_HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_170" pid="@PStatReg_3" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@brute" pid="@PUnit_13" x="1" y="6">
+			<PStatReg id="@StatReg_128" pid="@PStatReg_89" stat="@strength" value="5"/>
+			<PStatReg id="@StatReg_131" pid="@PStatReg_95" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_129" pid="@PStatReg_90" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_123" pid="@PStatReg_97" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_127" pid="@PStatReg_94" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_126" pid="@PStatReg_93" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_125" pid="@PStatReg_92" stat="@MAX_SPEED" value="2"/>
+			<PStatReg id="@StatReg_124" pid="@PStatReg_91" stat="@SPEED" value="2"/>
+			<PStatReg id="@StatReg_122" pid="@PStatReg_96" stat="@MAX_HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_130" pid="@PStatReg_88" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@gunner" pid="@PUnit_15" x="1" y="7">
+			<PStatReg id="@StatReg_158" pid="@PStatReg_102" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_161" pid="@PStatReg_99" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_159" pid="@PStatReg_103" stat="@accuracy" value="5"/>
+			<PStatReg id="@StatReg_153" pid="@PStatReg_104" stat="@HIT_POINTS" value="40"/>
+			<PStatReg id="@StatReg_157" pid="@PStatReg_101" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_156" pid="@PStatReg_107" stat="@FIELD_OF_VIEW" value="5"/>
+			<PStatReg id="@StatReg_155" pid="@PStatReg_106" stat="@MAX_SPEED" value="4"/>
+			<PStatReg id="@StatReg_154" pid="@PStatReg_105" stat="@SPEED" value="4"/>
+			<PStatReg id="@StatReg_152" pid="@PStatReg_100" stat="@MAX_HIT_POINTS" value="40"/>
+			<PStatReg id="@StatReg_160" pid="@PStatReg_98" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@warlock" pid="@PUnit_17" x="14" y="11">
+			<PStatReg id="@StatReg_208" pid="@PStatReg_112" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_211" pid="@PStatReg_117" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_209" pid="@PStatReg_108" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_203" pid="@PStatReg_114" stat="@HIT_POINTS" value="50"/>
+			<PStatReg id="@StatReg_207" pid="@PStatReg_111" stat="@FIELD_OF_HEED" value="3"/>
+			<PStatReg id="@StatReg_206" pid="@PStatReg_110" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_205" pid="@PStatReg_109" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_204" pid="@PStatReg_115" stat="@SPEED" value="0"/>
+			<PStatReg id="@StatReg_202" pid="@PStatReg_113" stat="@MAX_HIT_POINTS" value="50"/>
+			<PStatReg id="@StatReg_210" pid="@PStatReg_116" stat="@wisdom" value="5"/>
+		</PUnit>
+		<PUnit id="@priest" pid="@PUnit_19" x="10" y="5">
+			<PStatReg id="@StatReg_178" pid="@PStatReg_127" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_181" pid="@PStatReg_122" stat="@knowledge" value="5"/>
+			<PStatReg id="@StatReg_173" pid="@PStatReg_119" stat="@HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_179" pid="@PStatReg_123" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_177" pid="@PStatReg_126" stat="@FIELD_OF_HEED" value="4"/>
+			<PStatReg id="@StatReg_176" pid="@PStatReg_125" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_175" pid="@PStatReg_124" stat="@MAX_SPEED" value="4"/>
+			<PStatReg id="@StatReg_174" pid="@PStatReg_120" stat="@SPEED" value="0"/>
+			<PStatReg id="@StatReg_172" pid="@PStatReg_118" stat="@MAX_HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_180" pid="@PStatReg_121" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PBuilding id="@odins_hall" pid="@PBuilding_14" x="0" y="0">
+			<PStatReg id="@StatReg_69" pid="@PStatReg_129" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_71" pid="@PStatReg_131" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_70" pid="@PStatReg_130" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_68" pid="@PStatReg_128" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@sawmill" pid="@PBuilding_15" x="4" y="1">
+			<PStatReg id="@StatReg_93" pid="@PStatReg_133" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_95" pid="@PStatReg_135" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_94" pid="@PStatReg_134" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_92" pid="@PStatReg_132" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@iron_mine" pid="@PBuilding_16" x="1" y="4">
+			<PStatReg id="@StatReg_45" pid="@PStatReg_136" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_47" pid="@PStatReg_138" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_46" pid="@PStatReg_137" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_44" pid="@PStatReg_139" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@barracks" pid="@PBuilding_17" x="0" y="5">
+			<PStatReg id="@StatReg_21" pid="@PStatReg_142" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_23" pid="@PStatReg_140" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_22" pid="@PStatReg_143" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_20" pid="@PStatReg_141" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@shooting_range" pid="@PBuilding_18" x="0" y="6">
+			<PStatReg id="@StatReg_101" pid="@PStatReg_147" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_103" pid="@PStatReg_145" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_102" pid="@PStatReg_144" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_100" pid="@PStatReg_146" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@library" pid="@PBuilding_24" x="6" y="1">
+			<PStatReg id="@StatReg_61" pid="@PStatReg_149" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_63" pid="@PStatReg_151" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_62" pid="@PStatReg_150" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_60" pid="@PStatReg_148" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@church" pid="@PBuilding_26" x="7" y="1">
+			<PStatReg id="@StatReg_29" pid="@PStatReg_153" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_31" pid="@PStatReg_155" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_30" pid="@PStatReg_154" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_28" pid="@PStatReg_152" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PSkillUpgrade id="@swing" pid="@PSkillUpgrade_9" x="0" y="0" building="@barracks"/>
+		<PSkillUpgrade id="@haste" pid="@PSkillUpgrade_8" x="0" y="0" building="@barracks"/>
+		<PSkillUpgrade id="@big_breath" pid="@PSkillUpgrade_11" x="0" y="0" building="@shooting_range"/>
+		<PSkillUpgrade id="@throw_grenade" pid="@PSkillUpgrade_10" x="0" y="0" building="@shooting_range"/>
+		<PSkillUpgrade id="@meteor" pid="@PSkillUpgrade_13" x="0" y="0" building="@library"/>
+		<PSkillUpgrade id="@fear" pid="@PSkillUpgrade_12" x="0" y="0" building="@library"/>
+		<PSkillUpgrade id="@prayer" pid="@PSkillUpgrade_29" x="0" y="0" building="@church"/>
+		<PSkillUpgrade id="@bless" pid="@PSkillUpgrade_28" x="0" y="0" building="@church"/>
+		<PResource id="@wood" pid="@PResource_3" x="0" y="0" value="55"/>
+		<PResource id="@meat" pid="@PResource_4" x="0" y="0" value="69"/>
+		<PResource id="@iron" pid="@PResource_5" x="0" y="0" value="113"/>
+	</Player>
+	<AIPlayer name="player2">
+		<PUnit id="@engineer" pid="@PUnit_6" x="18" y="21">
+			<PStatReg id="@StatReg_148" pid="@PStatReg_160" stat="@strength" value="2"/>
+			<PStatReg id="@StatReg_151" pid="@PStatReg_157" stat="@knowledge" value="2"/>
+			<PStatReg id="@StatReg_149" pid="@PStatReg_161" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_143" pid="@PStatReg_163" stat="@HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_147" pid="@PStatReg_159" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_146" pid="@PStatReg_158" stat="@FIELD_OF_VIEW" value="3"/>
+			<PStatReg id="@StatReg_145" pid="@PStatReg_165" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_144" pid="@PStatReg_164" stat="@SPEED" value="3"/>
+			<PStatReg id="@StatReg_142" pid="@PStatReg_162" stat="@MAX_HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_150" pid="@PStatReg_156" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@trickster" pid="@PUnit_22" x="23" y="18">
+			<PStatReg id="@StatReg_198" pid="@PStatReg_251" stat="@strength" value="4"/>
+			<PStatReg id="@StatReg_201" pid="@PStatReg_249" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_193" pid="@PStatReg_244" stat="@HIT_POINTS" value="80"/>
+			<PStatReg id="@StatReg_199" pid="@PStatReg_252" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_197" pid="@PStatReg_250" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_196" pid="@PStatReg_247" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_195" pid="@PStatReg_246" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_194" pid="@PStatReg_245" stat="@SPEED" value="3"/>
+			<PStatReg id="@StatReg_192" pid="@PStatReg_248" stat="@MAX_HIT_POINTS" value="80"/>
+			<PStatReg id="@StatReg_200" pid="@PStatReg_253" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@crossbower" pid="@PUnit_23" x="23" y="16">
+			<PStatReg id="@StatReg_138" pid="@PStatReg_260" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_141" pid="@PStatReg_255" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_139" pid="@PStatReg_256" stat="@accuracy" value="5"/>
+			<PStatReg id="@StatReg_133" pid="@PStatReg_262" stat="@HIT_POINTS" value="25"/>
+			<PStatReg id="@StatReg_137" pid="@PStatReg_259" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_136" pid="@PStatReg_258" stat="@FIELD_OF_VIEW" value="5"/>
+			<PStatReg id="@StatReg_135" pid="@PStatReg_257" stat="@MAX_SPEED" value="5"/>
+			<PStatReg id="@StatReg_134" pid="@PStatReg_263" stat="@SPEED" value="5"/>
+			<PStatReg id="@StatReg_132" pid="@PStatReg_261" stat="@MAX_HIT_POINTS" value="25"/>
+			<PStatReg id="@StatReg_140" pid="@PStatReg_254" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@alchemist" pid="@PUnit_25" x="16" y="22">
+			<PStatReg id="@StatReg_118" pid="@PStatReg_265" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_121" pid="@PStatReg_272" stat="@knowledge" value="5"/>
+			<PStatReg id="@StatReg_119" pid="@PStatReg_266" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_113" pid="@PStatReg_267" stat="@HIT_POINTS" value="15"/>
+			<PStatReg id="@StatReg_117" pid="@PStatReg_264" stat="@FIELD_OF_HEED" value="4"/>
+			<PStatReg id="@StatReg_116" pid="@PStatReg_270" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_115" pid="@PStatReg_269" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_114" pid="@PStatReg_268" stat="@SPEED" value="3"/>
+			<PStatReg id="@StatReg_112" pid="@PStatReg_273" stat="@MAX_HIT_POINTS" value="15"/>
+			<PStatReg id="@StatReg_120" pid="@PStatReg_271" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PUnit id="@shaman" pid="@PUnit_27" x="19" y="21">
+			<PStatReg id="@StatReg_188" pid="@PStatReg_282" stat="@strength" value="1"/>
+			<PStatReg id="@StatReg_191" pid="@PStatReg_279" stat="@knowledge" value="1"/>
+			<PStatReg id="@StatReg_183" pid="@PStatReg_275" stat="@HIT_POINTS" value="50"/>
+			<PStatReg id="@StatReg_189" pid="@PStatReg_283" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_187" pid="@PStatReg_281" stat="@FIELD_OF_HEED" value="3"/>
+			<PStatReg id="@StatReg_186" pid="@PStatReg_280" stat="@FIELD_OF_VIEW" value="4"/>
+			<PStatReg id="@StatReg_185" pid="@PStatReg_277" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_184" pid="@PStatReg_276" stat="@SPEED" value="3"/>
+			<PStatReg id="@StatReg_182" pid="@PStatReg_274" stat="@MAX_HIT_POINTS" value="50"/>
+			<PStatReg id="@StatReg_190" pid="@PStatReg_278" stat="@wisdom" value="5"/>
+		</PUnit>
+		<PBuilding id="@sanctuary" pid="@PBuilding_28" x="24" y="23">
+			<PStatReg id="@StatReg_85" pid="@PStatReg_285" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_87" pid="@PStatReg_287" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_86" pid="@PStatReg_286" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_84" pid="@PStatReg_284" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@woodcutter" pid="@PBuilding_29" x="20" y="22">
+			<PStatReg id="@StatReg_109" pid="@PStatReg_289" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_111" pid="@PStatReg_291" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_110" pid="@PStatReg_290" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_108" pid="@PStatReg_288" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@forge" pid="@PBuilding_30" x="23" y="19">
+			<PStatReg id="@StatReg_37" pid="@PStatReg_293" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_39" pid="@PStatReg_295" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_38" pid="@PStatReg_294" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_36" pid="@PStatReg_292" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@arena" pid="@PBuilding_31" x="24" y="18">
+			<PStatReg id="@StatReg_13" pid="@PStatReg_297" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_15" pid="@PStatReg_299" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_14" pid="@PStatReg_298" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_12" pid="@PStatReg_296" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@archery_field" pid="@PBuilding_32" x="24" y="17">
+			<PStatReg id="@StatReg_5" pid="@PStatReg_300" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_7" pid="@PStatReg_303" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_6" pid="@PStatReg_301" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_4" pid="@PStatReg_302" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@laboratory" pid="@PBuilding_33" x="17" y="22">
+			<PStatReg id="@StatReg_53" pid="@PStatReg_305" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_55" pid="@PStatReg_307" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_54" pid="@PStatReg_306" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_52" pid="@PStatReg_304" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PBuilding id="@ritual_circle" pid="@PBuilding_34" x="18" y="22">
+			<PStatReg id="@StatReg_77" pid="@PStatReg_311" stat="@HIT_POINTS" value="100"/>
+			<PStatReg id="@StatReg_79" pid="@PStatReg_309" stat="@FIELD_OF_HEED" value="1"/>
+			<PStatReg id="@StatReg_78" pid="@PStatReg_308" stat="@FIELD_OF_VIEW" value="1"/>
+			<PStatReg id="@StatReg_76" pid="@PStatReg_310" stat="@MAX_HIT_POINTS" value="100"/>
+			<Attributes duration="-1"/>
+		</PBuilding>
+		<PSkillUpgrade id="@throw_dagger" pid="@PSkillUpgrade_34" x="0" y="0" building="@arena"/>
+		<PSkillUpgrade id="@stab" pid="@PSkillUpgrade_35" x="0" y="0" building="@arena"/>
+		<PSkillUpgrade id="@arrow_rain" pid="@PSkillUpgrade_36" x="0" y="0" building="@archery_field"/>
+		<PSkillUpgrade id="@heavy_shoot" pid="@PSkillUpgrade_37" x="0" y="0" building="@archery_field"/>
+		<PSkillUpgrade id="@rejuvenation_potion" pid="@PSkillUpgrade_38" x="0" y="0" building="@laboratory"/>
+		<PSkillUpgrade id="@adrenalin_potion" pid="@PSkillUpgrade_39" x="0" y="0" building="@laboratory"/>
+		<PSkillUpgrade id="@drain_energy" pid="@PSkillUpgrade_47" x="0" y="0" building="@ritual_circle"/>
+		<PSkillUpgrade id="@curse" pid="@PSkillUpgrade_46" x="0" y="0" building="@ritual_circle"/>
+		<PResource id="@wood" pid="@PResource_15" x="0" y="0" value="3"/>
+		<PResource id="@meat" pid="@PResource_16" x="0" y="0" value="10"/>
+		<PResource id="@iron" pid="@PResource_17" x="0" y="0" value="66"/>
+	</AIPlayer>
+</PGameTable>

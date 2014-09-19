@@ -1,5 +1,7 @@
 package lezli.hex.engine.core.structure.entities;
 
+import java.io.IOException;
+
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.structure.entities.id.IDGenerator;
 
@@ -120,13 +122,27 @@ public abstract class Entity{
 			
 		}catch( Exception e ){
 			
-			log( "Error parsing file (" + xFileName + ")", e );
-			PARSE_LOG_DEPTH--;
+			log( "Error parsing internal file (" + xFileName + ")", e );
 			
-			return false;
+			try {
+			
+				if( Gdx.files.local( xFileName ).exists() )
+					mElement = mXmlReader.parse( Gdx.files.local( xFileName ) );
+				else
+					return false;
+				
+			} catch ( IOException e1 ){
+
+				log( "Error parsing local file (" + xFileName + ")", e );
+				PARSE_LOG_DEPTH--;
+
+				return false;
+				
+			}
+			
 			
 		}
-	
+		
 		parse( mElement );
 		
 		log( "Parsing completed." );

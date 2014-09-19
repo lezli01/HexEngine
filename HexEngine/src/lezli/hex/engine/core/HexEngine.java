@@ -14,6 +14,7 @@ import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.core.playables.common.PCommon;
 import lezli.hex.engine.core.structure.EntitiesHolder;
 import lezli.hex.engine.core.structure.entities.Entity;
+import lezli.hex.engine.core.structure.entities.gametable.GameTable;
 import lezli.hex.engine.moddable.gametable.HEGameTable;
 
 import com.badlogic.gdx.Gdx;
@@ -38,7 +39,7 @@ public class HexEngine {
 		init( path, logger, map );
 		
 	}
-	
+
 	public EntitiesHolder entitiesHolder(){
 		
 		return mEntitiesHolder;
@@ -95,6 +96,17 @@ public class HexEngine {
 			return false;
 		
 		File f = Gdx.files.local( xPath ).file();
+		
+		try {
+			
+			f.createNewFile();
+		
+		} catch (IOException e1) {
+
+			e1.printStackTrace();
+		
+		}
+		
 		try {
 		
 			f.createNewFile();
@@ -218,8 +230,11 @@ public class HexEngine {
 		
 		mCommon = new PCommon( mEntitiesHolder.getCommon(), this );
 		
-		mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
-	
+		if( mEntitiesHolder.getGameTableManager().get( xMap ) != null )
+			mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
+		else
+			mGameTable = new PGameTable( new GameTable( xMap ), this );
+			
 		mInited = true;
 		
 		PropertyChangedListener propListener = new PropertyChangedListener() {

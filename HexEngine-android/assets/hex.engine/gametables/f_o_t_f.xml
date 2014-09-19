@@ -1,6 +1,6 @@
 <PGameTable
     id="@map_test01"
-    map="@map_test"
+    map="@map_forest"
     pid="@PGameTable_0"
     player="player1"
     win=""

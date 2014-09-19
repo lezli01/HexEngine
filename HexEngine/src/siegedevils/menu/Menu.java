@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import lezli.hex.enginex.ui.MetroUI;
 import lezli.hex.enginex.ui.metro.elements.MetroButton;
 import lezli.hex.enginex.ui.metro.elements.MetroScreen;
+import siegedevils.utils.SavedGames;
 import siegedevils.utils.Skirmish;
 
 import com.badlogic.gdx.Application.ApplicationType;
@@ -22,11 +23,11 @@ public class Menu extends MetroUI{
 	public static final String SCR_MAIN 		= "SCR_MAIN";
 	public static final String SCR_SKIRMISH 	= "SCR_SKIRMISH";
 	public static final String SCR_LOAD 		= "SCR_LOAD";
-	public static final String SCR_SAVE		= "SCR_SAVE";
+	public static final String SCR_SAVE			= "SCR_SAVE";
 	public static final String SCR_INGAME		= "SCR_INGAME";
 	
 	private String mDataPath;
-	private ArrayList< MapStartedListener > mListeners;
+	private ArrayList< MenuListener > mListeners;
 	
 	public Menu(){
 	
@@ -35,14 +36,14 @@ public class Menu extends MetroUI{
 		if( Gdx.app.getType() == ApplicationType.Desktop )
 			mDataPath = "./bin/" + mDataPath;
 		
-		mListeners = new ArrayList< MapStartedListener >();
+		mListeners = new ArrayList< MenuListener >();
 		
 		initScreens();
 		
 		
 	}
 	
-	public void addListener( MapStartedListener xListener ){
+	public void addListener( MenuListener xListener ){
 		
 		mListeners.add( xListener );
 		
@@ -93,6 +94,7 @@ public class Menu extends MetroUI{
 			@Override
 			public void clicked( InputEvent event, float x, float y ){
 
+				refreshLoadScreen();
 				setActive( SCR_LOAD );
 				
 			}
@@ -122,6 +124,8 @@ public class Menu extends MetroUI{
 			}
 			
 		});
+
+		scr_skirmish.add( to_scr_main_btn );
 		
 		for( String mapName: Skirmish.getInstance().getAll().keySet() ){
 			
@@ -131,7 +135,7 @@ public class Menu extends MetroUI{
 			
 				public void clicked( InputEvent event, float x, float y ) {
 					
-					for( MapStartedListener listener: mListeners )
+					for( MenuListener listener: mListeners )
 						listener.mapStarted( Skirmish.getInstance().getAll().get( mapButton.getCaption() ) );
 					
 					setActive( SCR_BLANK );
@@ -144,8 +148,6 @@ public class Menu extends MetroUI{
 			
 		}
 		
-		scr_skirmish.add( to_scr_main_btn );
-		
 		//should make list of skirmish gametable ids
 		
 		addScreen( scr_skirmish );
@@ -153,23 +155,7 @@ public class Menu extends MetroUI{
 		/*
 		 * LOAD SCREEN
 		 */
-		MetroScreen scr_load = new MetroScreen( SCR_LOAD, COL, ROW, PADDING );
-		
-		to_scr_main_btn = new MetroButton( "to_src_main", "Back" );
-		to_scr_main_btn.addListener( new ClickListener(){
-
-			@Override
-			public void clicked( InputEvent event, float x, float y ){
-			
-				setActive( SCR_MAIN );
-				
-			}
-			
-		});
-		
-		scr_load.add( to_scr_main_btn );
-		
-		addScreen( scr_load );
+		refreshLoadScreen();
 		
 		/*
 		 * INGAME SCREEN
@@ -182,8 +168,8 @@ public class Menu extends MetroUI{
 			}
 		});
 		
-		MetroButton resume_btn = new MetroButton( "resume_btn", "Resume" );
-		resume_btn.addListener( new ClickListener(){
+		MetroButton btn_resume = new MetroButton( "resume_btn", "Resume" );
+		btn_resume.addListener( new ClickListener(){
 			
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
@@ -194,25 +180,175 @@ public class Menu extends MetroUI{
 			
 		});
 		
-		MetroButton save_btn = new MetroButton( "save_btn", "Save" );
+		MetroButton btn_save = new MetroButton( "save_btn", "Save" );
 		
-		save_btn.addListener( new ClickListener(){
+		btn_save.addListener( new ClickListener(){
 			
 			@Override
 			public void clicked(InputEvent event, float x, float y) {
 
+				refreshSaveScreen();
 				setActive( SCR_SAVE );
 			
 			}
 			
 		});
 		
-		scr_ingame.add( resume_btn );
-		scr_ingame.add( save_btn );
+		MetroButton btn_end = new MetroButton( "btn_end", "End Game" );
+		btn_end.addListener( new ClickListener(){
+			
+			@Override
+			public void clicked( InputEvent event, float x, float y ){
+
+				for( MenuListener listener: mListeners )
+					listener.mapEnded();
+				
+			}
+			
+		});
 		
+		scr_ingame.add( btn_resume );
+		scr_ingame.add( btn_save );
+		scr_ingame.add( btn_end );
+
 		addScreen( scr_ingame );
+
+		/*
+		 * SAVE SCREEN
+		 */
+		refreshSaveScreen();
+		
 		setActive( SCR_MAIN );
 		
+	}
+	
+	private void refreshLoadScreen(){
+		
+		MetroScreen scr_load = new MetroScreen( SCR_LOAD, COL, ROW, PADDING );
+		
+		MetroButton to_scr_main_btn = new MetroButton( "to_src_main", "Back" );
+		to_scr_main_btn.addListener( new ClickListener(){
+
+			@Override
+			public void clicked( InputEvent event, float x, float y ){
+			
+				setActive( SCR_MAIN );
+				
+			}
+			
+		});
+		
+		scr_load.add( to_scr_main_btn );
+		addLoadGames( scr_load );
+		
+		addScreen( scr_load );
+
+		
+	}
+	
+	private void refreshSaveScreen(){
+		
+		MetroScreen scr_save = new MetroScreen( SCR_SAVE, COL, ROW, PADDING );
+		scr_save.setBackground( "alpha-background" );
+		scr_save.addListener( new ClickListener(){
+			@Override
+			public void clicked(InputEvent event, float x, float y) {
+			}
+		});
+		
+		MetroButton btn_back = new MetroButton( "btn_back", "Back" );
+		btn_back.addListener( new ClickListener(){
+			
+			@Override
+			public void clicked( InputEvent event, float x, float y ){
+
+				setActive( SCR_INGAME );
+				
+			}
+			
+		});
+
+		MetroButton btn_save = new MetroButton( "btn_save", "New save" );
+		btn_save.addListener( new ClickListener(){
+			
+			@Override
+			public void clicked( InputEvent event, float x, float y ){
+			
+				save( null );
+				setActive( SCR_INGAME );
+				
+			}
+			
+		});
+		
+		scr_save.add( btn_back );
+		scr_save.add( btn_save );
+		addSaveGames( scr_save );
+		
+		addScreen( scr_save );
+		
+	}
+	
+	private void addSaveGames( MetroScreen xScreen ){
+		
+		for( final String fileName: SavedGames.getInstance().getSavedGames() ){
+			
+			MetroButton btn_saved = new MetroButton( fileName, fileName );
+			
+			btn_saved.addListener( new ClickListener(){
+				
+				@Override
+				public void clicked( InputEvent event, float x, float y ){
+
+					save( fileName );
+					
+				}
+				
+			});
+			
+			xScreen.add( btn_saved );
+			
+		}
+		
+	}
+	
+	private void addLoadGames( MetroScreen xScreen ){
+		
+		for( final String fileName: SavedGames.getInstance().getSavedGames() ){
+			
+			MetroButton btn_saved = new MetroButton( fileName, fileName );
+			
+			btn_saved.addListener( new ClickListener(){
+				
+				@Override
+				public void clicked( InputEvent event, float x, float y ){
+
+					for( MenuListener listener: mListeners )
+						listener.mapStarted( SavedGames.getInstance().createPath( fileName ) );
+					
+					setActive( SCR_BLANK );
+					
+				}
+				
+			});
+			
+			xScreen.add( btn_saved );
+			
+		}
+		
+	}
+	
+	private void save( String xFileName ){
+		
+		if( xFileName == null ){
+			
+			xFileName = SavedGames.getInstance().getNewName();
+			
+		}
+
+		for( MenuListener listener: mListeners )
+			listener.save( SavedGames.getInstance().createPath( xFileName ) );
+
 	}
 	
 }

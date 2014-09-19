@@ -194,6 +194,15 @@ public class Gui {
 		return new HEGameTableEventListener() {
 
 			@Override
+			public boolean lose( Player player ){
+
+				System.out.println( player );
+				
+				return true;
+				
+			}
+			
+			@Override
 			public boolean localPlayerTurn( Player remotePlayer ){
 				remoteOff();
 				return false;

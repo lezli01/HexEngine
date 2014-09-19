@@ -1,0 +1,29 @@
+<PGameTable
+    id="@map_test02"
+    map="@map_mini"
+    pid="@PGameTable_0"
+    player="player1"
+    win=""
+    x="0"
+    y="0" >
+
+    <Player name="player1" >
+
+        <PUnit
+            id="@handyman"
+            x="0"
+            y="1"/>
+
+    </Player>
+
+    <AIPlayer name="player2" >
+
+        <PUnit
+            id="@engineer"
+            x="9"
+            y="5"/ >
+
+
+    </AIPlayer>
+
+</PGameTable>

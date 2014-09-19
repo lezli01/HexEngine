@@ -332,6 +332,7 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 		if( xID.equals( "@DYING" ) ){
 	
 			setDead();
+			
 		}
 		
 	}

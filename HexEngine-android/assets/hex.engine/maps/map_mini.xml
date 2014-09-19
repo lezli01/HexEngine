@@ -1,0 +1,274 @@
+<Map
+    id="@map_mini"
+    name="Test Map"
+    description="@example_texts/@example_text" >
+
+    <MapRow>
+
+        <MapTile tile="@camp" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+    </MapRow>
+
+    <MapRow>
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+    </MapRow>
+    
+    <MapRow>
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+    </MapRow>
+    
+    <MapRow>
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+    </MapRow>
+    
+    <MapRow>
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+    </MapRow>
+    
+    <MapRow>
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+        
+        <MapTile
+            tile="@grass_tile"
+            walkable="true" />
+
+    </MapRow>
+    
+    <MapRow>
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@pines" />
+
+        <MapTile tile="@camp" />
+
+    </MapRow>
+
+</Map>
