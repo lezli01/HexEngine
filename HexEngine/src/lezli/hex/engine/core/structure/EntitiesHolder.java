@@ -3,6 +3,7 @@ package lezli.hex.engine.core.structure;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import lezli.hex.engine.core.HexEngine.LoadListener;
 import lezli.hex.engine.core.structure.entities.building.Building;
 import lezli.hex.engine.core.structure.entities.common.Races;
 import lezli.hex.engine.core.structure.entities.common.Resources;
@@ -17,6 +18,7 @@ import lezli.hex.engine.core.structure.entities.map.tile.placeholder.Placeholder
 import lezli.hex.engine.core.structure.entities.skill.Skill;
 import lezli.hex.engine.core.structure.entities.text.Texts;
 import lezli.hex.engine.core.structure.entities.unit.Unit;
+import lezli.hex.engine.core.structure.entities.unit.UnitPerks;
 import lezli.hex.engine.core.structure.utils.Common;
 import lezli.hex.engine.core.structure.utils.Util;
 import lezli.hex.engine.core.structure.utils.managers.BuildingManager;
@@ -29,6 +31,7 @@ import lezli.hex.engine.core.structure.utils.managers.SkillManager;
 import lezli.hex.engine.core.structure.utils.managers.TextsManager;
 import lezli.hex.engine.core.structure.utils.managers.TileManager;
 import lezli.hex.engine.core.structure.utils.managers.UnitManager;
+import lezli.hex.engine.core.structure.utils.managers.UnitPerksManager;
 
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
@@ -49,19 +52,20 @@ public class EntitiesHolder extends Util{
 	private MapTileManager mMapTileManager;
 	private PlaceholderManager mPlaceholderManager;
 	private UnitManager mUnitManager;
+	private UnitPerksManager mUnitPerksManager;
 	
 	private HashMap< String, byte[] > mScripts;
 	
 	private Values mValues;
 	
-	public EntitiesHolder( String xDataPath ){
+	public EntitiesHolder( String xDataPath, LoadListener xListener ){
 		
 		mDataPath = xDataPath;
 
 		if( Gdx.app.getType() == ApplicationType.Desktop )
 			mDataPath = "./bin/" + mDataPath;
 		
-		loadEntities();
+		loadEntities( xListener );
 		
 	}
 	
@@ -131,6 +135,12 @@ public class EntitiesHolder extends Util{
 		
 	}
 	
+	public UnitPerksManager getUnitPerksManager(){
+
+		return mUnitPerksManager;
+		
+	}
+	
 	public HashMap< String, byte[] > getScripts(){
 		
 		return mScripts;
@@ -143,7 +153,7 @@ public class EntitiesHolder extends Util{
 		
 	}
 	
-	private void loadEntities(){
+	private void loadEntities( LoadListener xListener ){
 		
 		log( "Loading entities..." );
 		
@@ -157,13 +167,16 @@ public class EntitiesHolder extends Util{
 		mMapTileManager = new MapTileManager();
 		mPlaceholderManager = new PlaceholderManager();
 		mUnitManager = new UnitManager();
+		mUnitPerksManager = new UnitPerksManager();
 		mScripts = new HashMap<String, byte[] >();
 
+		xListener.update( "Loading buildings..." );
 		log( "Loading Buildings..." );
 		
 		for( FileHandle f: getF( mDataPath + "/buildings/" ) )
 			mBuildingManager.add( new Building( f.path() ) );
 		
+		xListener.update( "Loading common..." );
 		log( "Loading Common..." );
 		
 		mCommon = new Common();
@@ -172,58 +185,76 @@ public class EntitiesHolder extends Util{
 		mCommon.setResources( new Resources( mDataPath + "/common/resources.xml" ) );
 		mCommon.setStats( new Stats( mDataPath + "/common/stats.xml" ) );
 		
+		xListener.update( "Loading graphics..." );
 		log( "Loading Graphics..." );
 		
 		for( FileHandle f: getF( mDataPath + "/graphics/" ) )
 				mGraphicsManager.add( new Graphics( f.path() ) );
 		
+		xListener.update( "Loading maps..." );
 		log( "Loading Maps..." );
 		
 		for( FileHandle f: getF( mDataPath + "/maps/" ) )
 			mMapManager.add( new Map( f.path() ) );
 		
+		xListener.update( "Loading gametables..." );
 		log( "loading gametables..." );
 		
 		for( FileHandle f: getF( mDataPath + "/gametables/" ) )
 			mGameTableManager.add( new GameTable( f.path() ) );
 		
+		xListener.update( "Loading skills..." );
 		log( "Loading Skills..." );
 		
 		for( FileHandle f: getF( mDataPath + "/skills/" ) )
 			mSkillManager.add( new Skill( f.path() ) );
 		
+		xListener.update( "Loading texts..." );
 		log( "Loading Texts..." );
 		
 		for( FileHandle f: getF( mDataPath + "/texts/" ) )
 			mTextsManager.add( new Texts( f.path() ) );
 		
+		xListener.update( "Loading tiles..." );
 		log( "Loading Tiles..." );
 		
 		for( FileHandle f: getF( mDataPath + "/tiles/" ) )
 			mTileManager.add( new Tile( f.path() ) );
 		
+		xListener.update( "Loading maptiles..." );
 		log( "Loading MapTiles..." );
 		
 		for( FileHandle f: getF( mDataPath + "/maptiles/" ) )
 			mMapTileManager.add( new MapTile( f.path() ) );
 		
+		xListener.update( "Loading placeholders..." );
 		log( "Loading placeholders..." );
 		
 		for( FileHandle f: getF( mDataPath + "/placeholders/" ) )
 			mPlaceholderManager.add( new Placeholder( f.path() ) );
 		
+		xListener.update( "Loading units..." );
 		log( "Loading Units..." );
 		
 		for( FileHandle f: getF( mDataPath + "/units/" ) )
 			mUnitManager.add( new Unit( f.path() ) );
 
+		xListener.update( "Loading unitperks..." );
+		log( "Loading UnitPerks...");
+		
+		for( FileHandle f: getF( mDataPath + "/units/unitperks/" ) )
+			mUnitPerksManager.add( new UnitPerks( f.path() ) );
+		
+		xListener.update( "Loading scripts..." );
 		log( "loading scripts..." );
 		
 		for( FileHandle f: getF( mDataPath + "/scripts" ) )
 			mScripts.put( f.name(), f.readBytes() );
 		
+		xListener.update( "Loading entitites completed..." );
 		log( "Loading completed!" );
 		
+		xListener.update( "Loading values..." );
 		FileHandle f = Gdx.files.internal( mDataPath + "/values.init" );
 		mValues = new Values( f );
 		

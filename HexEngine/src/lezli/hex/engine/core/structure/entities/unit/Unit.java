@@ -15,6 +15,8 @@ public class Unit extends LivingEntity{
 	private SkillEntries mSkillEntries;
 	private BuildingEntries mBuildingEntries;
 	
+	private String mUnitPerks;
+	
 	public Unit( Element xElement ){
 		
 		super( xElement );
@@ -24,6 +26,12 @@ public class Unit extends LivingEntity{
 	public Unit( String xFileName ){
 		
 		super( xFileName );
+		
+	}
+	
+	public String getPerks(){
+		
+		return mUnitPerks;
 		
 	}
 	
@@ -62,6 +70,8 @@ public class Unit extends LivingEntity{
 
 		super.parse(xElement);
 
+		mUnitPerks = xElement.getAttribute( "perks", "@default_perks" );
+		
 		try{
 			
 			setRace( xElement.getAttribute( "race" ) );

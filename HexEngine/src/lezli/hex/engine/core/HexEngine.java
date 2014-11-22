@@ -23,6 +23,13 @@ import com.badlogic.gdx.utils.XmlWriter;
 
 public class HexEngine {
 
+	public static interface LoadListener {
+		
+		public void update( String xMessage );
+		public void done();
+		
+	}
+	
 	private EntitiesHolder mEntitiesHolder;
 	private PCommon mCommon;
 	private Logger mLogger;
@@ -32,11 +39,36 @@ public class HexEngine {
 	
 	private HexEngineProperties mProperties;
 	
+	private String mLoadPath;
+	private Logger mLoadLogger;
+	private String mLoadMap;
+	private LoadListener mLoadListener;
+	
 	public HexEngine( String path, Logger logger, String map ){
 		
 		mInited = false;
 		
-		init( path, logger, map );
+		mLoadPath = path;
+		mLoadLogger = logger;
+		mLoadMap = map;
+		
+	}
+	
+	public void load( LoadListener xListener ){
+		
+		mLoadListener = xListener;
+		
+		Gdx.app.postRunnable( new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				init( mLoadPath, mLoadLogger, mLoadMap );
+			
+			}
+			
+		});
+		
 		
 	}
 
@@ -212,6 +244,8 @@ public class HexEngine {
 
 	private void init( String xPath, Logger xLogger, String xMap ){
 	
+		mLoadListener.update( "Setting up OpenGL..." );
+		
 		Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);
 		Gdx.gl.glEnable(GL10.GL_POINT_SMOOTH);
 		Gdx.gl.glEnable( GL10.GL_POLYGON_SMOOTH_HINT );
@@ -226,9 +260,15 @@ public class HexEngine {
 
 		Entity.setEngine( this );
 
-		mEntitiesHolder = new EntitiesHolder( xPath );
+		mLoadListener.update( "Loading entities..." );
+		
+		mEntitiesHolder = new EntitiesHolder( xPath, mLoadListener );
+		
+		mLoadListener.update( "Loading commons..." );
 		
 		mCommon = new PCommon( mEntitiesHolder.getCommon(), this );
+		
+		mLoadListener.update( "Creating gametable..." );
 		
 		if( mEntitiesHolder.getGameTableManager().get( xMap ) != null )
 			mGameTable = new PGameTable( mEntitiesHolder.getGameTableManager().get( xMap ), this );
@@ -260,6 +300,9 @@ public class HexEngine {
 		
 		mProperties = new HexEngineProperties( propListener );
 	
+		mLoadListener.update( "Loading finished..." );
+		mLoadListener.done();
+		
 	}
 
 	public static class HexEngineProperties{

@@ -5907,7 +5907,6 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 	[Graphics:Entity]@handyman_graphics: Changed description(@example_texts/@example_text)
 	[Graphics:Entity]@handyman_graphics: src set to(siegedevils/graphics_elements/textures/units/handyman.png)
 	[Graphics:Entity]@handyman_graphics: filter set to (linear)
-	[Graphics:Entity]@handyman_graphics: scml set to (siegedevils/graphics_elements/scml/handyman/dwarf.scml)
 		[Sprite:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/sprites/unit_large_icon.xml)
 		[Sprite:GraphicsElement:Entity]@unit_large_icon: Entity ID: @unit_large_icon
 		[Sprite:GraphicsElement:Entity]@unit_large_icon: Entity name: Unit Large Icon
@@ -5915,18 +5914,6 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Sprite:GraphicsElement:Entity]@unit_large_icon: Setting dimensions to (312.0,0.0,200.0,200.0)
 		[Sprite:GraphicsElement:Entity]@unit_large_icon: Parsing completed.
 	[Graphics:Entity]@handyman_graphics: Added new Sprite (@LARGE_ICON)
-		[SCMLAnimation:GraphicsElement:Entity]@IDLE: Entity ID: @IDLE
-		[SCMLAnimation:GraphicsElement:Entity]@IDLE: No attribute [name]!
-		[SCMLAnimation:GraphicsElement:Entity]@IDLE: No attribute [description]!
-	[Graphics:Entity]@handyman_graphics: Added new SCMLAnimation (@IDLE;@IDLE)
-		[SCMLAnimation:GraphicsElement:Entity]@WALK: Entity ID: @WALK
-		[SCMLAnimation:GraphicsElement:Entity]@WALK: No attribute [name]!
-		[SCMLAnimation:GraphicsElement:Entity]@WALK: No attribute [description]!
-	[Graphics:Entity]@handyman_graphics: Added new SCMLAnimation (@WALK;@WALK)
-		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: Entity ID: @ATTACK
-		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: No attribute [name]!
-		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: No attribute [description]!
-	[Graphics:Entity]@handyman_graphics: Added new SCMLAnimation (@ATTACK;@ATTACK)
 		[Animation:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/animations/unit_idle_animation.xml)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity ID: @test_unit_animation
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity name: Test Unit Animation
@@ -5938,6 +5925,48 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 			[Frame:Entity]@Frame_153: No attribute [description]!
 			[Frame:Entity]@Frame_153: Frame dimensions set to (0.0,0.0,300.0,400.0)
 			[Frame:Entity]@Frame_153: Frame multiply set to (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
+	[Graphics:Entity]@handyman_graphics: Added new Animation (@IDLE;@test_unit_animation)
+		[Animation:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/animations/unit_idle_animation.xml)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity ID: @test_unit_animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity name: Test Unit Animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
+			[Frame:Entity]undefined: No attribute [id] generating automatically!
+			[Frame:Entity]@Frame_154: Entity ID: @Frame_154
+			[Frame:Entity]@Frame_154: No attribute [name]!
+			[Frame:Entity]@Frame_154: No attribute [description]!
+			[Frame:Entity]@Frame_154: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_154: Frame multiply set to (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
+	[Graphics:Entity]@handyman_graphics: Added new Animation (@WALK;@test_unit_animation)
+		[Animation:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/animations/unit_idle_animation.xml)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity ID: @test_unit_animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity name: Test Unit Animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
+			[Frame:Entity]undefined: No attribute [id] generating automatically!
+			[Frame:Entity]@Frame_155: Entity ID: @Frame_155
+			[Frame:Entity]@Frame_155: No attribute [name]!
+			[Frame:Entity]@Frame_155: No attribute [description]!
+			[Frame:Entity]@Frame_155: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_155: Frame multiply set to (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
+	[Graphics:Entity]@handyman_graphics: Added new Animation (@ATTACK;@test_unit_animation)
+		[Animation:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/animations/unit_idle_animation.xml)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity ID: @test_unit_animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity name: Test Unit Animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
+			[Frame:Entity]undefined: No attribute [id] generating automatically!
+			[Frame:Entity]@Frame_156: Entity ID: @Frame_156
+			[Frame:Entity]@Frame_156: No attribute [name]!
+			[Frame:Entity]@Frame_156: No attribute [description]!
+			[Frame:Entity]@Frame_156: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_156: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@handyman_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
@@ -5961,11 +5990,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_154: Entity ID: @Frame_154
-			[Frame:Entity]@Frame_154: No attribute [name]!
-			[Frame:Entity]@Frame_154: No attribute [description]!
-			[Frame:Entity]@Frame_154: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_154: Frame multiply set to (1)
+			[Frame:Entity]@Frame_157: Entity ID: @Frame_157
+			[Frame:Entity]@Frame_157: No attribute [name]!
+			[Frame:Entity]@Frame_157: No attribute [description]!
+			[Frame:Entity]@Frame_157: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_157: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@priest_graphics: Added new Animation (@IDLE;@test_unit_animation)
@@ -5975,15 +6004,56 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_155: Entity ID: @Frame_155
-			[Frame:Entity]@Frame_155: No attribute [name]!
-			[Frame:Entity]@Frame_155: No attribute [description]!
-			[Frame:Entity]@Frame_155: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_155: Frame multiply set to (1)
+			[Frame:Entity]@Frame_158: Entity ID: @Frame_158
+			[Frame:Entity]@Frame_158: No attribute [name]!
+			[Frame:Entity]@Frame_158: No attribute [description]!
+			[Frame:Entity]@Frame_158: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_158: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@priest_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
 	[Graphics:Entity]@priest_graphics: Parsing completed.
+	[Graphics:Entity]undefined: Starting parsing from (./bin/hex.engine/graphics/units/SCML_handyman_graphics.xml)
+	[Graphics:Entity]@SCML_handyman_graphics: Entity ID: @SCML_handyman_graphics
+	[Graphics:Entity]@SCML_handyman_graphics: Entity name: Handyman Graphics
+	[Graphics:Entity]@SCML_handyman_graphics: Changed description(@example_texts/@example_text)
+	[Graphics:Entity]@SCML_handyman_graphics: src set to(siegedevils/graphics_elements/textures/units/handyman.png)
+	[Graphics:Entity]@SCML_handyman_graphics: filter set to (linear)
+	[Graphics:Entity]@SCML_handyman_graphics: scml set to (siegedevils/graphics_elements/scml/handyman/dwarf.scml)
+		[Sprite:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/sprites/unit_large_icon.xml)
+		[Sprite:GraphicsElement:Entity]@unit_large_icon: Entity ID: @unit_large_icon
+		[Sprite:GraphicsElement:Entity]@unit_large_icon: Entity name: Unit Large Icon
+		[Sprite:GraphicsElement:Entity]@unit_large_icon: Changed description(@example_texts/@example_text)
+		[Sprite:GraphicsElement:Entity]@unit_large_icon: Setting dimensions to (312.0,0.0,200.0,200.0)
+		[Sprite:GraphicsElement:Entity]@unit_large_icon: Parsing completed.
+	[Graphics:Entity]@SCML_handyman_graphics: Added new Sprite (@LARGE_ICON)
+		[SCMLAnimation:GraphicsElement:Entity]@IDLE: Entity ID: @IDLE
+		[SCMLAnimation:GraphicsElement:Entity]@IDLE: No attribute [name]!
+		[SCMLAnimation:GraphicsElement:Entity]@IDLE: No attribute [description]!
+	[Graphics:Entity]@SCML_handyman_graphics: Added new SCMLAnimation (@IDLE;@IDLE)
+		[SCMLAnimation:GraphicsElement:Entity]@WALK: Entity ID: @WALK
+		[SCMLAnimation:GraphicsElement:Entity]@WALK: No attribute [name]!
+		[SCMLAnimation:GraphicsElement:Entity]@WALK: No attribute [description]!
+	[Graphics:Entity]@SCML_handyman_graphics: Added new SCMLAnimation (@WALK;@WALK)
+		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: Entity ID: @ATTACK
+		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: No attribute [name]!
+		[SCMLAnimation:GraphicsElement:Entity]@ATTACK: No attribute [description]!
+	[Graphics:Entity]@SCML_handyman_graphics: Added new SCMLAnimation (@ATTACK;@ATTACK)
+		[Animation:GraphicsElement:Entity]undefined: Starting parsing from (siegedevils/graphics_elements/animations/unit_idle_animation.xml)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity ID: @test_unit_animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Entity name: Test Unit Animation
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
+			[Frame:Entity]undefined: No attribute [id] generating automatically!
+			[Frame:Entity]@Frame_159: Entity ID: @Frame_159
+			[Frame:Entity]@Frame_159: No attribute [name]!
+			[Frame:Entity]@Frame_159: No attribute [description]!
+			[Frame:Entity]@Frame_159: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_159: Frame multiply set to (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
+		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
+	[Graphics:Entity]@SCML_handyman_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
+	[Graphics:Entity]@SCML_handyman_graphics: Parsing completed.
 	[Graphics:Entity]undefined: Starting parsing from (./bin/hex.engine/graphics/units/shaman_graphics.xml)
 	[Graphics:Entity]@shaman_graphics: Entity ID: @shaman_graphics
 	[Graphics:Entity]@shaman_graphics: Entity name: Shaman Graphics
@@ -6003,11 +6073,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_156: Entity ID: @Frame_156
-			[Frame:Entity]@Frame_156: No attribute [name]!
-			[Frame:Entity]@Frame_156: No attribute [description]!
-			[Frame:Entity]@Frame_156: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_156: Frame multiply set to (1)
+			[Frame:Entity]@Frame_160: Entity ID: @Frame_160
+			[Frame:Entity]@Frame_160: No attribute [name]!
+			[Frame:Entity]@Frame_160: No attribute [description]!
+			[Frame:Entity]@Frame_160: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_160: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@shaman_graphics: Added new Animation (@IDLE;@test_unit_animation)
@@ -6017,11 +6087,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_157: Entity ID: @Frame_157
-			[Frame:Entity]@Frame_157: No attribute [name]!
-			[Frame:Entity]@Frame_157: No attribute [description]!
-			[Frame:Entity]@Frame_157: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_157: Frame multiply set to (1)
+			[Frame:Entity]@Frame_161: Entity ID: @Frame_161
+			[Frame:Entity]@Frame_161: No attribute [name]!
+			[Frame:Entity]@Frame_161: No attribute [description]!
+			[Frame:Entity]@Frame_161: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_161: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@shaman_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
@@ -6045,11 +6115,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_158: Entity ID: @Frame_158
-			[Frame:Entity]@Frame_158: No attribute [name]!
-			[Frame:Entity]@Frame_158: No attribute [description]!
-			[Frame:Entity]@Frame_158: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_158: Frame multiply set to (1)
+			[Frame:Entity]@Frame_162: Entity ID: @Frame_162
+			[Frame:Entity]@Frame_162: No attribute [name]!
+			[Frame:Entity]@Frame_162: No attribute [description]!
+			[Frame:Entity]@Frame_162: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_162: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@trickster_graphics: Added new Animation (@IDLE;@test_unit_animation)
@@ -6059,11 +6129,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_159: Entity ID: @Frame_159
-			[Frame:Entity]@Frame_159: No attribute [name]!
-			[Frame:Entity]@Frame_159: No attribute [description]!
-			[Frame:Entity]@Frame_159: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_159: Frame multiply set to (1)
+			[Frame:Entity]@Frame_163: Entity ID: @Frame_163
+			[Frame:Entity]@Frame_163: No attribute [name]!
+			[Frame:Entity]@Frame_163: No attribute [description]!
+			[Frame:Entity]@Frame_163: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_163: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@trickster_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
@@ -6087,11 +6157,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_160: Entity ID: @Frame_160
-			[Frame:Entity]@Frame_160: No attribute [name]!
-			[Frame:Entity]@Frame_160: No attribute [description]!
-			[Frame:Entity]@Frame_160: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_160: Frame multiply set to (1)
+			[Frame:Entity]@Frame_164: Entity ID: @Frame_164
+			[Frame:Entity]@Frame_164: No attribute [name]!
+			[Frame:Entity]@Frame_164: No attribute [description]!
+			[Frame:Entity]@Frame_164: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_164: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@warlock_graphics: Added new Animation (@IDLE;@test_unit_animation)
@@ -6101,11 +6171,11 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: data/graphics
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Changed description(@example_texts/@example_text)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parameters set to (0;0;1000)
 			[Frame:Entity]undefined: No attribute [id] generating automatically!
-			[Frame:Entity]@Frame_161: Entity ID: @Frame_161
-			[Frame:Entity]@Frame_161: No attribute [name]!
-			[Frame:Entity]@Frame_161: No attribute [description]!
-			[Frame:Entity]@Frame_161: Frame dimensions set to (0.0,0.0,300.0,400.0)
-			[Frame:Entity]@Frame_161: Frame multiply set to (1)
+			[Frame:Entity]@Frame_165: Entity ID: @Frame_165
+			[Frame:Entity]@Frame_165: No attribute [name]!
+			[Frame:Entity]@Frame_165: No attribute [description]!
+			[Frame:Entity]@Frame_165: Frame dimensions set to (0.0,0.0,300.0,400.0)
+			[Frame:Entity]@Frame_165: Frame multiply set to (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: New frame added (1)
 		[Animation:GraphicsElement:Entity]@test_unit_animation: Parsing completed.
 	[Graphics:Entity]@warlock_graphics: Added new Animation (@DAMAGED;@test_unit_animation)
@@ -10015,7 +10085,7 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 			[MapTile:Entity]@MapTile_618: Entity ID: @MapTile_618
 			[MapTile:Entity]@MapTile_618: No attribute [name]!
 			[MapTile:Entity]@MapTile_618: No attribute [description]!
-			[MapTile:Entity]@MapTile_618: Tile set (@grass_tile)
+			[MapTile:Entity]@MapTile_618: Tile set (@rocky_grass)
 		[MapRow:EntityArray:EntityCollector:GraphicalEntity:Entity]@MapRow_25: Added (@MapTile_618)
 			[MapTile:Entity]undefined: No attribute [id] generating automatically!
 			[MapTile:Entity]@MapTile_619: Entity ID: @MapTile_619
@@ -10083,7 +10153,7 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 			[MapTile:Entity]@MapTile_628: Entity ID: @MapTile_628
 			[MapTile:Entity]@MapTile_628: No attribute [name]!
 			[MapTile:Entity]@MapTile_628: No attribute [description]!
-			[MapTile:Entity]@MapTile_628: Tile set (@grass_tile)
+			[MapTile:Entity]@MapTile_628: Tile set (@rocky_grass)
 		[MapRow:EntityArray:EntityCollector:GraphicalEntity:Entity]@MapRow_26: Added (@MapTile_628)
 			[MapTile:Entity]undefined: No attribute [id] generating automatically!
 			[MapTile:Entity]@MapTile_629: Entity ID: @MapTile_629
@@ -15588,6 +15658,32 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 	[Unit:LivingEntity:GraphicalEntity:Entity]@trickster: SkillEntries defined (@engineer_skills)
 	[Unit:LivingEntity:GraphicalEntity:Entity]@trickster: No BuildingEntries defined.
 	[Unit:LivingEntity:GraphicalEntity:Entity]@trickster: Parsing completed.
+	[Unit:LivingEntity:GraphicalEntity:Entity]undefined: Starting parsing from (./bin/hex.engine/units/unitperks/base_perks.xml)
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: Entity ID: @base_perks
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [name]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: Changed description(@example_texts/@example_text)
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [graphics]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [width]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [height]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No StatEntries defined!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [race]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [width]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No attribute [height]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: No SkillEntries defined!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@base_perks: Parsing completed.
+	[Unit:LivingEntity:GraphicalEntity:Entity]undefined: Starting parsing from (./bin/hex.engine/units/unitperks/default_perks.xml)
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: Entity ID: @default_perks
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [name]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: Changed description(@example_texts/@example_text)
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [graphics]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [width]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [height]
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No StatEntries defined!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [race]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [width]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No attribute [height]!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: No SkillEntries defined!
+	[Unit:LivingEntity:GraphicalEntity:Entity]@default_perks: Parsing completed.
 	[Unit:LivingEntity:GraphicalEntity:Entity]undefined: Starting parsing from (./bin/hex.engine/units/warlock.xml)
 	[Unit:LivingEntity:GraphicalEntity:Entity]@warlock: Entity ID: @warlock
 	[Unit:LivingEntity:GraphicalEntity:Entity]@warlock: Entity name: Warlock
@@ -15690,6 +15786,16 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 	[Unit:LivingEntity:GraphicalEntity:Entity]@warlock: SkillEntries defined (@warlock_skills)
 	[Unit:LivingEntity:GraphicalEntity:Entity]@warlock: No BuildingEntries defined.
 	[Unit:LivingEntity:GraphicalEntity:Entity]@warlock: Parsing completed.
+	[UnitPerks:Entity]undefined: Starting parsing from (./bin/hex.engine/units/unitperks/base_perks.xml)
+	[UnitPerks:Entity]@base_perks: Entity ID: @base_perks
+	[UnitPerks:Entity]@base_perks: No attribute [name]!
+	[UnitPerks:Entity]@base_perks: Changed description(@example_texts/@example_text)
+	[UnitPerks:Entity]@base_perks: Parsing completed.
+	[UnitPerks:Entity]undefined: Starting parsing from (./bin/hex.engine/units/unitperks/default_perks.xml)
+	[UnitPerks:Entity]@default_perks: Entity ID: @default_perks
+	[UnitPerks:Entity]@default_perks: No attribute [name]!
+	[UnitPerks:Entity]@default_perks: Changed description(@example_texts/@example_text)
+	[UnitPerks:Entity]@default_perks: Parsing completed.
 @PStat_0: Loaded graphics (@strength_graphics)
 @PStat_1: Loaded graphics (@knowledge_graphics)
 @PStat_2: Loaded graphics (@hit_points_graphics)
@@ -15703,421 +15809,8 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PResource_0: Loaded graphics (@wood_graphics)
 @PResource_1: Loaded graphics (@meat_graphics)
 @PResource_2: Loaded graphics (@iron_graphics)
-	[GameTable:GraphicalEntity:Entity]undefined: Starting parsing from (siegedevils/saves/SAVE_3.sav)
-	[GameTable:GraphicalEntity:Entity]@map_test02: Entity ID: @map_test02
-	[GameTable:GraphicalEntity:Entity]@map_test02: No attribute [name]!
-	[GameTable:GraphicalEntity:Entity]@map_test02: No attribute [description]!
-	[GameTable:GraphicalEntity:Entity]@map_test02: No attribute [graphics]
-	[GameTable:GraphicalEntity:Entity]@map_test02: No attribute [width]
-	[GameTable:GraphicalEntity:Entity]@map_test02: No attribute [height]
-	[GameTable:GraphicalEntity:Entity]@map_test02: Map set (@map_mini)
-	[GameTable:GraphicalEntity:Entity]@map_test02: Player set (player1)
-		[Holding:Entity]@map_mini: Entity ID: @map_mini
-		[Holding:Entity]@map_mini: No attribute [name]!
-		[Holding:Entity]@map_mini: No attribute [description]!
-			[Holding:Entity]undefined: No attribute [id] generating automatically!
-			[Holding:Entity]@Holding_301: Entity ID: @Holding_301
-			[Holding:Entity]@Holding_301: No attribute [name]!
-			[Holding:Entity]@Holding_301: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_302: Entity ID: @Holding_302
-				[Holding:Entity]@Holding_302: No attribute [name]!
-				[Holding:Entity]@Holding_302: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_303: Entity ID: @Holding_303
-				[Holding:Entity]@Holding_303: No attribute [name]!
-				[Holding:Entity]@Holding_303: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_304: Entity ID: @Holding_304
-				[Holding:Entity]@Holding_304: No attribute [name]!
-				[Holding:Entity]@Holding_304: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_305: Entity ID: @Holding_305
-				[Holding:Entity]@Holding_305: No attribute [name]!
-				[Holding:Entity]@Holding_305: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_306: Entity ID: @Holding_306
-				[Holding:Entity]@Holding_306: No attribute [name]!
-				[Holding:Entity]@Holding_306: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_307: Entity ID: @Holding_307
-				[Holding:Entity]@Holding_307: No attribute [name]!
-				[Holding:Entity]@Holding_307: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_308: Entity ID: @Holding_308
-				[Holding:Entity]@Holding_308: No attribute [name]!
-				[Holding:Entity]@Holding_308: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_309: Entity ID: @Holding_309
-				[Holding:Entity]@Holding_309: No attribute [name]!
-				[Holding:Entity]@Holding_309: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_310: Entity ID: @Holding_310
-				[Holding:Entity]@Holding_310: No attribute [name]!
-				[Holding:Entity]@Holding_310: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_311: Entity ID: @Holding_311
-				[Holding:Entity]@Holding_311: No attribute [name]!
-				[Holding:Entity]@Holding_311: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_312: Entity ID: @Holding_312
-				[Holding:Entity]@Holding_312: No attribute [name]!
-				[Holding:Entity]@Holding_312: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_313: Entity ID: @Holding_313
-				[Holding:Entity]@Holding_313: No attribute [name]!
-				[Holding:Entity]@Holding_313: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_314: Entity ID: @Holding_314
-				[Holding:Entity]@Holding_314: No attribute [name]!
-				[Holding:Entity]@Holding_314: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_315: Entity ID: @Holding_315
-				[Holding:Entity]@Holding_315: No attribute [name]!
-				[Holding:Entity]@Holding_315: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_316: Entity ID: @Holding_316
-				[Holding:Entity]@Holding_316: No attribute [name]!
-				[Holding:Entity]@Holding_316: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_317: Entity ID: @Holding_317
-				[Holding:Entity]@Holding_317: No attribute [name]!
-				[Holding:Entity]@Holding_317: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_318: Entity ID: @Holding_318
-				[Holding:Entity]@Holding_318: No attribute [name]!
-				[Holding:Entity]@Holding_318: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_319: Entity ID: @Holding_319
-				[Holding:Entity]@Holding_319: No attribute [name]!
-				[Holding:Entity]@Holding_319: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_320: Entity ID: @Holding_320
-				[Holding:Entity]@Holding_320: No attribute [name]!
-				[Holding:Entity]@Holding_320: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_321: Entity ID: @Holding_321
-				[Holding:Entity]@Holding_321: No attribute [name]!
-				[Holding:Entity]@Holding_321: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_322: Entity ID: @Holding_322
-				[Holding:Entity]@Holding_322: No attribute [name]!
-				[Holding:Entity]@Holding_322: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_323: Entity ID: @Holding_323
-				[Holding:Entity]@Holding_323: No attribute [name]!
-				[Holding:Entity]@Holding_323: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_324: Entity ID: @Holding_324
-				[Holding:Entity]@Holding_324: No attribute [name]!
-				[Holding:Entity]@Holding_324: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_325: Entity ID: @Holding_325
-				[Holding:Entity]@Holding_325: No attribute [name]!
-				[Holding:Entity]@Holding_325: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_326: Entity ID: @Holding_326
-				[Holding:Entity]@Holding_326: No attribute [name]!
-				[Holding:Entity]@Holding_326: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_327: Entity ID: @Holding_327
-				[Holding:Entity]@Holding_327: No attribute [name]!
-				[Holding:Entity]@Holding_327: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_328: Entity ID: @Holding_328
-				[Holding:Entity]@Holding_328: No attribute [name]!
-				[Holding:Entity]@Holding_328: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_329: Entity ID: @Holding_329
-				[Holding:Entity]@Holding_329: No attribute [name]!
-				[Holding:Entity]@Holding_329: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_330: Entity ID: @Holding_330
-				[Holding:Entity]@Holding_330: No attribute [name]!
-				[Holding:Entity]@Holding_330: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_331: Entity ID: @Holding_331
-				[Holding:Entity]@Holding_331: No attribute [name]!
-				[Holding:Entity]@Holding_331: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_332: Entity ID: @Holding_332
-				[Holding:Entity]@Holding_332: No attribute [name]!
-				[Holding:Entity]@Holding_332: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_333: Entity ID: @Holding_333
-				[Holding:Entity]@Holding_333: No attribute [name]!
-				[Holding:Entity]@Holding_333: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_334: Entity ID: @Holding_334
-				[Holding:Entity]@Holding_334: No attribute [name]!
-				[Holding:Entity]@Holding_334: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_335: Entity ID: @Holding_335
-				[Holding:Entity]@Holding_335: No attribute [name]!
-				[Holding:Entity]@Holding_335: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_336: Entity ID: @Holding_336
-				[Holding:Entity]@Holding_336: No attribute [name]!
-				[Holding:Entity]@Holding_336: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_337: Entity ID: @Holding_337
-				[Holding:Entity]@Holding_337: No attribute [name]!
-				[Holding:Entity]@Holding_337: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_338: Entity ID: @Holding_338
-				[Holding:Entity]@Holding_338: No attribute [name]!
-				[Holding:Entity]@Holding_338: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_339: Entity ID: @Holding_339
-				[Holding:Entity]@Holding_339: No attribute [name]!
-				[Holding:Entity]@Holding_339: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_340: Entity ID: @Holding_340
-				[Holding:Entity]@Holding_340: No attribute [name]!
-				[Holding:Entity]@Holding_340: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_341: Entity ID: @Holding_341
-				[Holding:Entity]@Holding_341: No attribute [name]!
-				[Holding:Entity]@Holding_341: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_342: Entity ID: @Holding_342
-				[Holding:Entity]@Holding_342: No attribute [name]!
-				[Holding:Entity]@Holding_342: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_343: Entity ID: @Holding_343
-				[Holding:Entity]@Holding_343: No attribute [name]!
-				[Holding:Entity]@Holding_343: No attribute [description]!
-			[Holding:Entity]undefined: No attribute [id] generating automatically!
-			[Holding:Entity]@Holding_344: Entity ID: @Holding_344
-			[Holding:Entity]@Holding_344: No attribute [name]!
-			[Holding:Entity]@Holding_344: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_345: Entity ID: @Holding_345
-				[Holding:Entity]@Holding_345: No attribute [name]!
-				[Holding:Entity]@Holding_345: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_346: Entity ID: @Holding_346
-				[Holding:Entity]@Holding_346: No attribute [name]!
-				[Holding:Entity]@Holding_346: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_347: Entity ID: @Holding_347
-				[Holding:Entity]@Holding_347: No attribute [name]!
-				[Holding:Entity]@Holding_347: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_348: Entity ID: @Holding_348
-				[Holding:Entity]@Holding_348: No attribute [name]!
-				[Holding:Entity]@Holding_348: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_349: Entity ID: @Holding_349
-				[Holding:Entity]@Holding_349: No attribute [name]!
-				[Holding:Entity]@Holding_349: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_350: Entity ID: @Holding_350
-				[Holding:Entity]@Holding_350: No attribute [name]!
-				[Holding:Entity]@Holding_350: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_351: Entity ID: @Holding_351
-				[Holding:Entity]@Holding_351: No attribute [name]!
-				[Holding:Entity]@Holding_351: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_352: Entity ID: @Holding_352
-				[Holding:Entity]@Holding_352: No attribute [name]!
-				[Holding:Entity]@Holding_352: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_353: Entity ID: @Holding_353
-				[Holding:Entity]@Holding_353: No attribute [name]!
-				[Holding:Entity]@Holding_353: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_354: Entity ID: @Holding_354
-				[Holding:Entity]@Holding_354: No attribute [name]!
-				[Holding:Entity]@Holding_354: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_355: Entity ID: @Holding_355
-				[Holding:Entity]@Holding_355: No attribute [name]!
-				[Holding:Entity]@Holding_355: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_356: Entity ID: @Holding_356
-				[Holding:Entity]@Holding_356: No attribute [name]!
-				[Holding:Entity]@Holding_356: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_357: Entity ID: @Holding_357
-				[Holding:Entity]@Holding_357: No attribute [name]!
-				[Holding:Entity]@Holding_357: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_358: Entity ID: @Holding_358
-				[Holding:Entity]@Holding_358: No attribute [name]!
-				[Holding:Entity]@Holding_358: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_359: Entity ID: @Holding_359
-				[Holding:Entity]@Holding_359: No attribute [name]!
-				[Holding:Entity]@Holding_359: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_360: Entity ID: @Holding_360
-				[Holding:Entity]@Holding_360: No attribute [name]!
-				[Holding:Entity]@Holding_360: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_361: Entity ID: @Holding_361
-				[Holding:Entity]@Holding_361: No attribute [name]!
-				[Holding:Entity]@Holding_361: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_362: Entity ID: @Holding_362
-				[Holding:Entity]@Holding_362: No attribute [name]!
-				[Holding:Entity]@Holding_362: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_363: Entity ID: @Holding_363
-				[Holding:Entity]@Holding_363: No attribute [name]!
-				[Holding:Entity]@Holding_363: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_364: Entity ID: @Holding_364
-				[Holding:Entity]@Holding_364: No attribute [name]!
-				[Holding:Entity]@Holding_364: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_365: Entity ID: @Holding_365
-				[Holding:Entity]@Holding_365: No attribute [name]!
-				[Holding:Entity]@Holding_365: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_366: Entity ID: @Holding_366
-				[Holding:Entity]@Holding_366: No attribute [name]!
-				[Holding:Entity]@Holding_366: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_367: Entity ID: @Holding_367
-				[Holding:Entity]@Holding_367: No attribute [name]!
-				[Holding:Entity]@Holding_367: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_368: Entity ID: @Holding_368
-				[Holding:Entity]@Holding_368: No attribute [name]!
-				[Holding:Entity]@Holding_368: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_369: Entity ID: @Holding_369
-				[Holding:Entity]@Holding_369: No attribute [name]!
-				[Holding:Entity]@Holding_369: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_370: Entity ID: @Holding_370
-				[Holding:Entity]@Holding_370: No attribute [name]!
-				[Holding:Entity]@Holding_370: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_371: Entity ID: @Holding_371
-				[Holding:Entity]@Holding_371: No attribute [name]!
-				[Holding:Entity]@Holding_371: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_372: Entity ID: @Holding_372
-				[Holding:Entity]@Holding_372: No attribute [name]!
-				[Holding:Entity]@Holding_372: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_373: Entity ID: @Holding_373
-				[Holding:Entity]@Holding_373: No attribute [name]!
-				[Holding:Entity]@Holding_373: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_374: Entity ID: @Holding_374
-				[Holding:Entity]@Holding_374: No attribute [name]!
-				[Holding:Entity]@Holding_374: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_375: Entity ID: @Holding_375
-				[Holding:Entity]@Holding_375: No attribute [name]!
-				[Holding:Entity]@Holding_375: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_376: Entity ID: @Holding_376
-				[Holding:Entity]@Holding_376: No attribute [name]!
-				[Holding:Entity]@Holding_376: No attribute [description]!
-				[Holding:Entity]undefined: No attribute [id] generating automatically!
-				[Holding:Entity]@Holding_377: Entity ID: @Holding_377
-				[Holding:Entity]@Holding_377: No attribute [name]!
-				[Holding:Entity]@Holding_377: No attribute [description]!
-		[Holding:Entity]undefined: No attribute [id] generating automatically!
-		[Holding:Entity]@Holding_378: Entity ID: @Holding_378
-		[Holding:Entity]@Holding_378: Entity name: player1
-		[Holding:Entity]@Holding_378: No attribute [description]!
-			[Holding:Entity]@handyman: Entity ID: @handyman
-			[Holding:Entity]@handyman: No attribute [name]!
-			[Holding:Entity]@handyman: No attribute [description]!
-				[Holding:Entity]@StatReg_168: Entity ID: @StatReg_168
-				[Holding:Entity]@StatReg_168: No attribute [name]!
-				[Holding:Entity]@StatReg_168: No attribute [description]!
-				[Holding:Entity]@StatReg_171: Entity ID: @StatReg_171
-				[Holding:Entity]@StatReg_171: No attribute [name]!
-				[Holding:Entity]@StatReg_171: No attribute [description]!
-				[Holding:Entity]@StatReg_163: Entity ID: @StatReg_163
-				[Holding:Entity]@StatReg_163: No attribute [name]!
-				[Holding:Entity]@StatReg_163: No attribute [description]!
-				[Holding:Entity]@StatReg_169: Entity ID: @StatReg_169
-				[Holding:Entity]@StatReg_169: No attribute [name]!
-				[Holding:Entity]@StatReg_169: No attribute [description]!
-				[Holding:Entity]@StatReg_167: Entity ID: @StatReg_167
-				[Holding:Entity]@StatReg_167: No attribute [name]!
-				[Holding:Entity]@StatReg_167: No attribute [description]!
-				[Holding:Entity]@StatReg_166: Entity ID: @StatReg_166
-				[Holding:Entity]@StatReg_166: No attribute [name]!
-				[Holding:Entity]@StatReg_166: No attribute [description]!
-				[Holding:Entity]@StatReg_165: Entity ID: @StatReg_165
-				[Holding:Entity]@StatReg_165: No attribute [name]!
-				[Holding:Entity]@StatReg_165: No attribute [description]!
-				[Holding:Entity]@StatReg_164: Entity ID: @StatReg_164
-				[Holding:Entity]@StatReg_164: No attribute [name]!
-				[Holding:Entity]@StatReg_164: No attribute [description]!
-				[Holding:Entity]@StatReg_162: Entity ID: @StatReg_162
-				[Holding:Entity]@StatReg_162: No attribute [name]!
-				[Holding:Entity]@StatReg_162: No attribute [description]!
-				[Holding:Entity]@StatReg_170: Entity ID: @StatReg_170
-				[Holding:Entity]@StatReg_170: No attribute [name]!
-				[Holding:Entity]@StatReg_170: No attribute [description]!
-			[Holding:Entity]@wood: Entity ID: @wood
-			[Holding:Entity]@wood: No attribute [name]!
-			[Holding:Entity]@wood: No attribute [description]!
-			[Holding:Entity]@meat: Entity ID: @meat
-			[Holding:Entity]@meat: No attribute [name]!
-			[Holding:Entity]@meat: No attribute [description]!
-			[Holding:Entity]@iron: Entity ID: @iron
-			[Holding:Entity]@iron: No attribute [name]!
-			[Holding:Entity]@iron: No attribute [description]!
-		[Holding:Entity]undefined: No attribute [id] generating automatically!
-		[Holding:Entity]@Holding_379: Entity ID: @Holding_379
-		[Holding:Entity]@Holding_379: Entity name: player2
-		[Holding:Entity]@Holding_379: No attribute [description]!
-			[Holding:Entity]@engineer: Entity ID: @engineer
-			[Holding:Entity]@engineer: No attribute [name]!
-			[Holding:Entity]@engineer: No attribute [description]!
-				[Holding:Entity]@StatReg_148: Entity ID: @StatReg_148
-				[Holding:Entity]@StatReg_148: No attribute [name]!
-				[Holding:Entity]@StatReg_148: No attribute [description]!
-				[Holding:Entity]@StatReg_151: Entity ID: @StatReg_151
-				[Holding:Entity]@StatReg_151: No attribute [name]!
-				[Holding:Entity]@StatReg_151: No attribute [description]!
-				[Holding:Entity]@StatReg_149: Entity ID: @StatReg_149
-				[Holding:Entity]@StatReg_149: No attribute [name]!
-				[Holding:Entity]@StatReg_149: No attribute [description]!
-				[Holding:Entity]@StatReg_143: Entity ID: @StatReg_143
-				[Holding:Entity]@StatReg_143: No attribute [name]!
-				[Holding:Entity]@StatReg_143: No attribute [description]!
-				[Holding:Entity]@StatReg_147: Entity ID: @StatReg_147
-				[Holding:Entity]@StatReg_147: No attribute [name]!
-				[Holding:Entity]@StatReg_147: No attribute [description]!
-				[Holding:Entity]@StatReg_146: Entity ID: @StatReg_146
-				[Holding:Entity]@StatReg_146: No attribute [name]!
-				[Holding:Entity]@StatReg_146: No attribute [description]!
-				[Holding:Entity]@StatReg_145: Entity ID: @StatReg_145
-				[Holding:Entity]@StatReg_145: No attribute [name]!
-				[Holding:Entity]@StatReg_145: No attribute [description]!
-				[Holding:Entity]@StatReg_144: Entity ID: @StatReg_144
-				[Holding:Entity]@StatReg_144: No attribute [name]!
-				[Holding:Entity]@StatReg_144: No attribute [description]!
-				[Holding:Entity]@StatReg_142: Entity ID: @StatReg_142
-				[Holding:Entity]@StatReg_142: No attribute [name]!
-				[Holding:Entity]@StatReg_142: No attribute [description]!
-				[Holding:Entity]@StatReg_150: Entity ID: @StatReg_150
-				[Holding:Entity]@StatReg_150: No attribute [name]!
-				[Holding:Entity]@StatReg_150: No attribute [description]!
-			[Holding:Entity]@wood: Entity ID: @wood
-			[Holding:Entity]@wood: No attribute [name]!
-			[Holding:Entity]@wood: No attribute [description]!
-			[Holding:Entity]@meat: Entity ID: @meat
-			[Holding:Entity]@meat: No attribute [name]!
-			[Holding:Entity]@meat: No attribute [description]!
-			[Holding:Entity]@iron: Entity ID: @iron
-			[Holding:Entity]@iron: No attribute [name]!
-			[Holding:Entity]@iron: No attribute [description]!
-	[GameTable:GraphicalEntity:Entity]@map_test02: Parsing completed.
-@PGameTable_0: No [graphics] set for this entity (@map_test02)
-@PMap_0: No [graphics] set for this entity (@map_mini)
+@PGameTable_0: No [graphics] set for this entity (@map_test01)
+@PMap_0: No [graphics] set for this entity (@map_forest)
 @PTile_0: Loaded graphics (@select_tile_graphics)
 @PTile_1: Loaded graphics (@move_tile_graphics)
 @PTile_2: Loaded graphics (@way_tile_graphics)
@@ -16147,27 +15840,46 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PTile_17: Loaded graphics (@grass_tile_graphics)
 @PPlaceholder_9: Loaded graphics (@pine_woods_graphics)
 @PTile_18: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_10: Loaded graphics (@pine_woods_graphics)
 @PTile_19: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_11: Loaded graphics (@pine_woods_graphics)
 @PTile_20: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_12: Loaded graphics (@pine_woods_graphics)
 @PTile_21: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_13: Loaded graphics (@pine_woods_graphics)
 @PTile_22: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_14: Loaded graphics (@pine_woods_graphics)
 @PTile_23: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_15: Loaded graphics (@pine_woods_graphics)
 @PTile_24: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_16: Loaded graphics (@pine_woods_graphics)
 @PTile_25: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_17: Loaded graphics (@pine_woods_graphics)
 @PTile_26: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_18: Loaded graphics (@pine_woods_graphics)
 @PTile_27: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_19: Loaded graphics (@pine_woods_graphics)
 @PTile_28: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_20: Loaded graphics (@pine_woods_graphics)
 @PTile_29: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_21: Loaded graphics (@pine_woods_graphics)
 @PTile_30: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_22: Loaded graphics (@pine_woods_graphics)
 @PTile_31: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_23: Loaded graphics (@pine_woods_graphics)
 @PTile_32: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_24: Loaded graphics (@pine_woods_graphics)
 @PTile_33: Loaded graphics (@grass_tile_graphics)
 @PTile_34: Loaded graphics (@grass_tile_graphics)
 @PTile_35: Loaded graphics (@grass_tile_graphics)
 @PTile_36: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_25: Loaded graphics (@pine_woods_graphics)
 @PTile_37: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_26: Loaded graphics (@woods_graphics)
 @PTile_38: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_27: Loaded graphics (@pine_woods_graphics)
 @PTile_39: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_28: Loaded graphics (@rock_graphics)
 @PTile_40: Loaded graphics (@grass_tile_graphics)
 @PTile_41: Loaded graphics (@grass_tile_graphics)
 @PTile_42: Loaded graphics (@grass_tile_graphics)
@@ -16185,9 +15897,13 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PTile_54: Loaded graphics (@grass_tile_graphics)
 @PTile_55: Loaded graphics (@grass_tile_graphics)
 @PTile_56: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_29: Loaded graphics (@pine_woods_graphics)
 @PTile_57: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_30: Loaded graphics (@pine_woods_graphics)
 @PTile_58: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_31: Loaded graphics (@pine_woods_graphics)
 @PTile_59: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_32: Loaded graphics (@pine_woods_graphics)
 @PTile_60: Loaded graphics (@grass_tile_graphics)
 @PTile_61: Loaded graphics (@grass_tile_graphics)
 @PTile_62: Loaded graphics (@grass_tile_graphics)
@@ -16197,25 +15913,748 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PTile_66: Loaded graphics (@grass_tile_graphics)
 @PTile_67: Loaded graphics (@grass_tile_graphics)
 @PTile_68: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_10: Loaded graphics (@pine_woods_graphics)
 @PTile_69: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_11: Loaded graphics (@pine_woods_graphics)
+@PPlaceholder_33: Loaded graphics (@pine_woods_graphics)
 @PTile_70: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_12: Loaded graphics (@pine_woods_graphics)
 @PTile_71: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_13: Loaded graphics (@pine_woods_graphics)
+@PPlaceholder_34: Loaded graphics (@pine_woods_graphics)
 @PTile_72: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_14: Loaded graphics (@pine_woods_graphics)
+@PPlaceholder_35: Loaded graphics (@pine_woods_graphics)
 @PTile_73: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_15: Loaded graphics (@pine_woods_graphics)
 @PTile_74: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_16: Loaded graphics (@pine_woods_graphics)
 @PTile_75: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_17: Loaded graphics (@pine_woods_graphics)
 @PTile_76: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_18: Loaded graphics (@pine_woods_graphics)
+@PPlaceholder_36: Loaded graphics (@pine_woods_graphics)
 @PTile_77: Loaded graphics (@grass_tile_graphics)
-@PPlaceholder_19: Loaded graphics (@campfire_graphics)
+@PPlaceholder_37: Loaded graphics (@pine_woods_graphics)
+@PTile_78: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_38: Loaded graphics (@pine_woods_graphics)
+@PTile_79: Loaded graphics (@grass_tile_graphics)
+@PTile_80: Loaded graphics (@grass_tile_graphics)
+@PTile_81: Loaded graphics (@grass_tile_graphics)
+@PTile_82: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_39: Loaded graphics (@pine_woods_graphics)
+@PTile_83: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_40: Loaded graphics (@pine_woods_graphics)
+@PTile_84: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_41: Loaded graphics (@pine_woods_graphics)
+@PTile_85: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_42: Loaded graphics (@pine_woods_graphics)
+@PTile_86: Loaded graphics (@grass_tile_graphics)
+@PTile_87: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_43: Loaded graphics (@pine_woods_graphics)
+@PTile_88: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_44: Loaded graphics (@pine_woods_graphics)
+@PTile_89: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_45: Loaded graphics (@pine_woods_graphics)
+@PTile_90: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_46: Loaded graphics (@pine_woods_graphics)
+@PTile_91: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_47: Loaded graphics (@pine_woods_graphics)
+@PTile_92: Loaded graphics (@grass_tile_graphics)
+@PTile_93: Loaded graphics (@grass_tile_graphics)
+@PTile_94: Loaded graphics (@grass_tile_graphics)
+@PTile_95: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_48: Loaded graphics (@pine_woods_graphics)
+@PTile_96: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_49: Loaded graphics (@pine_woods_graphics)
+@PTile_97: Loaded graphics (@grass_tile_graphics)
+@PTile_98: Loaded graphics (@grass_tile_graphics)
+@PTile_99: Loaded graphics (@grass_tile_graphics)
+@PTile_100: Loaded graphics (@grass_tile_graphics)
+@PTile_101: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_50: Loaded graphics (@pine_woods_graphics)
+@PTile_102: Loaded graphics (@grass_tile_graphics)
+@PTile_103: Loaded graphics (@grass_tile_graphics)
+@PTile_104: Loaded graphics (@grass_tile_graphics)
+@PTile_105: Loaded graphics (@grass_tile_graphics)
+@PTile_106: Loaded graphics (@grass_tile_graphics)
+@PTile_107: Loaded graphics (@grass_tile_graphics)
+@PTile_108: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_51: Loaded graphics (@pine_woods_graphics)
+@PTile_109: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_52: Loaded graphics (@iron_source_graphics)
+@PTile_110: Loaded graphics (@grass_tile_graphics)
+@PTile_111: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_53: Loaded graphics (@pine_woods_graphics)
+@PTile_112: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_54: Loaded graphics (@pine_woods_graphics)
+@PTile_113: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_55: Loaded graphics (@pine_woods_graphics)
+@PTile_114: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_56: Loaded graphics (@pine_woods_graphics)
+@PTile_115: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_57: Loaded graphics (@pine_woods_graphics)
+@PTile_116: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_58: Loaded graphics (@pine_woods_graphics)
+@PTile_117: Loaded graphics (@grass_tile_graphics)
+@PTile_118: Loaded graphics (@grass_tile_graphics)
+@PTile_119: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_59: Loaded graphics (@pine_woods_graphics)
+@PTile_120: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_60: Loaded graphics (@pine_woods_graphics)
+@PTile_121: Loaded graphics (@grass_tile_graphics)
+@PTile_122: Loaded graphics (@grass_tile_graphics)
+@PTile_123: Loaded graphics (@grass_tile_graphics)
+@PTile_124: Loaded graphics (@grass_tile_graphics)
+@PTile_125: Loaded graphics (@grass_tile_graphics)
+@PTile_126: Loaded graphics (@grass_tile_graphics)
+@PTile_127: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_61: Loaded graphics (@pine_woods_graphics)
+@PTile_128: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_62: Loaded graphics (@pine_woods_graphics)
+@PTile_129: Loaded graphics (@grass_tile_graphics)
+@PTile_130: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_63: Loaded graphics (@pine_woods_graphics)
+@PTile_131: Loaded graphics (@grass_tile_graphics)
+@PTile_132: Loaded graphics (@grass_tile_graphics)
+@PTile_133: Loaded graphics (@grass_tile_graphics)
+@PTile_134: Loaded graphics (@grass_tile_graphics)
+@PTile_135: Loaded graphics (@grass_tile_graphics)
+@PTile_136: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_64: Loaded graphics (@pine_woods_graphics)
+@PTile_137: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_65: Loaded graphics (@pine_woods_graphics)
+@PTile_138: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_66: Loaded graphics (@pine_woods_graphics)
+@PTile_139: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_67: Loaded graphics (@pine_woods_graphics)
+@PTile_140: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_68: Loaded graphics (@pine_woods_graphics)
+@PTile_141: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_69: Loaded graphics (@pine_woods_graphics)
+@PTile_142: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_70: Loaded graphics (@pine_woods_graphics)
+@PTile_143: Loaded graphics (@grass_tile_graphics)
+@PTile_144: Loaded graphics (@grass_tile_graphics)
+@PTile_145: Loaded graphics (@grass_tile_graphics)
+@PTile_146: Loaded graphics (@grass_tile_graphics)
+@PTile_147: Loaded graphics (@grass_tile_graphics)
+@PTile_148: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_71: Loaded graphics (@pine_woods_graphics)
+@PTile_149: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_72: Loaded graphics (@pine_woods_graphics)
+@PTile_150: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_73: Loaded graphics (@pine_woods_graphics)
+@PTile_151: Loaded graphics (@grass_tile_graphics)
+@PTile_152: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_74: Loaded graphics (@pine_woods_graphics)
+@PTile_153: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_75: Loaded graphics (@pine_woods_graphics)
+@PTile_154: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_76: Loaded graphics (@pine_woods_graphics)
+@PTile_155: Loaded graphics (@grass_tile_graphics)
+@PTile_156: Loaded graphics (@grass_tile_graphics)
+@PTile_157: Loaded graphics (@grass_tile_graphics)
+@PTile_158: Loaded graphics (@grass_tile_graphics)
+@PTile_159: Loaded graphics (@grass_tile_graphics)
+@PTile_160: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_77: Loaded graphics (@pine_woods_graphics)
+@PTile_161: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_78: Loaded graphics (@pine_woods_graphics)
+@PTile_162: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_79: Loaded graphics (@pine_woods_graphics)
+@PTile_163: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_80: Loaded graphics (@woods_graphics)
+@PTile_164: Loaded graphics (@grass_tile_graphics)
+@PTile_165: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_81: Loaded graphics (@iron_source_graphics)
+@PTile_166: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_82: Loaded graphics (@pine_woods_graphics)
+@PTile_167: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_83: Loaded graphics (@pine_woods_graphics)
+@PTile_168: Loaded graphics (@grass_tile_graphics)
+@PTile_169: Loaded graphics (@grass_tile_graphics)
+@PTile_170: Loaded graphics (@grass_tile_graphics)
+@PTile_171: Loaded graphics (@grass_tile_graphics)
+@PTile_172: Loaded graphics (@grass_tile_graphics)
+@PTile_173: Loaded graphics (@grass_tile_graphics)
+@PTile_174: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_84: Loaded graphics (@pine_woods_graphics)
+@PTile_175: Loaded graphics (@grass_tile_graphics)
+@PTile_176: Loaded graphics (@grass_tile_graphics)
+@PTile_177: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_85: Loaded graphics (@pine_woods_graphics)
+@PTile_178: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_86: Loaded graphics (@pine_woods_graphics)
+@PTile_179: Loaded graphics (@grass_tile_graphics)
+@PTile_180: Loaded graphics (@grass_tile_graphics)
+@PTile_181: Loaded graphics (@grass_tile_graphics)
+@PTile_182: Loaded graphics (@grass_tile_graphics)
+@PTile_183: Loaded graphics (@grass_tile_graphics)
+@PTile_184: Loaded graphics (@grass_tile_graphics)
+@PTile_185: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_87: Loaded graphics (@pine_woods_graphics)
+@PTile_186: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_88: Loaded graphics (@pine_woods_graphics)
+@PTile_187: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_89: Loaded graphics (@pine_woods_graphics)
+@PTile_188: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_90: Loaded graphics (@pine_woods_graphics)
+@PTile_189: Loaded graphics (@grass_tile_graphics)
+@PTile_190: Loaded graphics (@grass_tile_graphics)
+@PTile_191: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_91: Loaded graphics (@pine_woods_graphics)
+@PTile_192: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_92: Loaded graphics (@pine_woods_graphics)
+@PTile_193: Loaded graphics (@grass_tile_graphics)
+@PTile_194: Loaded graphics (@grass_tile_graphics)
+@PTile_195: Loaded graphics (@grass_tile_graphics)
+@PTile_196: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_93: Loaded graphics (@pine_woods_graphics)
+@PTile_197: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_94: Loaded graphics (@pine_woods_graphics)
+@PTile_198: Loaded graphics (@grass_tile_graphics)
+@PTile_199: Loaded graphics (@grass_tile_graphics)
+@PTile_200: Loaded graphics (@grass_tile_graphics)
+@PTile_201: Loaded graphics (@grass_tile_graphics)
+@PTile_202: Loaded graphics (@grass_tile_graphics)
+@PTile_203: Loaded graphics (@grass_tile_graphics)
+@PTile_204: Loaded graphics (@grass_tile_graphics)
+@PTile_205: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_95: Loaded graphics (@pine_woods_graphics)
+@PTile_206: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_96: Loaded graphics (@pine_woods_graphics)
+@PTile_207: Loaded graphics (@grass_tile_graphics)
+@PTile_208: Loaded graphics (@grass_tile_graphics)
+@PTile_209: Loaded graphics (@grass_tile_graphics)
+@PTile_210: Loaded graphics (@grass_tile_graphics)
+@PTile_211: Loaded graphics (@grass_tile_graphics)
+@PTile_212: Loaded graphics (@grass_tile_graphics)
+@PTile_213: Loaded graphics (@grass_tile_graphics)
+@PTile_214: Loaded graphics (@grass_tile_graphics)
+@PTile_215: Loaded graphics (@grass_tile_graphics)
+@PTile_216: Loaded graphics (@grass_tile_graphics)
+@PTile_217: Loaded graphics (@grass_tile_graphics)
+@PTile_218: Loaded graphics (@grass_tile_graphics)
+@PTile_219: Loaded graphics (@grass_tile_graphics)
+@PTile_220: Loaded graphics (@grass_tile_graphics)
+@PTile_221: Loaded graphics (@grass_tile_graphics)
+@PTile_222: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_97: Loaded graphics (@pine_woods_graphics)
+@PTile_223: Loaded graphics (@grass_tile_graphics)
+@PTile_224: Loaded graphics (@grass_tile_graphics)
+@PTile_225: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_98: Loaded graphics (@pine_woods_graphics)
+@PTile_226: Loaded graphics (@grass_tile_graphics)
+@PTile_227: Loaded graphics (@grass_tile_graphics)
+@PTile_228: Loaded graphics (@grass_tile_graphics)
+@PTile_229: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_99: Loaded graphics (@pine_woods_graphics)
+@PTile_230: Loaded graphics (@grass_tile_graphics)
+@PTile_231: Loaded graphics (@grass_tile_graphics)
+@PTile_232: Loaded graphics (@grass_tile_graphics)
+@PTile_233: Loaded graphics (@grass_tile_graphics)
+@PTile_234: Loaded graphics (@grass_tile_graphics)
+@PTile_235: Loaded graphics (@grass_tile_graphics)
+@PTile_236: Loaded graphics (@grass_tile_graphics)
+@PTile_237: Loaded graphics (@grass_tile_graphics)
+@PTile_238: Loaded graphics (@grass_tile_graphics)
+@PTile_239: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_100: Loaded graphics (@pine_woods_graphics)
+@PTile_240: Loaded graphics (@grass_tile_graphics)
+@PTile_241: Loaded graphics (@grass_tile_graphics)
+@PTile_242: Loaded graphics (@grass_tile_graphics)
+@PTile_243: Loaded graphics (@grass_tile_graphics)
+@PTile_244: Loaded graphics (@grass_tile_graphics)
+@PTile_245: Loaded graphics (@grass_tile_graphics)
+@PTile_246: Loaded graphics (@grass_tile_graphics)
+@PTile_247: Loaded graphics (@grass_tile_graphics)
+@PTile_248: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_101: Loaded graphics (@pine_woods_graphics)
+@PTile_249: Loaded graphics (@grass_tile_graphics)
+@PTile_250: Loaded graphics (@grass_tile_graphics)
+@PTile_251: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_102: Loaded graphics (@pine_woods_graphics)
+@PTile_252: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_103: Loaded graphics (@pine_woods_graphics)
+@PTile_253: Loaded graphics (@grass_tile_graphics)
+@PTile_254: Loaded graphics (@grass_tile_graphics)
+@PTile_255: Loaded graphics (@grass_tile_graphics)
+@PTile_256: Loaded graphics (@grass_tile_graphics)
+@PTile_257: Loaded graphics (@grass_tile_graphics)
+@PTile_258: Loaded graphics (@grass_tile_graphics)
+@PTile_259: Loaded graphics (@grass_tile_graphics)
+@PTile_260: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_104: Loaded graphics (@pine_woods_graphics)
+@PTile_261: Loaded graphics (@grass_tile_graphics)
+@PTile_262: Loaded graphics (@grass_tile_graphics)
+@PTile_263: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_105: Loaded graphics (@pine_woods_graphics)
+@PTile_264: Loaded graphics (@grass_tile_graphics)
+@PTile_265: Loaded graphics (@grass_tile_graphics)
+@PTile_266: Loaded graphics (@grass_tile_graphics)
+@PTile_267: Loaded graphics (@grass_tile_graphics)
+@PTile_268: Loaded graphics (@grass_tile_graphics)
+@PTile_269: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_106: Loaded graphics (@pine_woods_graphics)
+@PTile_270: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_107: Loaded graphics (@woods_graphics)
+@PTile_271: Loaded graphics (@grass_tile_graphics)
+@PTile_272: Loaded graphics (@grass_tile_graphics)
+@PTile_273: Loaded graphics (@grass_tile_graphics)
+@PTile_274: Loaded graphics (@grass_tile_graphics)
+@PTile_275: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_108: Loaded graphics (@pine_woods_graphics)
+@PTile_276: Loaded graphics (@grass_tile_graphics)
+@PTile_277: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_109: Loaded graphics (@pine_woods_graphics)
+@PTile_278: Loaded graphics (@grass_tile_graphics)
+@PTile_279: Loaded graphics (@grass_tile_graphics)
+@PTile_280: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_110: Loaded graphics (@pine_woods_graphics)
+@PTile_281: Loaded graphics (@grass_tile_graphics)
+@PTile_282: Loaded graphics (@grass_tile_graphics)
+@PTile_283: Loaded graphics (@grass_tile_graphics)
+@PTile_284: Loaded graphics (@grass_tile_graphics)
+@PTile_285: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_111: Loaded graphics (@pine_woods_graphics)
+@PTile_286: Loaded graphics (@grass_tile_graphics)
+@PTile_287: Loaded graphics (@grass_tile_graphics)
+@PTile_288: Loaded graphics (@grass_tile_graphics)
+@PTile_289: Loaded graphics (@grass_tile_graphics)
+@PTile_290: Loaded graphics (@grass_tile_graphics)
+@PTile_291: Loaded graphics (@grass_tile_graphics)
+@PTile_292: Loaded graphics (@grass_tile_graphics)
+@PTile_293: Loaded graphics (@grass_tile_graphics)
+@PTile_294: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_112: Loaded graphics (@pine_woods_graphics)
+@PTile_295: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_113: Loaded graphics (@pine_woods_graphics)
+@PTile_296: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_114: Loaded graphics (@pine_woods_graphics)
+@PTile_297: Loaded graphics (@grass_tile_graphics)
+@PTile_298: Loaded graphics (@grass_tile_graphics)
+@PTile_299: Loaded graphics (@grass_tile_graphics)
+@PTile_300: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_115: Loaded graphics (@pine_woods_graphics)
+@PTile_301: Loaded graphics (@grass_tile_graphics)
+@PTile_302: Loaded graphics (@grass_tile_graphics)
+@PTile_303: Loaded graphics (@grass_tile_graphics)
+@PTile_304: Loaded graphics (@grass_tile_graphics)
+@PTile_305: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_116: Loaded graphics (@pine_woods_graphics)
+@PTile_306: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_117: Loaded graphics (@pine_woods_graphics)
+@PTile_307: Loaded graphics (@grass_tile_graphics)
+@PTile_308: Loaded graphics (@grass_tile_graphics)
+@PTile_309: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_118: Loaded graphics (@pine_woods_graphics)
+@PTile_310: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_119: Loaded graphics (@pine_woods_graphics)
+@PTile_311: Loaded graphics (@grass_tile_graphics)
+@PTile_312: Loaded graphics (@grass_tile_graphics)
+@PTile_313: Loaded graphics (@grass_tile_graphics)
+@PTile_314: Loaded graphics (@grass_tile_graphics)
+@PTile_315: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_120: Loaded graphics (@pine_woods_graphics)
+@PTile_316: Loaded graphics (@grass_tile_graphics)
+@PTile_317: Loaded graphics (@grass_tile_graphics)
+@PTile_318: Loaded graphics (@grass_tile_graphics)
+@PTile_319: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_121: Loaded graphics (@pine_woods_graphics)
+@PTile_320: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_122: Loaded graphics (@pine_woods_graphics)
+@PTile_321: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_123: Loaded graphics (@pine_woods_graphics)
+@PTile_322: Loaded graphics (@grass_tile_graphics)
+@PTile_323: Loaded graphics (@grass_tile_graphics)
+@PTile_324: Loaded graphics (@grass_tile_graphics)
+@PTile_325: Loaded graphics (@grass_tile_graphics)
+@PTile_326: Loaded graphics (@grass_tile_graphics)
+@PTile_327: Loaded graphics (@grass_tile_graphics)
+@PTile_328: Loaded graphics (@grass_tile_graphics)
+@PTile_329: Loaded graphics (@grass_tile_graphics)
+@PTile_330: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_124: Loaded graphics (@pine_woods_graphics)
+@PTile_331: Loaded graphics (@grass_tile_graphics)
+@PTile_332: Loaded graphics (@grass_tile_graphics)
+@PTile_333: Loaded graphics (@grass_tile_graphics)
+@PTile_334: Loaded graphics (@grass_tile_graphics)
+@PTile_335: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_125: Loaded graphics (@pine_woods_graphics)
+@PTile_336: Loaded graphics (@grass_tile_graphics)
+@PTile_337: Loaded graphics (@grass_tile_graphics)
+@PTile_338: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_126: Loaded graphics (@pine_woods_graphics)
+@PTile_339: Loaded graphics (@grass_tile_graphics)
+@PTile_340: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_127: Loaded graphics (@pine_woods_graphics)
+@PTile_341: Loaded graphics (@grass_tile_graphics)
+@PTile_342: Loaded graphics (@grass_tile_graphics)
+@PTile_343: Loaded graphics (@grass_tile_graphics)
+@PTile_344: Loaded graphics (@grass_tile_graphics)
+@PTile_345: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_128: Loaded graphics (@iron_source_graphics)
+@PTile_346: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_129: Loaded graphics (@pine_woods_graphics)
+@PTile_347: Loaded graphics (@grass_tile_graphics)
+@PTile_348: Loaded graphics (@grass_tile_graphics)
+@PTile_349: Loaded graphics (@grass_tile_graphics)
+@PTile_350: Loaded graphics (@grass_tile_graphics)
+@PTile_351: Loaded graphics (@grass_tile_graphics)
+@PTile_352: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_130: Loaded graphics (@pine_woods_graphics)
+@PTile_353: Loaded graphics (@grass_tile_graphics)
+@PTile_354: Loaded graphics (@grass_tile_graphics)
+@PTile_355: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_131: Loaded graphics (@pine_woods_graphics)
+@PTile_356: Loaded graphics (@grass_tile_graphics)
+@PTile_357: Loaded graphics (@grass_tile_graphics)
+@PTile_358: Loaded graphics (@grass_tile_graphics)
+@PTile_359: Loaded graphics (@grass_tile_graphics)
+@PTile_360: Loaded graphics (@grass_tile_graphics)
+@PTile_361: Loaded graphics (@grass_tile_graphics)
+@PTile_362: Loaded graphics (@grass_tile_graphics)
+@PTile_363: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_132: Loaded graphics (@pine_woods_graphics)
+@PTile_364: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_133: Loaded graphics (@pine_woods_graphics)
+@PTile_365: Loaded graphics (@grass_tile_graphics)
+@PTile_366: Loaded graphics (@grass_tile_graphics)
+@PTile_367: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_134: Loaded graphics (@pine_woods_graphics)
+@PTile_368: Loaded graphics (@grass_tile_graphics)
+@PTile_369: Loaded graphics (@grass_tile_graphics)
+@PTile_370: Loaded graphics (@grass_tile_graphics)
+@PTile_371: Loaded graphics (@grass_tile_graphics)
+@PTile_372: Loaded graphics (@grass_tile_graphics)
+@PTile_373: Loaded graphics (@grass_tile_graphics)
+@PTile_374: Loaded graphics (@grass_tile_graphics)
+@PTile_375: Loaded graphics (@grass_tile_graphics)
+@PTile_376: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_135: Loaded graphics (@pine_woods_graphics)
+@PTile_377: Loaded graphics (@grass_tile_graphics)
+@PTile_378: Loaded graphics (@grass_tile_graphics)
+@PTile_379: Loaded graphics (@grass_tile_graphics)
+@PTile_380: Loaded graphics (@grass_tile_graphics)
+@PTile_381: Loaded graphics (@grass_tile_graphics)
+@PTile_382: Loaded graphics (@grass_tile_graphics)
+@PTile_383: Loaded graphics (@grass_tile_graphics)
+@PTile_384: Loaded graphics (@grass_tile_graphics)
+@PTile_385: Loaded graphics (@grass_tile_graphics)
+@PTile_386: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_136: Loaded graphics (@pine_woods_graphics)
+@PTile_387: Loaded graphics (@grass_tile_graphics)
+@PTile_388: Loaded graphics (@grass_tile_graphics)
+@PTile_389: Loaded graphics (@grass_tile_graphics)
+@PTile_390: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_137: Loaded graphics (@pine_woods_graphics)
+@PTile_391: Loaded graphics (@grass_tile_graphics)
+@PTile_392: Loaded graphics (@grass_tile_graphics)
+@PTile_393: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_138: Loaded graphics (@pine_woods_graphics)
+@PTile_394: Loaded graphics (@grass_tile_graphics)
+@PTile_395: Loaded graphics (@grass_tile_graphics)
+@PTile_396: Loaded graphics (@grass_tile_graphics)
+@PTile_397: Loaded graphics (@grass_tile_graphics)
+@PTile_398: Loaded graphics (@grass_tile_graphics)
+@PTile_399: Loaded graphics (@grass_tile_graphics)
+@PTile_400: Loaded graphics (@grass_tile_graphics)
+@PTile_401: Loaded graphics (@grass_tile_graphics)
+@PTile_402: Loaded graphics (@grass_tile_graphics)
+@PTile_403: Loaded graphics (@grass_tile_graphics)
+@PTile_404: Loaded graphics (@grass_tile_graphics)
+@PTile_405: Loaded graphics (@grass_tile_graphics)
+@PTile_406: Loaded graphics (@grass_tile_graphics)
+@PTile_407: Loaded graphics (@grass_tile_graphics)
+@PTile_408: Loaded graphics (@grass_tile_graphics)
+@PTile_409: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_139: Loaded graphics (@pine_woods_graphics)
+@PTile_410: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_140: Loaded graphics (@pine_woods_graphics)
+@PTile_411: Loaded graphics (@grass_tile_graphics)
+@PTile_412: Loaded graphics (@grass_tile_graphics)
+@PTile_413: Loaded graphics (@grass_tile_graphics)
+@PTile_414: Loaded graphics (@grass_tile_graphics)
+@PTile_415: Loaded graphics (@grass_tile_graphics)
+@PTile_416: Loaded graphics (@grass_tile_graphics)
+@PTile_417: Loaded graphics (@grass_tile_graphics)
+@PTile_418: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_141: Loaded graphics (@pine_woods_graphics)
+@PTile_419: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_142: Loaded graphics (@pine_woods_graphics)
+@PTile_420: Loaded graphics (@grass_tile_graphics)
+@PTile_421: Loaded graphics (@grass_tile_graphics)
+@PTile_422: Loaded graphics (@grass_tile_graphics)
+@PTile_423: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_143: Loaded graphics (@pine_woods_graphics)
+@PTile_424: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_144: Loaded graphics (@pine_woods_graphics)
+@PTile_425: Loaded graphics (@grass_tile_graphics)
+@PTile_426: Loaded graphics (@grass_tile_graphics)
+@PTile_427: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_145: Loaded graphics (@pine_woods_graphics)
+@PTile_428: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_146: Loaded graphics (@pine_woods_graphics)
+@PTile_429: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_147: Loaded graphics (@pine_woods_graphics)
+@PTile_430: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_148: Loaded graphics (@pine_woods_graphics)
+@PTile_431: Loaded graphics (@grass_tile_graphics)
+@PTile_432: Loaded graphics (@grass_tile_graphics)
+@PTile_433: Loaded graphics (@grass_tile_graphics)
+@PTile_434: Loaded graphics (@grass_tile_graphics)
+@PTile_435: Loaded graphics (@grass_tile_graphics)
+@PTile_436: Loaded graphics (@grass_tile_graphics)
+@PTile_437: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_149: Loaded graphics (@pine_woods_graphics)
+@PTile_438: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_150: Loaded graphics (@pine_woods_graphics)
+@PTile_439: Loaded graphics (@grass_tile_graphics)
+@PTile_440: Loaded graphics (@grass_tile_graphics)
+@PTile_441: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_151: Loaded graphics (@pine_woods_graphics)
+@PTile_442: Loaded graphics (@grass_tile_graphics)
+@PTile_443: Loaded graphics (@grass_tile_graphics)
+@PTile_444: Loaded graphics (@grass_tile_graphics)
+@PTile_445: Loaded graphics (@grass_tile_graphics)
+@PTile_446: Loaded graphics (@grass_tile_graphics)
+@PTile_447: Loaded graphics (@grass_tile_graphics)
+@PTile_448: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_152: Loaded graphics (@pine_woods_graphics)
+@PTile_449: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_153: Loaded graphics (@pine_woods_graphics)
+@PTile_450: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_154: Loaded graphics (@woods_graphics)
+@PTile_451: Loaded graphics (@grass_tile_graphics)
+@PTile_452: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_155: Loaded graphics (@iron_source_graphics)
+@PTile_453: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_156: Loaded graphics (@pine_woods_graphics)
+@PTile_454: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_157: Loaded graphics (@pine_woods_graphics)
+@PTile_455: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_158: Loaded graphics (@pine_woods_graphics)
+@PTile_456: Loaded graphics (@grass_tile_graphics)
+@PTile_457: Loaded graphics (@grass_tile_graphics)
+@PTile_458: Loaded graphics (@grass_tile_graphics)
+@PTile_459: Loaded graphics (@grass_tile_graphics)
+@PTile_460: Loaded graphics (@grass_tile_graphics)
+@PTile_461: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_159: Loaded graphics (@pine_woods_graphics)
+@PTile_462: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_160: Loaded graphics (@pine_woods_graphics)
+@PTile_463: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_161: Loaded graphics (@pine_woods_graphics)
+@PTile_464: Loaded graphics (@grass_tile_graphics)
+@PTile_465: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_162: Loaded graphics (@pine_woods_graphics)
+@PTile_466: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_163: Loaded graphics (@pine_woods_graphics)
+@PTile_467: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_164: Loaded graphics (@pine_woods_graphics)
+@PTile_468: Loaded graphics (@grass_tile_graphics)
+@PTile_469: Loaded graphics (@grass_tile_graphics)
+@PTile_470: Loaded graphics (@grass_tile_graphics)
+@PTile_471: Loaded graphics (@grass_tile_graphics)
+@PTile_472: Loaded graphics (@grass_tile_graphics)
+@PTile_473: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_165: Loaded graphics (@pine_woods_graphics)
+@PTile_474: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_166: Loaded graphics (@pine_woods_graphics)
+@PTile_475: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_167: Loaded graphics (@pine_woods_graphics)
+@PTile_476: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_168: Loaded graphics (@pine_woods_graphics)
+@PTile_477: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_169: Loaded graphics (@pine_woods_graphics)
+@PTile_478: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_170: Loaded graphics (@pine_woods_graphics)
+@PTile_479: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_171: Loaded graphics (@pine_woods_graphics)
+@PTile_480: Loaded graphics (@grass_tile_graphics)
+@PTile_481: Loaded graphics (@grass_tile_graphics)
+@PTile_482: Loaded graphics (@grass_tile_graphics)
+@PTile_483: Loaded graphics (@grass_tile_graphics)
+@PTile_484: Loaded graphics (@grass_tile_graphics)
+@PTile_485: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_172: Loaded graphics (@pine_woods_graphics)
+@PTile_486: Loaded graphics (@grass_tile_graphics)
+@PTile_487: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_173: Loaded graphics (@pine_woods_graphics)
+@PTile_488: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_174: Loaded graphics (@pine_woods_graphics)
+@PTile_489: Loaded graphics (@grass_tile_graphics)
+@PTile_490: Loaded graphics (@grass_tile_graphics)
+@PTile_491: Loaded graphics (@grass_tile_graphics)
+@PTile_492: Loaded graphics (@grass_tile_graphics)
+@PTile_493: Loaded graphics (@grass_tile_graphics)
+@PTile_494: Loaded graphics (@grass_tile_graphics)
+@PTile_495: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_175: Loaded graphics (@pine_woods_graphics)
+@PTile_496: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_176: Loaded graphics (@pine_woods_graphics)
+@PTile_497: Loaded graphics (@grass_tile_graphics)
+@PTile_498: Loaded graphics (@grass_tile_graphics)
+@PTile_499: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_177: Loaded graphics (@pine_woods_graphics)
+@PTile_500: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_178: Loaded graphics (@pine_woods_graphics)
+@PTile_501: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_179: Loaded graphics (@pine_woods_graphics)
+@PTile_502: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_180: Loaded graphics (@pine_woods_graphics)
+@PTile_503: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_181: Loaded graphics (@pine_woods_graphics)
+@PTile_504: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_182: Loaded graphics (@pine_woods_graphics)
+@PTile_505: Loaded graphics (@grass_tile_graphics)
+@PTile_506: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_183: Loaded graphics (@iron_source_graphics)
+@PTile_507: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_184: Loaded graphics (@pine_woods_graphics)
+@PTile_508: Loaded graphics (@grass_tile_graphics)
+@PTile_509: Loaded graphics (@grass_tile_graphics)
+@PTile_510: Loaded graphics (@grass_tile_graphics)
+@PTile_511: Loaded graphics (@grass_tile_graphics)
+@PTile_512: Loaded graphics (@grass_tile_graphics)
+@PTile_513: Loaded graphics (@grass_tile_graphics)
+@PTile_514: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_185: Loaded graphics (@pine_woods_graphics)
+@PTile_515: Loaded graphics (@grass_tile_graphics)
+@PTile_516: Loaded graphics (@grass_tile_graphics)
+@PTile_517: Loaded graphics (@grass_tile_graphics)
+@PTile_518: Loaded graphics (@grass_tile_graphics)
+@PTile_519: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_186: Loaded graphics (@pine_woods_graphics)
+@PTile_520: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_187: Loaded graphics (@pine_woods_graphics)
+@PTile_521: Loaded graphics (@grass_tile_graphics)
+@PTile_522: Loaded graphics (@grass_tile_graphics)
+@PTile_523: Loaded graphics (@grass_tile_graphics)
+@PTile_524: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_188: Loaded graphics (@pine_woods_graphics)
+@PTile_525: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_189: Loaded graphics (@pine_woods_graphics)
+@PTile_526: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_190: Loaded graphics (@pine_woods_graphics)
+@PTile_527: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_191: Loaded graphics (@pine_woods_graphics)
+@PTile_528: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_192: Loaded graphics (@pine_woods_graphics)
+@PTile_529: Loaded graphics (@grass_tile_graphics)
+@PTile_530: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_193: Loaded graphics (@pine_woods_graphics)
+@PTile_531: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_194: Loaded graphics (@pine_woods_graphics)
+@PTile_532: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_195: Loaded graphics (@pine_woods_graphics)
+@PTile_533: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_196: Loaded graphics (@pine_woods_graphics)
+@PTile_534: Loaded graphics (@grass_tile_graphics)
+@PTile_535: Loaded graphics (@grass_tile_graphics)
+@PTile_536: Loaded graphics (@grass_tile_graphics)
+@PTile_537: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_197: Loaded graphics (@pine_woods_graphics)
+@PTile_538: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_198: Loaded graphics (@pine_woods_graphics)
+@PTile_539: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_199: Loaded graphics (@pine_woods_graphics)
+@PTile_540: Loaded graphics (@grass_tile_graphics)
+@PTile_541: Loaded graphics (@grass_tile_graphics)
+@PTile_542: Loaded graphics (@grass_tile_graphics)
+@PTile_543: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_200: Loaded graphics (@pine_woods_graphics)
+@PTile_544: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_201: Loaded graphics (@pine_woods_graphics)
+@PTile_545: Loaded graphics (@grass_tile_graphics)
+@PTile_546: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_202: Loaded graphics (@pine_woods_graphics)
+@PTile_547: Loaded graphics (@grass_tile_graphics)
+@PTile_548: Loaded graphics (@grass_tile_graphics)
+@PTile_549: Loaded graphics (@grass_tile_graphics)
+@PTile_550: Loaded graphics (@grass_tile_graphics)
+@PTile_551: Loaded graphics (@grass_tile_graphics)
+@PTile_552: Loaded graphics (@grass_tile_graphics)
+@PTile_553: Loaded graphics (@grass_tile_graphics)
+@PTile_554: Loaded graphics (@grass_tile_graphics)
+@PTile_555: Loaded graphics (@grass_tile_graphics)
+@PTile_556: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_203: Loaded graphics (@pine_woods_graphics)
+@PTile_557: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_204: Loaded graphics (@pine_woods_graphics)
+@PTile_558: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_205: Loaded graphics (@pine_woods_graphics)
+@PTile_559: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_206: Loaded graphics (@pine_woods_graphics)
+@PTile_560: Loaded graphics (@grass_tile_graphics)
+@PTile_561: Loaded graphics (@grass_tile_graphics)
+@PTile_562: Loaded graphics (@grass_tile_graphics)
+@PTile_563: Loaded graphics (@grass_tile_graphics)
+@PTile_564: Loaded graphics (@grass_tile_graphics)
+@PTile_565: Loaded graphics (@grass_tile_graphics)
+@PTile_566: Loaded graphics (@grass_tile_graphics)
+@PTile_567: Loaded graphics (@grass_tile_graphics)
+@PTile_568: Loaded graphics (@grass_tile_graphics)
+@PTile_569: Loaded graphics (@grass_tile_graphics)
+@PTile_570: Loaded graphics (@grass_tile_graphics)
+@PTile_571: Loaded graphics (@grass_tile_graphics)
+@PTile_572: Loaded graphics (@grass_tile_graphics)
+@PTile_573: Loaded graphics (@grass_tile_graphics)
+@PTile_574: Loaded graphics (@grass_tile_graphics)
+@PTile_575: Loaded graphics (@grass_tile_graphics)
+@PTile_576: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_207: Loaded graphics (@rock_graphics)
+@PTile_577: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_208: Loaded graphics (@pine_woods_graphics)
+@PTile_578: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_209: Loaded graphics (@woods_graphics)
+@PTile_579: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_210: Loaded graphics (@pine_woods_graphics)
+@PTile_580: Loaded graphics (@grass_tile_graphics)
+@PTile_581: Loaded graphics (@grass_tile_graphics)
+@PTile_582: Loaded graphics (@grass_tile_graphics)
+@PTile_583: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_211: Loaded graphics (@pine_woods_graphics)
+@PTile_584: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_212: Loaded graphics (@pine_woods_graphics)
+@PTile_585: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_213: Loaded graphics (@pine_woods_graphics)
+@PTile_586: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_214: Loaded graphics (@pine_woods_graphics)
+@PTile_587: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_215: Loaded graphics (@pine_woods_graphics)
+@PTile_588: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_216: Loaded graphics (@pine_woods_graphics)
+@PTile_589: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_217: Loaded graphics (@pine_woods_graphics)
+@PTile_590: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_218: Loaded graphics (@pine_woods_graphics)
+@PTile_591: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_219: Loaded graphics (@pine_woods_graphics)
+@PTile_592: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_220: Loaded graphics (@pine_woods_graphics)
+@PTile_593: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_221: Loaded graphics (@pine_woods_graphics)
+@PTile_594: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_222: Loaded graphics (@pine_woods_graphics)
+@PTile_595: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_223: Loaded graphics (@pine_woods_graphics)
+@PTile_596: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_224: Loaded graphics (@pine_woods_graphics)
+@PTile_597: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_225: Loaded graphics (@pine_woods_graphics)
+@PTile_598: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_226: Loaded graphics (@pine_woods_graphics)
+@PTile_599: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_227: Loaded graphics (@pine_woods_graphics)
+@PTile_600: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_228: Loaded graphics (@pine_woods_graphics)
+@PTile_601: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_229: Loaded graphics (@pine_woods_graphics)
+@PTile_602: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_230: Loaded graphics (@pine_woods_graphics)
+@PTile_603: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_231: Loaded graphics (@pine_woods_graphics)
+@PTile_604: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_232: Loaded graphics (@pine_woods_graphics)
+@PTile_605: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_233: Loaded graphics (@pine_woods_graphics)
+@PTile_606: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_234: Loaded graphics (@pine_woods_graphics)
+@PTile_607: Loaded graphics (@grass_tile_graphics)
+@PPlaceholder_235: Loaded graphics (@campfire_graphics)
 @PResource_3: Loaded graphics (@wood_graphics)
 @PResource_4: Loaded graphics (@meat_graphics)
 @PResource_5: Loaded graphics (@iron_graphics)
@@ -16303,80 +16742,148 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PBuildingReg_12: Loaded graphics (@library_graphics)
 @PBuildingReg_13: No [graphics] set for this entity (@church)
 @PBuildingReg_13: Loaded graphics (@church_graphics)
-@PResource_9: Loaded graphics (@wood_graphics)
-@PResource_10: Loaded graphics (@meat_graphics)
+@PUnit_6: Loaded graphics (@brute_graphics)
+@PSkill_14: Loaded graphics (@hammer_smash_graphics)
+@PUnit_7: Loaded graphics (@gunner_graphics)
+@PSkill_15: Loaded graphics (@shoot_graphics)
+@PUnit_8: Loaded graphics (@warlock_graphics)
+@PSkill_16: Loaded graphics (@fireball_graphics)
+@PUnit_9: Loaded graphics (@priest_graphics)
+@PSkill_17: Loaded graphics (@healing_touch_graphics)
+@PBuilding_7: Loaded graphics (@odins_hall_graphics)
+@PResource_9: Loaded graphics (@meat_graphics)
+@PUnitProduce_5: No [graphics] set for this entity (@unit_handyman)
+@PUnitProduce_5: Loaded graphics (@handyman_graphics)
+@PBuilding_8: Loaded graphics (@sawmill_graphics)
+@PResource_10: Loaded graphics (@wood_graphics)
+@PBuilding_9: Loaded graphics (@iron_mine_graphics)
 @PResource_11: Loaded graphics (@iron_graphics)
+@PBuilding_10: Loaded graphics (@barracks_graphics)
+@PUnitProduce_6: No [graphics] set for this entity (@unit_brute)
+@PUnitProduce_6: Loaded graphics (@brute_graphics)
+@PSkillUpgrade_8: No [graphics] set for this entity (@haste)
+@PSkillUpgrade_8: Loaded graphics (@haste_graphics)
+@PSkillUpgrade_9: No [graphics] set for this entity (@swing)
+@PSkillUpgrade_9: Loaded graphics (@swing_graphics)
+@PBuilding_11: Loaded graphics (@shooting_range_graphics)
+@PUnitProduce_7: No [graphics] set for this entity (@unit_gunner)
+@PUnitProduce_7: Loaded graphics (@gunner_graphics)
+@PSkillUpgrade_10: No [graphics] set for this entity (@big_breath)
+@PSkillUpgrade_10: Loaded graphics (@big_breath_graphics)
+@PSkillUpgrade_11: No [graphics] set for this entity (@throw_grenade)
+@PSkillUpgrade_11: Loaded graphics (@throw_grenade_graphics)
+@PBuilding_12: Loaded graphics (@library_graphics)
+@PUnitProduce_8: No [graphics] set for this entity (@unit_warlock)
+@PUnitProduce_8: Loaded graphics (@warlock_graphics)
+@PSkillUpgrade_12: No [graphics] set for this entity (@fear)
+@PSkillUpgrade_12: Loaded graphics (@fear_graphics)
+@PSkillUpgrade_13: No [graphics] set for this entity (@meteor)
+@PSkillUpgrade_13: Loaded graphics (@meteor_graphics)
+@PBuilding_13: Loaded graphics (@church_graphics)
+@PUnitProduce_9: No [graphics] set for this entity (@unit_priest)
+@PUnitProduce_9: Loaded graphics (@priest_graphics)
+@PSkillUpgrade_14: No [graphics] set for this entity (@bless)
+@PSkillUpgrade_14: Loaded graphics (@bless_graphics)
+@PSkillUpgrade_15: No [graphics] set for this entity (@prayer)
+@PSkillUpgrade_15: Loaded graphics (@prayer_graphics)
 @PResource_12: Loaded graphics (@wood_graphics)
 @PResource_13: Loaded graphics (@meat_graphics)
 @PResource_14: Loaded graphics (@iron_graphics)
-@PUnit_6: Loaded graphics (@engineer_graphics)
-@PSkill_14: Loaded graphics (@kick_graphics)
+@PSkillUpgrade_16: No [graphics] set for this entity (@swing)
+@PSkillUpgrade_16: Loaded graphics (@swing_graphics)
+@PSkill_18: Loaded graphics (@swing_graphics)
+@PSkillUpgrade_17: No [graphics] set for this entity (@haste)
+@PSkillUpgrade_17: Loaded graphics (@haste_graphics)
+@PSkill_19: Loaded graphics (@haste_graphics)
+@PSkillUpgrade_18: No [graphics] set for this entity (@big_breath)
+@PSkillUpgrade_18: Loaded graphics (@big_breath_graphics)
+@PSkill_20: Loaded graphics (@big_breath_graphics)
+@PSkillUpgrade_19: No [graphics] set for this entity (@throw_grenade)
+@PSkillUpgrade_19: Loaded graphics (@throw_grenade_graphics)
+@PSkill_21: Loaded graphics (@throw_grenade_graphics)
+@PSkillUpgrade_20: No [graphics] set for this entity (@meteor)
+@PSkillUpgrade_20: Loaded graphics (@meteor_graphics)
+@PSkill_22: Loaded graphics (@meteor_graphics)
+@PSkillUpgrade_21: No [graphics] set for this entity (@fear)
+@PSkillUpgrade_21: Loaded graphics (@fear_graphics)
+@PSkill_23: Loaded graphics (@fear_graphics)
+@PSkillUpgrade_22: No [graphics] set for this entity (@prayer)
+@PSkillUpgrade_22: Loaded graphics (@prayer_graphics)
+@PSkill_24: Loaded graphics (@prayer_graphics)
+@PSkillUpgrade_23: No [graphics] set for this entity (@bless)
+@PSkillUpgrade_23: Loaded graphics (@bless_graphics)
+@PSkill_25: Loaded graphics (@bless_graphics)
+@PResource_15: Loaded graphics (@wood_graphics)
+@PResource_16: Loaded graphics (@meat_graphics)
+@PResource_17: Loaded graphics (@iron_graphics)
+@PUnit_10: Loaded graphics (@engineer_graphics)
+@PSkill_26: Loaded graphics (@kick_graphics)
 @PBuildingReg_14: No [graphics] set for this entity (@ritual_circle)
-@PBuilding_7: Loaded graphics (@ritual_circle_graphics)
-@PUnitProduce_5: No [graphics] set for this entity (@unit_shaman)
-@PUnit_7: Loaded graphics (@shaman_graphics)
-@PSkill_15: Loaded graphics (@soulshards_graphics)
-@PUnitProduce_5: Loaded graphics (@shaman_graphics)
-@PSkillUpgrade_8: No [graphics] set for this entity (@curse)
-@PSkill_16: Loaded graphics (@curse_graphics)
-@PSkillUpgrade_8: Loaded graphics (@curse_graphics)
-@PSkillUpgrade_9: No [graphics] set for this entity (@drain_energy)
-@PSkill_17: Loaded graphics (@drain_energy_graphics)
-@PSkillUpgrade_9: Loaded graphics (@drain_energy_graphics)
+@PBuilding_19: Loaded graphics (@ritual_circle_graphics)
+@PUnitProduce_10: No [graphics] set for this entity (@unit_shaman)
+@PUnit_11: Loaded graphics (@shaman_graphics)
+@PSkill_27: Loaded graphics (@soulshards_graphics)
+@PUnitProduce_10: Loaded graphics (@shaman_graphics)
+@PSkillUpgrade_24: No [graphics] set for this entity (@curse)
+@PSkill_28: Loaded graphics (@curse_graphics)
+@PSkillUpgrade_24: Loaded graphics (@curse_graphics)
+@PSkillUpgrade_25: No [graphics] set for this entity (@drain_energy)
+@PSkill_29: Loaded graphics (@drain_energy_graphics)
+@PSkillUpgrade_25: Loaded graphics (@drain_energy_graphics)
 @PBuildingReg_14: Loaded graphics (@ritual_circle_graphics)
 @PBuildingReg_15: No [graphics] set for this entity (@laboratory)
-@PBuilding_8: Loaded graphics (@laboratory_graphics)
-@PUnitProduce_6: No [graphics] set for this entity (@unit_alchemist)
-@PUnit_8: Loaded graphics (@alchemist_graphics)
-@PSkill_18: Loaded graphics (@healing_potion_graphics)
-@PUnitProduce_6: Loaded graphics (@alchemist_graphics)
-@PSkillUpgrade_10: No [graphics] set for this entity (@rejuvenation_potion)
-@PSkill_19: Loaded graphics (@rejuvenation_potion_graphics)
-@PSkillUpgrade_10: Loaded graphics (@rejuvenation_potion_graphics)
-@PSkillUpgrade_11: No [graphics] set for this entity (@adrenalin_potion)
-@PSkill_20: Loaded graphics (@adrenalin_potion_graphics)
-@PSkillUpgrade_11: Loaded graphics (@adrenalin_potion_graphics)
+@PBuilding_20: Loaded graphics (@laboratory_graphics)
+@PUnitProduce_11: No [graphics] set for this entity (@unit_alchemist)
+@PUnit_12: Loaded graphics (@alchemist_graphics)
+@PSkill_30: Loaded graphics (@healing_potion_graphics)
+@PUnitProduce_11: Loaded graphics (@alchemist_graphics)
+@PSkillUpgrade_26: No [graphics] set for this entity (@rejuvenation_potion)
+@PSkill_31: Loaded graphics (@rejuvenation_potion_graphics)
+@PSkillUpgrade_26: Loaded graphics (@rejuvenation_potion_graphics)
+@PSkillUpgrade_27: No [graphics] set for this entity (@adrenalin_potion)
+@PSkill_32: Loaded graphics (@adrenalin_potion_graphics)
+@PSkillUpgrade_27: Loaded graphics (@adrenalin_potion_graphics)
 @PBuildingReg_15: Loaded graphics (@laboratory_graphics)
 @PBuildingReg_16: No [graphics] set for this entity (@forge)
-@PBuilding_9: Loaded graphics (@forge_graphics)
-@PResource_15: Loaded graphics (@iron_graphics)
+@PBuilding_21: Loaded graphics (@forge_graphics)
+@PResource_18: Loaded graphics (@iron_graphics)
 @PBuildingReg_16: Loaded graphics (@forge_graphics)
 @PBuildingReg_17: No [graphics] set for this entity (@archery_field)
-@PBuilding_10: Loaded graphics (@archery_field_graphics)
-@PUnitProduce_7: No [graphics] set for this entity (@unit_crossbower)
-@PUnit_9: Loaded graphics (@crossbower_graphics)
-@PSkill_21: Loaded graphics (@shoot_arrow_graphics)
-@PUnitProduce_7: Loaded graphics (@crossbower_graphics)
-@PSkillUpgrade_12: No [graphics] set for this entity (@arrow_rain)
-@PSkill_22: Loaded graphics (@arrow_rain_graphics)
-@PSkillUpgrade_12: Loaded graphics (@arrow_rain_graphics)
-@PSkillUpgrade_13: No [graphics] set for this entity (@heavy_shoot)
-@PSkill_23: Loaded graphics (@heavy_shoot_graphics)
-@PSkillUpgrade_13: Loaded graphics (@heavy_shoot_graphics)
+@PBuilding_22: Loaded graphics (@archery_field_graphics)
+@PUnitProduce_12: No [graphics] set for this entity (@unit_crossbower)
+@PUnit_14: Loaded graphics (@crossbower_graphics)
+@PSkill_33: Loaded graphics (@shoot_arrow_graphics)
+@PUnitProduce_12: Loaded graphics (@crossbower_graphics)
+@PSkillUpgrade_30: No [graphics] set for this entity (@arrow_rain)
+@PSkill_34: Loaded graphics (@arrow_rain_graphics)
+@PSkillUpgrade_30: Loaded graphics (@arrow_rain_graphics)
+@PSkillUpgrade_31: No [graphics] set for this entity (@heavy_shoot)
+@PSkill_35: Loaded graphics (@heavy_shoot_graphics)
+@PSkillUpgrade_31: Loaded graphics (@heavy_shoot_graphics)
 @PBuildingReg_17: Loaded graphics (@archery_field_graphics)
 @PBuildingReg_18: No [graphics] set for this entity (@arena)
-@PBuilding_11: Loaded graphics (@arena_graphics)
-@PUnitProduce_8: No [graphics] set for this entity (@unit_trickster)
-@PUnit_10: Loaded graphics (@trickster_graphics)
-@PSkill_24: Loaded graphics (@sword_cut_graphics)
-@PUnitProduce_8: Loaded graphics (@trickster_graphics)
-@PSkillUpgrade_14: No [graphics] set for this entity (@throw_dagger)
-@PSkill_25: Loaded graphics (@throw_dagger_graphics)
-@PSkillUpgrade_14: Loaded graphics (@throw_dagger_graphics)
-@PSkillUpgrade_15: No [graphics] set for this entity (@stab)
-@PSkill_26: Loaded graphics (@stab_graphics)
-@PSkillUpgrade_15: Loaded graphics (@stab_graphics)
+@PBuilding_23: Loaded graphics (@arena_graphics)
+@PUnitProduce_13: No [graphics] set for this entity (@unit_trickster)
+@PUnit_16: Loaded graphics (@trickster_graphics)
+@PSkill_36: Loaded graphics (@sword_cut_graphics)
+@PUnitProduce_13: Loaded graphics (@trickster_graphics)
+@PSkillUpgrade_32: No [graphics] set for this entity (@throw_dagger)
+@PSkill_37: Loaded graphics (@throw_dagger_graphics)
+@PSkillUpgrade_32: Loaded graphics (@throw_dagger_graphics)
+@PSkillUpgrade_33: No [graphics] set for this entity (@stab)
+@PSkill_38: Loaded graphics (@stab_graphics)
+@PSkillUpgrade_33: Loaded graphics (@stab_graphics)
 @PBuildingReg_18: Loaded graphics (@arena_graphics)
 @PBuildingReg_19: No [graphics] set for this entity (@woodcutter)
-@PBuilding_12: Loaded graphics (@woodcutter_graphics)
-@PResource_16: Loaded graphics (@wood_graphics)
+@PBuilding_25: Loaded graphics (@woodcutter_graphics)
+@PResource_19: Loaded graphics (@wood_graphics)
 @PBuildingReg_19: Loaded graphics (@woodcutter_graphics)
 @PBuildingReg_20: No [graphics] set for this entity (@sanctuary)
-@PBuilding_13: Loaded graphics (@sanctuary_graphics)
-@PResource_17: Loaded graphics (@meat_graphics)
-@PUnitProduce_9: No [graphics] set for this entity (@unit_engineer)
-@PUnit_11: Loaded graphics (@engineer_graphics)
-@PSkill_27: Loaded graphics (@kick_graphics)
+@PBuilding_27: Loaded graphics (@sanctuary_graphics)
+@PResource_20: Loaded graphics (@meat_graphics)
+@PUnitProduce_14: No [graphics] set for this entity (@unit_engineer)
+@PUnit_18: Loaded graphics (@engineer_graphics)
+@PSkill_39: Loaded graphics (@kick_graphics)
 @PBuildingReg_21: No [graphics] set for this entity (@ritual_circle)
 @PBuildingReg_21: Loaded graphics (@ritual_circle_graphics)
 @PBuildingReg_22: No [graphics] set for this entity (@laboratory)
@@ -16391,8 +16898,76 @@ com.badlogic.gdx.utils.SerializationException: Error parsing file: tester/graphi
 @PBuildingReg_26: Loaded graphics (@woodcutter_graphics)
 @PBuildingReg_27: No [graphics] set for this entity (@sanctuary)
 @PBuildingReg_27: Loaded graphics (@sanctuary_graphics)
-@PUnitProduce_9: Loaded graphics (@engineer_graphics)
+@PUnitProduce_14: Loaded graphics (@engineer_graphics)
 @PBuildingReg_20: Loaded graphics (@sanctuary_graphics)
-@PResource_18: Loaded graphics (@wood_graphics)
-@PResource_19: Loaded graphics (@meat_graphics)
-@PResource_20: Loaded graphics (@iron_graphics)
+@PUnit_20: Loaded graphics (@trickster_graphics)
+@PSkill_40: Loaded graphics (@sword_cut_graphics)
+@PUnit_21: Loaded graphics (@crossbower_graphics)
+@PSkill_41: Loaded graphics (@shoot_arrow_graphics)
+@PUnit_24: Loaded graphics (@alchemist_graphics)
+@PSkill_42: Loaded graphics (@healing_potion_graphics)
+@PUnit_26: Loaded graphics (@shaman_graphics)
+@PSkill_43: Loaded graphics (@soulshards_graphics)
+@PBuilding_28: Loaded graphics (@sanctuary_graphics)
+@PResource_21: Loaded graphics (@meat_graphics)
+@PUnitProduce_15: No [graphics] set for this entity (@unit_engineer)
+@PUnitProduce_15: Loaded graphics (@engineer_graphics)
+@PBuilding_29: Loaded graphics (@woodcutter_graphics)
+@PResource_22: Loaded graphics (@wood_graphics)
+@PBuilding_30: Loaded graphics (@forge_graphics)
+@PResource_23: Loaded graphics (@iron_graphics)
+@PBuilding_31: Loaded graphics (@arena_graphics)
+@PUnitProduce_16: No [graphics] set for this entity (@unit_trickster)
+@PUnitProduce_16: Loaded graphics (@trickster_graphics)
+@PSkillUpgrade_34: No [graphics] set for this entity (@throw_dagger)
+@PSkillUpgrade_34: Loaded graphics (@throw_dagger_graphics)
+@PSkillUpgrade_35: No [graphics] set for this entity (@stab)
+@PSkillUpgrade_35: Loaded graphics (@stab_graphics)
+@PBuilding_32: Loaded graphics (@archery_field_graphics)
+@PUnitProduce_17: No [graphics] set for this entity (@unit_crossbower)
+@PUnitProduce_17: Loaded graphics (@crossbower_graphics)
+@PSkillUpgrade_36: No [graphics] set for this entity (@arrow_rain)
+@PSkillUpgrade_36: Loaded graphics (@arrow_rain_graphics)
+@PSkillUpgrade_37: No [graphics] set for this entity (@heavy_shoot)
+@PSkillUpgrade_37: Loaded graphics (@heavy_shoot_graphics)
+@PBuilding_33: Loaded graphics (@laboratory_graphics)
+@PUnitProduce_18: No [graphics] set for this entity (@unit_alchemist)
+@PUnitProduce_18: Loaded graphics (@alchemist_graphics)
+@PSkillUpgrade_38: No [graphics] set for this entity (@rejuvenation_potion)
+@PSkillUpgrade_38: Loaded graphics (@rejuvenation_potion_graphics)
+@PSkillUpgrade_39: No [graphics] set for this entity (@adrenalin_potion)
+@PSkillUpgrade_39: Loaded graphics (@adrenalin_potion_graphics)
+@PBuilding_34: Loaded graphics (@ritual_circle_graphics)
+@PUnitProduce_19: No [graphics] set for this entity (@unit_shaman)
+@PUnitProduce_19: Loaded graphics (@shaman_graphics)
+@PSkillUpgrade_40: No [graphics] set for this entity (@curse)
+@PSkillUpgrade_40: Loaded graphics (@curse_graphics)
+@PSkillUpgrade_41: No [graphics] set for this entity (@drain_energy)
+@PSkillUpgrade_41: Loaded graphics (@drain_energy_graphics)
+@PResource_24: Loaded graphics (@wood_graphics)
+@PResource_25: Loaded graphics (@meat_graphics)
+@PResource_26: Loaded graphics (@iron_graphics)
+@PSkillUpgrade_42: No [graphics] set for this entity (@throw_dagger)
+@PSkillUpgrade_42: Loaded graphics (@throw_dagger_graphics)
+@PSkill_44: Loaded graphics (@throw_dagger_graphics)
+@PSkillUpgrade_43: No [graphics] set for this entity (@stab)
+@PSkillUpgrade_43: Loaded graphics (@stab_graphics)
+@PSkill_45: Loaded graphics (@stab_graphics)
+@PSkillUpgrade_44: No [graphics] set for this entity (@arrow_rain)
+@PSkillUpgrade_44: Loaded graphics (@arrow_rain_graphics)
+@PSkill_46: Loaded graphics (@arrow_rain_graphics)
+@PSkillUpgrade_45: No [graphics] set for this entity (@heavy_shoot)
+@PSkillUpgrade_45: Loaded graphics (@heavy_shoot_graphics)
+@PSkill_47: Loaded graphics (@heavy_shoot_graphics)
+@PSkillUpgrade_46: No [graphics] set for this entity (@rejuvenation_potion)
+@PSkillUpgrade_46: Loaded graphics (@rejuvenation_potion_graphics)
+@PSkill_48: Loaded graphics (@rejuvenation_potion_graphics)
+@PSkillUpgrade_47: No [graphics] set for this entity (@adrenalin_potion)
+@PSkillUpgrade_47: Loaded graphics (@adrenalin_potion_graphics)
+@PSkill_49: Loaded graphics (@adrenalin_potion_graphics)
+@PSkillUpgrade_48: No [graphics] set for this entity (@drain_energy)
+@PSkillUpgrade_48: Loaded graphics (@drain_energy_graphics)
+@PSkill_50: Loaded graphics (@drain_energy_graphics)
+@PSkillUpgrade_49: No [graphics] set for this entity (@curse)
+@PSkillUpgrade_49: Loaded graphics (@curse_graphics)
+@PSkill_51: Loaded graphics (@curse_graphics)

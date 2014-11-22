@@ -799,7 +799,7 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 			for( Player player: mPlayers.values() )
 				playables.addAll( player.getBuildings() );
 		
-		mSkillRangeTiles = mMap.getArea( mSelectedUnit.getTileX(), mSelectedUnit.getTileY(), mSelectedSkill.getRange(), false, playables );
+		mSkillRangeTiles = mMap.getArea( mSelectedUnit.getTileX(), mSelectedUnit.getTileY(), mSelectedSkill.getRange(), false, mSelectedUnit, playables );
 		
 		if( !mSelectedSkill.affectsOn( Skill.Affects.SELF ) )
 			mSkillRangeTiles.remove( mMap.getTile( mSelectedUnit.getTileX(), mSelectedUnit.getTileY() ) );
@@ -831,7 +831,7 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 			for( Player player: mPlayers.values() )
 				playables.addAll( player.getBuildings() );
 		
-		mSkillAreaTiles = mMap.getArea( mSelectedTile.getTileX(), mSelectedTile.getTileY(), mSelectedSkill.getArea(), false, playables );
+		mSkillAreaTiles = mMap.getArea( mSelectedTile.getTileX(), mSelectedTile.getTileY(), mSelectedSkill.getArea(), false, mSelectedUnit, playables );
 		
 		if( !mSelectedSkill.affectsOn( Skill.Affects.SELF ) )
 			mSkillAreaTiles.remove( mMap.getTile( mSelectedUnit.getTileX(), mSelectedUnit.getTileY() ) );
@@ -870,8 +870,9 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 		
 		mPathTiles = mMap.getArea( mSelectedUnit.getTileX(), mSelectedUnit.getTileY(), mSelectedUnit.getCurrentSpeed(), mSelectedUnit );
 		
-		for( PTile tile: mPathTiles )
-			tile.pathHighlight();
+		for( PTile tile: mPathTiles ){
+				tile.pathHighlight();
+		}
 		
 	}
 

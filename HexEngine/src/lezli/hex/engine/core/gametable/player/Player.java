@@ -55,6 +55,22 @@ public class Player{
 		
 	}
 	
+	public void addResource( String xId, int xValue ){
+		
+		if( mResources.containsKey( xId ) )
+			mResources.get( xId ).add( xValue );
+		
+	}
+
+	public int getResource( String xId ){
+		
+		if( mResources.containsKey( xId ) )
+			return mResources.get( xId ).getQuantity();
+		
+		return 0;
+		
+	}
+	
 	public void save( XmlWriter xmlWriter ) throws IOException{
 		
 		xmlWriter.element( getClass().getSimpleName() ).

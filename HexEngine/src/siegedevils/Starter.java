@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import lezli.hex.engine.core.HexEngine;
 import lezli.hex.engine.core.HexEngine.HexEngineProperties;
+import lezli.hex.engine.core.HexEngine.LoadListener;
 import lezli.hex.engine.core.gametable.event.GameEvent;
 import lezli.hex.engine.core.gametable.player.RemotePlayer;
 import lezli.hex.engine.moddable.interfaces.HEGameEvent;
@@ -14,8 +15,8 @@ import lezli.hex.enginex.utils.log.FileLogger;
 import siegedevils.gui.GameLog;
 import siegedevils.gui.Gui;
 import siegedevils.gui.Gui.GuiListener;
-import siegedevils.menu.MenuListener;
 import siegedevils.menu.Menu;
+import siegedevils.menu.MenuListener;
 import siegedevils.multiplayer.Bartender;
 import siegedevils.multiplayer.Bartender.BartenderListener;
 
@@ -119,7 +120,42 @@ public class Starter implements ApplicationListener {
 
 	private void startEngine( String xGameTableId ){
 		
+		l = false;
+		mEngine = null;
+		
 		mEngine = new HexEngine( "hex.engine", new FileLogger( "log.txt" ), xGameTableId );
+		
+//		Gdx.app.postRunnable( new Runnable() {
+//			
+//			@Override
+//			public void run() {
+//				
+				mEngine.load( new LoadListener() {
+					
+					@Override
+					public void update(String xMessage) {
+						
+						System.out.println( "Loader Callback: " + xMessage );
+						
+					}
+					
+					@Override
+					public void done() {
+						
+						setupOnLoaded();
+						
+					}
+					
+				});
+//				
+//			}
+//			
+//		});
+		
+	}
+	
+	private boolean l = false;
+	private void setupOnLoaded(){
 		
 		mGui = new Gui( mEngine );
 		
@@ -139,7 +175,7 @@ public class Starter implements ApplicationListener {
 			
 			@Override
 			public boolean remotePlayerTurn( RemotePlayer remotePlayer, ArrayList< GameEvent > xEvents ) {
-
+	
 				bt.tell( remotePlayer.getName(), xEvents );
 				bt.ask();
 				
@@ -154,13 +190,13 @@ public class Starter implements ApplicationListener {
 		multiplexer.addProcessor( mGui.getInputProcessor() );
 		multiplexer.addProcessor( getInputProcessor() );
 		Gdx.input.setInputProcessor( multiplexer );
-
+	
 		
 		mGui.addFeatures( mEngine.getGameTable().getFeatures() );
 		//Start the map
 		mEngine.getGameTable().setShadowAngle( -1.0f, 0.2f );
 		mEngine.start();
-
+	
 		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_CAST, false );
 		mEngine.getProperties().setProperty( HexEngineProperties.PROP_INSTANT_MOVE, false );
 		
@@ -168,7 +204,7 @@ public class Starter implements ApplicationListener {
 			
 			@Override
 			public boolean event( HEGameEvent xEvent ){
-
+	
 				System.out.println( xEvent.getType() );
 				
 				return true;
@@ -178,26 +214,26 @@ public class Starter implements ApplicationListener {
 		});
 		
 		mEngine.getGameTable().addController( new DefaultGameController() );
-		
+		l = true;
 	}
-	
+
 	@Override
 	public void dispose(){
 		
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.quit();
 		
 	}
 
 	private void update(){
 		
-		if( !mScrollVector.isZero() )
+		if( !mScrollVector.isZero() && l )
 			mEngine.getGameTable().moveMap( -mScrollVector.x, -mScrollVector.y );
 		
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.update();
 		
-		if( mGui != null )
+		if( mGui != null  && l )
 			mGui.update();
 		
 		mMenu.update();
@@ -209,15 +245,16 @@ public class Starter implements ApplicationListener {
 
 		update();
 		
+		
 		Gdx.gl.glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 
 		Gdx.gl.glDisable( GL20.GL_CULL_FACE );
 		
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.render();
 		
-		if( mGui != null )
+		if( mGui != null && l )
 			mGui.render();
 		
 		mMenu.draw();
@@ -227,10 +264,10 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void resize( int width, int height ){
 	
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.resize( width, height );
 		
-		if( mGui != null )
+		if( mGui != null && l )
 			mGui.resize( width, height );
 		
 		mMenu.resize( width, height );
@@ -240,7 +277,7 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void pause(){
 		
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.pause();
 		
 	}
@@ -248,7 +285,7 @@ public class Starter implements ApplicationListener {
 	@Override
 	public void resume(){
 		
-		if( mEngine != null )
+		if( mEngine != null && l )
 			mEngine.resume();
 		
 	}

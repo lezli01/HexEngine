@@ -43,6 +43,8 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 	
 	private HashMap< String, PBuildingReg > mBuildingRegs;
 	
+	private PUnitPerks mUnitPerks;
+	
 	public static abstract class PUnitListener{
 		
 		public abstract void movedTo( PUnit xUnit, PTile xTile );
@@ -53,6 +55,8 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 	public PUnit( Unit xEntity, HexEngine xEngine ){
 		
 		super( xEntity, xEngine );
+		
+		mUnitPerks = new PUnitPerks( xEngine.entitiesHolder().getUnitPerksManager().get( xEntity.getPerks() ), xEngine );
 		
 		mGotos = new ArrayList< Vector2 >();
 		mGotoTiles = new ArrayList< PTile >();
@@ -84,6 +88,12 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 	public void setListener( PUnitListener xListener ){
 		
 		mListener = xListener;
+		
+	}
+	
+	public PUnitPerks getPerks(){
+		
+		return mUnitPerks;
 		
 	}
 	
@@ -329,7 +339,12 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 	@Override
 	protected void animationEnded( String xID ){
 	
-		
+		if( xID.equals( "@WALK" ) ){
+			
+			if( isMoving() )
+				addAnimation( "@WALK" );
+			
+		}
 		
 		if( xID.equals( "@DYING" ) ){
 	
@@ -370,12 +385,10 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 
 	private void updateAnimation(){
 		
-		if( isMoving() ){
+		if( isMoving() && currentAnimation().equals( "@IDLE" ) ){
 		
-			//TODO WALK
-			
 			if( mGotos.size() > 0 )
-				setDefaultAnimation( "@IDLE" );
+				addAnimation( "@WALK" );
 			
 		}
 		else{

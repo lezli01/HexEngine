@@ -179,6 +179,8 @@ public class PAnimation extends PGraphicsElement{
 				
 			}
 			
+			playSounds();
+			
 			mCurrentTime = 0;
 			mLoopCnt++;
 	

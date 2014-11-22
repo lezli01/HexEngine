@@ -1,5 +1,5 @@
 <UnitPerks
-    id="@base_perks"
+    id="@default_perks"
     description="@example_texts/@example_text">
 
     <!-- Map Tiles -->
@@ -7,15 +7,13 @@
 	<Maptile
 		rule=@ALLOW_ALL | @DISABLE_ALL (Default: @ALLOW_ALL)>
 	
-		<Enable | Disable maptile= @tileid | @ALL (DEFAULT: @ALL)>
+		<Enable | Disable maptile= @tileid>
 		
 	</MapTiles> 
 	-->
     <MapTiles
-        rule="@DISABLE_ALL">
-        
-    	<Enable maptile="@rocky_grass" />
-    	
+        rule="@ALLOW_ALL">
+        <Disable maptile="@rocky_grass"/>
     </MapTiles>
     
 </UnitPerks>

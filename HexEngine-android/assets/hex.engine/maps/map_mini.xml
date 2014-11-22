@@ -30,7 +30,7 @@
     <MapRow>
 
         <MapTile
-            tile="@grass_tile"
+            tile="@rocky_grass"
             walkable="true" />
 
         <MapTile
@@ -74,7 +74,7 @@
     <MapRow>
 
         <MapTile
-            tile="@grass_tile"
+            tile="@rocky_grass"
             walkable="true" />
 
         <MapTile

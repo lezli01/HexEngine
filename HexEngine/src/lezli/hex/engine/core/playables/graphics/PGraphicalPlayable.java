@@ -409,7 +409,7 @@ public abstract class PGraphicalPlayable<T extends GraphicalEntity> extends Play
 	protected void setDefaultAnimation( String xDefAnimation ){
 		
 		if( mDefAnimation != null && xDefAnimation != null ){
-			
+
 			if( mDefAnimation.equals( xDefAnimation ) )
 				return;
 			

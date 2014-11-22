@@ -23,30 +23,31 @@
 	@SKILL_ANIMATIONS (any number of animations)
 -->
 <Graphics
-    id="@handyman_graphics"
+    id="@SCML_handyman_graphics"
     name="Handyman Graphics"
     description="@example_texts/@example_text"
     filter="linear"
+    scml="siegedevils/graphics_elements/scml/handyman/dwarf.scml"
     src="siegedevils/graphics_elements/textures/units/handyman.png" >
 
     <Sprite
         id="@LARGE_ICON"
         src="siegedevils/graphics_elements/sprites/unit_large_icon.xml" />
 
-    <Animation
+    <SCMLAnimation
         id="@IDLE"
-        src="siegedevils/graphics_elements/animations/unit_idle_animation.xml" />
+        src="Idle" />
 
-    <Animation
+    <SCMLAnimation
         id="@WALK"
-        src="siegedevils/graphics_elements/animations/unit_idle_animation.xml" >
+        src="Walk" >
 
         <Sfx file="siegedevils/sound/sfx/walk.wav" />
-    </Animation>
+    </SCMLAnimation>
 
-    <Animation
+    <SCMLAnimation
         id="@ATTACK"
-        src="siegedevils/graphics_elements/animations/unit_idle_animation.xml" />
+        src="Punch" />
 
     <Animation
         id="@DAMAGED"

@@ -28,6 +28,12 @@ public class PGraphicsElement extends Playable< GraphicsElement >{
 
 	public void start( boolean xLoop ){
 		
+		playSounds();
+		
+	}
+	
+	protected void playSounds(){
+		
 		for( int i = 0; i < mSoundEffects.size(); i++ )
 			SfxPool.play( mSoundEffects.get( i ) );
 		

@@ -1,7 +1,7 @@
 <MapTile
     id="@rocky_grass"
     tile="@grass_tile"
-    walkable="false" >
+    walkable="true" >
 
     <Placeholder
         h="0.6"

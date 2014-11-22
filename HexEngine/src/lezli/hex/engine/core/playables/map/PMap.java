@@ -478,27 +478,27 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 
 	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xExceptPlayable ){
 		
-		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
+		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, xExceptPlayable, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
 		
 	}
 
-	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable< ? > > xExceptPlayable ){
+	public ArrayList< PTile > getArea( PGraphicalPlayable<?> xFrom, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xCenterPlayable, ArrayList< ? extends PGraphicalPlayable< ? > > xExceptPlayable ){
 		
-		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, xExceptPlayable );
+		return getArea( xFrom.getTileX(), xFrom.getTileY(), xDistance, xBlocked, xCenterPlayable, xExceptPlayable );
 		
 	}
 
 	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xExceptPlayable ){
 		
-		return getArea( xX, xY, xDistance, xBlocked, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
+		return getArea( xX, xY, xDistance, xBlocked, xExceptPlayable, new ArrayList< PGraphicalPlayable< ? > >( Collections.singletonList( xExceptPlayable ) ) );
 		
 	}
 
-	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable< ? > > xCenterPlayable ){
+	public ArrayList< PTile > getArea( int xX, int xY, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xCenterPlayable, ArrayList< ? extends PGraphicalPlayable< ? > > xPlayables ){
 		
 		mPathParts.clear();
 		mAreaHelper.clear();
-		return getAreaTiles( xX, xY, xDistance, xBlocked, xCenterPlayable );
+		return getAreaTiles( xX, xY, xDistance, xBlocked, xCenterPlayable, xPlayables );
 		
 	}
 
@@ -853,7 +853,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	private ArrayList< PTile > getAreaTiles( int xX, int xY, int xDistance, boolean xBlocked, ArrayList< ? extends PGraphicalPlayable<?> > xExceptPlayables ){
+	private ArrayList< PTile > getAreaTiles( int xX, int xY, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xCenterPlayable, ArrayList< ? extends PGraphicalPlayable<?> > xExceptPlayables ){
 		
 		ArrayList< PTile > tiles = new ArrayList<PTile>();
 		if( xX < 0 || xY < 0 || xY > mapHeight() - 1 || xX > mapWidth() - 1 )
@@ -870,6 +870,13 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		if( xBlocked && ( ( !isTileWalkable( xX, xY ) ) && !isOnTile( xExceptPlayables, tile ) ) )
 			return tiles;
+		
+		if( xCenterPlayable instanceof PUnit ){
+			
+			if( xBlocked && !( ( PUnit ) xCenterPlayable ).getPerks().isAllowed( tile.getEntityID() ) )
+				return tiles;
+			
+		}
 		
 		if( !isOnTile( xExceptPlayables, tile ) )
 			tiles.add( tile );
@@ -895,21 +902,21 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 			
 			if( xY % 2 == 0 ){
 				
-				tiles.addAll( getAreaTiles( xX + 1, xY + 1, xDistance - 1, xBlocked, xExceptPlayables ) );
-				tiles.addAll( getAreaTiles( xX + 1, xY - 1, xDistance - 1, xBlocked, xExceptPlayables ) );
+				tiles.addAll( getAreaTiles( xX + 1, xY + 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
+				tiles.addAll( getAreaTiles( xX + 1, xY - 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
 				
 			}
 			else{
 				
-				tiles.addAll( getAreaTiles( xX - 1, xY + 1, xDistance - 1, xBlocked, xExceptPlayables ) );
-				tiles.addAll( getAreaTiles( xX - 1, xY - 1, xDistance - 1, xBlocked, xExceptPlayables ) );
+				tiles.addAll( getAreaTiles( xX - 1, xY + 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
+				tiles.addAll( getAreaTiles( xX - 1, xY - 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
 				
 			}
 			
-			tiles.addAll( getAreaTiles( xX - 1, xY, xDistance - 1, xBlocked, xExceptPlayables ) );
-			tiles.addAll( getAreaTiles( xX + 1, xY, xDistance - 1, xBlocked, xExceptPlayables ) );
-			tiles.addAll( getAreaTiles( xX, xY - 1, xDistance - 1, xBlocked, xExceptPlayables ) );
-			tiles.addAll( getAreaTiles( xX, xY + 1, xDistance - 1, xBlocked, xExceptPlayables ) );
+			tiles.addAll( getAreaTiles( xX - 1, xY, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
+			tiles.addAll( getAreaTiles( xX + 1, xY, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
+			tiles.addAll( getAreaTiles( xX, xY - 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
+			tiles.addAll( getAreaTiles( xX, xY + 1, xDistance - 1, xBlocked, xCenterPlayable, xExceptPlayables ) );
 			
 		}
 		
