@@ -508,7 +508,7 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 		
 		if( !ready() )
 			return false;
-
+		
 		for( i = 0; i < mControllers.size(); i++ )
 			if( mControllers.get( i ).handleTap( x, y, count, button ) )
 				break;

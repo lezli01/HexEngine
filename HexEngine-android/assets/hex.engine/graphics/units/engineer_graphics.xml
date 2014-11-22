@@ -40,9 +40,12 @@
     <Animation
         id="@DAMAGED"
         src="siegedevils/graphics_elements/animations/unit_idle_animation.xml" >
-
         <Particle file="siegedevils/graphics_elements/particles/bleed.p" />
     </Animation>
+    
+    <Animation
+    	id="@DYING"
+    	src="siegedevils/graphics_elements/animations/unit_idle_animation.xml" />
 
     <!-- <Animation -->
     <!-- id="@RIGHT" -->
@@ -54,9 +57,7 @@
     <!-- src="tester/graphics_elements/animations/unit_left_animation.xml"/> -->
 
 
-    <!-- <Animation -->
-    <!-- id="@DYING" -->
-    <!-- src="tester/graphics_elements/animations/unit_die_animation.xml"/> -->
+
 
 
     <!-- <Animation -->

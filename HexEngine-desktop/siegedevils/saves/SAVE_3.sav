@@ -1,0 +1,117 @@
+<PGameTable id="@map_test02" pid="@PGameTable_0" x="0" y="0" map="@map_mini" player="player1">
+	<PMap id="@map_mini" pid="@PMap_0" x="0" y="0">
+		<RevealedTiles player="player1">
+			<Tile x="0" y="1"/>
+			<Tile x="1" y="1"/>
+			<Tile x="0" y="2"/>
+			<Tile x="1" y="3"/>
+			<Tile x="1" y="2"/>
+			<Tile x="0" y="3"/>
+			<Tile x="0" y="0"/>
+			<Tile x="1" y="0"/>
+			<Tile x="2" y="1"/>
+			<Tile x="3" y="1"/>
+			<Tile x="2" y="0"/>
+			<Tile x="2" y="2"/>
+			<Tile x="2" y="3"/>
+			<Tile x="0" y="4"/>
+			<Tile x="1" y="4"/>
+			<Tile x="1" y="5"/>
+			<Tile x="0" y="5"/>
+			<Tile x="3" y="3"/>
+			<Tile x="2" y="4"/>
+			<Tile x="2" y="5"/>
+			<Tile x="3" y="2"/>
+			<Tile x="0" y="6"/>
+			<Tile x="1" y="6"/>
+			<Tile x="4" y="3"/>
+			<Tile x="3" y="4"/>
+			<Tile x="3" y="5"/>
+			<Tile x="2" y="6"/>
+			<Tile x="4" y="5"/>
+			<Tile x="3" y="6"/>
+			<Tile x="4" y="4"/>
+			<Tile x="5" y="5"/>
+			<Tile x="4" y="6"/>
+			<Tile x="6" y="5"/>
+			<Tile x="5" y="4"/>
+			<Tile x="5" y="6"/>
+			<Tile x="5" y="3"/>
+			<Tile x="4" y="2"/>
+			<Tile x="7" y="5"/>
+			<Tile x="6" y="4"/>
+			<Tile x="6" y="6"/>
+			<Tile x="6" y="3"/>
+			<Tile x="5" y="2"/>
+		</RevealedTiles>
+		<RevealedTiles player="player2">
+			<Tile x="8" y="6"/>
+			<Tile x="7" y="6"/>
+			<Tile x="8" y="5"/>
+			<Tile x="6" y="6"/>
+			<Tile x="7" y="5"/>
+			<Tile x="9" y="6"/>
+			<Tile x="7" y="4"/>
+			<Tile x="8" y="4"/>
+			<Tile x="9" y="3"/>
+			<Tile x="8" y="2"/>
+			<Tile x="8" y="3"/>
+			<Tile x="9" y="2"/>
+			<Tile x="9" y="4"/>
+			<Tile x="6" y="4"/>
+			<Tile x="7" y="3"/>
+			<Tile x="7" y="2"/>
+			<Tile x="6" y="5"/>
+			<Tile x="9" y="5"/>
+			<Tile x="5" y="6"/>
+			<Tile x="5" y="4"/>
+			<Tile x="6" y="3"/>
+			<Tile x="6" y="2"/>
+			<Tile x="5" y="5"/>
+			<Tile x="4" y="6"/>
+			<Tile x="4" y="4"/>
+			<Tile x="5" y="3"/>
+			<Tile x="5" y="2"/>
+			<Tile x="4" y="5"/>
+			<Tile x="3" y="6"/>
+			<Tile x="3" y="4"/>
+			<Tile x="4" y="3"/>
+			<Tile x="4" y="2"/>
+			<Tile x="3" y="5"/>
+		</RevealedTiles>
+	</PMap>
+	<Player name="player1">
+		<PUnit id="@handyman" pid="@PUnit_0" x="4" y="5">
+			<PStatReg id="@StatReg_168" pid="@PStatReg_4" stat="@strength" value="2"/>
+			<PStatReg id="@StatReg_171" pid="@PStatReg_0" stat="@knowledge" value="2"/>
+			<PStatReg id="@StatReg_163" pid="@PStatReg_2" stat="@HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_169" pid="@PStatReg_5" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_167" pid="@PStatReg_9" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_166" pid="@PStatReg_8" stat="@FIELD_OF_VIEW" value="3"/>
+			<PStatReg id="@StatReg_165" pid="@PStatReg_7" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_164" pid="@PStatReg_6" stat="@SPEED" value="3"/>
+			<PStatReg id="@StatReg_162" pid="@PStatReg_1" stat="@MAX_HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_170" pid="@PStatReg_3" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PResource id="@wood" pid="@PResource_3" x="0" y="0" value="0"/>
+		<PResource id="@meat" pid="@PResource_4" x="0" y="0" value="0"/>
+		<PResource id="@iron" pid="@PResource_5" x="0" y="0" value="0"/>
+	</Player>
+	<Player name="player2">
+		<PUnit id="@engineer" pid="@PUnit_6" x="6" y="5">
+			<PStatReg id="@StatReg_148" pid="@PStatReg_92" stat="@strength" value="2"/>
+			<PStatReg id="@StatReg_151" pid="@PStatReg_89" stat="@knowledge" value="2"/>
+			<PStatReg id="@StatReg_149" pid="@PStatReg_93" stat="@accuracy" value="1"/>
+			<PStatReg id="@StatReg_143" pid="@PStatReg_95" stat="@HIT_POINTS" value="1"/>
+			<PStatReg id="@StatReg_147" pid="@PStatReg_91" stat="@FIELD_OF_HEED" value="5"/>
+			<PStatReg id="@StatReg_146" pid="@PStatReg_90" stat="@FIELD_OF_VIEW" value="3"/>
+			<PStatReg id="@StatReg_145" pid="@PStatReg_97" stat="@MAX_SPEED" value="3"/>
+			<PStatReg id="@StatReg_144" pid="@PStatReg_96" stat="@SPEED" value="0"/>
+			<PStatReg id="@StatReg_142" pid="@PStatReg_94" stat="@MAX_HIT_POINTS" value="10"/>
+			<PStatReg id="@StatReg_150" pid="@PStatReg_88" stat="@wisdom" value="1"/>
+		</PUnit>
+		<PResource id="@wood" pid="@PResource_9" x="0" y="0" value="0"/>
+		<PResource id="@meat" pid="@PResource_10" x="0" y="0" value="0"/>
+		<PResource id="@iron" pid="@PResource_11" x="0" y="0" value="0"/>
+	</Player>
+</PGameTable>

@@ -1790,7 +1790,7 @@
             y="0" />
     </Player>
 
-    <AIPlayer name="player2" >
+    <Player name="player2" >
 
         <PUnit
             id="@engineer"
@@ -2434,6 +2434,6 @@
             value="66"
             x="0"
             y="0" />
-    </AIPlayer>
+    </Player>
 
 </PGameTable>

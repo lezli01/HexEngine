@@ -329,8 +329,11 @@ public class PUnit extends LivingPlayable< Unit > implements PUnitScriptable, HE
 	@Override
 	protected void animationEnded( String xID ){
 	
+		
+		
 		if( xID.equals( "@DYING" ) ){
 	
+			addAnimation( "@DEAD" );
 			setDead();
 			
 		}
