@@ -36,7 +36,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	
 	private ArrayList< ArrayList< PTile > > mTiles;
 	private ConcurrentHashMap< Vector3, Vector2 > mPathParts;
-	private HashMap< PTile, PGraphicalPlayable<?> > mPlayables;
+	private HashMap< PTile, ArrayList< PGraphicalPlayable<?> > > mPlayables;
 	private HashMap< Vector2, Integer > mAreaHelper;
 	
 	private Player mCurrentPlayer;
@@ -61,7 +61,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	public PMap( Map xEntity, HexEngine xEngine ){
 		
 		super( xEntity, xEngine );
-		
+
 		select = new PTile( engine().entitiesHolder().getTileManager().get( "@SELECT_TILE" ), engine() );
 		move = new PTile( engine().entitiesHolder().getTileManager().get( "@MOVE_TILE" ), engine() );
 		way = new PTile( engine().entitiesHolder().getTileManager().get( "@WAY_TILE" ), engine() );
@@ -73,7 +73,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		mTiles = new ArrayList< ArrayList< PTile > >();
 		mPathParts = new ConcurrentHashMap< Vector3, Vector2 >();
-		mPlayables = new HashMap< PTile, PGraphicalPlayable<?> >();
+		mPlayables = new HashMap< PTile, ArrayList< PGraphicalPlayable< ? > > >();
 		mAreaHelper = new HashMap< Vector2, Integer >();
 		
 		mPlayerRevealedTiles = new HashMap< String, ArrayList< PTile > >();
@@ -144,9 +144,9 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	
 	public PTile getTile( PGraphicalPlayable<?> xPlayable ){
 
-		for( Entry< PTile, PGraphicalPlayable< ? > > entry: mPlayables.entrySet() ){
+		for( Entry< PTile, ArrayList< PGraphicalPlayable< ? > > > entry: mPlayables.entrySet() ){
 			
-			if( entry.getValue() == xPlayable )
+			if( entry.getValue().contains( xPlayable ) )
 				return entry.getKey();
 			
 		}
@@ -164,24 +164,33 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 	
-	public PGraphicalPlayable<?> getPlayableOnTile( PTile tile ){
+	public ArrayList< PGraphicalPlayable<?> > getPlayablesOnTile( PTile tile ){
 	
+		if( !mPlayables.containsKey( tile ) )
+			mPlayables.put( tile,  new ArrayList< PGraphicalPlayable< ? > >() );
+		
 		return mPlayables.get( getTile( tile.getTileX(), tile.getTileY() ) );
 		
 	}
 
-	public PGraphicalPlayable<?> getPlayableOnTile( int xX, int xY ){
+	public ArrayList< PGraphicalPlayable<?> > getPlayablesOnTile( int xX, int xY ){
 	
-		return getPlayableOnTile( getTile( xX, xY ) );
+		return getPlayablesOnTile( getTile( xX, xY ) );
 		
 	}
 	
-	public LivingPlayable< ? > getLivingOnTile( PTile xTile ){
+	public ArrayList< LivingPlayable< ? > > getLivingsOnTile( PTile xTile ){
 		
-		if( getPlayableOnTile( xTile ) instanceof LivingPlayable< ? > )
-			return ( LivingPlayable< ? > ) getPlayableOnTile( xTile );
+		if( getPlayablesOnTile( xTile ).size() == 0 )
+			return null;
 		
-		return null;
+		ArrayList< LivingPlayable< ? > > livings = new ArrayList< LivingPlayable< ? > >();
+		
+		for( PGraphicalPlayable< ? > playable: getPlayablesOnTile( xTile ) )
+		if( playable instanceof LivingPlayable< ? > )
+			livings.add( ( LivingPlayable< ? > ) playable );
+		
+		return livings;
 		
 	}
 	
@@ -191,13 +200,21 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		for( PTile tile: xTiles ){
 			
-			LivingPlayable< ? > livingPlayable = ( LivingPlayable< ? > ) getPlayableOnTile( tile );
+			ArrayList< LivingPlayable< ? > > livingPlayables = getLivingsOnTile( tile );
 			
-			if( livingPlayable != null && !livings.contains( livingPlayable ) ){
+			if( livingPlayables == null )
+				continue;
+			
+			for( LivingPlayable< ? > livingPlayable: livingPlayables ){
 				
-				livings.add( livingPlayable );
+				if( !livings.contains( livingPlayable ) ){
+					
+					livings.add( livingPlayable );
+					
+				}
 				
 			}
+			
 			
 		}
 		
@@ -205,45 +222,59 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 	}
 
-	public PUnit getUnitOnTile( PTile tile ){
+	public ArrayList< PUnit > getUnitsOnTile( PTile tile ){
 	
-		return getUnitOnTile( tile.getTileX(), tile.getTileY() );
+		return getUnitsOnTile( tile.getTileX(), tile.getTileY() );
 		
 	}
 
-	public PUnit getUnitOnTile( int xX, int xY ){
+	public ArrayList< PUnit > getUnitsOnTile( int xX, int xY ){
+		
+		if( getPlayablesOnTile( xX, xY ).size() == 0 )
+			return null;
+		
+		ArrayList< PUnit > units = new ArrayList< PUnit >();
 		
 		if( !isTileEmpty( xX, xY ) ){
 			
-			PGraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
+			for( PGraphicalPlayable< ? > playable : getPlayablesOnTile( xX, xY ) ){
 			
-			if( xPlayable instanceof PUnit )
-				return ( ( PUnit ) xPlayable );
+			if( playable instanceof PUnit )
+				units.add( ( ( PUnit ) playable ) );
+			
+			}
 			
 		}
 		
-		return null;
+		return units;
 		
 	}
 
-	public PBuilding getBuildingOnTile( PTile tile ){
+	public ArrayList< PBuilding > getBuildingsOnTile( PTile tile ){
 		
-		return getBuildingOnTile( tile.getTileX(), tile.getTileY() );
+		return getBuildingsOnTile( tile.getTileX(), tile.getTileY() );
 		
 	}
 
-	public PBuilding getBuildingOnTile( int xX, int xY ){
+	public ArrayList< PBuilding > getBuildingsOnTile( int xX, int xY ){
+		
+		if( getPlayablesOnTile( xX, xY ).size() == 0 )
+			return null;
+		
+		ArrayList< PBuilding > buildings = new ArrayList< PBuilding >();
 		
 		if( !isTileEmpty( xX, xY ) ){
 			
-			PGraphicalPlayable<?> xPlayable = getPlayableOnTile( xX, xY );
+			for( PGraphicalPlayable< ? > playable : getPlayablesOnTile( xX, xY ) ){
 			
-			if( xPlayable instanceof PBuilding )
-				return ( ( PBuilding ) xPlayable );
+			if( playable instanceof PBuilding )
+				buildings.add( ( ( PBuilding ) playable ) );
+			
+			}
 			
 		}
 		
-		return null;
+		return buildings;
 		
 	}
 
@@ -253,11 +284,15 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		for( PTile tile: xTiles ){
 			
-			PUnit unit = getUnitOnTile( tile );
+			ArrayList< PUnit > tileUnits = getUnitsOnTile( tile );
 			
-			if( unit != null ){
+			if( tileUnits != null ){
+				
+				for( PUnit unit: tileUnits ){
 				
 					units.add( unit );
+					
+				}
 				
 			}
 			
@@ -273,12 +308,16 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		for( PTile tile: xTiles ){
 			
-			PUnit unit = getUnitOnTile( tile );
+			ArrayList< PUnit > tileUnits = getUnitsOnTile( tile );
 			
-			if( unit != null ){
+			if( tileUnits != null ){
 				
-				if( !xCurrentPlayer.unitBelongs( unit ) )
-					units.add( unit );
+				for( PUnit unit: tileUnits ){
+				
+					if( !xCurrentPlayer.unitBelongs( unit ) )
+						units.add( unit );
+					
+				}
 				
 			}
 			
@@ -294,13 +333,16 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		for( PTile tile: xTiles ){
 			
-			LivingPlayable< ? > unit = ( LivingPlayable< ? > ) getPlayableOnTile( tile );
+			ArrayList< LivingPlayable< ? > > units = getLivingsOnTile( tile );
 			
-			if( unit != null ){
+			if( units != null ){
 				
-				if( !xCurrentPlayer.belongs( unit ) )
-					livings.add( unit );
+				for( LivingPlayable< ? > unit: units ){
 				
+					if( !xCurrentPlayer.belongs( unit ) )
+						livings.add( unit );
+					
+				}
 			}
 			
 		}
@@ -399,7 +441,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 		
 		for( int distance = 1; distance <= maxDistance; distance++ ){
 			
-			ArrayList< PTile > currentArea = getArea( xFrom, distance, true, getUnitOnTile( xFrom )  );
+			ArrayList< PTile > currentArea = getArea( xFrom, distance, true, getUnitsOnTile( xFrom ).get( 0 )  );
 			
 			if( currentArea.contains( xTo ) ){
 				
@@ -504,10 +546,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 
 	public PTile getTileOf( PGraphicalPlayable< ? > xPlayable ){
 		
-		if( mPlayables.containsValue( xPlayable ) )
-			return getTile( xPlayable.getTileX(), xPlayable.getTileY() );
-		
-		return null;
+		return getTile( xPlayable.getTileX(), xPlayable.getTileY() );
 		
 	}
 	
@@ -519,21 +558,24 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	
 	public void setPlayable( int xX, int xY, PGraphicalPlayable<?> xPlayable, boolean xResize ){
 
-		if( mPlayables.containsValue( xPlayable ) ){
+		if( getTileOf( xPlayable ) != null ){
 			
 			if( xPlayable instanceof LivingPlayable< ? > )
 				getTileOf( xPlayable ).affectOnExit( ( LivingPlayable< ? > ) xPlayable );
 			
-			getTileOf( xPlayable ).releasePlayable();
-			mPlayables.remove( getTileOf( xPlayable ) );
+			getTileOf( xPlayable ).releasePlayable( xPlayable );
+			removePlayable( xPlayable );
 			
 		}
 		
-		getTile( xX, xY ).setPlayable( xPlayable, xResize );
+		getTile( xX, xY ).addPlayable( xPlayable, xResize );
 		xPlayable.setTileX( xX );
 		xPlayable.setTileY( xY );
 		
-		mPlayables.put( getTile( xX, xY ), xPlayable );
+		if( !mPlayables.containsKey( getTile( xX, xY ) ) )
+			mPlayables.put( getTile( xX, xY ), new ArrayList< PGraphicalPlayable< ? > >() );
+		
+		mPlayables.get( getTile( xX, xY ) ).add( xPlayable );
 
 		if( xPlayable instanceof LivingPlayable< ? > )
 			getTile( xX, xY ).affectOnEnter( ( LivingPlayable< ? > ) xPlayable ); 
@@ -627,9 +669,19 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	}
 	
 	public void removePlayable( PGraphicalPlayable<?> xPlayable ){
+
+		PTile tile = getTile( xPlayable );
 		
-		mPlayables.remove( getTile( xPlayable ) );
+		if( tile == null )
+			return;
 		
+		if( !mPlayables.containsKey( tile ) )
+			return;
+		
+		tile.releasePlayable( xPlayable );
+		
+		mPlayables.get( getTile( xPlayable ) ).remove( xPlayable );
+
 	}
 	
 	public int mapWidth(){
@@ -670,7 +722,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	
 	public boolean isTileEmpty( int xX, int xY ){
 		
-		return !mPlayables.containsKey( getTile( xX, xY ) );
+		return getPlayablesOnTile( xX, xY ).size() == 0;
 		
 	}
 
@@ -698,7 +750,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 	
 	public boolean isOnTile( PGraphicalPlayable<?> xPlayable, int xX, int xY ){
 		
-		return getPlayableOnTile( xX, xY ) == xPlayable;
+		return getPlayablesOnTile( xX, xY ).contains( xPlayable );
 		
 	}
 	
@@ -720,8 +772,15 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 			
 				tile.turn();
 			
-				if( getLivingOnTile( tile ) != null )
-					tile.affectOnStay( getLivingOnTile( tile ) );
+				if( getLivingsOnTile( tile ) != null ){
+					
+					for( LivingPlayable< ? > living: getLivingsOnTile( tile ) ){
+						
+						tile.affectOnStay( living );
+
+					}
+					
+				}
 				
 			}
 		
@@ -855,7 +914,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 
 	private ArrayList< PTile > getAreaTiles( int xX, int xY, int xDistance, boolean xBlocked, PGraphicalPlayable< ? > xCenterPlayable, ArrayList< ? extends PGraphicalPlayable<?> > xExceptPlayables ){
 		
-		ArrayList< PTile > tiles = new ArrayList<PTile>();
+		ArrayList< PTile > tiles = new ArrayList< PTile >();
 		if( xX < 0 || xY < 0 || xY > mapHeight() - 1 || xX > mapWidth() - 1 )
 			return tiles;
 
@@ -868,7 +927,7 @@ public class PMap extends PGraphicalPlayable< Map > implements PMapScriptable{
 			
 		mAreaHelper.put( new Vector2( xX, xY), xDistance );
 		
-		if( xBlocked && ( ( !isTileWalkable( xX, xY ) ) && !isOnTile( xExceptPlayables, tile ) ) )
+		if( xBlocked && ( ( !engine().MOD.TileWalkableCondition.isTileWalkable( tile ) ) && !isOnTile( xExceptPlayables, tile ) ) )
 			return tiles;
 		
 		if( xCenterPlayable instanceof PUnit ){

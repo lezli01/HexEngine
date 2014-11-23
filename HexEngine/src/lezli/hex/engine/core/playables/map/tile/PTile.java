@@ -34,7 +34,7 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 	
 	private float mHeight;
 	
-	private PGraphicalPlayable<?> mPlayable;
+	private ArrayList< PGraphicalPlayable< ? > > mPlayables;
 	
 	private ArrayList< Affect > mOnEnterAffects;
 	private ArrayList< Affect > mOnExitAffects;
@@ -54,6 +54,9 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 		mBuildHighlight = false;
 		mCanWalk = xEntity.canWalk();
 		
+		
+		mPlayables = new ArrayList<PGraphicalPlayable<?>>();
+
 		mHeight = xEntity.getHeight();
 		
 		mOnEnterAffects = xEntity.getOnEnterAffects();
@@ -66,9 +69,9 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 		
 	}
 
-	public PGraphicalPlayable<?> getPlayable(){
+	public ArrayList< PGraphicalPlayable< ? > > getPlayables(){
 		
-		return mPlayable;
+		return mPlayables;
 		
 	}
 	
@@ -102,24 +105,25 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 		
 	}
 	
-	public void setPlayable( PGraphicalPlayable<?> xPlayable, boolean xResize ){
+	public void addPlayable( PGraphicalPlayable<?> xPlayable, boolean xResize ){
 		
-		mPlayable = xPlayable;
+		mPlayables.add( xPlayable );
 		
 		if( xResize )
-			resizePlayable( mPlayable );
+			for( PGraphicalPlayable< ? > playable: mPlayables )
+				resizePlayable( playable );
 		
 	}
 	
-	public void releasePlayable(){
+	public void releasePlayable( PGraphicalPlayable< ? > xPlayable ){
 		
-		mPlayable = null;
+		mPlayables.remove( xPlayable );
 		
 	}
 	
 	public boolean hasPlayable(){
 		
-		return mPlayable != null;
+		return mPlayables.size() > 0;
 		
 	}
 	
@@ -381,8 +385,9 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 			
 			renderPlayable( xSpriteBatch, xCamera );
 
-			if( getPlayable() instanceof PBuilding )
-				return;
+			for( PGraphicalPlayable< ? > playable: getPlayables() )
+				if( playable instanceof PBuilding )
+					return;
 		}
 		
 		renderPlaceholders( xSpriteBatch, xCamera );
@@ -408,7 +413,9 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 			placeholder.castShadow( xSpriteBatch, xCamera );
 		}
 		
-		if( hasPlayable() ) getPlayable().castShadow( xSpriteBatch, xCamera );
+		if( hasPlayable() ) 
+			for( PGraphicalPlayable< ? > playable: getPlayables() )
+				playable.castShadow( xSpriteBatch, xCamera );
 		
 		return true;
 	
@@ -419,7 +426,9 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 		if( isFog() || isHeed() )
 			return true;
 		
-		if( hasPlayable() ) return getPlayable().castShadow( xSpriteBatch, xCamera );
+		if( hasPlayable() ) 
+			for( PGraphicalPlayable< ? > playable: getPlayables() )
+				playable.castShadow( xSpriteBatch, xCamera );
 		
 		return true;
 	
@@ -442,9 +451,10 @@ public class PTile extends PGraphicalPlayable< Tile > implements HETile{
 		if( isFog() || isHeed() )
 			return true;
 		
-		if( hasPlayable() )
-			return getPlayable().render( xSpriteBatch, xCamera );
-		
+		if( hasPlayable() ){
+			for( PGraphicalPlayable< ? > playable: getPlayables() )
+				playable.render( xSpriteBatch, xCamera );
+		}
 		return false;
 		
 	}

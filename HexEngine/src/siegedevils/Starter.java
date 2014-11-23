@@ -19,6 +19,7 @@ import siegedevils.menu.Menu;
 import siegedevils.menu.MenuListener;
 import siegedevils.multiplayer.Bartender;
 import siegedevils.multiplayer.Bartender.BartenderListener;
+import siegedevils.utils.WalkableCondition;
 
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
@@ -156,6 +157,8 @@ public class Starter implements ApplicationListener {
 	
 	private boolean l = false;
 	private void setupOnLoaded(){
+		
+		mEngine.MOD.TileWalkableCondition = new WalkableCondition();
 		
 		mGui = new Gui( mEngine );
 		

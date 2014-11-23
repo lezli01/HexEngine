@@ -1960,7 +1960,7 @@
                 id="@StatReg_133"
                 pid="@PStatReg_255"
                 stat="@HIT_POINTS"
-                value="25" />
+                value="1" />
 
             <PStatReg
                 id="@StatReg_140"

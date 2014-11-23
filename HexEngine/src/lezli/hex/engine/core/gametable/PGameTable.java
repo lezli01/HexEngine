@@ -233,6 +233,13 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 				
 			}
 			
+			@Override
+			public void selectPlayable( PGraphicalPlayable<?> xPlayable ) {
+
+				selectPGraphicalPlayable( xPlayable );
+				
+			}
+			
 		};
 		
 	}
@@ -333,6 +340,42 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 		return false;
 		
 	}
+	
+	public void selectPGraphicalPlayable( PGraphicalPlayable< ? > xPlayable ){
+		
+		if( xPlayable instanceof PUnit ){
+			
+			PUnit unit = ( PUnit ) xPlayable;
+			if( !mSelectedTile.isSkillRangeHighlighted() ){
+				
+				mSelectedUnit = unit;
+		
+				if( mCurrentPlayer.belongs( unit ) ){
+					mSelectedPlayerUnit = unit;
+					createPath();
+				}
+				
+				for( HEGameTableEventListener listener: mListeners )
+					if( listener.unitSelected( mSelectedUnit ) )
+						break;
+				
+			}
+			
+		}
+		
+		if( xPlayable instanceof PBuilding ){
+			
+			PBuilding building = ( PBuilding ) xPlayable;
+				
+			mSelectedBuilding = building;
+			
+			for( HEGameTableEventListener listener: mListeners )
+				if( listener.buildingSelected( mSelectedBuilding ) )
+					break;
+				
+		}
+		
+	}
 
 	public void selectTile( PTile xTile ){
 		
@@ -431,30 +474,13 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 			
 		}
 		
-		PUnit unit;
-		if( ( unit = mMap.getUnitOnTile( mSelectedTile ) ) != null && !mSelectedTile.isSkillRangeHighlighted() ){
-	
-			mSelectedUnit = unit;
-	
-			if( mCurrentPlayer.belongs( unit ) ){
-				mSelectedPlayerUnit = unit;
-				createPath();
+		if( mMap.getPlayablesOnTile( mSelectedTile ).size() != 0 ){
+			
+			for( HEGameTableEventListener listener: mListeners ){
+				
+				listener.playablesOnTile( mMap.getPlayablesOnTile( mSelectedTile ) );
+				
 			}
-			
-			for( HEGameTableEventListener listener: mListeners )
-				if( listener.unitSelected( mSelectedUnit ) )
-					break;
-			
-		}
-		
-		PBuilding building;
-		if( ( building = mMap.getBuildingOnTile( mSelectedTile ) ) != null ){
-			
-			mSelectedBuilding = building;
-			
-			for( HEGameTableEventListener listener: mListeners )
-				if( listener.buildingSelected( mSelectedBuilding ) )
-					break;
 			
 		}
 		
@@ -475,18 +501,12 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 		
 		if( tile != null ){
 	
-			PGraphicalPlayable<?> playable = null;
+			ArrayList< PGraphicalPlayable< ? > > playable = null;
 			
-			if( ( playable = mMap.getPlayableOnTile( tile ) ) != null ){
-				
-				if( playable instanceof PUnit )
-				for( HEGameTableEventListener listener: mListeners )
-					if( listener.unitHovered( ( PUnit ) playable ) )
-						break;
+			if( ( playable = mMap.getPlayablesOnTile( tile ) ) != null ){
 	
-				if( playable instanceof PBuilding )
 				for( HEGameTableEventListener listener: mListeners )
-					if( listener.buildingHovered( ( PBuilding ) playable ) )
+					if( listener.hovered( playable ) )
 						break;
 				
 				return true;
@@ -1264,17 +1284,21 @@ public class PGameTable extends PGraphicalPlayable< GameTable > implements PGame
 				if( mEventListeners.get( i ).event( xEvent ) )
 					break;
 			
+			PUnit unit;
+			
 			switch( xEvent.type ){
 			
 				case GameEvent.UNIT_MOVED:
 					
-					moveUnit( mMap.getUnitOnTile( xEvent.eventX.get( 0 ), xEvent.eventY.get( 0 ) ), xEvent.eventX.get( 1 ), xEvent.eventY.get( 1 ) );
+					unit = mUnitsByPID.get( xEvent.unitID );
+					moveUnit( unit, xEvent.eventX.get( 1 ), xEvent.eventY.get( 1 ) );
 					
 				break;
 				
 				case GameEvent.SKILL_CASTED:
 					
-					cast( mMap.getUnitOnTile( xEvent.eventX.get( 0 ), xEvent.eventY.get( 0 ) ), xEvent.eventX.get( 1 ), xEvent.eventY.get( 1 ), xEvent.skillID );
+					unit = mUnitsByPID.get( xEvent.unitID );
+					cast( unit, xEvent.eventX.get( 1 ), xEvent.eventY.get( 1 ), xEvent.skillID );
 					
 				break;
 			

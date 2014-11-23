@@ -423,6 +423,11 @@ public abstract class PGraphicalPlayable<T extends GraphicalEntity> extends Play
 	}
 	
 	protected void addAnimation( String xAnim ){
+
+		if( !getGraphics().hasAnimation( xAnim ) ){
+			animationEnded( xAnim );
+			return;
+		}
 		
 		mAnimationsList.add( xAnim );
 

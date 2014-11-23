@@ -12,6 +12,8 @@ import lezli.hex.engine.core.gametable.PGameTable;
 import lezli.hex.engine.core.gametable.event.GameEvent;
 import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.core.playables.common.PCommon;
+import lezli.hex.engine.core.playables.map.PDefaultTileWalkableCondition;
+import lezli.hex.engine.core.playables.map.PTileWalkableCondition;
 import lezli.hex.engine.core.structure.EntitiesHolder;
 import lezli.hex.engine.core.structure.entities.Entity;
 import lezli.hex.engine.core.structure.entities.gametable.GameTable;
@@ -23,6 +25,14 @@ import com.badlogic.gdx.utils.XmlWriter;
 
 public class HexEngine {
 
+	public static class Mod {
+		
+		public PTileWalkableCondition TileWalkableCondition;
+		
+	}
+	
+	public Mod MOD;
+	
 	public static interface LoadListener {
 		
 		public void update( String xMessage );
@@ -244,6 +254,11 @@ public class HexEngine {
 
 	private void init( String xPath, Logger xLogger, String xMap ){
 	
+		mLoadListener.update( "Creating Mod interface..." );
+		
+		MOD = new Mod();
+		MOD.TileWalkableCondition = new PDefaultTileWalkableCondition();
+		
 		mLoadListener.update( "Setting up OpenGL..." );
 		
 		Gdx.gl.glEnable(GL10.GL_LINE_SMOOTH);

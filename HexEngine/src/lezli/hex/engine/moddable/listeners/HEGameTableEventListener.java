@@ -8,6 +8,7 @@ import lezli.hex.engine.core.gametable.player.Player;
 import lezli.hex.engine.core.gametable.player.RemotePlayer;
 import lezli.hex.engine.core.playables.building.PBuilding;
 import lezli.hex.engine.core.playables.cost.PCost;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.tile.PTile;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.playables.unit.skills.PSkill;
@@ -22,15 +23,16 @@ public class HEGameTableEventListener {
 	
 	public boolean tileClicked( PTile xTile, PGameTable xMap ){ return false; }
 	
+	public boolean playablesOnTile( ArrayList< PGraphicalPlayable< ? > > xPlayables ){ return false; };
+	
 	public boolean unitSelected( PUnit xUnit ){ return false; }
-	public boolean unitHovered( PUnit xUnit ){ return false; }
 	
 	public boolean skillCasted( PSkill xSkill ){ return false; }
 	public boolean skillAreaSelected( PSkill xSkill, ArrayList< PTile > xTiles ){ return false; };
 	
 	public boolean built( PBuilding xBuilding ){ return false; }
 	public boolean buildingSelected( PBuilding xBuilding ){ return false; }
-	public boolean buildingHovered( PBuilding xBuilding ){ return false; }
+	public boolean hovered( ArrayList< PGraphicalPlayable< ? > > xPlayables ){ return false; }
 	
 	public boolean payed( PCost xCost ){ return false; }
 	

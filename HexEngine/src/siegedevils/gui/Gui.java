@@ -12,6 +12,7 @@ import lezli.hex.engine.core.playables.LivingPlayable;
 import lezli.hex.engine.core.playables.Logger;
 import lezli.hex.engine.core.playables.building.PBuilding;
 import lezli.hex.engine.core.playables.cost.PCost;
+import lezli.hex.engine.core.playables.graphics.PGraphicalPlayable;
 import lezli.hex.engine.core.playables.map.tile.PTile;
 import lezli.hex.engine.core.playables.unit.PUnit;
 import lezli.hex.engine.core.playables.unit.skills.PAffect;
@@ -202,6 +203,16 @@ public class Gui {
 				
 			}
 			
+			
+			@Override
+			public boolean playablesOnTile(	ArrayList<PGraphicalPlayable<?>> xPlayables) {
+
+				for( HEGameTableFeatures features: mListeners )
+					features.selectPlayable( xPlayables.get( 0 ) );
+				
+				return true;
+				
+			}
 			@Override
 			public boolean localPlayerTurn( Player remotePlayer ){
 				remoteOff();
@@ -306,11 +317,6 @@ public class Gui {
 			}
 			
 			@Override
-			public boolean unitHovered( PUnit xUnit ){
-				return false;
-			}
-			
-			@Override
 			public boolean skillAreaSelected( PSkill xSkill, ArrayList< PTile > mTiles ){
 
 				mSkill = xSkill;
@@ -390,8 +396,9 @@ public class Gui {
 			
 			if( tile.hasPlayable() ){
 				
-				if( tile.getPlayable() instanceof LivingPlayable<?> )
-					livings.add( ( LivingPlayable< ? > ) tile.getPlayable() );
+				for( PGraphicalPlayable< ? > playable: tile.getPlayables() )
+				if( playable instanceof LivingPlayable<?> )
+					livings.add( ( LivingPlayable< ? > ) playable );
 				
 			}
 			
